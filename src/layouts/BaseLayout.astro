@@ -6,6 +6,7 @@ import "@fontsource-variable/fraunces";
 import "@fontsource-variable/inter";
 import "../styles/global.css";
 import { getAllTags } from "../lib/tags";
+import { withBase, stripBase } from "../lib/url";
 
 interface Props {
   title?: string;
@@ -32,7 +33,7 @@ const nav = [
   { href: "/stats", label: "Stats" },
   { href: "/about", label: "About" },
 ];
-const path = Astro.url.pathname;
+const path = stripBase(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -50,14 +51,14 @@ const path = Astro.url.pathname;
       rel="alternate"
       type="application/rss+xml"
       title={siteName}
-      href="/rss.xml"
+      href={withBase("/rss.xml")}
     />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
   </head>
   <body>
     <header class="site-header">
       <div class="container site-header__inner">
-        <a href="/" class="brand">
+        <a href={withBase("/")} class="brand">
           <span class="brand__mark" aria-hidden="true">☾</span>
           <span class="brand__name">{siteName}</span>
         </a>
@@ -67,7 +68,7 @@ const path = Astro.url.pathname;
               nav.map((item) => (
                 <li>
                   <a
-                    href={item.href}
+                    href={withBase(item.href)}
                     aria-current={
                       (item.href === "/" && path === "/") ||
                       (item.href !== "/" && path.startsWith(item.href))
@@ -81,7 +82,7 @@ const path = Astro.url.pathname;
               ))
             }
             <li>
-              <a href="/search" class="nav-search" aria-label="Search">⌕</a>
+              <a href={withBase("/search")} class="nav-search" aria-label="Search">⌕</a>
             </li>
           </ul>
         </nav>
@@ -96,9 +97,9 @@ const path = Astro.url.pathname;
       <div class="container site-footer__inner">
         <span>© {new Date().getFullYear()} {siteName}</span>
         <span class="site-footer__links">
-          {hasTags && <a href="/tags">Tags</a>}
-          <a href="/stats">Stats</a>
-          <a href="/rss.xml">RSS</a>
+          {hasTags && <a href={withBase("/tags")}>Tags</a>}
+          <a href={withBase("/stats")}>Stats</a>
+          <a href={withBase("/rss.xml")}>RSS</a>
         </span>
       </div>
     </footer>

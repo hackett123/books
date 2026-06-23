@@ -6,6 +6,7 @@ import BookCover from "../../components/BookCover.astro";
 import Divider from "../../components/Divider.astro";
 import { getPublishedReviews, formatDate } from "../../lib/reviews";
 import { tagSlug } from "../../lib/tags";
+import { withBase } from "../../lib/url";
 
 export async function getStaticPaths() {
   // Include drafts here so you can preview them by direct URL.
@@ -83,7 +84,7 @@ const next = idx > 0 ? published[idx - 1] : undefined; // newer
         <ul class="tags" aria-label="Shelves">
           {data.shelves.map((s) => (
             <li>
-              <a href={`/tags/${tagSlug(s)}`}>{s}</a>
+              <a href={withBase(`/tags/${tagSlug(s)}`)}>{s}</a>
             </li>
           ))}
         </ul>
@@ -94,7 +95,7 @@ const next = idx > 0 ? published[idx - 1] : undefined; // newer
   <nav class="pager measure" aria-label="More reviews">
     {
       prev ? (
-        <a class="pager__link" href={`/reviews/${prev.id}`}>
+        <a class="pager__link" href={withBase(`/reviews/${prev.id}`)}>
           <span class="meta">← Older</span>
           <span>{prev.data.title}</span>
         </a>
@@ -104,7 +105,7 @@ const next = idx > 0 ? published[idx - 1] : undefined; // newer
     }
     {
       next && (
-        <a class="pager__link pager__link--right" href={`/reviews/${next.id}`}>
+        <a class="pager__link pager__link--right" href={withBase(`/reviews/${next.id}`)}>
           <span class="meta">Newer →</span>
           <span>{next.data.title}</span>
         </a>

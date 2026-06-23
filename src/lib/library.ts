@@ -1,5 +1,6 @@
 import { getCollection } from "astro:content";
 import { getShelf } from "./shelf";
+import { withBase } from "./url";
 
 export interface ReadEntry {
   title: string;
@@ -22,7 +23,7 @@ export async function getReadBooks(): Promise<ReadEntry[]> {
     rating: r.data.rating,
     cover: r.data.cover,
     dateRead: r.data.dateRead ? new Date(r.data.dateRead) : null,
-    href: `/reviews/${r.id}`,
+    href: withBase(`/reviews/${r.id}`),
     external: false,
   }));
 

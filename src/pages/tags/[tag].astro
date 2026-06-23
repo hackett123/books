@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ReviewCard from "../../components/ReviewCard.astro";
 import { getAllTags, getReviewsByTag } from "../../lib/tags";
 import { excerpt } from "../../lib/reviews";
+import { withBase } from "../../lib/url";
 
 export async function getStaticPaths() {
   const tags = await getAllTags();
@@ -22,7 +23,7 @@ const reviews = await getReviewsByTag(tag.slug);
 >
   <section class="measure">
     <p class="eyebrow">
-      <a href="/tags">Tags</a> ›
+      <a href={withBase("/tags")}>Tags</a> ›
     </p>
     <h1>{tag.tag}</h1>
     <p class="meta">{reviews.length} {reviews.length === 1 ? "review" : "reviews"}</p>
@@ -32,7 +33,7 @@ const reviews = await getReviewsByTag(tag.slug);
     {
       reviews.map((r) => (
         <ReviewCard
-          href={`/reviews/${r.id}`}
+          href={withBase(`/reviews/${r.id}`)}
           title={r.data.title}
           author={r.data.author}
           rating={r.data.rating}

@@ -1,5 +1,6 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
+import { withBase } from "../lib/url";
 
 export async function GET(context) {
   const reviews = (await getCollection("reviews", ({ data }) => !data.draft))
@@ -17,7 +18,7 @@ export async function GET(context) {
       title: `${r.data.title} — ${r.data.author}`,
       description: `★ ${r.data.rating}/5`,
       pubDate: r.data.dateRead ?? r.data.dateAdded,
-      link: `/reviews/${r.id}/`,
+      link: withBase(`/reviews/${r.id}/`),
     })),
     customData: `<language>en-us</language>`,
   });

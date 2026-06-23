@@ -4,6 +4,7 @@ import ReviewCard from "../components/ReviewCard.astro";
 import Divider from "../components/Divider.astro";
 import BookCover from "../components/BookCover.astro";
 import { getPublishedReviews, excerpt } from "../lib/reviews";
+import { withBase } from "../lib/url";
 import shelves from "../data/shelves.json";
 
 const reviews = await getPublishedReviews();
@@ -60,7 +61,7 @@ const reading = (shelves.currentlyReading ?? []) as Array<{
       <div class="feed measure">
         {reviews.map((r) => (
           <ReviewCard
-            href={`/reviews/${r.id}`}
+            href={withBase(`/reviews/${r.id}`)}
             title={r.data.title}
             author={r.data.author}
             rating={r.data.rating}

@@ -4,6 +4,7 @@ import BookCover from "../components/BookCover.astro";
 import StarRating from "../components/StarRating.astro";
 import { getPublishedReviews } from "../lib/reviews";
 import { getShelf } from "../lib/shelf";
+import { withBase } from "../lib/url";
 
 // A "shelf of honor": every top-rated book you've read — reviewed or not.
 // Reviewed favorites link to the review; rated-but-unreviewed ones link out
@@ -30,7 +31,7 @@ const reviewedFavs: Fav[] = reviews
     author: r.data.author,
     rating: r.data.rating,
     cover: r.data.cover,
-    href: `/reviews/${r.id}`,
+    href: withBase(`/reviews/${r.id}`),
     external: false,
   }));
 

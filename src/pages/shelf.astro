@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import BookCover from "../components/BookCover.astro";
 import StarRating from "../components/StarRating.astro";
 import { getReadBooks } from "../lib/library";
+import { withBase } from "../lib/url";
 
 // The full library: every read book (reviews + rated-only shelf), newest first.
 const books = await getReadBooks();
@@ -36,7 +37,7 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
     ) : (
       <>
         <div class="filter" role="group" aria-label="Filter shelf by rating">
-          <a class="filter__btn" href="/shelf" data-filter="all" aria-pressed="true">
+          <a class="filter__btn" href={withBase("/shelf")} data-filter="all" aria-pressed="true">
             All <span class="filter__n">{books.length}</span>
           </a>
           {starCounts
@@ -44,7 +45,7 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
             .map((s) => (
               <a
                 class="filter__btn"
-                href={`/shelf?rating=${s.star}`}
+                href={withBase(`/shelf?rating=${s.star}`)}
                 data-filter={s.star}
                 aria-pressed="false"
               >
