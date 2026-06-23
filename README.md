@@ -178,6 +178,23 @@ edits survive. `shelf.json` is always regenerated.
 > which is everything for shelves under 100 books. The full review text lives in
 > that feed (the public per-review pages are login-gated).
 
+> **Fixing/adding shelf books (`src/data/overrides.json`):** Goodreads often
+> omits read-dates and only allows whole-star ratings, and `npm run import`
+> regenerates `shelf.json` from scratch — so don't hand-edit `shelf.json`.
+> Instead put corrections in `src/data/overrides.json`, matched to a shelf book
+> by title:
+>
+> ```json
+> { "books": [
+>   { "title": "A Tale for the Time Being", "rating": 4.25, "dateRead": "2026-03-01" }
+> ] }
+> ```
+>
+> Any field you set wins over the imported value, fractional ratings are fine,
+> and these survive re-imports. A title with no matching shelf entry is **added**
+> (give it `author`, `cover`, `url` too) — handy for books Goodreads doesn't
+> have. Reviews aren't controlled here: edit those Markdown files directly.
+
 > **Tags / custom shelves:** Goodreads' RSS does **not** expose per-book custom
 > shelves (genres), so the importer can't populate tags. Add them yourself by
 > putting `shelves: ["sci-fi", "favorites"]` in a review's frontmatter — the

@@ -2,18 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BookCover from "../components/BookCover.astro";
 import StarRating from "../components/StarRating.astro";
-import shelf from "../data/shelf.json";
+import { getShelf } from "../lib/shelf";
 
-interface ShelfItem {
-  title: string;
-  author: string;
-  rating: number;
-  cover?: string;
-  url?: string;
-  dateRead?: string;
-}
-
-const books = (shelf as ShelfItem[]).slice();
+const books = getShelf();
 ---
 
 <BaseLayout

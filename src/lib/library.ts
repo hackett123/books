@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import shelfData from "../data/shelf.json";
+import { getShelf } from "./shelf";
 
 export interface ReadEntry {
   title: string;
@@ -9,15 +9,6 @@ export interface ReadEntry {
   dateRead: Date | null;
   href: string; // review page, or Goodreads for unreviewed
   external: boolean; // true = links out to Goodreads
-}
-
-interface ShelfRow {
-  title: string;
-  author: string;
-  rating: number;
-  cover?: string;
-  url?: string;
-  dateRead?: string | null;
 }
 
 // Every book you've read — published reviews + rated-only shelf — as one list,
@@ -35,7 +26,7 @@ export async function getReadBooks(): Promise<ReadEntry[]> {
     external: false,
   }));
 
-  const shelf: ReadEntry[] = (shelfData as ShelfRow[]).map((b) => ({
+  const shelf: ReadEntry[] = getShelf().map((b) => ({
     title: b.title,
     author: b.author,
     rating: b.rating,

@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import shelfData from "../data/shelf.json";
+import { getShelf } from "./shelf";
 
 // A book counts toward stats if it's a published review OR a shelf entry
 // (rated-but-unreviewed). Both represent books actually read.
@@ -9,13 +9,6 @@ interface ReadBook {
   author: string;
   pageCount?: number;
   reviewed: boolean;
-}
-
-interface ShelfRow {
-  title: string;
-  author: string;
-  rating: number;
-  dateRead?: string | null;
 }
 
 export interface YearStats {
@@ -57,7 +50,7 @@ export async function getStats(): Promise<Stats> {
       reviewed: true,
     });
   }
-  for (const s of shelfData as ShelfRow[]) {
+  for (const s of getShelf()) {
     books.push({
       rating: s.rating ?? 0,
       dateRead: s.dateRead ? new Date(s.dateRead) : null,

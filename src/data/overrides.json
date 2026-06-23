@@ -1,0 +1,20 @@
+{
+  "_comment": "Corrections + additions for shelf books that Goodreads gets wrong or omits. Matched to shelf entries by title (case-insensitive). Any field you set here wins over the imported value, and these survive `npm run import`. To add a book Goodreads doesn't have at all, include title + author (+ rating, dateRead, cover, url). Reviews are NOT controlled here — edit those Markdown files directly.",
+  "books": [
+    {
+      "title": "A Tale for the Time Being",
+      "rating": 4.25,
+      "dateRead": "2026-03-01"
+    },
+    {
+      "title": "The Life Impossible",
+      "rating": 2.5,
+      "dateRead": "2026-05-26"
+    },
+    {
+      "title": "Kim Jiyoung, Born 1982",
+      "rating": 3.5,
+      "dateRead": "2026-06-01"
+    }
+  ]
+}

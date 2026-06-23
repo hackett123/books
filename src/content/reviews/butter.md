@@ -2,6 +2,7 @@
 title: "Butter"
 author: "Asako Yuzuki"
 rating: 3
+dateRead: 2026-02-01
 dateAdded: 2026-03-01
 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1698348373l/200776812._SY475_.jpg"
 goodreadsId: "200776812"
