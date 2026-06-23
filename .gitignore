@@ -1,0 +1,12 @@
+# build output
+dist/
+# generated types
+.astro/
+# deps
+node_modules/
+# env / local
+.env
+.env.production
+.DS_Store
+# netlify
+.netlify/

@@ -1,0 +1,82 @@
+/*
+ * tokens.css — the single control panel for the whole site's look.
+ * Change values here and they ripple everywhere. Start on /styleguide.
+ *
+ * Current direction: minimal / clean, warm-neutral, single accent.
+ * To shift the mood, the high-leverage knobs are:
+ *   --color-bg, --color-accent, --font-sans, --font-serif, --measure.
+ */
+
+:root {
+  /* ---- Palette -------------------------------------------------------- */
+  --color-bg: #faf8f4;        /* warm paper-ish background */
+  --color-surface: #ffffff;   /* cards / raised areas */
+  --color-ink: #1c1b19;       /* primary text */
+  --color-muted: #6b675f;     /* secondary text, metadata */
+  --color-faint: #d9d4ca;     /* hairlines, borders */
+  --color-accent: #9a3b2e;    /* a single restrained accent (oxblood) */
+  --color-accent-soft: #f0e3df;
+  --color-star: #c2873b;      /* rating stars (warm gold) */
+
+  /* ---- Typography ----------------------------------------------------- */
+  /* Sans for UI/headings; serif available for prose if you want a switch. */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas,
+    monospace;
+
+  /* Modular type scale (~1.2 minor third) */
+  --text-xs: 0.78rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem; /* slightly larger base for comfortable reading */
+  --text-lg: 1.27rem;
+  --text-xl: 1.52rem;
+  --text-2xl: 1.95rem;
+  --text-3xl: 2.6rem;
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.65;
+
+  --weight-normal: 400;
+  --weight-medium: 550;
+  --weight-bold: 700;
+
+  /* ---- Spacing (4px base) -------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  /* ---- Layout --------------------------------------------------------- */
+  --measure: 38rem;        /* ideal reading width (~65ch) for prose */
+  --container: 64rem;      /* wider wrapper for listings / grids */
+  --radius: 6px;
+  --radius-lg: 12px;
+  --hairline: 1px solid var(--color-faint);
+
+  /* ---- Effects -------------------------------------------------------- */
+  --shadow-sm: 0 1px 2px rgba(28, 27, 25, 0.05);
+  --shadow-md: 0 6px 20px rgba(28, 27, 25, 0.08);
+  --transition: 160ms ease;
+}
+
+/* Optional dark mode starting point — uncomment / tune later if wanted.
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #161412;
+    --color-surface: #1f1c19;
+    --color-ink: #ece7df;
+    --color-muted: #a59f95;
+    --color-faint: #34302b;
+    --color-accent: #d9745f;
+    --color-accent-soft: #2a201d;
+  }
+}
+*/

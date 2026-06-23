@@ -1,0 +1,57 @@
+---
+// A custom star rating — supports halves. A small "character" detail.
+interface Props {
+  rating: number; // 0–5, may be fractional
+  size?: string; // any CSS length, e.g. "1.1rem"
+}
+const { rating, size = "1.05rem" } = Astro.props;
+const clamped = Math.max(0, Math.min(5, rating));
+const label = `${clamped} out of 5 stars`;
+
+// Build 5 cells, each filled 0 / 50 / 100%.
+const cells = Array.from({ length: 5 }, (_, i) => {
+  const fill = Math.max(0, Math.min(1, clamped - i));
+  return Math.round(fill * 100);
+});
+---
+
+<span
+  class="stars"
+  role="img"
+  aria-label={label}
+  style={`--star-size:${size}`}
+>
+  {
+    cells.map((pct) => (
+      <span class="star">
+        <span class="star__empty">★</span>
+        <span class="star__full" style={`width:${pct}%`}>
+          ★
+        </span>
+      </span>
+    ))
+  }
+</span>
+
+<style>
+  .stars {
+    display: inline-flex;
+    gap: 0.1em;
+    font-size: var(--star-size);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .star {
+    position: relative;
+    display: inline-block;
+  }
+  .star__empty {
+    color: var(--color-faint);
+  }
+  .star__full {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    color: var(--color-star);
+  }
+</style>

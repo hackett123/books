@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BookCover from "../components/BookCover.astro";
+import StarRating from "../components/StarRating.astro";
+import shelf from "../data/shelf.json";
+
+interface ShelfItem {
+  title: string;
+  author: string;
+  rating: number;
+  cover?: string;
+  url?: string;
+  dateRead?: string;
+}
+
+const books = (shelf as ShelfItem[]).slice();
+---
+
+<BaseLayout
+  title="The Shelf"
+  description="Everything I've read — the full shelf, rated."
+>
+  <section class="intro measure">
+    <p class="eyebrow">Read, rated, unreviewed</p>
+    <h1>The Shelf</h1>
+    <p class="intro__lede">
+      Books I've finished but haven't written up. Stars only — for now.
+    </p>
+  </section>
+
+  {
+    books.length === 0 ? (
+      <p class="empty measure">
+        The shelf is empty. Run the Goodreads importer to populate it.
+      </p>
+    ) : (
+      <ul class="grid">
+        {books.map((b) => (
+          <li class="grid__item">
+            {b.url ? (
+              <a href={b.url} rel="nofollow noopener" target="_blank">
+                <BookCover cover={b.cover} title={b.title} author={b.author} width={140} />
+              </a>
+            ) : (
+              <BookCover cover={b.cover} title={b.title} author={b.author} width={140} />
+            )}
+            <div class="grid__meta">
+              <span class="grid__title">{b.title}</span>
+              <span class="grid__author">{b.author}</span>
+              <StarRating rating={b.rating} size="0.85rem" />
+            </div>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .intro {
+    margin-bottom: var(--space-6);
+  }
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-6) var(--space-5);
+  }
+  .grid__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .grid__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .grid__title {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-snug);
+  }
+  .grid__author {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+  .empty {
+    color: var(--color-muted);
+  }
+</style>

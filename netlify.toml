@@ -1,0 +1,13 @@
+# Netlify build config for the Astro static site.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Single-page-ish niceties: serve clean 404s from Astro's generated page.
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

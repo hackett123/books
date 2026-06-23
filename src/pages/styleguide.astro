@@ -1,0 +1,163 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import StarRating from "../components/StarRating.astro";
+import BookCover from "../components/BookCover.astro";
+import ReviewCard from "../components/ReviewCard.astro";
+
+// Visual canvas for iterating on the design. Edit src/styles/tokens.css and
+// watch everything here update live (`npm run dev`).
+const swatches = [
+  ["--color-bg", "Background"],
+  ["--color-surface", "Surface"],
+  ["--color-ink", "Ink"],
+  ["--color-muted", "Muted"],
+  ["--color-faint", "Faint"],
+  ["--color-accent", "Accent"],
+  ["--color-accent-soft", "Accent soft"],
+  ["--color-star", "Star"],
+];
+const typeScale = [
+  ["--text-3xl", "3xl"],
+  ["--text-2xl", "2xl"],
+  ["--text-xl", "xl"],
+  ["--text-lg", "lg"],
+  ["--text-base", "base"],
+  ["--text-sm", "sm"],
+  ["--text-xs", "xs"],
+];
+---
+
+<BaseLayout title="Style Guide" description="Design tokens and components.">
+  <div class="measure">
+    <p class="eyebrow">Internal</p>
+    <h1>Style Guide</h1>
+    <p class="meta">
+      Living reference for tokens + components. Tune
+      <code>src/styles/tokens.css</code>.
+    </p>
+  </div>
+
+  <section class="sg">
+    <h2>Color</h2>
+    <div class="sg-swatches">
+      {
+        swatches.map(([token, name]) => (
+          <div class="sw">
+            <span class="sw__chip" style={`background:var(${token})`} />
+            <span class="sw__name">{name}</span>
+            <code class="sw__token">{token}</code>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="sg">
+    <h2>Type scale</h2>
+    {
+      typeScale.map(([token, name]) => (
+        <p style={`font-size:var(${token});margin:0 0 .3em`}>
+          <span class="meta" style="font-size:var(--text-xs)">{name}</span>{" "}
+          The quick brown fox jumps over the lazy dog.
+        </p>
+      ))
+    }
+    <hr />
+    <p style="font-family:var(--font-serif);font-size:var(--text-lg)">
+      Serif sample (Iowan/Palatino/Georgia): <em>The Left Hand of Darkness.</em>
+    </p>
+  </section>
+
+  <section class="sg">
+    <h2>Star ratings</h2>
+    <div class="sg-stack">
+      <div><StarRating rating={5} /> 5.0</div>
+      <div><StarRating rating={4.5} /> 4.5</div>
+      <div><StarRating rating={3} /> 3.0</div>
+      <div><StarRating rating={1.5} /> 1.5</div>
+      <div><StarRating rating={0} /> 0.0</div>
+      <div><StarRating rating={4} size="1.6rem" /> large</div>
+    </div>
+  </section>
+
+  <section class="sg">
+    <h2>Book covers</h2>
+    <div class="sg-row">
+      <BookCover
+        title="Piranesi"
+        author="Susanna Clarke"
+        cover="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1591465605i/50202953.jpg"
+        width={120}
+      />
+      <BookCover title="A Book With No Cover" author="Jane Author" width={120} />
+    </div>
+  </section>
+
+  <section class="sg">
+    <h2>Review card</h2>
+    <div class="measure">
+      <ReviewCard
+        href="#"
+        title="The Dispossessed"
+        author="Ursula K. Le Guin"
+        rating={5}
+        dateRead={new Date("2024-03-01")}
+        excerpt="An ambiguous utopia that refuses easy answers. Le Guin builds two worlds and lets them argue with each other through one restless physicist…"
+      />
+    </div>
+  </section>
+
+  <section class="sg">
+    <h2>Prose</h2>
+    <div class="prose drop-cap">
+      <p>
+        Reading is the most private of conversations. This paragraph shows the
+        long-form body style: measure, leading, and rhythm. <a href="#">A link</a>
+        sits inline, and a <code>code span</code> looks like this.
+      </p>
+      <blockquote>“A pull quote, set in italic with an accent rule.”</blockquote>
+      <p>A second paragraph to show vertical rhythm between blocks.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .sg {
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+    border-top: var(--hairline);
+  }
+  .sg-swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--space-4);
+  }
+  .sw {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .sw__chip {
+    height: 56px;
+    border-radius: var(--radius);
+    border: var(--hairline);
+  }
+  .sw__name {
+    font-weight: var(--weight-medium);
+    font-size: var(--text-sm);
+  }
+  .sw__token {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+  .sg-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .sg-row {
+    display: flex;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+  }
+</style>

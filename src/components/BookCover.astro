@@ -1,0 +1,68 @@
+---
+// Book cover with a graceful, typographic fallback when no image exists.
+interface Props {
+  cover?: string;
+  title: string;
+  author?: string;
+  width?: number;
+}
+const { cover, title, author, width = 120 } = Astro.props;
+---
+
+{
+  cover ? (
+    <img
+      class="cover"
+      src={cover}
+      alt={`Cover of ${title}`}
+      width={width}
+      loading="lazy"
+      style={`width:${width}px`}
+    />
+  ) : (
+    <span
+      class="cover cover--placeholder"
+      style={`width:${width}px`}
+      aria-label={`Cover of ${title}`}
+    >
+      <span class="cover__title">{title}</span>
+      {author && <span class="cover__author">{author}</span>}
+    </span>
+  )
+}
+
+<style>
+  .cover {
+    display: block;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    background: var(--color-surface);
+  }
+  .cover--placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    text-align: center;
+    background: linear-gradient(
+      160deg,
+      var(--color-accent-soft),
+      var(--color-surface)
+    );
+    border: var(--hairline);
+  }
+  .cover__title {
+    font-family: var(--font-serif);
+    font-weight: var(--weight-bold);
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+  }
+  .cover__author {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+</style>
