@@ -65,9 +65,10 @@ export async function getStats(): Promise<Stats> {
       ? rated.reduce((sum, b) => sum + b.rating, 0) / rated.length
       : 0;
 
+  // Bucket = number of full stars (floor), matching the shelf filter.
   const ratingHistogram = [1, 2, 3, 4, 5].map((rating) => ({
     rating,
-    count: books.filter((b) => Math.round(b.rating) === rating).length,
+    count: books.filter((b) => Math.floor(b.rating) === rating).length,
   }));
 
   const authorCounts = new Map<string, number>();

@@ -7,11 +7,11 @@ import { getReadBooks } from "../lib/library";
 // The full library: every read book (reviews + rated-only shelf), newest first.
 const books = await getReadBooks();
 
-// Counts per whole-star bucket (rounded, matching the /stats histogram), so we
-// only render filter buttons that actually have books behind them.
+// Counts per whole-star bucket. Bucket = number of FULL stars (floor), so a 3.5
+// counts as 3★ (matches the drawn stars). Must match the /stats histogram.
 const starCounts = [5, 4, 3, 2, 1].map((star) => ({
   star,
-  count: books.filter((b) => Math.round(b.rating) === star).length,
+  count: books.filter((b) => Math.floor(b.rating) === star).length,
 }));
 ---
 
@@ -60,7 +60,7 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
               ? { rel: "nofollow noopener", target: "_blank" }
               : {};
             return (
-              <li class="grid__item" data-rating={Math.round(b.rating)}>
+              <li class="grid__item" data-rating={Math.floor(b.rating)}>
                 <a href={b.href} class="grid__cover" {...linkAttrs}>
                   <BookCover cover={b.cover} title={b.title} author={b.author} width={140} />
                 </a>
