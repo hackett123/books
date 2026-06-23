@@ -2,6 +2,7 @@
 title: "Out"
 author: "Natsuo Kirino"
 rating: 4
+dateRead: 2024-09-25
 dateAdded: 2024-09-28
 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1386749063l/25365.jpg"
 goodreadsId: "25365"

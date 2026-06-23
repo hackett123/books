@@ -2,6 +2,7 @@
 title: "Convenience Store Woman"
 author: "Sayaka Murata"
 rating: 2
+dateRead: 2023-09-01
 dateAdded: 2023-09-05
 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1680105376l/36739755._SX318_.jpg"
 goodreadsId: "36739755"
