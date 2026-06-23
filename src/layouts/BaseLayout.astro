@@ -1,4 +1,9 @@
 ---
+// Self-hosted web fonts (no external request at runtime):
+//   Fraunces — a literary, optical-sizing serif for display/headings
+//   Inter    — a clean, highly legible sans for body/UI
+import "@fontsource-variable/fraunces";
+import "@fontsource-variable/inter";
 import "../styles/global.css";
 import { getAllTags } from "../lib/tags";
 
@@ -22,6 +27,7 @@ const nav = [
   { href: "/", label: "Reviews" },
   { href: "/favorites", label: "Favorites" },
   { href: "/shelf", label: "Shelf" },
+  { href: "/timeline", label: "Timeline" },
   { href: "/quotes", label: "Quotes" },
   { href: "/stats", label: "Stats" },
   { href: "/about", label: "About" },

@@ -8,6 +8,12 @@ const stats = await getStats();
 const maxYear = Math.max(1, ...stats.byYear.map((y) => y.count));
 const maxHist = Math.max(1, ...stats.ratingHistogram.map((h) => h.count));
 const maxAuthor = Math.max(1, ...stats.topAuthors.map((a) => a.count));
+const monthLabels = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
+// Heatmap cell opacity (0 stays blank); scaled against the busiest month.
+function heat(count: number): number {
+  if (count <= 0) return 0;
+  return 0.15 + 0.85 * (count / stats.maxMonth);
+}
 
 const bigNumbers = [
   { label: "Books read", value: stats.totalRead },
@@ -93,6 +99,36 @@ if (stats.totalPages > 0)
       }
     </div>
   </section>
+
+  {
+    stats.monthly.length > 0 && (
+      <section class="measure block">
+        <h2>Books by month</h2>
+        <p class="meta">When the reading happens. Darker = more books.</p>
+        <div class="heatmap">
+          <div class="heatmap__head">
+            <span />
+            {monthLabels.map((m) => (
+              <span class="heatmap__mlabel">{m}</span>
+            ))}
+          </div>
+          {stats.monthly.map((row) => (
+            <div class="heatmap__row">
+              <span class="heatmap__year">{row.year}</span>
+              {row.months.map((c, i) => (
+                <span
+                  class="heatmap__cell"
+                  title={`${monthLabels[i]} ${row.year}: ${c} ${c === 1 ? "book" : "books"}`}
+                  style={`background:rgba(44,43,63,${heat(c)})`}
+                />
+                <span class="visually-hidden">{`${c} in ${monthLabels[i]} ${row.year}`}</span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+    )
+  }
 
   {
     stats.topAuthors.length > 0 && (
@@ -201,6 +237,38 @@ if (stats.totalPages > 0)
     height: 100%;
     background: var(--color-night);
     border-radius: 999px;
+  }
+
+  /* heatmap */
+  .heatmap {
+    margin-top: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-x: auto;
+  }
+  .heatmap__head,
+  .heatmap__row {
+    display: grid;
+    grid-template-columns: 3em repeat(12, 1fr);
+    gap: 4px;
+    align-items: center;
+    min-width: 24rem;
+  }
+  .heatmap__mlabel {
+    text-align: center;
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+  .heatmap__year {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .heatmap__cell {
+    aspect-ratio: 1;
+    border-radius: 4px;
+    border: 1px solid var(--color-faint);
   }
 
   /* authors */

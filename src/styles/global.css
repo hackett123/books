@@ -42,6 +42,7 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
+  font-optical-sizing: auto; /* Fraunces: use display cut at larger sizes */
   line-height: var(--leading-tight);
   font-weight: var(--weight-bold);
   letter-spacing: -0.012em;
@@ -208,4 +209,113 @@ small {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* ---- Motif: nocturne reading-progress bar ---------------------------- */
+/* A thin oxblood→indigo line that fills as you scroll a review. Uses CSS
+   scroll-driven animation — no JS. Browsers without support simply don't
+   show it (graceful). A small moon rides the leading edge. */
+.reading-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 3px;
+  z-index: 50;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(
+    90deg,
+    var(--color-accent),
+    var(--color-night)
+  );
+  pointer-events: none;
+}
+.reading-progress::after {
+  content: "☾";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(60%, -55%);
+  font-size: 0.8rem;
+  color: var(--color-night);
+  /* counter the bar's horizontal scaling so the moon stays round */
+}
+@supports (animation-timeline: scroll()) {
+  .reading-progress {
+    animation: reading-progress-grow linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+@keyframes reading-progress-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Subtle entrance for review content (respects reduced-motion). */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up {
+    animation: fade-up 600ms ease both;
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---- Print: make a single page (esp. a review) print cleanly --------- */
+@media print {
+  :root {
+    --color-bg: #fff;
+    --color-surface: #fff;
+    --color-ink: #000;
+    --color-muted: #333;
+  }
+  body {
+    font-size: 11pt;
+  }
+  .site-header,
+  .site-footer,
+  .reading-progress,
+  .pager,
+  nav {
+    display: none !important;
+  }
+  main.container {
+    padding: 0 !important;
+    min-height: 0 !important;
+  }
+  .measure,
+  .prose,
+  .prose > * {
+    max-width: none !important;
+  }
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+  /* Spell out non-obvious link targets after the link text. */
+  .prose a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555;
+    word-break: break-all;
+  }
+  .review-head,
+  .quote,
+  figure,
+  img {
+    break-inside: avoid;
+  }
+  .drop-cap::first-letter {
+    color: #000;
+  }
 }

@@ -31,7 +31,8 @@ const next = idx > 0 ? published[idx - 1] : undefined; // newer
 ---
 
 <BaseLayout title={data.title} description={`Review of ${data.title} by ${data.author}`}>
-  <article data-pagefind-body data-pagefind-meta={`author:${data.author}`}>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <article class="fade-up" data-pagefind-body data-pagefind-meta={`author:${data.author}`}>
     <header class="review-head">
       <div class="review-head__cover">
         <BookCover

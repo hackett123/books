@@ -26,6 +26,11 @@ export interface YearStats {
   pages: number;
 }
 
+export interface MonthRow {
+  year: number;
+  months: number[]; // length 12, Jan..Dec, count of books read
+}
+
 export interface Stats {
   totalRead: number;
   totalReviewed: number;
@@ -34,6 +39,8 @@ export interface Stats {
   ratingHistogram: { rating: number; count: number }[]; // 1..5
   topAuthors: { author: string; count: number }[];
   byYear: YearStats[];
+  monthly: MonthRow[]; // heatmap rows, newest year first
+  maxMonth: number; // busiest single month (for heatmap scaling)
   unknownYear: number; // books read with no dateRead
 }
 
@@ -106,6 +113,19 @@ export async function getStats(): Promise<Stats> {
     })
     .sort((a, b) => b.year - a.year);
 
+  // Monthly heatmap matrix (one row per year, 12 cells each).
+  let maxMonth = 0;
+  const monthly: MonthRow[] = [...yearMap.entries()]
+    .map(([year, list]) => {
+      const months = new Array(12).fill(0);
+      for (const b of list) {
+        if (b.dateRead) months[b.dateRead.getMonth()]++;
+      }
+      maxMonth = Math.max(maxMonth, ...months);
+      return { year, months };
+    })
+    .sort((a, b) => b.year - a.year);
+
   return {
     totalRead: books.length,
     totalReviewed: books.filter((b) => b.reviewed).length,
@@ -114,6 +134,8 @@ export async function getStats(): Promise<Stats> {
     ratingHistogram,
     topAuthors,
     byYear,
+    monthly,
+    maxMonth,
     unknownYear,
   };
 }
