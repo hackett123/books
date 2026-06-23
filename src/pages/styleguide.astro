@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import StarRating from "../components/StarRating.astro";
 import BookCover from "../components/BookCover.astro";
 import ReviewCard from "../components/ReviewCard.astro";
+import Divider from "../components/Divider.astro";
 
 // Visual canvas for iterating on the design. Edit src/styles/tokens.css and
 // watch everything here update live (`npm run dev`).
@@ -66,6 +67,17 @@ const typeScale = [
     <p style="font-family:var(--font-serif);font-size:var(--text-lg)">
       Serif sample (Iowan/Palatino/Georgia): <em>The Left Hand of Darkness.</em>
     </p>
+  </section>
+
+  <section class="sg">
+    <h2>Motif — Nocturne / marginalia</h2>
+    <p>
+      Brand mark <span style="font-family:var(--font-serif);color:var(--color-accent)">☾</span>,
+      serif display headings, a <span class="ink-underline">hand-drawn ink underline</span>,
+      and the asterism divider below.
+    </p>
+    <Divider />
+    <Divider mark="☾" />
   </section>
 
   <section class="sg">

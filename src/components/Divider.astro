@@ -1,0 +1,12 @@
+---
+// Asterism section divider — a classic typographic break used in printed books.
+// Part of the "nocturne / marginalia" motif.
+interface Props {
+  mark?: string; // override the glyph, e.g. "☾" or "·"
+}
+const { mark = "⁂" } = Astro.props;
+---
+
+<div class="flourish" role="separator" aria-hidden="true">
+  <span class="flourish__mark">{mark}</span>
+</div>

@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#faf8f4"/>
-  <text x="16" y="24" font-family="Georgia, serif" font-size="24"
-        font-weight="700" text-anchor="middle" fill="#9a3b2e">¶</text>
+  <rect width="32" height="32" rx="6" fill="#2c2b3f"/>
+  <!-- crescent moon: full disc minus an offset disc -->
+  <path d="M21.5 16a8 8 0 1 1-7.2-7.96A6.4 6.4 0 0 0 21.5 16z"
+        fill="#f0e3df"/>
 </svg>

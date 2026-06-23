@@ -17,15 +17,21 @@
   --color-accent: #9a3b2e;    /* a single restrained accent (oxblood) */
   --color-accent-soft: #f0e3df;
   --color-star: #c2873b;      /* rating stars (warm gold) */
+  --color-night: #2c2b3f;     /* inky indigo — the "nocturne" motif accent */
 
   /* ---- Typography ----------------------------------------------------- */
-  /* Sans for UI/headings; serif available for prose if you want a switch. */
+  /* Sans for body/UI; serif "display" for headings & titles (literary feel). */
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
   --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
     "Times New Roman", serif;
+  --font-display: var(--font-serif); /* swap to var(--font-sans) for clean look */
   --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas,
     monospace;
+
+  /* Hand-drawn ink underline (the "marginalia" motif). Used as a background
+     image on links/headings. Change the stroke color by editing the %23… hex. */
+  --ink-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5 C 20 2, 40 7, 60 4 S 100 2, 119 5' fill='none' stroke='%239a3b2e' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
 
   /* Modular type scale (~1.2 minor third) */
   --text-xs: 0.78rem;

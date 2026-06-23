@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ReviewCard from "../../components/ReviewCard.astro";
+import { getAllTags, getReviewsByTag } from "../../lib/tags";
+import { excerpt } from "../../lib/reviews";
+
+export async function getStaticPaths() {
+  const tags = await getAllTags();
+  return tags.map((t) => ({
+    params: { tag: t.slug },
+    props: { tag: t },
+  }));
+}
+
+const { tag } = Astro.props;
+const reviews = await getReviewsByTag(tag.slug);
+---
+
+<BaseLayout
+  title={`Tag: ${tag.tag}`}
+  description={`Reviews shelved as ${tag.tag}.`}
+>
+  <section class="measure">
+    <p class="eyebrow">
+      <a href="/tags">Tags</a> ›
+    </p>
+    <h1>{tag.tag}</h1>
+    <p class="meta">{reviews.length} {reviews.length === 1 ? "review" : "reviews"}</p>
+  </section>
+
+  <div class="feed measure">
+    {
+      reviews.map((r) => (
+        <ReviewCard
+          href={`/reviews/${r.id}`}
+          title={r.data.title}
+          author={r.data.author}
+          rating={r.data.rating}
+          cover={r.data.cover}
+          dateRead={r.data.dateRead}
+          excerpt={excerpt(r.body)}
+        />
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .feed {
+    margin-top: var(--space-5);
+  }
+  .feed > :global(article:first-child) {
+    border-top: var(--hairline);
+  }
+</style>

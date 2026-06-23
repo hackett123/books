@@ -1,0 +1,101 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BookCover from "../components/BookCover.astro";
+import StarRating from "../components/StarRating.astro";
+import { getPublishedReviews } from "../lib/reviews";
+
+// A "shelf of honor": top-rated reviews. 5★, or anything explicitly shelved
+// "favorites". Tweak the threshold here if you want it more/less exclusive.
+const reviews = await getPublishedReviews();
+const favorites = reviews.filter(
+  (r) =>
+    r.data.rating >= 5 ||
+    r.data.shelves.some((s) => s.toLowerCase() === "favorites")
+);
+---
+
+<BaseLayout
+  title="Favorites"
+  description="The shelf of honor — books that earned the top marks."
+>
+  <section class="measure">
+    <p class="eyebrow">The shelf of honor</p>
+    <h1>Favorites</h1>
+    <p class="intro__lede">
+      The ones that stuck. Five-star reads and the books I keep pressing on
+      people.
+    </p>
+  </section>
+
+  {
+    favorites.length === 0 ? (
+      <p class="measure" style="color:var(--color-muted)">
+        No favorites yet — rate a review 5★ (or shelve it "favorites").
+      </p>
+    ) : (
+      <ul class="gallery">
+        {favorites.map((r) => (
+          <li class="fav">
+            <a href={`/reviews/${r.id}`} class="fav__cover">
+              <BookCover
+                cover={r.data.cover}
+                title={r.data.title}
+                author={r.data.author}
+                width={170}
+              />
+            </a>
+            <div class="fav__meta">
+              <a href={`/reviews/${r.id}`} class="fav__title">
+                {r.data.title}
+              </a>
+              <span class="fav__author">{r.data.author}</span>
+              <StarRating rating={r.data.rating} size="0.9rem" />
+            </div>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .gallery {
+    list-style: none;
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: var(--space-7) var(--space-5);
+  }
+  .fav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .fav__cover {
+    display: block;
+    transition: transform var(--transition);
+  }
+  .fav__cover:hover {
+    transform: translateY(-4px) rotate(-0.5deg);
+  }
+  .fav__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .fav__title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    color: var(--color-ink);
+    line-height: var(--leading-snug);
+  }
+  .fav__title:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .fav__author {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+</style>

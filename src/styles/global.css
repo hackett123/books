@@ -41,6 +41,7 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: var(--font-display);
   line-height: var(--leading-tight);
   font-weight: var(--weight-bold);
   letter-spacing: -0.012em;
@@ -153,6 +154,48 @@ small {
   float: left;
   margin: 0.04em 0.08em 0 0;
   color: var(--color-accent);
+}
+
+/* ---- Motif: hand-drawn ink underline --------------------------------- */
+/* Apply .ink-underline to any inline element for an annotator's-pen stroke. */
+.ink-underline {
+  background-image: var(--ink-underline);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.5em;
+  padding-bottom: 0.12em;
+}
+/* In long-form prose, give links the hand-drawn underline instead of the
+   default browser one — feels marked-up by hand. */
+.prose a {
+  text-decoration: none;
+  background-image: var(--ink-underline);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.5em;
+}
+
+/* ---- Motif: asterism flourish ---------------------------------------- */
+.flourish {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  color: var(--color-night);
+  margin: var(--space-6) auto;
+  max-width: var(--measure);
+}
+.flourish::before,
+.flourish::after {
+  content: "";
+  flex: 1;
+  border-top: var(--hairline);
+}
+.flourish__mark {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  letter-spacing: 0.2em;
+  line-height: 1;
+  opacity: 0.7;
 }
 
 .visually-hidden {

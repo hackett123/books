@@ -1,0 +1,239 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import StarRating from "../components/StarRating.astro";
+import Divider from "../components/Divider.astro";
+import { getStats } from "../lib/stats";
+
+const stats = await getStats();
+const maxYear = Math.max(1, ...stats.byYear.map((y) => y.count));
+const maxHist = Math.max(1, ...stats.ratingHistogram.map((h) => h.count));
+const maxAuthor = Math.max(1, ...stats.topAuthors.map((a) => a.count));
+
+const bigNumbers = [
+  { label: "Books read", value: stats.totalRead },
+  { label: "Reviews written", value: stats.totalReviewed },
+  { label: "Average rating", value: stats.avgRating.toFixed(2) },
+];
+if (stats.totalPages > 0)
+  bigNumbers.push({ label: "Pages", value: stats.totalPages.toLocaleString() });
+---
+
+<BaseLayout title="Stats" description="Reading stats and year in books.">
+  <section class="measure">
+    <p class="eyebrow">By the numbers</p>
+    <h1>Reading Stats</h1>
+    <p class="meta">
+      Across reviews and the shelf — every book counted, the receipts kept.
+    </p>
+  </section>
+
+  <section class="bignums measure">
+    {
+      bigNumbers.map((n) => (
+        <div class="bignum">
+          <span class="bignum__value">{n.value}</span>
+          <span class="bignum__label">{n.label}</span>
+        </div>
+      ))
+    }
+  </section>
+
+  <Divider />
+
+  <section class="measure block">
+    <h2>Ratings given</h2>
+    <div class="hist">
+      {
+        stats.ratingHistogram
+          .slice()
+          .reverse()
+          .map((h) => (
+            <div class="hist__row">
+              <span class="hist__label">
+                <StarRating rating={h.rating} size="0.8rem" />
+              </span>
+              <span class="hist__bar">
+                <span
+                  class="hist__fill"
+                  style={`width:${(h.count / maxHist) * 100}%`}
+                />
+              </span>
+              <span class="hist__count">{h.count}</span>
+            </div>
+          ))
+      }
+    </div>
+  </section>
+
+  <section class="measure block">
+    <h2>Year in books</h2>
+    <div class="years">
+      {
+        stats.byYear.map((y) => (
+          <div class="year">
+            <div class="year__head">
+              <span class="year__num">{y.year}</span>
+              <span class="meta">
+                {y.count} books · avg {y.avgRating.toFixed(1)}★
+                {y.pages > 0 && <> · {y.pages.toLocaleString()} pp</>}
+              </span>
+            </div>
+            <span class="year__bar">
+              <span class="year__fill" style={`width:${(y.count / maxYear) * 100}%`} />
+            </span>
+          </div>
+        ))
+      }
+      {
+        stats.unknownYear > 0 && (
+          <p class="meta" style="margin-top:var(--space-3)">
+            + {stats.unknownYear} read with no recorded date.
+          </p>
+        )
+      }
+    </div>
+  </section>
+
+  {
+    stats.topAuthors.length > 0 && (
+      <section class="measure block">
+        <h2>Most-read authors</h2>
+        <div class="authors">
+          {stats.topAuthors.map((a) => (
+            <div class="author">
+              <span class="author__name">{a.author}</span>
+              <span class="author__bar">
+                <span
+                  class="author__fill"
+                  style={`width:${(a.count / maxAuthor) * 100}%`}
+                />
+              </span>
+              <span class="author__count">{a.count}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .block {
+    margin-top: var(--space-7);
+  }
+  .bignums {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-5);
+    margin-top: var(--space-5);
+  }
+  .bignum {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .bignum__value {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    line-height: 1;
+    color: var(--color-night);
+  }
+  .bignum__label {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+
+  /* histogram */
+  .hist {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+  .hist__row {
+    display: grid;
+    grid-template-columns: 5.5em 1fr 2.5em;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .hist__bar,
+  .year__bar,
+  .author__bar {
+    background: var(--color-faint);
+    border-radius: 999px;
+    height: 12px;
+    overflow: hidden;
+  }
+  .hist__fill {
+    display: block;
+    height: 100%;
+    background: var(--color-star);
+    border-radius: 999px;
+  }
+  .hist__count,
+  .author__count {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    text-align: right;
+  }
+
+  /* years */
+  .years {
+    margin-top: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .year__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-3);
+    margin-bottom: 4px;
+  }
+  .year__num {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-bold);
+  }
+  .year__fill {
+    display: block;
+    height: 100%;
+    background: var(--color-night);
+    border-radius: 999px;
+  }
+
+  /* authors */
+  .authors {
+    margin-top: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .author {
+    display: grid;
+    grid-template-columns: 12em 1fr 2.5em;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .author__name {
+    font-size: var(--text-sm);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .author__fill {
+    display: block;
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 999px;
+  }
+  @media (max-width: 32rem) {
+    .author {
+      grid-template-columns: 8em 1fr 2em;
+    }
+    .hist__row {
+      grid-template-columns: 5em 1fr 2em;
+    }
+  }
+</style>

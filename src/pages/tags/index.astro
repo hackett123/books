@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getAllTags } from "../../lib/tags";
+
+const tags = await getAllTags();
+const max = Math.max(1, ...tags.map((t) => t.count));
+// Scale font size with frequency for a gentle tag-cloud feel.
+function size(count: number) {
+  const min = 0.95;
+  const range = 1.6;
+  return (min + (count / max) * range).toFixed(2) + "rem";
+}
+---
+
+<BaseLayout title="Tags" description="Browse reviews by shelf / tag.">
+  <section class="measure">
+    <p class="eyebrow">Browse</p>
+    <h1>Tags</h1>
+    <p class="meta">Your Goodreads shelves, as tags. Bigger = more books.</p>
+  </section>
+
+  {
+    tags.length === 0 ? (
+      <p class="measure" style="color:var(--color-muted)">
+        No tags yet — add <code>shelves</code> to a review's frontmatter.
+      </p>
+    ) : (
+      <ul class="cloud measure">
+        {tags.map((t) => (
+          <li>
+            <a href={`/tags/${t.slug}`} style={`font-size:${size(t.count)}`}>
+              {t.tag}
+              <span class="cloud__count">{t.count}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .cloud {
+    list-style: none;
+    margin: var(--space-6) auto 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-5);
+    align-items: baseline;
+  }
+  .cloud a {
+    color: var(--color-ink);
+    line-height: 1.2;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.3em;
+  }
+  .cloud a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .cloud__count {
+    font-size: 0.7em;
+    color: var(--color-muted);
+  }
+</style>

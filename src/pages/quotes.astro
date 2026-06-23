@@ -1,0 +1,80 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import quotes from "../data/quotes.json";
+
+interface Quote {
+  text: string;
+  title: string;
+  author: string;
+  page?: number | null;
+  dateAdded?: string | null;
+}
+
+// Newest first when dateAdded is present; otherwise keep file order.
+const items = (quotes as Quote[]).slice().sort((a, b) => {
+  const da = a.dateAdded ? Date.parse(a.dateAdded) : 0;
+  const db = b.dateAdded ? Date.parse(b.dateAdded) : 0;
+  return db - da;
+});
+---
+
+<BaseLayout
+  title="Commonplace"
+  description="A commonplace book — passages worth keeping."
+>
+  <section class="measure">
+    <p class="eyebrow">Commonplace book</p>
+    <h1>Marginalia</h1>
+    <p class="intro__lede">
+      Lines I underlined and didn't want to lose. Copied here, out of context,
+      on purpose.
+    </p>
+  </section>
+
+  <div class="quotes measure">
+    {
+      items.map((q) => (
+        <figure class="quote">
+          <blockquote class="quote__text">{q.text}</blockquote>
+          <figcaption class="quote__src">
+            <cite>{q.title}</cite>
+            {q.author && q.author !== "—" && <span>, {q.author}</span>}
+            {q.page != null && <span class="quote__page">p. {q.page}</span>}
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .quotes {
+    margin-top: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  .quote {
+    margin: 0;
+    padding-left: var(--space-5);
+    border-left: 3px solid var(--color-accent);
+  }
+  .quote__text {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+  }
+  .quote__src {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+  .quote__src cite {
+    font-style: italic;
+  }
+  .quote__page {
+    margin-left: var(--space-2);
+    opacity: 0.8;
+  }
+</style>
