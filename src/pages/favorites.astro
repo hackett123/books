@@ -3,14 +3,57 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import BookCover from "../components/BookCover.astro";
 import StarRating from "../components/StarRating.astro";
 import { getPublishedReviews } from "../lib/reviews";
+import shelf from "../data/shelf.json";
 
-// A "shelf of honor": top-rated reviews. 5★, or anything explicitly shelved
-// "favorites". Tweak the threshold here if you want it more/less exclusive.
+// A "shelf of honor": every top-rated book you've read — reviewed or not.
+// Reviewed favorites link to the review; rated-but-unreviewed ones link out
+// to Goodreads. This matches the 5★ count on /stats.
+type Fav = {
+  title: string;
+  author: string;
+  rating: number;
+  cover?: string;
+  href: string;
+  external: boolean;
+};
+
 const reviews = await getPublishedReviews();
-const favorites = reviews.filter(
-  (r) =>
-    r.data.rating >= 5 ||
-    r.data.shelves.some((s) => s.toLowerCase() === "favorites")
+
+const reviewedFavs: Fav[] = reviews
+  .filter(
+    (r) =>
+      r.data.rating >= 5 ||
+      r.data.shelves.some((s) => s.toLowerCase() === "favorites")
+  )
+  .map((r) => ({
+    title: r.data.title,
+    author: r.data.author,
+    rating: r.data.rating,
+    cover: r.data.cover,
+    href: `/reviews/${r.id}`,
+    external: false,
+  }));
+
+interface ShelfRow {
+  title: string;
+  author: string;
+  rating: number;
+  cover?: string;
+  url?: string;
+}
+const shelfFavs: Fav[] = (shelf as ShelfRow[])
+  .filter((b) => b.rating >= 5)
+  .map((b) => ({
+    title: b.title,
+    author: b.author,
+    rating: b.rating,
+    cover: b.cover,
+    href: b.url ?? "#",
+    external: true,
+  }));
+
+const favorites = [...reviewedFavs, ...shelfFavs].sort((a, b) =>
+  a.title.localeCompare(b.title)
 );
 ---
 
@@ -34,25 +77,31 @@ const favorites = reviews.filter(
       </p>
     ) : (
       <ul class="gallery">
-        {favorites.map((r) => (
-          <li class="fav">
-            <a href={`/reviews/${r.id}`} class="fav__cover">
-              <BookCover
-                cover={r.data.cover}
-                title={r.data.title}
-                author={r.data.author}
-                width={170}
-              />
-            </a>
-            <div class="fav__meta">
-              <a href={`/reviews/${r.id}`} class="fav__title">
-                {r.data.title}
+        {favorites.map((f) => {
+          const linkAttrs = f.external
+            ? { rel: "nofollow noopener", target: "_blank" }
+            : {};
+          return (
+            <li class="fav">
+              <a href={f.href} class="fav__cover" {...linkAttrs}>
+                <BookCover
+                  cover={f.cover}
+                  title={f.title}
+                  author={f.author}
+                  width={170}
+                />
               </a>
-              <span class="fav__author">{r.data.author}</span>
-              <StarRating rating={r.data.rating} size="0.9rem" />
-            </div>
-          </li>
-        ))}
+              <div class="fav__meta">
+                <a href={f.href} class="fav__title" {...linkAttrs}>
+                  {f.title}
+                  {f.external && <span class="fav__ext" title="Rated, not yet reviewed"> ↗</span>}
+                </a>
+                <span class="fav__author">{f.author}</span>
+                <StarRating rating={f.rating} size="0.9rem" />
+              </div>
+            </li>
+          );
+        })}
       </ul>
     )
   }
@@ -97,5 +146,9 @@ const favorites = reviews.filter(
   .fav__author {
     font-size: var(--text-sm);
     color: var(--color-muted);
+  }
+  .fav__ext {
+    color: var(--color-muted);
+    font-size: 0.8em;
   }
 </style>
