@@ -104,7 +104,10 @@ if (stats.totalPages > 0)
     stats.monthly.length > 0 && (
       <section class="measure block">
         <h2>Books by month</h2>
-        <p class="meta">When the reading happens. Darker = more books.</p>
+        <p class="meta">
+          When the reading happens. Darker = more books; click a month to jump
+          to it in the <a href="/timeline">timeline</a>.
+        </p>
         <div class="heatmap">
           <div class="heatmap__head">
             <span />
@@ -115,14 +118,17 @@ if (stats.totalPages > 0)
           {stats.monthly.map((row) => (
             <div class="heatmap__row">
               <span class="heatmap__year">{row.year}</span>
-              {row.months.map((c, i) => (
-                <span
-                  class="heatmap__cell"
-                  title={`${monthLabels[i]} ${row.year}: ${c} ${c === 1 ? "book" : "books"}`}
-                  style={`background:rgba(44,43,63,${heat(c)})`}
-                />
-                <span class="visually-hidden">{`${c} in ${monthLabels[i]} ${row.year}`}</span>
-              ))}
+              {row.months.map((c, i) => {
+                const label = `${monthLabels[i]} ${row.year}: ${c} ${c === 1 ? "book" : "books"}`;
+                const anchor = `/timeline#${row.year}-${String(i + 1).padStart(2, "0")}`;
+                return c > 0 ? (
+                  <a class="heatmap__cell heatmap__cell--link" href={anchor} title={`${label} — jump to timeline`} style={`background:rgba(44,43,63,${heat(c)})`}>
+                    <span class="visually-hidden">{label}</span>
+                  </a>
+                ) : (
+                  <span class="heatmap__cell" title={label} style={`background:rgba(44,43,63,${heat(c)})`} />
+                );
+              })}
             </div>
           ))}
         </div>
@@ -266,9 +272,20 @@ if (stats.totalPages > 0)
     font-variant-numeric: tabular-nums;
   }
   .heatmap__cell {
+    display: block;
     aspect-ratio: 1;
     border-radius: 4px;
     border: 1px solid var(--color-faint);
+  }
+  .heatmap__cell--link {
+    cursor: pointer;
+    transition: outline-color var(--transition);
+    outline: 2px solid transparent;
+    outline-offset: 1px;
+  }
+  .heatmap__cell--link:hover,
+  .heatmap__cell--link:focus-visible {
+    outline-color: var(--color-accent);
   }
 
   /* authors */

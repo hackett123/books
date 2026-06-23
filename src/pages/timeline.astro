@@ -6,9 +6,10 @@ import { getTimeline } from "../lib/library";
 
 const groups = await getTimeline();
 
-function monthDay(d: Date | null): string {
-  if (!d) return "";
-  return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+// Within a month section the side label carries the month, so items show the
+// day only (ordinal-free, tabular).
+function dayOf(d: Date | null): string {
+  return d ? String(d.getUTCDate()) : "";
 }
 ---
 
@@ -29,30 +30,35 @@ function monthDay(d: Date | null): string {
       groups.map((group) => (
         <section class="tl-year">
           <h2 class="tl-year__label">{group.label}</h2>
-          <ol class="tl-list">
-            {group.entries.map((e) => {
-              const linkAttrs = e.external
-                ? { rel: "nofollow noopener", target: "_blank" }
-                : {};
-              return (
-                <li class="tl-item">
-                  <span class="tl-item__date">{monthDay(e.dateRead)}</span>
-                  <span class="tl-item__dot" aria-hidden="true" />
-                  <a href={e.href} class="tl-item__cover" {...linkAttrs}>
-                    <BookCover cover={e.cover} title={e.title} author={e.author} width={44} />
-                  </a>
-                  <span class="tl-item__body">
-                    <a href={e.href} class="tl-item__title" {...linkAttrs}>
-                      {e.title}
-                      {e.external && <span class="tl-item__ext" title="Rated, not reviewed"> ↗</span>}
-                    </a>
-                    <span class="tl-item__author">{e.author}</span>
-                  </span>
-                  {e.rating > 0 && <StarRating rating={e.rating} size="0.8rem" />}
-                </li>
-              );
-            })}
-          </ol>
+          {group.months.map((month) => (
+            <section class="tl-month" id={month.key}>
+              <h3 class="tl-month__label">{month.label}</h3>
+              <ol class="tl-list">
+                {month.entries.map((e) => {
+                  const linkAttrs = e.external
+                    ? { rel: "nofollow noopener", target: "_blank" }
+                    : {};
+                  return (
+                    <li class="tl-item">
+                      <span class="tl-item__date">{dayOf(e.dateRead)}</span>
+                      <span class="tl-item__dot" aria-hidden="true" />
+                      <a href={e.href} class="tl-item__cover" {...linkAttrs}>
+                        <BookCover cover={e.cover} title={e.title} author={e.author} width={44} />
+                      </a>
+                      <span class="tl-item__body">
+                        <a href={e.href} class="tl-item__title" {...linkAttrs}>
+                          {e.title}
+                          {e.external && <span class="tl-item__ext" title="Rated, not reviewed"> ↗</span>}
+                        </a>
+                        <span class="tl-item__author">{e.author}</span>
+                      </span>
+                      {e.rating > 0 && <StarRating rating={e.rating} size="0.8rem" />}
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
+          ))}
         </section>
       ))
     }
@@ -71,10 +77,44 @@ function monthDay(d: Date | null): string {
     color: var(--color-night);
     margin-bottom: var(--space-3);
   }
+  /* Month sub-section: month label on the left, books on the right. */
+  .tl-month {
+    display: grid;
+    grid-template-columns: 6.5em 1fr;
+    gap: var(--space-4);
+    scroll-margin-top: 5rem; /* clear the sticky header on anchor jump */
+  }
+  .tl-month__label {
+    font-size: var(--text-base);
+    font-weight: var(--weight-medium);
+    color: var(--color-muted);
+    margin: 0;
+    padding-top: var(--space-3);
+    position: sticky;
+    top: 4.5rem;
+    align-self: start;
+    height: max-content;
+  }
+  /* Brief glow when you jump here from the heatmap. */
+  .tl-month:target .tl-month__label {
+    color: var(--color-accent);
+  }
+  .tl-month:target {
+    animation: tl-flash 1.2s ease;
+  }
+  @keyframes tl-flash {
+    from {
+      background: var(--color-accent-soft);
+    }
+    to {
+      background: transparent;
+    }
+  }
   .tl-list {
     list-style: none;
     margin: 0;
     padding: 0;
+    min-width: 0;
   }
   .tl-item {
     display: grid;
@@ -125,6 +165,14 @@ function monthDay(d: Date | null): string {
     color: var(--color-muted);
   }
   @media (max-width: 32rem) {
+    .tl-month {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+    }
+    .tl-month__label {
+      position: static;
+      padding-top: var(--space-3);
+    }
     .tl-item {
       grid-template-columns: 2.8em 10px 36px 1fr;
     }

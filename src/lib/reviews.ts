@@ -30,6 +30,7 @@ export function excerpt(body: string | undefined, max = 220): string {
 export function formatDate(d?: Date): string | undefined {
   if (!d) return undefined;
   return new Date(d).toLocaleDateString("en-US", {
+    timeZone: "UTC", // dates are UTC-midnight calendar dates; don't shift
     year: "numeric",
     month: "long",
     day: "numeric",

@@ -88,7 +88,7 @@ export async function getStats(): Promise<Stats> {
       unknownYear++;
       continue;
     }
-    const y = b.dateRead.getFullYear();
+    const y = b.dateRead.getUTCFullYear();
     if (!yearMap.has(y)) yearMap.set(y, []);
     yearMap.get(y)!.push(b);
   }
@@ -112,7 +112,7 @@ export async function getStats(): Promise<Stats> {
     .map(([year, list]) => {
       const months = new Array(12).fill(0);
       for (const b of list) {
-        if (b.dateRead) months[b.dateRead.getMonth()]++;
+        if (b.dateRead) months[b.dateRead.getUTCMonth()]++;
       }
       maxMonth = Math.max(maxMonth, ...months);
       return { year, months };

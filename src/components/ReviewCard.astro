@@ -15,7 +15,11 @@ const { href, title, author, rating, cover, dateRead, excerpt } =
   Astro.props;
 
 const dateLabel = dateRead
-  ? dateRead.toLocaleDateString("en-US", { year: "numeric", month: "long" })
+  ? dateRead.toLocaleDateString("en-US", {
+      timeZone: "UTC",
+      year: "numeric",
+      month: "long",
+    })
   : undefined;
 ---
 

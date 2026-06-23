@@ -41,25 +41,59 @@ export async function getReadBooks(): Promise<ReadEntry[]> {
   );
 }
 
-// Group read books by year (newest first); undated books go under "Undated".
-export interface YearGroup {
-  label: string;
+// Group read books by year, then by month (both newest first). Undated books
+// go under an "Undated" year with a single "undated" month. Month `key` is a
+// stable anchor id (e.g. "2026-03") that the heatmap links to.
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+export interface MonthGroup {
+  key: string; // "2026-03" or "undated"
+  label: string; // "March" or "Undated"
   entries: ReadEntry[];
+}
+export interface YearGroup {
+  label: string; // "2026" or "Undated"
+  months: MonthGroup[];
 }
 
 export async function getTimeline(): Promise<YearGroup[]> {
-  const books = await getReadBooks();
-  const groups = new Map<string, ReadEntry[]>();
+  const books = await getReadBooks(); // already sorted newest first
+  const years = new Map<string, ReadEntry[]>();
   for (const b of books) {
-    const label = b.dateRead ? String(b.dateRead.getFullYear()) : "Undated";
-    if (!groups.has(label)) groups.set(label, []);
-    groups.get(label)!.push(b);
+    // Dates are calendar dates stored as UTC midnight — read them in UTC so
+    // they don't shift across timezones (e.g. "2026-03-01" -> Feb 28 in EDT).
+    const y = b.dateRead ? String(b.dateRead.getUTCFullYear()) : "Undated";
+    if (!years.has(y)) years.set(y, []);
+    years.get(y)!.push(b);
   }
-  return [...groups.entries()]
-    .map(([label, entries]) => ({ label, entries }))
-    .sort((a, b) => {
-      if (a.label === "Undated") return 1;
-      if (b.label === "Undated") return -1;
-      return Number(b.label) - Number(a.label);
-    });
+
+  const sortedYears = [...years.keys()].sort((a, b) => {
+    if (a === "Undated") return 1;
+    if (b === "Undated") return -1;
+    return Number(b) - Number(a);
+  });
+
+  return sortedYears.map((y) => {
+    const entries = years.get(y)!;
+    if (y === "Undated") {
+      return { label: y, months: [{ key: "undated", label: "Undated", entries }] };
+    }
+    const byMonth = new Map<number, ReadEntry[]>();
+    for (const b of entries) {
+      const mo = b.dateRead!.getUTCMonth();
+      if (!byMonth.has(mo)) byMonth.set(mo, []);
+      byMonth.get(mo)!.push(b);
+    }
+    const months: MonthGroup[] = [...byMonth.keys()]
+      .sort((a, b) => b - a)
+      .map((mo) => ({
+        key: `${y}-${String(mo + 1).padStart(2, "0")}`,
+        label: MONTH_NAMES[mo],
+        entries: byMonth.get(mo)!,
+      }));
+    return { label: y, months };
+  });
 }
