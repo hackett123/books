@@ -2,9 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BookCover from "../components/BookCover.astro";
 import StarRating from "../components/StarRating.astro";
-import { getShelf } from "../lib/shelf";
+import { getReadBooks } from "../lib/library";
 
-const books = getShelf();
+// The full library: every read book (reviews + rated-only shelf), newest first.
+const books = await getReadBooks();
 
 // Counts per whole-star bucket (rounded, matching the /stats histogram), so we
 // only render filter buttons that actually have books behind them.
@@ -19,10 +20,11 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
   description="Everything I've read — the full shelf, rated."
 >
   <section class="intro measure">
-    <p class="eyebrow">Read, rated, unreviewed</p>
+    <p class="eyebrow">Everything I've read</p>
     <h1>The Shelf</h1>
     <p class="intro__lede">
-      Books I've finished but haven't written up. Stars only — for now.
+      The whole library. <span class="ink-underline">Underlined titles</span>
+      have a full review; the rest are rated-only (↗ to Goodreads).
     </p>
   </section>
 
@@ -52,25 +54,34 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
         </div>
 
         <ul class="grid">
-          {books.map((b) => (
-            <li class="grid__item" data-rating={Math.round(b.rating)}>
-              {b.url ? (
-                <a href={b.url} rel="nofollow noopener" target="_blank">
+          {books.map((b) => {
+            const reviewed = !b.external;
+            const linkAttrs = b.external
+              ? { rel: "nofollow noopener", target: "_blank" }
+              : {};
+            return (
+              <li class="grid__item" data-rating={Math.round(b.rating)}>
+                <a href={b.href} class="grid__cover" {...linkAttrs}>
                   <BookCover cover={b.cover} title={b.title} author={b.author} width={140} />
                 </a>
-              ) : (
-                <BookCover cover={b.cover} title={b.title} author={b.author} width={140} />
-              )}
-              <div class="grid__meta">
-                <span class="grid__title">{b.title}</span>
-                <span class="grid__author">{b.author}</span>
-                <StarRating rating={b.rating} size="0.85rem" />
-              </div>
-            </li>
-          ))}
+                <div class="grid__meta">
+                  <a
+                    href={b.href}
+                    class:list={["grid__title", { "ink-underline": reviewed }]}
+                    {...linkAttrs}
+                  >
+                    {b.title}
+                    {b.external && <span class="grid__ext" aria-label="rated, not reviewed"> ↗</span>}
+                  </a>
+                  <span class="grid__author">{b.author}</span>
+                  <StarRating rating={b.rating} size="0.85rem" />
+                </div>
+              </li>
+            );
+          })}
         </ul>
 
-        <p class="filter-empty" hidden>No shelf books with that rating.</p>
+        <p class="filter-empty" hidden>No books with that rating.</p>
       </>
     )
   }
@@ -162,6 +173,13 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
   .grid__item[hidden] {
     display: none;
   }
+  .grid__cover {
+    display: block;
+    transition: transform var(--transition);
+  }
+  .grid__cover:hover {
+    transform: translateY(-3px);
+  }
   .grid__meta {
     display: flex;
     flex-direction: column;
@@ -171,6 +189,16 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
     font-size: var(--text-sm);
     font-weight: var(--weight-medium);
     line-height: var(--leading-snug);
+    color: var(--color-ink);
+    align-self: start; /* underline hugs the text width, not the column */
+  }
+  .grid__title:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .grid__ext {
+    color: var(--color-muted);
+    font-size: 0.85em;
   }
   .grid__author {
     font-size: var(--text-xs);

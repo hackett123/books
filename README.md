@@ -69,7 +69,9 @@ reviewer/
    │  ├─ index.astro          /            Feed + "currently reading" strip.
    │  ├─ reviews/[...slug].astro  /reviews/<slug>  A single review.
    │  ├─ favorites.astro      /favorites   5★ "shelf of honor" gallery.
-   │  ├─ shelf.astro          /shelf       Rated-but-unreviewed grid.
+   │  ├─ shelf.astro          /shelf       Full library grid (all reads); star
+   │  │                                    filter (?rating=N); reviewed titles
+   │  │                                    get the ink underline.
    │  ├─ quotes.astro         /quotes      Commonplace book (from data/quotes.json).
    │  ├─ stats.astro          /stats       Reading stats + year in books.
    │  ├─ tags/index.astro     /tags        Tag cloud (needs shelf data — see note).

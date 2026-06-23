@@ -3,12 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import StarRating from "../components/StarRating.astro";
 import Divider from "../components/Divider.astro";
 import { getStats } from "../lib/stats";
-import { getShelf } from "../lib/shelf";
 
 const stats = await getStats();
-// Which whole-star buckets actually have shelf books — so histogram rows only
-// link to the shelf filter when there's something to show there.
-const shelfRatings = new Set(getShelf().map((b) => Math.round(b.rating)));
 const maxYear = Math.max(1, ...stats.byYear.map((y) => y.count));
 const maxHist = Math.max(1, ...stats.ratingHistogram.map((h) => h.count));
 const maxAuthor = Math.max(1, ...stats.topAuthors.map((a) => a.count));
@@ -59,14 +55,14 @@ if (stats.totalPages > 0)
           .slice()
           .reverse()
           .map((h) => {
-            const onShelf = shelfRatings.has(h.rating);
-            const Tag = onShelf ? "a" : "div";
-            const props = onShelf
-              ? {
-                  href: `/shelf?rating=${h.rating}`,
-                  title: `See shelf books rated ${h.rating}★`,
-                }
-              : {};
+            const Tag = h.count > 0 ? "a" : "div";
+            const props =
+              h.count > 0
+                ? {
+                    href: `/shelf?rating=${h.rating}`,
+                    title: `See the ${h.rating}★ books on the shelf`,
+                  }
+                : {};
             return (
               <Tag class="hist__row" {...props}>
                 <span class="hist__label">
