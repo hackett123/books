@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Timeline, {
+  type TimelineAxisEntry,
+  type TimelineFlank,
+} from "../../components/Timeline.astro";
+import { getFriends } from "../../lib/friends";
+import { getReadBooks } from "../../lib/library";
+import { withBase } from "../../lib/url";
+
+export async function getStaticPaths() {
+  const friends = getFriends();
+  const mine = await getReadBooks();
+  return friends.map((f) => ({
+    params: { slug: f.slug },
+    props: { friend: f, mine },
+  }));
+}
+
+const { friend, mine } = Astro.props;
+
+// The friend runs down the central axis…
+const axis: TimelineAxisEntry[] = friend.read.map((b) => ({
+  title: b.title,
+  author: b.author,
+  cover: b.cover,
+  rating: b.rating,
+  href: b.url ?? "#",
+  external: true, // friends' books always link out to Goodreads
+  dateRead: b.dateRead,
+}));
+
+// …and my reads flank it, so shared books line up with a "✓ we both read it".
+const flanks: TimelineFlank[] = [
+  {
+    name: "Me",
+    color: "#a23b5e",
+    side: "right",
+    href: withBase("/timeline"),
+    books: mine.map((e) => ({
+      title: e.title,
+      author: e.author,
+      cover: e.cover,
+      url: e.href,
+      dateRead: e.dateRead,
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title={`${friend.name}'s Timeline`}
+  description={`Everything ${friend.name} has read, in order.`}
+>
+  <section class="measure">
+    <p class="eyebrow">
+      <a href={withBase("/friends")}>Friends</a> ›
+      <a href={withBase(`/friends/${friend.slug}`)}>{friend.name}</a> ›
+    </p>
+    <h1>{friend.name}'s Timeline</h1>
+    <p class="intro__lede">
+      Every book {friend.name} has finished, pinned to when. Newest first —
+      toggle on my reads to see where they line up.
+    </p>
+  </section>
+
+  <Timeline
+    axis={axis}
+    flanks={flanks}
+    toggleLabel="Overlay my reads"
+    bothLabel="we both read it"
+  />
+</BaseLayout>
+
+<style>
+  .intro__lede {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    max-width: 34rem;
+  }
+  .eyebrow a:hover {
+    text-decoration: underline;
+  }
+</style>

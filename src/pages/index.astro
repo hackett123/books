@@ -64,22 +64,41 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
       </p>
     ) : (
       <>
-        <div class="filter" role="group" aria-label="Filter shelf by rating">
-          <a class="filter__btn" href={withBase("/")} data-filter="all" aria-pressed="true">
-            All <span class="filter__n">{books.length}</span>
-          </a>
-          {starCounts
-            .filter((s) => s.count > 0)
-            .map((s) => (
-              <a
-                class="filter__btn"
-                href={withBase(`/?rating=${s.star}`)}
-                data-filter={s.star}
-                aria-pressed="false"
-              >
-                {s.star}★ <span class="filter__n">{s.count}</span>
-              </a>
-            ))}
+        <div class="controls">
+          <div class="filter" role="group" aria-label="Filter shelf by rating">
+            <a class="filter__btn" href={withBase("/")} data-filter="all" aria-pressed="true">
+              All <span class="filter__n">{books.length}</span>
+            </a>
+            {starCounts
+              .filter((s) => s.count > 0)
+              .map((s) => (
+                <a
+                  class="filter__btn"
+                  href={withBase(`/?rating=${s.star}`)}
+                  data-filter={s.star}
+                  aria-pressed="false"
+                >
+                  {s.star}★ <span class="filter__n">{s.count}</span>
+                </a>
+              ))}
+          </div>
+
+          <div class="controls__right">
+            <label class="toggle">
+              <input type="checkbox" id="reviewed-only" />
+              <span>Reviewed only</span>
+            </label>
+            <label class="sort">
+              <span class="sort__label">Sort</span>
+              <select id="sort" aria-label="Sort shelf">
+                <option value="recent">Recently read</option>
+                <option value="title">Title A–Z</option>
+                <option value="author">Author A–Z</option>
+                <option value="rating-desc">Rating: high to low</option>
+                <option value="rating-asc">Rating: low to high</option>
+              </select>
+            </label>
+          </div>
         </div>
 
         <ul class="grid">
@@ -89,7 +108,15 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
               ? { rel: "nofollow noopener", target: "_blank" }
               : {};
             return (
-              <li class="grid__item" data-rating={Math.floor(b.rating)}>
+              <li
+                class="grid__item"
+                data-rating={Math.floor(b.rating)}
+                data-score={b.rating}
+                data-reviewed={reviewed ? "1" : "0"}
+                data-title={b.title.toLowerCase()}
+                data-author={b.author.toLowerCase()}
+                data-date={b.dateRead ? b.dateRead.getTime() : 0}
+              >
                 <a href={b.href} class="grid__cover" {...linkAttrs}>
                   <BookCover cover={b.cover} title={b.title} author={b.author} width={140} />
                 </a>
@@ -119,37 +146,83 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
 </BaseLayout>
 
 <script>
+  const grid = document.querySelector<HTMLElement>(".grid");
   const items = [...document.querySelectorAll<HTMLElement>(".grid__item")];
   const buttons = [...document.querySelectorAll<HTMLElement>(".filter__btn")];
+  const reviewedCb = document.querySelector<HTMLInputElement>("#reviewed-only");
+  const sortSel = document.querySelector<HTMLSelectElement>("#sort");
   const emptyMsg = document.querySelector<HTMLElement>(".filter-empty");
 
-  function apply(value: string | null) {
-    const rating = value && value !== "all" ? Number(value) : null;
+  let rating: number | null = null;
+  let reviewedOnly = false;
+  let sort = "recent";
+
+  function compare(a: HTMLElement, b: HTMLElement): number {
+    switch (sort) {
+      case "title":
+        return (a.dataset.title ?? "").localeCompare(b.dataset.title ?? "");
+      case "author":
+        return (a.dataset.author ?? "").localeCompare(b.dataset.author ?? "");
+      case "rating-desc":
+        return Number(b.dataset.score) - Number(a.dataset.score);
+      case "rating-asc":
+        return Number(a.dataset.score) - Number(b.dataset.score);
+      default: // recent: newest dateRead first, undated last
+        return Number(b.dataset.date) - Number(a.dataset.date);
+    }
+  }
+
+  function render() {
     let shown = 0;
     for (const li of items) {
-      const ok = rating === null || Number(li.dataset.rating) === rating;
+      const okRating = rating === null || Number(li.dataset.rating) === rating;
+      const okReviewed = !reviewedOnly || li.dataset.reviewed === "1";
+      const ok = okRating && okReviewed;
       li.hidden = !ok;
       if (ok) shown++;
     }
+    if (grid) for (const li of [...items].sort(compare)) grid.appendChild(li);
+
     const active = rating === null ? "all" : String(rating);
     for (const b of buttons) {
       b.setAttribute("aria-pressed", String((b.dataset.filter || "all") === active));
     }
     if (emptyMsg) emptyMsg.hidden = shown > 0;
+
     const url = new URL(location.href);
-    if (rating === null) url.searchParams.delete("rating");
-    else url.searchParams.set("rating", String(rating));
+    const params = url.searchParams;
+    rating === null ? params.delete("rating") : params.set("rating", String(rating));
+    reviewedOnly ? params.set("reviewed", "1") : params.delete("reviewed");
+    sort === "recent" ? params.delete("sort") : params.set("sort", sort);
     history.replaceState(null, "", url);
   }
 
   for (const b of buttons) {
     b.addEventListener("click", (e) => {
       e.preventDefault();
-      apply(b.dataset.filter ?? "all");
+      const v = b.dataset.filter ?? "all";
+      rating = v === "all" ? null : Number(v);
+      render();
     });
   }
+  reviewedCb?.addEventListener("change", () => {
+    reviewedOnly = reviewedCb.checked;
+    render();
+  });
+  sortSel?.addEventListener("change", () => {
+    sort = sortSel.value;
+    render();
+  });
 
-  apply(new URLSearchParams(location.search).get("rating"));
+  // Hydrate initial state from the URL (so /stats deep-links still work).
+  const init = new URLSearchParams(location.search);
+  const r = init.get("rating");
+  rating = r ? Number(r) : null;
+  reviewedOnly = init.get("reviewed") === "1";
+  sort = init.get("sort") ?? "recent";
+  if (reviewedCb) reviewedCb.checked = reviewedOnly;
+  if (sortSel) sortSel.value = sort;
+  render();
 </script>
 
 <style>
@@ -173,11 +246,63 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
   .reading__item:hover {
     transform: translateY(-3px);
   }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3) var(--space-5);
+    margin-bottom: var(--space-6);
+  }
+  .controls__right {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  .toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    cursor: pointer;
+  }
+  .toggle input {
+    accent-color: var(--color-accent);
+    width: 1rem;
+    height: 1rem;
+  }
+  .sort {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+  }
+  .sort__label {
+    color: var(--color-muted);
+  }
+  .sort select {
+    font: inherit;
+    font-size: var(--text-sm);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    border: var(--hairline);
+    border-radius: 999px;
+    padding: 0.25em 1.8em 0.25em 0.8em;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath fill='none' stroke='%23999' stroke-width='1.4' d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7em center;
+    background-size: 0.6em;
+  }
+  .sort select:hover {
+    border-color: var(--color-accent);
+  }
   .filter {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-2);
-    margin-bottom: var(--space-6);
   }
   .filter__btn {
     display: inline-flex;
