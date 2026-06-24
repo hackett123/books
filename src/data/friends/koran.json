@@ -3,7 +3,7 @@
   "slug": "koran",
   "userId": "173598950",
   "profileUrl": "https://www.goodreads.com/user/show/173598950",
-  "syncedAt": "2026-06-24T20:28:29.668Z",
+  "syncedAt": "2026-06-24T20:34:33.257Z",
   "read": [
     {
       "title": "My Husband's Wife",
@@ -903,6 +903,438 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1723393514l/4556058._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/6343347924?utm_medium=api&utm_source=rss",
       "dateRead": "2024-03-22",
+      "hasReview": false
+    },
+    {
+      "title": "The Battle of the Labyrinth (Percy Jackson and the Olympians, #4)",
+      "author": "Rick Riordan",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1355333381l/8130423.jpg",
+      "url": "https://www.goodreads.com/review/show/6343347743?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-03-17",
+      "hasReview": false
+    },
+    {
+      "title": "Beloved",
+      "author": "Toni Morrison",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1722944318l/6149._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6343366485?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "History Is All You Left Me",
+      "author": "Adam Silvera",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1462807691l/25014114._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6343363244?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Ramón and Julieta (Love & Tacos, #1)",
+      "author": "Alana Albertson",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1623864096l/57926134.jpg",
+      "url": "https://www.goodreads.com/review/show/6343362489?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "On Rotation",
+      "author": "Shirlene Obuobi",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1649028057l/59088370.jpg",
+      "url": "https://www.goodreads.com/review/show/6343361430?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Titan’s Curse (Percy Jackson and the Olympians, #3)",
+      "author": "Rick Riordan",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361038385l/561456.jpg",
+      "url": "https://www.goodreads.com/review/show/6343347435?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Sea of Monsters (Percy Jackson and the Olympians, #2)",
+      "author": "Rick Riordan",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1530819367l/40727118.jpg",
+      "url": "https://www.goodreads.com/review/show/6343347066?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Perfect Marriage (Perfect, #1)",
+      "author": "Jeneva Rose",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1713253771l/58747122._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116791691?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-03-14",
+      "hasReview": false
+    },
+    {
+      "title": "The Inmate",
+      "author": "Freida McFadden",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1653271523l/61149872._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116764321?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-03-10",
+      "hasReview": false
+    },
+    {
+      "title": "A Court of Silver Flames (A Court of Thorns and Roses, #5)",
+      "author": "Sarah J. Maas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1600960807l/54479197.jpg",
+      "url": "https://www.goodreads.com/review/show/6116801814?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-03-07",
+      "hasReview": false
+    },
+    {
+      "title": "Never Lie",
+      "author": "Freida McFadden",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1661428846l/62080187._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6239642047?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-02-27",
+      "hasReview": false
+    },
+    {
+      "title": "A Court of Frost and Starlight (A Court of Thorns and Roses, #4)",
+      "author": "Sarah J. Maas",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1613328422l/36156268._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116802695?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-02-25",
+      "hasReview": false
+    },
+    {
+      "title": "Verity",
+      "author": "Colleen Hoover",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1634158558l/59344312._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116777713?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-02-13",
+      "hasReview": false
+    },
+    {
+      "title": "The Housemaid (The Housemaid, #1)",
+      "author": "Freida McFadden",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1646534743l/60556912._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116762876?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-02-11",
+      "hasReview": false
+    },
+    {
+      "title": "A Court of Wings and Ruin (A Court of Thorns and Roses, #3)",
+      "author": "Sarah J. Maas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1585623092l/50659472.jpg",
+      "url": "https://www.goodreads.com/review/show/6116801271?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-02-10",
+      "hasReview": false
+    },
+    {
+      "title": "Fifty Shades Darker",
+      "author": "E.L. James",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1697746691l/131650007._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116792974?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Silent Patient",
+      "author": "Alex Michaelides",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1668782119l/40097951._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6235868696?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "A Court of Mist and Fury (A Court of Thorns and Roses, #2)",
+      "author": "Sarah J. Maas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1620325671l/50659468._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116799631?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-01-28",
+      "hasReview": false
+    },
+    {
+      "title": "The Short Second Life of Bree Tanner (Twilight Saga, #3.5)",
+      "author": "Stephenie Meyer",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1274335680l/7937462.jpg",
+      "url": "https://www.goodreads.com/review/show/6209635740?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Midnight Sun (The Twilight Saga, #5)",
+      "author": "Stephenie Meyer",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1588597375l/53287484.jpg",
+      "url": "https://www.goodreads.com/review/show/6209634892?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Breaking Dawn (Twilight Saga, #4)",
+      "author": "Stephenie Meyer",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361039438l/1162543._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6209634403?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Eclipse (Crepúsculo, #3)",
+      "author": "Stephenie Meyer",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361038355l/428263.jpg",
+      "url": "https://www.goodreads.com/review/show/6209633890?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "New Moon (Twilight Saga, #2)",
+      "author": "Stephenie Meyer",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1630592760l/49041._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/6209633410?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "A Court of Thorns and Roses (A Court of Thorns and Roses, #1)",
+      "author": "Sarah J. Maas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1620324329l/50659467._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6202876887?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-01-01",
+      "hasReview": false
+    },
+    {
+      "title": "City of Bones (The Mortal Instruments, #1)",
+      "author": "Cassandra Clare",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1432730315l/256683._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116794089?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Giver (Giver, #1)",
+      "author": "Lois Lowry",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1342493368l/3636.jpg",
+      "url": "https://www.goodreads.com/review/show/6116792358?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Lightning Thief (Percy Jackson and the Olympians, #1)",
+      "author": "Rick Riordan",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1400602609l/28187.jpg",
+      "url": "https://www.goodreads.com/review/show/6116789373?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Lovely Bones",
+      "author": "Alice Sebold",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1457810586l/12232938.jpg",
+      "url": "https://www.goodreads.com/review/show/6116788356?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Water for Elephants",
+      "author": "Sara Gruen",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1667708346l/43641._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116787680?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Paper Towns",
+      "author": "John  Green",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1349013610l/6442769.jpg",
+      "url": "https://www.goodreads.com/review/show/6116785559?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Perks of Being a Wallflower",
+      "author": "Stephen Chbosky",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1650033115l/22628._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116784974?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Looking for Alaska",
+      "author": "John  Green",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1652042180l/99561.jpg",
+      "url": "https://www.goodreads.com/review/show/6116784518?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Eleanor & Park",
+      "author": "Rainbow Rowell",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1341952742l/15745753.jpg",
+      "url": "https://www.goodreads.com/review/show/6116781907?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Fifty Shades of Grey (Fifty Shades, #1)",
+      "author": "E.L. James",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1385207843l/10818853.jpg",
+      "url": "https://www.goodreads.com/review/show/6116780453?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Twilight (Twilight Saga, #1)",
+      "author": "Stephenie Meyer",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1700522826l/41865._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116777240?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Help",
+      "author": "Kathryn Stockett",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1622355533l/4667024._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116773555?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Curious Incident of the Dog in the Night-Time",
+      "author": "Mark Haddon",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1479863624l/1618._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116772761?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Diary of a Young Girl",
+      "author": "Anne Frank",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1560816565l/48855.jpg",
+      "url": "https://www.goodreads.com/review/show/6116771582?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Divergent (Divergent, #1)",
+      "author": "Veronica Roth",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1618526890l/13335037._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116770234?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Fault in Our Stars",
+      "author": "John  Green",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1660273739l/11870085._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116769243?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Book Thief",
+      "author": "Markus Zusak",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1522157426l/19063._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116766756?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Lord of the Flies",
+      "author": "William Golding",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327869409l/7624.jpg",
+      "url": "https://www.goodreads.com/review/show/6116765654?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Hunger Games (The Hunger Games, #1)",
+      "author": "Suzanne Collins",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1586722975l/2767052._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116763644?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1398034300l/5107.jpg",
+      "url": "https://www.goodreads.com/review/show/6116762383?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Animal Farm",
+      "author": "George Orwell",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1325861570l/170448.jpg",
+      "url": "https://www.goodreads.com/review/show/6116761429?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1738790966l/4671._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116761243?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1553383690l/2657.jpg",
+      "url": "https://www.goodreads.com/review/show/6116760324?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "1984",
+      "author": "George Orwell",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1657781256l/61439040._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/6116759502?utm_medium=api&utm_source=rss",
+      "dateRead": null,
       "hasReview": false
     }
   ],

@@ -9,8 +9,8 @@
  *
  * Usage:  npm run sync:friends
  *
- * Note: Goodreads RSS returns only the ~100 most-recently-added books per shelf,
- * so a friend's stats reflect their recent reads, not their whole history.
+ * Note: fetchShelf() paginates the RSS feed (&page=N), so this captures a
+ * friend's whole `read` shelf, not just the 100 most-recently-added books.
  */
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";

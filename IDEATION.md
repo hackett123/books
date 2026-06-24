@@ -75,6 +75,20 @@ worth it. Cherry-pick freely.
   surface a shared-shelf view per friend + where your ratings agree or diverge.
 - **Fold `sync:friends` into `npm run sync`** (S) — one command to refresh your
   own reads *and* friends' shelves / currently-reading.
+- **Friends history past the 100-book RSS cap** (S) — _POC'd, works._ The "100
+  cap" turned out to be just the RSS feed's default page size, not a hard limit:
+  `list_rss/<userId>?shelf=read&page=N` honors pagination (and `&per_page` up to
+  ~200), still auth-free, no HTML scraping or login needed. POC
+  (`scripts/poc-friend-history.mjs`) walked Michelle's whole `read` shelf — 148
+  books across 2 pages vs. the 100 we had — and every one of the original 100
+  matched on rating/date/cover, parsed by the existing `normalize()`. (Two
+  apparent diffs were real data, not bugs: a book she's shelved twice with
+  different ratings, and Goodreads swapping a cover image-id.) To productionize:
+  teach `fetchShelf` in `goodreads-lib.mjs` to loop `&page=N` until a short page,
+  dedup by `bookId`, and `sync-friends.mjs` gets full history for free. Same win
+  is available for our own `sync` and the to-read/currently-reading shelves.
+  Caveat: more, slower requests per friend (be polite); private shelves still
+  return nothing.
 
 ## Character & polish
 
@@ -97,6 +111,8 @@ worth it. Cherry-pick freely.
 
 _Constraints worth remembering:_ it's a static Astro site (no server at
 runtime), deployed to GitHub Pages under the `/books` base path (so internal
-links must go through `withBase()`); Goodreads RSS caps at ~100 books/shelf,
-omits custom shelves, and has sparse page counts; per-review Goodreads pages are
-login-gated. The CSV export is the escape hatch for richer data.
+links must go through `withBase()`); Goodreads RSS defaults to 100 books/shelf
+but honors `&page=N` / `&per_page` for the full shelf (the `/review/list/` HTML
+endpoint is now login-gated, but the RSS feed is not), omits custom shelves, and
+has sparse page counts; per-review Goodreads pages are login-gated. The CSV
+export remains the escape hatch for custom shelves and reliable page counts.
