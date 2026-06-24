@@ -1,0 +1,910 @@
+{
+  "name": "PJ Schmidlein",
+  "slug": "pj-schmidlein",
+  "userId": "201906919",
+  "profileUrl": "https://www.goodreads.com/user/show/201906919",
+  "syncedAt": "2026-06-24T16:04:37.393Z",
+  "read": [
+    {
+      "title": "The Golem and the Jinni (The Golem and the Jinni, #1)",
+      "author": "Helene Wecker",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1349205573l/15819028.jpg",
+      "url": "https://www.goodreads.com/review/show/8701387019?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Almost Like Being in Love",
+      "author": "Steve Kluger",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1407106524l/239092.jpg",
+      "url": "https://www.goodreads.com/review/show/8701361388?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "What If It's Us (What If It's Us, #1)",
+      "author": "Becky Albertalli",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1526557760l/36341204._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701351475?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "A Taste of Gold and Iron (Mahisti Dynasty, #1)",
+      "author": "Alexandra Rowland",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1635774115l/58724599.jpg",
+      "url": "https://www.goodreads.com/review/show/8701350556?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Secret Lives of Country Gentlemen (The Doomsday Books, #1)",
+      "author": "K.J. Charles",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1663091244l/57102663.jpg",
+      "url": "https://www.goodreads.com/review/show/8701349001?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "A Destiny of Dragons (Tales From Verania, #2)",
+      "author": "T.J. Klune",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1495462553l/30370036._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701347962?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Heartstopper: Volume Five (Heartstopper, #5)",
+      "author": "Alice Oseman",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1695913246l/53344030._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701346777?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Heartstopper: Volume Four (Heartstopper, #4)",
+      "author": "Alice Oseman",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1640745736l/56060300.jpg",
+      "url": "https://www.goodreads.com/review/show/8701346653?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Heartstopper: Volume Two (Heartstopper, #2)",
+      "author": "Alice Oseman",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1564967250l/43307358._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701346285?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Heartstopper: Volume Three (Heartstopper, #3)",
+      "author": "Alice Oseman",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1572608363l/43449920._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701346496?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Charm Offensive (The Charm Offensive, #1)",
+      "author": "Alison Cochrun",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1628703464l/56898248.jpg",
+      "url": "https://www.goodreads.com/review/show/8701340261?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Looking for Group",
+      "author": "Alexis  Hall",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1741598641l/222476129._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701334201?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Paris Daillencourt Is About to Crumble (Winner Bakes All, #2)",
+      "author": "Alexis  Hall",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1652973787l/60375966.jpg",
+      "url": "https://www.goodreads.com/review/show/8701333934?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Something Fabulous (Something Fabulous, #1)",
+      "author": "Alexis  Hall",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1629130515l/58377135._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701333764?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Husband Material (London Calling, #2)",
+      "author": "Alexis  Hall",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1638550537l/58323892._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701333497?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Boyfriend Material (London Calling, #1)",
+      "author": "Alexis  Hall",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1575987260l/50225678.jpg",
+      "url": "https://www.goodreads.com/review/show/8701333079?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Hat Trick (Fake Boyfriend, #5)",
+      "author": "Eden Finley",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1573022523l/48717530._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701332646?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Blindsided (Fake Boyfriend, #4)",
+      "author": "Eden Finley",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1552983419l/44528307._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701332304?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Deke (Fake Boyfriend, #3)",
+      "author": "Eden Finley",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546811007l/43482251._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701332191?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Trick Play (Fake Boyfriend, #2)",
+      "author": "Eden Finley",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1528369474l/39863941._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701331743?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Falcon and the Foe (Single Dads Club)",
+      "author": "A.J. Truman",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1707901618l/205073039._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701329375?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "A Market of Dreams and Destiny",
+      "author": "Trip Galey",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1684794479l/61933929.jpg",
+      "url": "https://www.goodreads.com/review/show/8700843533?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Fake Out (Fake Boyfriend, #1)",
+      "author": "Eden Finley",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1521219468l/39298105._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8700842273?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Hot Head (Head, #1)",
+      "author": "Damon Suede",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1307050057l/10506237.jpg",
+      "url": "https://www.goodreads.com/review/show/8695419892?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "We Are Legion (We Are Bob) (Bobiverse, #1)",
+      "author": "Dennis E. Taylor",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474344826l/32109569._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8695388171?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Soulstar (The Kingston Cycle, #3)",
+      "author": "C.L. Polk",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591804476l/53205896.jpg",
+      "url": "https://www.goodreads.com/review/show/8695379511?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Stormsong (The Kingston Cycle, #2)",
+      "author": "C.L. Polk",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1547436551l/41473380._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8695379278?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Witchmark (The Kingston Cycle, #1)",
+      "author": "C.L. Polk",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1505338133l/36187110._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8695379082?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Fellowship of Puzzlemakers",
+      "author": "Samuel Burr",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1693320538l/182484307._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8695180623?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Keeper of Magical Things",
+      "author": "Julie Leong",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1746023184l/223854454._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8694791650?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Sorcery and Small Magics (The Wildersongs Trilogy, #1)",
+      "author": "Maiga Doocy",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1709148725l/199826249._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8694789781?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Once and Future Witches",
+      "author": "Alix E. Harrow",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1582634494l/49504061._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692607309?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Nightmare Before Kissmas (Royals and Romance, #1)",
+      "author": "Sara Raasch",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1752528442l/206101578.jpg",
+      "url": "https://www.goodreads.com/review/show/8692603546?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Mistletoe & Mishigas (Teachers in Love, #2)",
+      "author": "M.A. Wardell",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1704188885l/195504991._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692600749?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Heartstopper: Volume One (Heartstopper, #1)",
+      "author": "Alice Oseman",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1712679126l/40495957._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692483726?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Aristotle and Dante Discover the Secrets of the Universe (Aristotle and Dante, #1)",
+      "author": "Benjamin Alire Sáenz",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328320260l/12000020.jpg",
+      "url": "https://www.goodreads.com/review/show/8692483508?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Song of Achilles",
+      "author": "Madeline Miller",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1357177533l/13623848._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692483292?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Red, White & Royal Blue (Red, White & Royal Blue, #1)",
+      "author": "Casey McQuiston",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1566742512l/41150487._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692483182?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Green Mile",
+      "author": "Stephen  King",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1373903563l/11566.jpg",
+      "url": "https://www.goodreads.com/review/show/8692479298?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Pet Sematary",
+      "author": "Stephen  King",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1480069533l/33124137._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692479086?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Outsider (Holly Gibney #1)",
+      "author": "Stephen  King",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1524596540l/36124936._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692478853?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Carrie",
+      "author": "Stephen  King",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1771367607l/10592.jpg",
+      "url": "https://www.goodreads.com/review/show/8692478674?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Gunslinger (The Dark Tower, #1)",
+      "author": "Stephen  King",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1554220416l/43615.jpg",
+      "url": "https://www.goodreads.com/review/show/8692478542?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Misery",
+      "author": "Stephen  King",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1746142586l/10614._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692478345?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Guncle Abroad (The Guncle, #2)",
+      "author": "Steven  Rowley",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1694867978l/197511201._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692474885?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Guncle (The Guncle, #1)",
+      "author": "Steven  Rowley",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1594848421l/54508798.jpg",
+      "url": "https://www.goodreads.com/review/show/8692474597?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Fairy Tale",
+      "author": "Stephen  King",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1647789287l/60177373.jpg",
+      "url": "https://www.goodreads.com/review/show/8692472272?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Fight and Flight (Magic 2.0, #4)",
+      "author": "Scott  Meyer",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1510533599l/36566205._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692470965?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "An Unwelcome Quest (Magic 2.0, #3)",
+      "author": "Scott  Meyer",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1412456562l/23249416.jpg",
+      "url": "https://www.goodreads.com/review/show/8692470816?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Spell or High Water (Magic 2.0, #2)",
+      "author": "Scott  Meyer",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1395612093l/21483760.jpg",
+      "url": "https://www.goodreads.com/review/show/8692470518?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Off to Be the Wizard (Magic 2.0, #1)",
+      "author": "Scott  Meyer",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1390179189l/18616975.jpg",
+      "url": "https://www.goodreads.com/review/show/8692361608?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The First Fifteen Lives of Harry August",
+      "author": "Claire North",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1493966668l/35066358._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692347579?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "He Who Fights with Monsters 3 (He Who Fights with Monsters, #3)",
+      "author": "Shirtaloon",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1621351547l/58088499._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692345622?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "He Who Fights with Monsters 2 (He Who Fights with Monsters, #2)",
+      "author": "Shirtaloon",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1616122903l/57456018._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692345370?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "He Who Fights with Monsters (He Who Fights with Monsters, #1)",
+      "author": "Shirtaloon",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1614114118l/57189884._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692345190?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "An Education in Magical Affairs: An Isekai LitRPG",
+      "author": "Tommy Kerper",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1727735634l/219799546._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692343195?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Secrets and Strife (I'm Not the Hero #2)",
+      "author": "Tommy Kerper",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1703027717l/204127127._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692342250?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "I'm Not the Hero (I'm Not the Hero #1)",
+      "author": "Tommy Kerper",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1700321430l/202370352._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692341708?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Second Hand Curses",
+      "author": "Drew  Hayes",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1511284008l/36315727._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692337692?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Swordcrossed",
+      "author": "Freya Marske",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1739405843l/204309713._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692335035?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "A Power Unbound (The Last Binding, #3)",
+      "author": "Freya Marske",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1676299534l/65211689.jpg",
+      "url": "https://www.goodreads.com/review/show/8692334905?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "A Restless Truth (The Last Binding, #2)",
+      "author": "Freya Marske",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1642534531l/59807966.jpg",
+      "url": "https://www.goodreads.com/review/show/8692334682?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "A Marvellous Light (The Last Binding, #1)",
+      "author": "Freya Marske",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1634067514l/53217284._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692334528?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "His Majesty's Dragon (Temeraire, #1)",
+      "author": "Naomi Novik",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1376392909l/28876.jpg",
+      "url": "https://www.goodreads.com/review/show/8692328567?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Last Graduate (The Scholomance, #2)",
+      "author": "Naomi Novik",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1604391810l/55559887.jpg",
+      "url": "https://www.goodreads.com/review/show/8692328414?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Golden Enclaves (The Scholomance, #3)",
+      "author": "Naomi Novik",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1642265345l/55858638._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692328275?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Spinning Silver",
+      "author": "Naomi Novik",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1513872748l/36896898._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692328129?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Uprooted",
+      "author": "Naomi Novik",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1550135418l/22544764._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692327827?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "A Deadly Education (The Scholomance, #1)",
+      "author": "Naomi Novik",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1596909044l/50548197._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692327654?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Lux (Texas Reckoners, #1)",
+      "author": "Brandon Sanderson",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1624586180l/58419574._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692327045?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Steelheart (The Reckoners, #1)",
+      "author": "Brandon Sanderson",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1660269968l/17182126._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692324361?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Rhythm of War (The Stormlight Archive, #4)",
+      "author": "Brandon Sanderson",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1599911216l/49021976.jpg",
+      "url": "https://www.goodreads.com/review/show/8692323964?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Oathbringer (The Stormlight Archive, #3)",
+      "author": "Brandon Sanderson",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1654573897l/34002132._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692323440?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Words of Radiance (The Stormlight Archive, #2)",
+      "author": "Brandon Sanderson",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1728768241l/17332218.jpg",
+      "url": "https://www.goodreads.com/review/show/8692323241?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Warbreaker",
+      "author": "Brandon Sanderson",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1240256182l/1268479.jpg",
+      "url": "https://www.goodreads.com/review/show/8692322668?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Tress of the Emerald Sea (Hoid's Travails, #1)",
+      "author": "Brandon Sanderson",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1672574587l/60531406._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692322179?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Way of Kings (The Stormlight Archive, #1)",
+      "author": "Brandon Sanderson",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1659905828l/7235533._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692321891?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Flash Fire (The Extraordinaries, #2)",
+      "author": "T.J. Klune",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1601189360l/55169010.jpg",
+      "url": "https://www.goodreads.com/review/show/8692319990?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Heartsong (Green Creek, #3)",
+      "author": "T.J. Klune",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1686480838l/176408159._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692319659?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Ravensong (Green Creek, #2)",
+      "author": "T.J. Klune",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1686579139l/62039416.jpg",
+      "url": "https://www.goodreads.com/review/show/8692319504?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Extraordinaries",
+      "author": "T.J. Klune",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1572524566l/52380340._SX318_SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692319249?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Bones Beneath My Skin",
+      "author": "T.J. Klune",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718848909l/211004023._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692318442?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Lightning-Struck Heart (Tales From Verania, #1)",
+      "author": "T.J. Klune",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1434402683l/24468673._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692318315?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Wolfsong (Green Creek, #1)",
+      "author": "T.J. Klune",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1686575943l/62039417.jpg",
+      "url": "https://www.goodreads.com/review/show/8692317887?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "In the Lives of Puppets",
+      "author": "T.J. Klune",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1699617963l/60784549._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692317322?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Somewhere Beyond the Sea (Cerulean Chronicles, #2)",
+      "author": "T.J. Klune",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1752528282l/199347538._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692316936?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Under the Whispering Door",
+      "author": "T.J. Klune",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1652374208l/53205888._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692316775?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The House in the Cerulean Sea (Cerulean Chronicles, #1)",
+      "author": "T.J. Klune",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1569514209l/45047384._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692316604?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Lucky Day",
+      "author": "Chuck Tingle",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1737780925l/217387953._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692314546?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Bury Your Gays",
+      "author": "Chuck Tingle",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1697739086l/195790870._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692314370?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "This Inevitable Ruin (Dungeon Crawler Carl, #7)",
+      "author": "Matt Dinniman",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1760789256l/232497556._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692249791?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Eye of the Bedlam Bride (Dungeon Crawler Carl, #6)",
+      "author": "Matt Dinniman",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1734098749l/220772912._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692249368?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Butcher's Masquerade (Dungeon Crawler Carl, #5)",
+      "author": "Matt Dinniman",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1734098643l/220772913._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692249204?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Gate of the Feral Gods (Dungeon Crawler Carl, #4)",
+      "author": "Matt Dinniman",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1734098514l/220772908._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692248930?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Dungeon Anarchist's Cookbook (Dungeon Crawler Carl, #3)",
+      "author": "Matt Dinniman",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1719949594l/211721809._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692248725?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Carl's Doomsday Scenario (Dungeon Crawler Carl, #2)",
+      "author": "Matt Dinniman",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1719949673l/212393364._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692248585?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Dungeon Crawler Carl (Dungeon Crawler Carl, #1)",
+      "author": "Matt Dinniman",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1715780755l/211721806._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692247834?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Legends & Lattes (Legends & Lattes, #1)",
+      "author": "Travis Baldree",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1654581271l/61242426._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692247317?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Spoonbenders",
+      "author": "Daryl Gregory",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1492697004l/32827398._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692241822?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Cubs & Campfires (Sweet & Stocky, #1)",
+      "author": "Dylan Drakes",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1704457853l/204898027._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692240829?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    }
+  ],
+  "currentlyReading": []
+}
