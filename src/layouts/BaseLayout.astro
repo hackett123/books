@@ -63,7 +63,14 @@ const path = stripBase(Astro.url.pathname);
           <span class="brand__mark" aria-hidden="true">☾</span>
           <span class="brand__name">{siteName}</span>
         </a>
-        <nav aria-label="Primary">
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        />
+        <nav class="primary-nav" id="primary-nav" aria-label="Primary">
           <ul>
             {
               nav.map((item) => (
@@ -83,7 +90,10 @@ const path = stripBase(Astro.url.pathname);
               ))
             }
             <li>
-              <a href={withBase("/search")} class="nav-search" aria-label="Search">⌕</a>
+              <a href={withBase("/search")} class="nav-search">
+                <span aria-hidden="true">⌕</span>
+                <span class="nav-search__label">Search</span>
+              </a>
             </li>
           </ul>
         </nav>
@@ -113,6 +123,9 @@ const path = stripBase(Astro.url.pathname);
         position: sticky;
         top: 0;
         z-index: 10;
+      }
+      .site-header__inner {
+        position: relative; /* anchor for the mobile dropdown */
       }
       .site-header__inner {
         display: flex;
@@ -164,8 +177,86 @@ const path = stripBase(Astro.url.pathname);
         padding-bottom: 0.15em;
       }
       .nav-search {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
         font-size: 1.15rem;
         line-height: 1;
+      }
+      .nav-search__label {
+        display: none; /* desktop shows the glyph only */
+      }
+
+      /* Hamburger button — hidden on desktop, shown on mobile. */
+      .nav-toggle {
+        display: none;
+        width: 2.4rem;
+        height: 2.4rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background: none;
+        border: none;
+        color: var(--color-ink);
+        font-size: 1.45rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .nav-toggle::before {
+        content: "☰";
+      }
+      .site-header.nav-open .nav-toggle::before {
+        content: "✕";
+        font-size: 1.25rem;
+      }
+
+      /* Mobile: collapse the nav into a dropdown panel under the header. */
+      @media (max-width: 56rem) {
+        .nav-toggle {
+          display: inline-flex;
+        }
+        .primary-nav {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          display: none;
+          background: var(--color-bg);
+          border-bottom: var(--hairline);
+          box-shadow: var(--shadow-md);
+        }
+        .site-header.nav-open .primary-nav {
+          display: block;
+        }
+        .primary-nav ul {
+          flex-direction: column;
+          gap: 0;
+          padding: var(--space-2) var(--space-5) var(--space-4);
+        }
+        .primary-nav li {
+          border-bottom: var(--hairline);
+        }
+        .primary-nav li:last-child {
+          border-bottom: none;
+        }
+        .primary-nav a {
+          display: block;
+          padding: var(--space-3) 0;
+          font-size: var(--text-base);
+        }
+        .primary-nav a[aria-current="page"] {
+          background: none;
+          padding-bottom: var(--space-3);
+          color: var(--color-ink);
+          font-weight: var(--weight-bold);
+        }
+        .nav-search {
+          font-size: var(--text-base);
+          gap: 0.5em;
+        }
+        .nav-search__label {
+          display: inline;
+        }
       }
       main.container {
         padding-block: var(--space-7) var(--space-8);
@@ -188,5 +279,25 @@ const path = stripBase(Astro.url.pathname);
         gap: var(--space-4);
       }
     </style>
+
+    <script>
+      const toggle = document.getElementById("nav-toggle");
+      const header = toggle?.closest(".site-header") as HTMLElement | null;
+      if (toggle && header) {
+        const setOpen = (open: boolean) => {
+          header.classList.toggle("nav-open", open);
+          toggle.setAttribute("aria-expanded", String(open));
+        };
+        toggle.addEventListener("click", () =>
+          setOpen(!header.classList.contains("nav-open"))
+        );
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") setOpen(false);
+        });
+        document.addEventListener("click", (e) => {
+          if (!header.contains(e.target as Node)) setOpen(false);
+        });
+      }
+    </script>
   </body>
 </html>
