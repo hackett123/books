@@ -1,0 +1,917 @@
+{
+  "name": "Koran",
+  "slug": "koran",
+  "userId": "173598950",
+  "profileUrl": "https://www.goodreads.com/user/show/173598950",
+  "syncedAt": "2026-06-24T20:28:29.668Z",
+  "read": [
+    {
+      "title": "My Husband's Wife",
+      "author": "Alice Feeney",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1747668611l/231127462._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8285046055?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-06-21",
+      "hasReview": false
+    },
+    {
+      "title": "Look Closer",
+      "author": "David Ellis",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1634861054l/59428226.jpg",
+      "url": "https://www.goodreads.com/review/show/6585118668?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-05-18",
+      "hasReview": false
+    },
+    {
+      "title": "Anatomy of an Alibi",
+      "author": "Ashley Elston",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1755269338l/239052933._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8418139270?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-05-09",
+      "hasReview": false
+    },
+    {
+      "title": "Such Quiet Girls",
+      "author": "Noelle W. Ihli",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1744295011l/231249727._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8555617294?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-05-05",
+      "hasReview": false
+    },
+    {
+      "title": "Love, Mom",
+      "author": "Iliana Xander",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729890029l/220838350._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8555614100?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-05-04",
+      "hasReview": false
+    },
+    {
+      "title": "Ring Shout",
+      "author": "P. Djèlí Clark",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1580134440l/50687822._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8332028375?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-04-28",
+      "hasReview": false
+    },
+    {
+      "title": "The Great Alone",
+      "author": "Kristin Hannah",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1501852423l/34912895._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8530052090?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-04-20",
+      "hasReview": true
+    },
+    {
+      "title": "The Pumpkin Spice Café (Dream Harbor, #1)",
+      "author": "Laurie Gilmore",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1688031846l/139391940.jpg",
+      "url": "https://www.goodreads.com/review/show/7984306233?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-04-17",
+      "hasReview": false
+    },
+    {
+      "title": "The Mad Wife",
+      "author": "Meagan Church",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1738185392l/223665360._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8366130336?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-04-06",
+      "hasReview": false
+    },
+    {
+      "title": "Hidden Pictures",
+      "author": "Jason Rekulak",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1635260162l/58724923.jpg",
+      "url": "https://www.goodreads.com/review/show/6721255669?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-03-25",
+      "hasReview": false
+    },
+    {
+      "title": "The Secrets of Us",
+      "author": "Lucinda Berry",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1605908852l/55967647._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8423587548?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-03-18",
+      "hasReview": false
+    },
+    {
+      "title": "Dear Debbie",
+      "author": "Freida McFadden",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1774686324l/238365535._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8404629108?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-03-09",
+      "hasReview": false
+    },
+    {
+      "title": "The Lamb",
+      "author": "Lucy   Rose",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1722268713l/216867498._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8367127607?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Everything Is Tuberculosis: The History and Persistence of Our Deadliest Infection",
+      "author": "John  Green",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729825992l/220341389._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8366078538?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-02-26",
+      "hasReview": false
+    },
+    {
+      "title": "Worst Wingman Ever (Valentine's Day, #1)",
+      "author": "Abby Jimenez",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1704566153l/200034606._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8379934256?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-02-22",
+      "hasReview": false
+    },
+    {
+      "title": "Heart the Lover",
+      "author": "Lily King",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1745508457l/228110489._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8243804386?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-02-21",
+      "hasReview": true
+    },
+    {
+      "title": "Don't Let Him In",
+      "author": "Lisa Jewell",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1730151826l/220160814._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8229793776?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-02-16",
+      "hasReview": false
+    },
+    {
+      "title": "The Midnight Library (The Midnight World, #1)",
+      "author": "Matt Haig",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1602190253l/52578297.jpg",
+      "url": "https://www.goodreads.com/review/show/7812466413?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-02-13",
+      "hasReview": false
+    },
+    {
+      "title": "Black Ties & White Lies (Black Tie Billionaires #1)",
+      "author": "Kat Singleton",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1757984812l/63336417._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8276878010?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-02-09",
+      "hasReview": false
+    },
+    {
+      "title": "The Butterfly Garden (The Collector, #1)",
+      "author": "Dot Hutchison",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1461392121l/29981261._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7122107171?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-01-24",
+      "hasReview": false
+    },
+    {
+      "title": "The Fall Risk (Valentine's Day #2)",
+      "author": "Abby Jimenez",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1777420061l/223199392._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8281088473?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-01-24",
+      "hasReview": false
+    },
+    {
+      "title": "The Doll's House",
+      "author": "Lisa Unger",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1723567399l/217442094._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7951052247?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-01-19",
+      "hasReview": false
+    },
+    {
+      "title": "Kingdom of Ash (Throne of Glass, #7)",
+      "author": "Sarah J. Maas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1673567331l/76715522._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6327289289?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-01-17",
+      "hasReview": false
+    },
+    {
+      "title": "Leather & Lark (The Ruinous Love Trilogy, #2)",
+      "author": "Brynne Weaver",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1737671145l/127611580._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7850818345?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-01-05",
+      "hasReview": false
+    },
+    {
+      "title": "The Last Party",
+      "author": "A.R. Torre",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1710368139l/205837684._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7163915963?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-01-01",
+      "hasReview": false
+    },
+    {
+      "title": "The Seven Husbands of Evelyn Hugo",
+      "author": "Taylor Jenkins Reid",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1556639327l/45416596._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6261697278?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-11-15",
+      "hasReview": false
+    },
+    {
+      "title": "Project Hail Mary",
+      "author": "Andy Weir",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1734434586l/222697645._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7715485840?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-12-22",
+      "hasReview": false
+    },
+    {
+      "title": "The Summer I Turned Pretty (Summer, #1)",
+      "author": "Jenny Han",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1661931967l/60911699._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7872187475?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-11-20",
+      "hasReview": false
+    },
+    {
+      "title": "Slewfoot: A Tale of Bewitchery",
+      "author": "Brom",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1636547755l/56179372._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/6769268794?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-11-15",
+      "hasReview": false
+    },
+    {
+      "title": "The Compound",
+      "author": "Aisling Rawle",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1731728601l/218517021._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7842724523?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-10-17",
+      "hasReview": false
+    },
+    {
+      "title": "You, with a View",
+      "author": "Jessica  Joyce",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1677904588l/74896555._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7684306935?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-10-13",
+      "hasReview": false
+    },
+    {
+      "title": "The Wedding People",
+      "author": "Alison Espach",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1759683499l/198902277._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7844713248?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-10-11",
+      "hasReview": false
+    },
+    {
+      "title": "Tower of Dawn (Throne of Glass, #6)",
+      "author": "Sarah J. Maas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1673567264l/76714487._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6327289042?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-10-05",
+      "hasReview": false
+    },
+    {
+      "title": "The Answer Is No",
+      "author": "Fredrik Backman",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1727897163l/219876684._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7951040482?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-10-08",
+      "hasReview": false
+    },
+    {
+      "title": "Empire of Storms (Throne of Glass, #5)",
+      "author": "Sarah J. Maas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1676979605l/76713323._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6327288576?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-10-04",
+      "hasReview": false
+    },
+    {
+      "title": "Evidence of the Affair",
+      "author": "Taylor Jenkins Reid",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1706204682l/41715227._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7951033616?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-09-28",
+      "hasReview": false
+    },
+    {
+      "title": "That's Not My Name",
+      "author": "Megan Lally",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1717940533l/157000021.jpg",
+      "url": "https://www.goodreads.com/review/show/6721550876?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-09-13",
+      "hasReview": false
+    },
+    {
+      "title": "The Perfect Divorce (Perfect, #2)",
+      "author": "Jeneva Rose",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1737698473l/219240806._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7766549307?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-09-10",
+      "hasReview": false
+    },
+    {
+      "title": "None of This Is True",
+      "author": "Lisa Jewell",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1686092508l/62334530._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7840163644?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-09-01",
+      "hasReview": false
+    },
+    {
+      "title": "Only for the Week",
+      "author": "Natasha Bishop",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1683807260l/152387598._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7844775285?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-08-28",
+      "hasReview": false
+    },
+    {
+      "title": "And Then There Were None",
+      "author": "Agatha Christie",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1743016991l/230406172._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7840154819?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-08-22",
+      "hasReview": false
+    },
+    {
+      "title": "The Bluest Eye",
+      "author": "Toni Morrison",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388208495l/11337.jpg",
+      "url": "https://www.goodreads.com/review/show/6343366139?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-08-19",
+      "hasReview": false
+    },
+    {
+      "title": "Butcher & Blackbird (The Ruinous Love Trilogy, #1)",
+      "author": "Brynne Weaver",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1692083376l/196864520._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6558528754?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-08-17",
+      "hasReview": false
+    },
+    {
+      "title": "Saving Noah",
+      "author": "Lucinda Berry",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1627299477l/58635745._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7132460469?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-08-01",
+      "hasReview": false
+    },
+    {
+      "title": "We Have Always Lived in the Castle",
+      "author": "Shirley Jackson",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1618401923l/11161779._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7532138445?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-07-27",
+      "hasReview": false
+    },
+    {
+      "title": "Confessions",
+      "author": "Kanae Minato",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1399056912l/22032851._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7107113986?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-07-24",
+      "hasReview": false
+    },
+    {
+      "title": "The Handmaid's Tale",
+      "author": "Margaret Atwood",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1558090637l/45864574._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7038954635?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-07-20",
+      "hasReview": false
+    },
+    {
+      "title": "Home Is Where the Bodies Are",
+      "author": "Jeneva Rose",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1699642386l/194020321._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6745384510?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-07-05",
+      "hasReview": false
+    },
+    {
+      "title": "Allegedly",
+      "author": "Tiffany D. Jackson",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1476974718l/30037870._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7551064332?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-06-21",
+      "hasReview": false
+    },
+    {
+      "title": "Sometimes I Lie",
+      "author": "Alice Feeney",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1722533444l/36112959._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7107105077?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-06-17",
+      "hasReview": false
+    },
+    {
+      "title": "Listen for the Lie",
+      "author": "Amy Tintera",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1692540057l/150260823.jpg",
+      "url": "https://www.goodreads.com/review/show/7619852253?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-06-05",
+      "hasReview": false
+    },
+    {
+      "title": "Great Big Beautiful Life",
+      "author": "Emily Henry",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729098091l/218559595.jpg",
+      "url": "https://www.goodreads.com/review/show/7115259232?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-05-29",
+      "hasReview": false
+    },
+    {
+      "title": "Queen of Shadows (Throne of Glass, #4)",
+      "author": "Sarah J. Maas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1673566810l/76707900._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6327288386?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-05-21",
+      "hasReview": false
+    },
+    {
+      "title": "Heir of Fire (Throne of Glass, #3)",
+      "author": "Sarah J. Maas",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1673566654l/76706470._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6327287975?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-04-19",
+      "hasReview": false
+    },
+    {
+      "title": "Onyx Storm (The Empyrean, #3)",
+      "author": "Rebecca Yarros",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1720446381l/209668781._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7242714832?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-04-02",
+      "hasReview": false
+    },
+    {
+      "title": "Magnolia Parks: Into the Dark (Magnolia Parks Universe, #5)",
+      "author": "Jessa Hastings",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1695873706l/197054431._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7242713842?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-03-05",
+      "hasReview": false
+    },
+    {
+      "title": "Tender Is the Flesh",
+      "author": "Agustina Bazterrica",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1590696199l/53583568._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6701814512?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-02-19",
+      "hasReview": false
+    },
+    {
+      "title": "We Used to Live Here",
+      "author": "Marcus Kliewer",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1697755708l/199898250._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6722107520?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-02-15",
+      "hasReview": false
+    },
+    {
+      "title": "Daisy Haites: The Great Undoing (Magnolia Parks Universe, #4)",
+      "author": "Jessa Hastings",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1670147466l/63922275._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7242713700?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-02-08",
+      "hasReview": false
+    },
+    {
+      "title": "Magnolia Parks: The Long Way Home (The Magnolia Parks Universe, #3)",
+      "author": "Jessa Hastings",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1685517692l/168437305._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7242713609?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-01-27",
+      "hasReview": false
+    },
+    {
+      "title": "Daisy Haites (The Magnolia Parks Universe Book 2)",
+      "author": "Jessa Hastings",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1685517934l/168437435._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7242714308?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-01-24",
+      "hasReview": false
+    },
+    {
+      "title": "Magnolia Parks (The Magnolia Parks Universe, #1)",
+      "author": "Jessa Hastings",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1685517972l/168437483._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6689823712?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-01-19",
+      "hasReview": false
+    },
+    {
+      "title": "Beach Read",
+      "author": "Emily Henry",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1589881197l/52867387._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6661935645?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-01-12",
+      "hasReview": false
+    },
+    {
+      "title": "The Nightingale",
+      "author": "Kristin Hannah",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1582856853l/51851348._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6598683228?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-01-04",
+      "hasReview": false
+    },
+    {
+      "title": "Farenheit 451",
+      "author": "Ray Bradbury",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1608059811l/56302573.jpg",
+      "url": "https://www.goodreads.com/review/show/6987623892?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-12-26",
+      "hasReview": false
+    },
+    {
+      "title": "The Invisible Life of Addie LaRue",
+      "author": "V.E. Schwab",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1584633432l/50623864.jpg",
+      "url": "https://www.goodreads.com/review/show/6589939371?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-12-24",
+      "hasReview": false
+    },
+    {
+      "title": "The Last One",
+      "author": "Will Dean",
+      "rating": 1,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1667924215l/62976198._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6836206585?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-12-15",
+      "hasReview": false
+    },
+    {
+      "title": "The Assassin's Blade (Throne of Glass, #0.1-0.5)",
+      "author": "Sarah J. Maas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1680869667l/126062562._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6735992261?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-12-10",
+      "hasReview": false
+    },
+    {
+      "title": "The London Séance Society",
+      "author": "Sarah Penner",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1663935844l/61109069.jpg",
+      "url": "https://www.goodreads.com/review/show/7057877868?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-12-06",
+      "hasReview": false
+    },
+    {
+      "title": "The Unhoneymooners (Unhoneymooners, #1)",
+      "author": "Christina Lauren",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1548212726l/43341641._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6762928514?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-12-03",
+      "hasReview": false
+    },
+    {
+      "title": "The Seven Year Slip",
+      "author": "Ashley Poston",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1685111635l/63347619._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6705450913?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-11-28",
+      "hasReview": false
+    },
+    {
+      "title": "Ask for Andrea (Ask for Andrea, #1)",
+      "author": "Noelle W. Ihli",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1726907884l/219407654._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6770673647?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-11-21",
+      "hasReview": false
+    },
+    {
+      "title": "People We Meet on Vacation",
+      "author": "Emily Henry",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1773657247l/55076069._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6726573380?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-11-06",
+      "hasReview": false
+    },
+    {
+      "title": "The Maidens",
+      "author": "Alex Michaelides",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1608558183l/53672372._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6721654801?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-10-27",
+      "hasReview": false
+    },
+    {
+      "title": "The Year of the Witching",
+      "author": "Alexis Henderson",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1576699036l/49214110._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6913125065?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-10-19",
+      "hasReview": false
+    },
+    {
+      "title": "First Lie Wins",
+      "author": "Ashley Elston",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1681257471l/127463547.jpg",
+      "url": "https://www.goodreads.com/review/show/6794583574?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-09-12",
+      "hasReview": false
+    },
+    {
+      "title": "If He Had Been with Me",
+      "author": "Laura Nowlin",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1385560289l/19001904.jpg",
+      "url": "https://www.goodreads.com/review/show/6690787394?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-09-05",
+      "hasReview": false
+    },
+    {
+      "title": "Rock Paper Scissors",
+      "author": "Alice Feeney",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1613018253l/57026221._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6760828355?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-08-30",
+      "hasReview": false
+    },
+    {
+      "title": "Funny Story",
+      "author": "Emily Henry",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1691777485l/194802722._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6427395751?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-08-26",
+      "hasReview": false
+    },
+    {
+      "title": "Remarkably Bright Creatures",
+      "author": "Shelby Van Pelt",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1638033318l/59710157._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6676608120?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-08-22",
+      "hasReview": true
+    },
+    {
+      "title": "The Women",
+      "author": "Kristin Hannah",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1689788623l/126918788._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6585120447?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-08-16",
+      "hasReview": false
+    },
+    {
+      "title": "Crown of Midnight (Throne of Glass, #2)",
+      "author": "Sarah J. Maas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1673566594l/76705490._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6327287647?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-08-06",
+      "hasReview": false
+    },
+    {
+      "title": "It Starts with Us (It Ends with Us, #2)",
+      "author": "Colleen Hoover",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1644606283l/60393265.jpg",
+      "url": "https://www.goodreads.com/review/show/6709588297?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-07-31",
+      "hasReview": false
+    },
+    {
+      "title": "It Ends with Us (It Ends with Us, #1)",
+      "author": "Colleen Hoover",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1716331541l/194576026._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6684342533?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-07-28",
+      "hasReview": false
+    },
+    {
+      "title": "Throne of Glass (Throne of Glass, #1)",
+      "author": "Sarah J. Maas",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1673566495l/76703559._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6327286385?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-07-25",
+      "hasReview": false
+    },
+    {
+      "title": "Iron Flame (The Empyrean, #2)",
+      "author": "Rebecca Yarros",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1706724269l/90202302._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6456714859?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-07-20",
+      "hasReview": false
+    },
+    {
+      "title": "Happy Place",
+      "author": "Emily Henry",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1660144882l/61761938._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6625074205?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-07-11",
+      "hasReview": false
+    },
+    {
+      "title": "Book Lovers",
+      "author": "Emily Henry",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1628185821l/58708383._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6427400068?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-07-06",
+      "hasReview": false
+    },
+    {
+      "title": "Fourth Wing (The Empyrean, #1)",
+      "author": "Rebecca Yarros",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1667572773l/63219094._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6456714763?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-06-28",
+      "hasReview": false
+    },
+    {
+      "title": "Brain Damage",
+      "author": "Freida McFadden",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1462368675l/30108909._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/6550349158?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-06-15",
+      "hasReview": false
+    },
+    {
+      "title": "The Grace Year",
+      "author": "Kim Liggett",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1634393270l/59358823._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6533862387?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-05-31",
+      "hasReview": false
+    },
+    {
+      "title": "Hunting Adeline (Cat and Mouse, #2)",
+      "author": "H.D. Carlton",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1639934603l/59050133._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6500364461?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-05-25",
+      "hasReview": false
+    },
+    {
+      "title": "How to End a Love Story",
+      "author": "Yulin Kuang",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1696260259l/63247365._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6427623472?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-05-19",
+      "hasReview": false
+    },
+    {
+      "title": "Haunting Adeline (Cat and Mouse, #1)",
+      "author": "H.D. Carlton",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1628900532l/58763686._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6487549141?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-05-12",
+      "hasReview": false
+    },
+    {
+      "title": "Don't Let Her Stay",
+      "author": "Nicola Sanders",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1674147285l/80830635._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6470280966?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-05-06",
+      "hasReview": false
+    },
+    {
+      "title": "A Year In Love (A Year in Love #1)",
+      "author": "Liz Gavin",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1686442879l/176206717._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6456182592?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-04-29",
+      "hasReview": false
+    },
+    {
+      "title": "Credence",
+      "author": "Penelope Douglas",
+      "rating": 1,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1579046127l/50483562._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/6434777182?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-04-24",
+      "hasReview": false
+    },
+    {
+      "title": "Do Not Disturb",
+      "author": "Freida McFadden",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1629082970l/58778536._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6334294628?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-04-13",
+      "hasReview": false
+    },
+    {
+      "title": "The Teacher",
+      "author": "Freida McFadden",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1693774318l/198218463._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6313691736?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-04-05",
+      "hasReview": false
+    },
+    {
+      "title": "The Last Olympian (Percy Jackson and the Olympians, #5)",
+      "author": "Rick Riordan",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1723393514l/4556058._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6343347924?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-03-22",
+      "hasReview": false
+    }
+  ],
+  "currentlyReading": [
+    {
+      "title": "Half a Soul (Regency Faerie Tales, #1)",
+      "author": "Olivia Atwater",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1648605334l/60717747._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7132511810?utm_medium=api&utm_source=rss"
+    }
+  ]
+}
