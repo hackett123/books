@@ -1,118 +1,213 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ReviewCard from "../components/ReviewCard.astro";
-import Divider from "../components/Divider.astro";
 import BookCover from "../components/BookCover.astro";
-import { getPublishedReviews, excerpt } from "../lib/reviews";
+import StarRating from "../components/StarRating.astro";
+import { getReadBooks } from "../lib/library";
 import { withBase } from "../lib/url";
-import shelves from "../data/shelves.json";
 
-const reviews = await getPublishedReviews();
-const reading = (shelves.currentlyReading ?? []) as Array<{
-  title: string;
-  author: string;
-  cover?: string;
-  url?: string;
-}>;
+// Homepage = the full library: every read book (reviews + rated-only shelf),
+// newest first.
+const books = await getReadBooks();
+
+// Counts per whole-star bucket. Bucket = number of FULL stars (floor), so a 3.5
+// counts as 3★ (matches the drawn stars). Must match the /stats histogram.
+const starCounts = [5, 4, 3, 2, 1].map((star) => ({
+  star,
+  count: books.filter((b) => Math.floor(b.rating) === star).length,
+}));
 ---
 
-<BaseLayout>
+<BaseLayout description="Everything I've read — the full shelf, rated.">
   <section class="intro measure">
-    <p class="eyebrow">Reading log</p>
-    <h1>Notes from the margins.</h1>
+    <p class="eyebrow">Everything I've read</p>
+    <h1>The Shelf</h1>
     <p class="intro__lede">
-      Reviews, reactions, and the occasional underline. What I read and what
-      I made of it.
+      The whole library. <span class="ink-underline">Underlined titles</span>
+      have a full review; the rest are rated-only (↗ to Goodreads).
     </p>
   </section>
 
   {
-    reading.length > 0 && (
-      <section class="reading measure" aria-label="Currently reading">
-        <p class="eyebrow">Currently reading</p>
-        <ul class="reading__row">
-          {reading.map((b) => (
-            <li class="reading__item">
-              {b.url ? (
-                <a href={b.url} rel="nofollow noopener" target="_blank">
-                  <BookCover cover={b.cover} title={b.title} author={b.author} width={64} />
-                </a>
-              ) : (
-                <BookCover cover={b.cover} title={b.title} author={b.author} width={64} />
-              )}
-            </li>
-          ))}
-        </ul>
-      </section>
-    )
-  }
-
-  <Divider mark="☾" />
-
-  {
-    reviews.length === 0 ? (
-      <div class="empty measure">
-        <p>
-          No reviews yet. Run the Goodreads importer to backfill, or add a
-          Markdown file to <code>src/content/reviews/</code>.
-        </p>
-      </div>
+    books.length === 0 ? (
+      <p class="empty measure">
+        The shelf is empty. Run the Goodreads importer to populate it.
+      </p>
     ) : (
-      <div class="feed measure">
-        {reviews.map((r) => (
-          <ReviewCard
-            href={withBase(`/reviews/${r.id}`)}
-            title={r.data.title}
-            author={r.data.author}
-            rating={r.data.rating}
-            cover={r.data.cover}
-            dateRead={r.data.dateRead}
-            excerpt={excerpt(r.body)}
-          />
-        ))}
-      </div>
+      <>
+        <div class="filter" role="group" aria-label="Filter shelf by rating">
+          <a class="filter__btn" href={withBase("/")} data-filter="all" aria-pressed="true">
+            All <span class="filter__n">{books.length}</span>
+          </a>
+          {starCounts
+            .filter((s) => s.count > 0)
+            .map((s) => (
+              <a
+                class="filter__btn"
+                href={withBase(`/?rating=${s.star}`)}
+                data-filter={s.star}
+                aria-pressed="false"
+              >
+                {s.star}★ <span class="filter__n">{s.count}</span>
+              </a>
+            ))}
+        </div>
+
+        <ul class="grid">
+          {books.map((b) => {
+            const reviewed = !b.external;
+            const linkAttrs = b.external
+              ? { rel: "nofollow noopener", target: "_blank" }
+              : {};
+            return (
+              <li class="grid__item" data-rating={Math.floor(b.rating)}>
+                <a href={b.href} class="grid__cover" {...linkAttrs}>
+                  <BookCover cover={b.cover} title={b.title} author={b.author} width={140} />
+                </a>
+                <div class="grid__meta">
+                  <a
+                    href={b.href}
+                    class:list={["grid__title", { "ink-underline": reviewed }]}
+                    {...linkAttrs}
+                  >
+                    {b.title}
+                    {b.external && <span class="grid__ext" aria-label="rated, not reviewed"> ↗</span>}
+                  </a>
+                  <span class="grid__author">{b.author}</span>
+                  <StarRating rating={b.rating} size="0.85rem" />
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+
+        <p class="filter-empty" hidden>No books with that rating.</p>
+      </>
     )
   }
 </BaseLayout>
 
+<script>
+  const items = [...document.querySelectorAll<HTMLElement>(".grid__item")];
+  const buttons = [...document.querySelectorAll<HTMLElement>(".filter__btn")];
+  const emptyMsg = document.querySelector<HTMLElement>(".filter-empty");
+
+  function apply(value: string | null) {
+    const rating = value && value !== "all" ? Number(value) : null;
+    let shown = 0;
+    for (const li of items) {
+      const ok = rating === null || Number(li.dataset.rating) === rating;
+      li.hidden = !ok;
+      if (ok) shown++;
+    }
+    const active = rating === null ? "all" : String(rating);
+    for (const b of buttons) {
+      b.setAttribute("aria-pressed", String((b.dataset.filter || "all") === active));
+    }
+    if (emptyMsg) emptyMsg.hidden = shown > 0;
+    const url = new URL(location.href);
+    if (rating === null) url.searchParams.delete("rating");
+    else url.searchParams.set("rating", String(rating));
+    history.replaceState(null, "", url);
+  }
+
+  for (const b of buttons) {
+    b.addEventListener("click", (e) => {
+      e.preventDefault();
+      apply(b.dataset.filter ?? "all");
+    });
+  }
+
+  apply(new URLSearchParams(location.search).get("rating"));
+</script>
+
 <style>
   .intro {
+    margin-bottom: var(--space-5);
+  }
+  .filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
     margin-bottom: var(--space-6);
   }
-  .intro h1 {
-    font-size: var(--text-3xl);
-    margin-bottom: var(--space-3);
+  .filter__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35em;
+    font-size: var(--text-sm);
+    color: var(--color-ink);
+    border: var(--hairline);
+    border-radius: 999px;
+    padding: 0.25em 0.8em;
+    transition: all var(--transition);
   }
-  .intro__lede {
-    font-size: var(--text-lg);
-    color: var(--color-muted);
-    max-width: 34rem;
+  .filter__btn:hover {
+    text-decoration: none;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
   }
-  .reading {
-    margin-top: var(--space-5);
+  .filter__btn[aria-pressed="true"] {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-bg);
   }
-  .reading__row {
+  .filter__n {
+    font-size: 0.8em;
+    opacity: 0.75;
+    font-variant-numeric: tabular-nums;
+  }
+  .grid {
     list-style: none;
-    margin: var(--space-2) 0 0;
+    margin: 0;
     padding: 0;
-    display: flex;
-    gap: var(--space-3);
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-6) var(--space-5);
   }
-  .reading__item {
+  .grid__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .grid__item[hidden] {
+    display: none;
+  }
+  .grid__cover {
+    display: block;
     transition: transform var(--transition);
   }
-  .reading__item:hover {
+  .grid__cover:hover {
     transform: translateY(-3px);
   }
-  .feed > :global(article:first-child) {
-    border-top: var(--hairline);
+  .grid__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .grid__title {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+    align-self: start; /* underline hugs the text width, not the column */
+  }
+  .grid__title:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .grid__ext {
+    color: var(--color-muted);
+    font-size: 0.85em;
+  }
+  .grid__author {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+  .filter-empty {
+    color: var(--color-muted);
+    margin-top: var(--space-5);
   }
   .empty {
-    padding: var(--space-6);
-    border: var(--hairline);
-    border-radius: var(--radius-lg);
-    background: var(--color-surface);
     color: var(--color-muted);
   }
 </style>

@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ReviewCard from "../../components/ReviewCard.astro";
+import Divider from "../../components/Divider.astro";
+import BookCover from "../../components/BookCover.astro";
+import { getPublishedReviews, excerpt } from "../../lib/reviews";
+import { withBase } from "../../lib/url";
+import shelves from "../../data/shelves.json";
+
+const reviews = await getPublishedReviews();
+const reading = (shelves.currentlyReading ?? []) as Array<{
+  title: string;
+  author: string;
+  cover?: string;
+  url?: string;
+}>;
+---
+
+<BaseLayout title="Reviews" description="Book reviews and reading notes.">
+  <section class="intro measure">
+    <p class="eyebrow">Reading log</p>
+    <h1>Notes from the margins.</h1>
+    <p class="intro__lede">
+      Reviews, reactions, and the occasional underline. What I read and what
+      I made of it.
+    </p>
+  </section>
+
+  {
+    reading.length > 0 && (
+      <section class="reading measure" aria-label="Currently reading">
+        <p class="eyebrow">Currently reading</p>
+        <ul class="reading__row">
+          {reading.map((b) => (
+            <li class="reading__item">
+              {b.url ? (
+                <a href={b.url} rel="nofollow noopener" target="_blank">
+                  <BookCover cover={b.cover} title={b.title} author={b.author} width={64} />
+                </a>
+              ) : (
+                <BookCover cover={b.cover} title={b.title} author={b.author} width={64} />
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <Divider mark="☾" />
+
+  {
+    reviews.length === 0 ? (
+      <div class="empty measure">
+        <p>
+          No reviews yet. Run the Goodreads importer to backfill, or add a
+          Markdown file to <code>src/content/reviews/</code>.
+        </p>
+      </div>
+    ) : (
+      <div class="feed measure">
+        {reviews.map((r) => (
+          <ReviewCard
+            href={withBase(`/reviews/${r.id}`)}
+            title={r.data.title}
+            author={r.data.author}
+            rating={r.data.rating}
+            cover={r.data.cover}
+            dateRead={r.data.dateRead}
+            excerpt={excerpt(r.body)}
+          />
+        ))}
+      </div>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .intro {
+    margin-bottom: var(--space-6);
+  }
+  .intro h1 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-3);
+  }
+  .intro__lede {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    max-width: 34rem;
+  }
+  .reading {
+    margin-top: var(--space-5);
+  }
+  .reading__row {
+    list-style: none;
+    margin: var(--space-2) 0 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .reading__item {
+    transition: transform var(--transition);
+  }
+  .reading__item:hover {
+    transform: translateY(-3px);
+  }
+  .feed > :global(article:first-child) {
+    border-top: var(--hairline);
+  }
+  .empty {
+    padding: var(--space-6);
+    border: var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    color: var(--color-muted);
+  }
+</style>

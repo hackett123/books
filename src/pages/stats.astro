@@ -49,7 +49,7 @@ if (stats.totalPages > 0)
 
   <section class="measure block">
     <h2>Ratings given</h2>
-    <p class="meta">Click a row to see those books on the <a href={withBase("/shelf")}>shelf</a>.</p>
+    <p class="meta">Click a row to see those books on the <a href={withBase("/")}>shelf</a>.</p>
     <div class="hist">
       {
         stats.ratingHistogram
@@ -60,7 +60,7 @@ if (stats.totalPages > 0)
             const props =
               h.count > 0
                 ? {
-                    href: withBase(`/shelf?rating=${h.rating}`),
+                    href: withBase(`/?rating=${h.rating}`),
                     title: `See the ${h.rating}★ books on the shelf`,
                   }
                 : {};
