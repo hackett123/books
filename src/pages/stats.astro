@@ -4,6 +4,7 @@ import StarRating from "../components/StarRating.astro";
 import Divider from "../components/Divider.astro";
 import Heatmap from "../components/Heatmap.astro";
 import { getStats } from "../lib/stats";
+import { authorSlug } from "../lib/authors";
 import { withBase } from "../lib/url";
 
 const stats = await getStats();
@@ -129,9 +130,12 @@ if (stats.totalPages > 0)
     stats.topAuthors.length > 0 && (
       <section class="measure block">
         <h2>Most-read authors</h2>
+        <p class="meta">
+          Click through, or see <a href={withBase("/authors")}>every author</a>.
+        </p>
         <div class="authors">
           {stats.topAuthors.map((a) => (
-            <div class="author">
+            <a class="author" href={withBase(`/authors/${authorSlug(a.author)}`)}>
               <span class="author__name">{a.author}</span>
               <span class="author__bar">
                 <span
@@ -140,7 +144,7 @@ if (stats.totalPages > 0)
                 />
               </span>
               <span class="author__count">{a.count}</span>
-            </div>
+            </a>
           ))}
         </div>
       </section>
@@ -258,6 +262,16 @@ if (stats.totalPages > 0)
     grid-template-columns: 12em 1fr 2.5em;
     align-items: center;
     gap: var(--space-3);
+    color: inherit;
+  }
+  a.author:hover {
+    text-decoration: none;
+  }
+  a.author:hover .author__name {
+    color: var(--color-accent);
+  }
+  a.author:hover .author__fill {
+    filter: brightness(1.12);
   }
   .author__name {
     font-size: var(--text-sm);

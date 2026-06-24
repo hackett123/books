@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BookCover from "../../components/BookCover.astro";
+import StarRating from "../../components/StarRating.astro";
+import { getAuthors } from "../../lib/authors";
+import { withBase } from "../../lib/url";
+
+export async function getStaticPaths() {
+  const authors = await getAuthors();
+  return authors.map((a) => ({ params: { slug: a.slug }, props: { author: a } }));
+}
+
+const { author } = Astro.props;
+const reviewed = author.reviewedCount;
+
+function shortDate(d: Date | null): string {
+  if (!d) return "";
+  return d.toLocaleDateString("en-US", {
+    timeZone: "UTC",
+    month: "short",
+    year: "numeric",
+  });
+}
+---
+
+<BaseLayout
+  title={author.name}
+  description={`Everything I've read by ${author.name}.`}
+>
+  <section class="measure">
+    <p class="eyebrow"><a href={withBase("/authors")}>Authors</a> ›</p>
+    <h1>{author.name}</h1>
+    <p class="meta">
+      {author.count} {author.count === 1 ? "book" : "books"}
+      {reviewed > 0 && <> · {reviewed} reviewed</>}
+      {author.avgRating > 0 && <> · avg {author.avgRating.toFixed(1)}★</>}
+    </p>
+  </section>
+
+  <ul class="grid">
+    {
+      author.books.map((b) => {
+        const isReviewed = !b.external;
+        const linkAttrs = b.external
+          ? { rel: "nofollow noopener", target: "_blank" }
+          : {};
+        return (
+          <li class="grid__item">
+            <a href={b.href} class="grid__cover" {...linkAttrs}>
+              <BookCover cover={b.cover} title={b.title} author={b.author} width={140} />
+            </a>
+            <div class="grid__meta">
+              <a
+                href={b.href}
+                class:list={["grid__title", { "ink-underline": isReviewed }]}
+                {...linkAttrs}
+              >
+                {b.title}
+                {b.external && (
+                  <span class="grid__ext" aria-label="rated, not reviewed"> ↗</span>
+                )}
+              </a>
+              <span class="grid__line">
+                <StarRating rating={b.rating} size="0.85rem" />
+                {b.dateRead && <span class="grid__date">{shortDate(b.dateRead)}</span>}
+              </span>
+            </div>
+          </li>
+        );
+      })
+    }
+  </ul>
+</BaseLayout>
+
+<style>
+  .grid {
+    list-style: none;
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-6) var(--space-5);
+  }
+  .grid__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .grid__cover {
+    display: block;
+    transition: transform var(--transition);
+  }
+  .grid__cover:hover {
+    transform: translateY(-3px);
+  }
+  .grid__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .grid__title {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+    align-self: start;
+  }
+  .grid__title:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .grid__ext {
+    color: var(--color-muted);
+    font-size: 0.85em;
+  }
+  .grid__line {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  .grid__date {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+</style>

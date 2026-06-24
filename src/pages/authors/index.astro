@@ -1,0 +1,147 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import StarRating from "../../components/StarRating.astro";
+import { getAuthors } from "../../lib/authors";
+import { withBase } from "../../lib/url";
+
+// Authors with more than one read float to the top (most-read first); the long
+// tail of one-book authors follows, alphabetically.
+const authors = await getAuthors();
+const repeat = authors.filter((a) => a.count > 1);
+const once = authors
+  .filter((a) => a.count === 1)
+  .sort((a, b) => a.name.localeCompare(b.name));
+const maxCount = Math.max(1, ...repeat.map((a) => a.count));
+---
+
+<BaseLayout title="Authors" description="Every author I've read, most-read first.">
+  <section class="measure">
+    <p class="eyebrow">By the writer</p>
+    <h1>Authors</h1>
+    <p class="meta">
+      {authors.length} authors across the shelf. The ones you keep coming back to,
+      up top.
+    </p>
+  </section>
+
+  {
+    repeat.length > 0 && (
+      <section class="measure block">
+        <div class="ranked">
+          {repeat.map((a) => (
+            <a class="ranked__row" href={withBase(`/authors/${a.slug}`)}>
+              <span class="ranked__name">{a.name}</span>
+              <span class="ranked__bar">
+                <span
+                  class="ranked__fill"
+                  style={`width:${(a.count / maxCount) * 100}%`}
+                />
+              </span>
+              <span class="ranked__meta">
+                {a.count}
+                {a.avgRating > 0 && (
+                  <span class="ranked__avg">
+                    {" "}
+                    · <StarRating rating={a.avgRating} size="0.7rem" />
+                  </span>
+                )}
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  {
+    once.length > 0 && (
+      <section class="measure block">
+        <h2>One apiece</h2>
+        <ul class="tail">
+          {once.map((a) => (
+            <li>
+              <a href={withBase(`/authors/${a.slug}`)}>{a.name}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .block {
+    margin-top: var(--space-6);
+  }
+  .ranked {
+    display: flex;
+    flex-direction: column;
+  }
+  .ranked__row {
+    display: grid;
+    grid-template-columns: 12em 1fr auto;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-2) 0;
+    border-bottom: var(--hairline);
+    color: var(--color-ink);
+  }
+  .ranked__row:hover {
+    text-decoration: none;
+  }
+  .ranked__row:hover .ranked__name {
+    color: var(--color-accent);
+  }
+  .ranked__name {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .ranked__bar {
+    background: var(--color-faint);
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+  }
+  .ranked__fill {
+    display: block;
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 999px;
+  }
+  .ranked__meta {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    display: inline-flex;
+    align-items: center;
+  }
+  .ranked__avg {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+  }
+
+  .tail {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    column-width: 14em;
+    column-gap: var(--space-6);
+  }
+  .tail li {
+    break-inside: avoid;
+    padding: var(--space-1) 0;
+    font-size: var(--text-sm);
+  }
+
+  @media (max-width: 32rem) {
+    .ranked__row {
+      grid-template-columns: 8em 1fr auto;
+      gap: var(--space-3);
+    }
+  }
+</style>
