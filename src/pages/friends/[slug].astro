@@ -1,0 +1,316 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import StarRating from "../../components/StarRating.astro";
+import BookCover from "../../components/BookCover.astro";
+import Heatmap from "../../components/Heatmap.astro";
+import Divider from "../../components/Divider.astro";
+import { getFriends } from "../../lib/friends";
+import { withBase } from "../../lib/url";
+
+export function getStaticPaths() {
+  return getFriends().map((f) => ({ params: { slug: f.slug }, props: { friend: f } }));
+}
+
+const { friend } = Astro.props;
+const s = friend.stats;
+const maxHist = Math.max(1, ...s.ratingHistogram.map((h) => h.count));
+const maxAuthor = Math.max(1, ...s.topAuthors.map((a) => a.count));
+
+const bigNumbers = [
+  { label: "Books read", value: s.totalRead },
+  { label: "Reviewed", value: s.totalReviewed },
+  { label: "Average rating", value: s.avgRating.toFixed(2) },
+];
+if (s.totalPages > 0)
+  bigNumbers.push({ label: "Pages", value: s.totalPages.toLocaleString() });
+
+// Read books newest-first for the grid.
+const books = friend.read
+  .slice()
+  .sort((a, b) => (b.dateRead?.getTime() ?? 0) - (a.dateRead?.getTime() ?? 0));
+
+function shortDate(d: Date | null): string {
+  if (!d) return "";
+  return d.toLocaleDateString("en-US", { timeZone: "UTC", month: "short", year: "numeric" });
+}
+---
+
+<BaseLayout title={`${friend.name} — Friends`} description={`What ${friend.name} has been reading.`}>
+  <section class="measure">
+    <p class="eyebrow"><a href={withBase("/friends")}>Friends</a> ›</p>
+    <h1>{friend.name}</h1>
+    <p class="meta">
+      <a href={friend.profileUrl} rel="nofollow noopener" target="_blank">Goodreads profile ↗</a>
+      · from their ~{s.totalRead} most recent reads
+    </p>
+  </section>
+
+  <section class="bignums measure">
+    {
+      bigNumbers.map((n) => (
+        <div class="bignum">
+          <span class="bignum__value">{n.value}</span>
+          <span class="bignum__label">{n.label}</span>
+        </div>
+      ))
+    }
+  </section>
+
+  {
+    friend.currentlyReading.length > 0 && (
+      <section class="measure block">
+        <p class="eyebrow">Currently reading</p>
+        <ul class="reading__row">
+          {friend.currentlyReading.map((b) => (
+            <li>
+              {b.url ? (
+                <a href={b.url} rel="nofollow noopener" target="_blank">
+                  <BookCover cover={b.cover} title={b.title} author={b.author} width={60} />
+                </a>
+              ) : (
+                <BookCover cover={b.cover} title={b.title} author={b.author} width={60} />
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <Divider />
+
+  <section class="measure block">
+    <h2>Ratings given</h2>
+    <div class="hist">
+      {
+        s.ratingHistogram
+          .slice()
+          .reverse()
+          .map((h) => (
+            <div class="hist__row">
+              <span class="hist__label">
+                <StarRating rating={h.rating} size="0.8rem" />
+              </span>
+              <span class="hist__bar">
+                <span class="hist__fill" style={`width:${(h.count / maxHist) * 100}%`} />
+              </span>
+              <span class="hist__count">{h.count}</span>
+            </div>
+          ))
+      }
+    </div>
+  </section>
+
+  {
+    s.monthly.length > 0 && (
+      <section class="measure block">
+        <h2>Books by month</h2>
+        <p class="meta">Darker = more books that month.</p>
+        <Heatmap monthly={s.monthly} maxMonth={s.maxMonth} />
+      </section>
+    )
+  }
+
+  {
+    s.topAuthors.length > 0 && (
+      <section class="measure block">
+        <h2>Most-read authors</h2>
+        <div class="authors">
+          {s.topAuthors.map((a) => (
+            <div class="author">
+              <span class="author__name">{a.author}</span>
+              <span class="author__bar">
+                <span class="author__fill" style={`width:${(a.count / maxAuthor) * 100}%`} />
+              </span>
+              <span class="author__count">{a.count}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  <section class="measure block">
+    <h2>Recent reads</h2>
+    <p class="meta">
+      <span class="ink-underline">Underlined</span> = they wrote a review (on
+      Goodreads).
+    </p>
+    <ul class="grid">
+      {
+        books.map((b) => (
+          <li class="grid__item">
+            <a href={b.url ?? "#"} class="grid__cover" rel="nofollow noopener" target="_blank">
+              <BookCover cover={b.cover} title={b.title} author={b.author} width={120} />
+            </a>
+            <div class="grid__meta">
+              <a
+                href={b.url ?? "#"}
+                class:list={["grid__title", { "ink-underline": b.hasReview }]}
+                rel="nofollow noopener"
+                target="_blank"
+              >
+                {b.title}
+              </a>
+              <span class="grid__author">{b.author}</span>
+              <span class="grid__line">
+                <StarRating rating={b.rating} size="0.8rem" />
+                {b.dateRead && <span class="meta grid__date">{shortDate(b.dateRead)}</span>}
+              </span>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .block {
+    margin-top: var(--space-7);
+  }
+  .bignums {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: var(--space-5);
+    margin-top: var(--space-5);
+  }
+  .bignum {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .bignum__value {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    line-height: 1;
+    color: var(--color-night);
+  }
+  .bignum__label {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+  .reading__row {
+    list-style: none;
+    margin: var(--space-2) 0 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .hist {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+  .hist__row {
+    display: grid;
+    grid-template-columns: 5.5em 1fr 2.5em;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .hist__bar,
+  .author__bar {
+    background: var(--color-faint);
+    border-radius: 999px;
+    height: 12px;
+    overflow: hidden;
+  }
+  .hist__fill {
+    display: block;
+    height: 100%;
+    background: var(--color-star);
+    border-radius: 999px;
+  }
+  .hist__count,
+  .author__count {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    text-align: right;
+  }
+
+  .authors {
+    margin-top: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .author {
+    display: grid;
+    grid-template-columns: 12em 1fr 2.5em;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .author__name {
+    font-size: var(--text-sm);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .author__fill {
+    display: block;
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 999px;
+  }
+
+  .grid {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--space-6) var(--space-5);
+  }
+  .grid__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .grid__cover {
+    display: block;
+    transition: transform var(--transition);
+  }
+  .grid__cover:hover {
+    transform: translateY(-3px);
+  }
+  .grid__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .grid__title {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+    align-self: start;
+  }
+  .grid__title:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .grid__author {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+  .grid__line {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+  .grid__date {
+    font-size: var(--text-xs);
+  }
+  @media (max-width: 32rem) {
+    .author {
+      grid-template-columns: 8em 1fr 2em;
+    }
+    .hist__row {
+      grid-template-columns: 5em 1fr 2em;
+    }
+  }
+</style>

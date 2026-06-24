@@ -1,0 +1,151 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BookCover from "../../components/BookCover.astro";
+import Heatmap from "../../components/Heatmap.astro";
+import { getFriends } from "../../lib/friends";
+import { withBase } from "../../lib/url";
+
+const friends = getFriends();
+
+function fmtSynced(iso: string | null): string | undefined {
+  if (!iso) return undefined;
+  return new Date(iso).toLocaleDateString("en-US", {
+    timeZone: "UTC",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+---
+
+<BaseLayout
+  title="Friends"
+  description="What my friends are reading — recent stats, heatmaps, and current reads."
+>
+  <section class="measure">
+    <p class="eyebrow">Reading alongside</p>
+    <h1>Friends</h1>
+    <p class="intro__lede">
+      A peek at what friends are reading, from their public Goodreads shelves.
+      See it laid over my own reading on the
+      <a href={withBase("/timeline")}>timeline</a>.
+    </p>
+  </section>
+
+  {
+    friends.length === 0 ? (
+      <p class="empty measure">
+        No friends yet. Add Goodreads userIds to <code>src/data/friends.json</code>
+        and run <code>npm run sync:friends</code>.
+      </p>
+    ) : (
+      <div class="friends">
+        {friends.map((f) => {
+          const synced = fmtSynced(f.syncedAt);
+          return (
+            <section class="fcard">
+              <header class="fcard__head">
+                <h2 class="fcard__name">
+                  <a href={withBase(`/friends/${f.slug}`)}>{f.name}</a>
+                </h2>
+                <p class="fcard__stats meta">
+                  {f.stats.totalRead} books · avg{" "}
+                  {f.stats.avgRating.toFixed(2)}★ · {f.stats.totalReviewed} reviewed
+                </p>
+              </header>
+
+              <Heatmap monthly={f.stats.monthly} maxMonth={f.stats.maxMonth} />
+
+              {f.currentlyReading.length > 0 && (
+                <div class="fcard__reading">
+                  <p class="eyebrow">Currently reading</p>
+                  <ul class="reading__row">
+                    {f.currentlyReading.map((b) => (
+                      <li>
+                        {b.url ? (
+                          <a href={b.url} rel="nofollow noopener" target="_blank">
+                            <BookCover cover={b.cover} title={b.title} author={b.author} width={52} />
+                          </a>
+                        ) : (
+                          <BookCover cover={b.cover} title={b.title} author={b.author} width={52} />
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              <footer class="fcard__foot meta">
+                <a href={withBase(`/friends/${f.slug}`)}>Full stats →</a>
+                <a href={f.profileUrl} rel="nofollow noopener" target="_blank">
+                  Goodreads ↗
+                </a>
+                {synced && <span>synced {synced}</span>}
+              </footer>
+            </section>
+          );
+        })}
+      </div>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .intro__lede {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    max-width: 34rem;
+    margin-bottom: var(--space-6);
+  }
+  .friends {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+  .fcard {
+    border: var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+  }
+  .fcard__name {
+    font-size: var(--text-xl);
+    margin: 0;
+  }
+  .fcard__name a {
+    color: var(--color-ink);
+  }
+  .fcard__name a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .fcard__stats {
+    margin: 2px 0 0;
+  }
+  .fcard__reading {
+    margin-top: var(--space-5);
+  }
+  .reading__row {
+    list-style: none;
+    margin: var(--space-2) 0 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .fcard__foot {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    margin-top: var(--space-5);
+    padding-top: var(--space-4);
+    border-top: var(--hairline);
+  }
+  .fcard__foot span {
+    margin-left: auto;
+  }
+  .empty {
+    color: var(--color-muted);
+  }
+</style>

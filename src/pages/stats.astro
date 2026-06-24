@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import StarRating from "../components/StarRating.astro";
 import Divider from "../components/Divider.astro";
+import Heatmap from "../components/Heatmap.astro";
 import { getStats } from "../lib/stats";
 import { withBase } from "../lib/url";
 
@@ -9,12 +10,6 @@ const stats = await getStats();
 const maxYear = Math.max(1, ...stats.byYear.map((y) => y.count));
 const maxHist = Math.max(1, ...stats.ratingHistogram.map((h) => h.count));
 const maxAuthor = Math.max(1, ...stats.topAuthors.map((a) => a.count));
-const monthLabels = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
-// Heatmap cell opacity (0 stays blank); scaled against the busiest month.
-function heat(count: number): number {
-  if (count <= 0) return 0;
-  return 0.15 + 0.85 * (count / stats.maxMonth);
-}
 
 const bigNumbers = [
   { label: "Books read", value: stats.totalRead },
@@ -120,30 +115,12 @@ if (stats.totalPages > 0)
           When the reading happens. Darker = more books; click a month to jump
           to it in the <a href={withBase("/timeline")}>timeline</a>.
         </p>
-        <div class="heatmap">
-          <div class="heatmap__head">
-            <span />
-            {monthLabels.map((m) => (
-              <span class="heatmap__mlabel">{m}</span>
-            ))}
-          </div>
-          {stats.monthly.map((row) => (
-            <div class="heatmap__row">
-              <span class="heatmap__year">{row.year}</span>
-              {row.months.map((c, i) => {
-                const label = `${monthLabels[i]} ${row.year}: ${c} ${c === 1 ? "book" : "books"}`;
-                const anchor = withBase(`/timeline#${row.year}-${String(i + 1).padStart(2, "0")}`);
-                return c > 0 ? (
-                  <a class="heatmap__cell heatmap__cell--link" href={anchor} title={`${label} — jump to timeline`} style={`background:rgba(44,43,63,${heat(c)})`}>
-                    <span class="visually-hidden">{label}</span>
-                  </a>
-                ) : (
-                  <span class="heatmap__cell" title={label} style={`background:rgba(44,43,63,${heat(c)})`} />
-                );
-              })}
-            </div>
-          ))}
-        </div>
+        <Heatmap
+          monthly={stats.monthly}
+          maxMonth={stats.maxMonth}
+          hrefFor={(year, m) =>
+            withBase(`/timeline#${year}-${String(m + 1).padStart(2, "0")}`)}
+        />
       </section>
     )
   }
@@ -267,49 +244,6 @@ if (stats.totalPages > 0)
     height: 100%;
     background: var(--color-night);
     border-radius: 999px;
-  }
-
-  /* heatmap */
-  .heatmap {
-    margin-top: var(--space-4);
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    overflow-x: auto;
-  }
-  .heatmap__head,
-  .heatmap__row {
-    display: grid;
-    grid-template-columns: 3em repeat(12, 1fr);
-    gap: 4px;
-    align-items: center;
-    min-width: 24rem;
-  }
-  .heatmap__mlabel {
-    text-align: center;
-    font-size: var(--text-xs);
-    color: var(--color-muted);
-  }
-  .heatmap__year {
-    font-size: var(--text-sm);
-    color: var(--color-muted);
-    font-variant-numeric: tabular-nums;
-  }
-  .heatmap__cell {
-    display: block;
-    aspect-ratio: 1;
-    border-radius: 4px;
-    border: 1px solid var(--color-faint);
-  }
-  .heatmap__cell--link {
-    cursor: pointer;
-    transition: outline-color var(--transition);
-    outline: 2px solid transparent;
-    outline-offset: 1px;
-  }
-  .heatmap__cell--link:hover,
-  .heatmap__cell--link:focus-visible {
-    outline-color: var(--color-accent);
   }
 
   /* authors */

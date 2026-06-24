@@ -1,0 +1,95 @@
+---
+import type { MonthRow } from "../lib/bookstats";
+
+interface Props {
+  monthly: MonthRow[];
+  maxMonth: number;
+  // Optional per-cell link (only applied to months with books). When omitted,
+  // cells are static (hover tooltip only).
+  hrefFor?: (year: number, monthIndex: number) => string | undefined;
+  // Heatmap fill color as "r,g,b" — opacity scales with the count.
+  rgb?: string;
+}
+const { monthly, maxMonth, hrefFor, rgb = "44,43,63" } = Astro.props;
+const monthLabels = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
+
+function heat(count: number): number {
+  if (count <= 0) return 0;
+  return 0.15 + 0.85 * (count / Math.max(1, maxMonth));
+}
+---
+
+<div class="heatmap">
+  <div class="heatmap__head">
+    <span />
+    {monthLabels.map((m) => <span class="heatmap__mlabel">{m}</span>)}
+  </div>
+  {
+    monthly.map((row) => (
+      <div class="heatmap__row">
+        <span class="heatmap__year">{row.year}</span>
+        {row.months.map((c, i) => {
+          const label = `${monthLabels[i]} ${row.year}: ${c} ${c === 1 ? "book" : "books"}`;
+          const href = c > 0 && hrefFor ? hrefFor(row.year, i) : undefined;
+          const bg = `background:rgba(${rgb},${heat(c)})`;
+          return href ? (
+            <a
+              class="heatmap__cell heatmap__cell--link"
+              href={href}
+              title={`${label} — jump to timeline`}
+              style={bg}
+            >
+              <span class="visually-hidden">{label}</span>
+            </a>
+          ) : (
+            <span class="heatmap__cell" title={label} style={bg} />
+          );
+        })}
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .heatmap {
+    margin-top: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow-x: auto;
+  }
+  .heatmap__head,
+  .heatmap__row {
+    display: grid;
+    grid-template-columns: 3em repeat(12, 1fr);
+    gap: 4px;
+    align-items: center;
+    min-width: 22rem;
+  }
+  .heatmap__mlabel {
+    text-align: center;
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+  .heatmap__year {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .heatmap__cell {
+    display: block;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    border: 1px solid var(--color-faint);
+  }
+  .heatmap__cell--link {
+    cursor: pointer;
+    transition: outline-color var(--transition);
+    outline: 2px solid transparent;
+    outline-offset: 1px;
+  }
+  .heatmap__cell--link:hover,
+  .heatmap__cell--link:focus-visible {
+    outline-color: var(--color-accent);
+  }
+</style>

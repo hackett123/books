@@ -2,39 +2,142 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import StarRating from "../components/StarRating.astro";
 import BookCover from "../components/BookCover.astro";
-import { getTimeline } from "../lib/library";
+import { getReadBooks, type ReadEntry } from "../lib/library";
+import { getFriends, type FriendBook } from "../lib/friends";
+import { withBase } from "../lib/url";
 
-const groups = await getTimeline();
+const ownerBooks = await getReadBooks();
+const friends = getFriends();
 
-// Within a month section the side label carries the month, so items show the
-// day only (ordinal-free, tabular).
+// A color per friend for their timeline rows + legend.
+const PALETTE = ["#2f7e7e", "#7a5bb0", "#b0662f", "#3f7d44", "#a23b5e"];
+const friendMeta = friends.map((f, i) => ({
+  slug: f.slug,
+  name: f.name,
+  color: PALETTE[i % PALETTE.length],
+}));
+
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+function keyOf(d: Date | null): string {
+  return d
+    ? `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, "0")}`
+    : "undated";
+}
+
+interface Bucket {
+  key: string;
+  year: number | null; // null = undated
+  monthIndex: number | null;
+  label: string;
+  owner: ReadEntry[];
+  friends: { slug: string; name: string; color: string; book: FriendBook }[];
+  hasOwner: boolean;
+}
+
+const buckets = new Map<string, Bucket>();
+function bucket(d: Date | null): Bucket {
+  const key = keyOf(d);
+  let b = buckets.get(key);
+  if (!b) {
+    b = {
+      key,
+      year: d ? d.getUTCFullYear() : null,
+      monthIndex: d ? d.getUTCMonth() : null,
+      label: d ? MONTHS[d.getUTCMonth()] : "Undated",
+      owner: [],
+      friends: [],
+      hasOwner: false,
+    };
+    buckets.set(key, b);
+  }
+  return b;
+}
+
+for (const e of ownerBooks) {
+  const b = bucket(e.dateRead);
+  b.owner.push(e);
+  b.hasOwner = true;
+}
+for (const meta of friendMeta) {
+  const friend = friends.find((f) => f.slug === meta.slug)!;
+  for (const book of friend.read) {
+    bucket(book.dateRead).friends.push({ ...meta, book });
+  }
+}
+
+// Sort buckets newest-first; undated last. Then group into year sections.
+const ordered = [...buckets.values()].sort((a, b) => {
+  if (a.year === null) return 1;
+  if (b.year === null) return -1;
+  if (a.year !== b.year) return b.year - a.year;
+  return (b.monthIndex ?? 0) - (a.monthIndex ?? 0);
+});
+
+interface YearSection {
+  label: string;
+  months: Bucket[];
+}
+const yearSections: YearSection[] = [];
+for (const b of ordered) {
+  const label = b.year === null ? "Undated" : String(b.year);
+  let sec = yearSections.find((s) => s.label === label);
+  if (!sec) {
+    sec = { label, months: [] };
+    yearSections.push(sec);
+  }
+  sec.months.push(b);
+}
+
 function dayOf(d: Date | null): string {
   return d ? String(d.getUTCDate()) : "";
 }
 ---
 
-<BaseLayout
-  title="Timeline"
-  description="Everything I've read, in order."
->
+<BaseLayout title="Timeline" description="Everything I've read, in order.">
   <section class="measure">
     <p class="eyebrow">In order</p>
     <h1>Reading Timeline</h1>
     <p class="intro__lede">
       Every book, pinned to when I finished it. Newest first.
     </p>
+
+    {
+      friendMeta.length > 0 && (
+        <div class="tl-controls">
+          <label class="tl-toggle">
+            <input type="checkbox" id="show-friends" />
+            <span>Show friends' timelines</span>
+          </label>
+          <ul class="tl-legend">
+            {friendMeta.map((m) => (
+              <li>
+                <span class="tl-legend__dot" style={`background:${m.color}`} />
+                <a href={withBase(`/friends/${m.slug}`)} style={`color:${m.color}`}>{m.name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
   </section>
 
-  <div class="timeline measure">
+  <div class="timeline measure" id="timeline">
     {
-      groups.map((group) => (
+      yearSections.map((sec) => (
         <section class="tl-year">
-          <h2 class="tl-year__label">{group.label}</h2>
-          {group.months.map((month) => (
-            <section class="tl-month" id={month.key}>
+          <h2 class="tl-year__label">{sec.label}</h2>
+          {sec.months.map((month) => (
+            <section
+              class:list={["tl-month", { "tl-month--friends-only": !month.hasOwner }]}
+              id={month.key}
+            >
               <h3 class="tl-month__label">{month.label}</h3>
               <ol class="tl-list">
-                {month.entries.map((e) => {
+                {month.owner.map((e) => {
                   const linkAttrs = e.external
                     ? { rel: "nofollow noopener", target: "_blank" }
                     : {};
@@ -56,6 +159,25 @@ function dayOf(d: Date | null): string {
                     </li>
                   );
                 })}
+
+                {month.friends.map(({ name, color, book }) => (
+                  <li class="tl-item tl-item--friend" style={`--fdot:${color}`}>
+                    <span class="tl-item__date">{dayOf(book.dateRead)}</span>
+                    <span class="tl-item__dot" aria-hidden="true" />
+                    <a href={book.url ?? "#"} class="tl-item__cover" rel="nofollow noopener" target="_blank">
+                      <BookCover cover={book.cover} title={book.title} author={book.author} width={44} />
+                    </a>
+                    <span class="tl-item__body">
+                      <a href={book.url ?? "#"} class="tl-item__title" rel="nofollow noopener" target="_blank">
+                        {book.title}
+                      </a>
+                      <span class="tl-item__author">
+                        {book.author} · <span class="tl-item__who" style={`color:${color}`}>{name}</span>
+                      </span>
+                    </span>
+                    {book.rating > 0 && <StarRating rating={book.rating} size="0.8rem" />}
+                  </li>
+                ))}
               </ol>
             </section>
           ))}
@@ -65,7 +187,66 @@ function dayOf(d: Date | null): string {
   </div>
 </BaseLayout>
 
+<script>
+  const cb = document.getElementById("show-friends") as HTMLInputElement | null;
+  const tl = document.getElementById("timeline");
+  cb?.addEventListener("change", () => {
+    tl?.classList.toggle("show-friends", cb.checked);
+  });
+</script>
+
 <style>
+  .intro__lede {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    max-width: 34rem;
+  }
+  .tl-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3) var(--space-5);
+    margin-top: var(--space-5);
+    padding: var(--space-3) 0;
+    border-top: var(--hairline);
+    border-bottom: var(--hairline);
+  }
+  .tl-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    cursor: pointer;
+  }
+  .tl-toggle input {
+    accent-color: var(--color-accent);
+    width: 1rem;
+    height: 1rem;
+  }
+  .tl-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tl-legend li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: var(--text-sm);
+  }
+  .tl-legend__dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+  }
+  .tl-legend a:hover {
+    text-decoration: underline;
+  }
+
   .timeline {
     margin-top: var(--space-6);
   }
@@ -77,12 +258,18 @@ function dayOf(d: Date | null): string {
     color: var(--color-night);
     margin-bottom: var(--space-3);
   }
-  /* Month sub-section: month label on the left, books on the right. */
   .tl-month {
     display: grid;
     grid-template-columns: 6.5em 1fr;
     gap: var(--space-4);
-    scroll-margin-top: 5rem; /* clear the sticky header on anchor jump */
+    scroll-margin-top: 5rem;
+  }
+  /* Friend-only months stay hidden until the toggle is on. */
+  .tl-month--friends-only {
+    display: none;
+  }
+  .timeline.show-friends .tl-month--friends-only {
+    display: grid;
   }
   .tl-month__label {
     font-size: var(--text-base);
@@ -95,7 +282,6 @@ function dayOf(d: Date | null): string {
     align-self: start;
     height: max-content;
   }
-  /* Brief glow when you jump here from the heatmap. */
   .tl-month:target .tl-month__label {
     color: var(--color-accent);
   }
@@ -124,6 +310,13 @@ function dayOf(d: Date | null): string {
     padding: var(--space-3) 0;
     border-bottom: var(--hairline);
   }
+  /* Friend rows: hidden until the toggle is on. */
+  .tl-item--friend {
+    display: none;
+  }
+  .timeline.show-friends .tl-item--friend {
+    display: grid;
+  }
   .tl-item__date {
     font-size: var(--text-xs);
     color: var(--color-muted);
@@ -138,8 +331,14 @@ function dayOf(d: Date | null): string {
     border: 2px solid var(--color-accent);
     justify-self: center;
   }
+  .tl-item--friend .tl-item__dot {
+    border-color: var(--fdot);
+  }
   .tl-item__cover {
     display: block;
+  }
+  .tl-item--friend .tl-item__cover {
+    opacity: 0.92;
   }
   .tl-item__body {
     display: flex;
@@ -163,6 +362,9 @@ function dayOf(d: Date | null): string {
   .tl-item__author {
     font-size: var(--text-sm);
     color: var(--color-muted);
+  }
+  .tl-item__who {
+    font-weight: var(--weight-medium);
   }
   @media (max-width: 32rem) {
     .tl-month {
