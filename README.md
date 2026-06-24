@@ -28,7 +28,20 @@ Find your Goodreads **userId** — open your profile and copy the number in the 
 { "userId": "12345678" }
 ```
 
-### 3. Install & pull in your books
+### 3. Clear out the original content
+
+The fork ships with my books — wipe them first, **before** importing. (`import`
+is add-only and skips files that already exist, so if we reviewed the same book
+it would keep *mine* and skip *yours* unless you clear first.)
+
+- delete every `.md` file in `src/content/reviews/` (they're all mine; your
+  import adds yours);
+- reset `src/data/overrides.json` to `{ "books": [] }` and
+  `src/data/quotes.json` to `[]` (hand-entered data);
+- reset `src/data/friends.json` to `[]` and delete `src/data/friends/*.json`
+  (or replace with your own friends — see [With friends](#with-friends)).
+
+### 4. Install & pull in your books
 
 ```bash
 source ~/.nvm/nvm.sh        # if Node 20.3+ isn't already on PATH
@@ -40,14 +53,6 @@ npm run sync                # currently-reading + to-read -> shelves.json
 `import` reads the userId from `goodreads.json`. This backfill is a **one-time**
 step — afterwards you only re-run `import` to pull in *new* reviews as you write
 them (see [Writing reviews](#writing-reviews)).
-
-### 4. Clear out the original content
-
-The import only writes *your* books, but the fork ships with mine. Remove them:
-
-- delete any leftover files in `src/content/reviews/` that aren't yours;
-- reset `src/data/overrides.json` to `{ "books": [] }` and
-  `src/data/quotes.json` to `[]` (these hold hand-entered data).
 
 ### 5. Set the URL paths
 
