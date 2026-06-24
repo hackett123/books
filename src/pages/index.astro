@@ -5,10 +5,18 @@ import StarRating from "../components/StarRating.astro";
 import { getReadBooks } from "../lib/library";
 import { authorSlug } from "../lib/authors";
 import { withBase } from "../lib/url";
+import shelves from "../data/shelves.json";
 
 // Homepage = the full library: every read book (reviews + rated-only shelf),
 // newest first.
 const books = await getReadBooks();
+
+const reading = (shelves.currentlyReading ?? []) as Array<{
+  title: string;
+  author: string;
+  cover?: string;
+  url?: string;
+}>;
 
 // Counts per whole-star bucket. Bucket = number of FULL stars (floor), so a 3.5
 // counts as 3★ (matches the drawn stars). Must match the /stats histogram.
@@ -27,6 +35,27 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
       have a full review; the rest are rated-only (↗ to Goodreads).
     </p>
   </section>
+
+  {
+    reading.length > 0 && (
+      <section class="reading measure" aria-label="Currently reading">
+        <p class="eyebrow">Currently reading</p>
+        <ul class="reading__row">
+          {reading.map((b) => (
+            <li class="reading__item">
+              {b.url ? (
+                <a href={b.url} rel="nofollow noopener" target="_blank">
+                  <BookCover cover={b.cover} title={b.title} author={b.author} width={64} />
+                </a>
+              ) : (
+                <BookCover cover={b.cover} title={b.title} author={b.author} width={64} />
+              )}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
 
   {
     books.length === 0 ? (
@@ -126,6 +155,23 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
 <style>
   .intro {
     margin-bottom: var(--space-5);
+  }
+  .reading {
+    margin-bottom: var(--space-6);
+  }
+  .reading__row {
+    list-style: none;
+    margin: var(--space-2) 0 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .reading__item {
+    transition: transform var(--transition);
+  }
+  .reading__item:hover {
+    transform: translateY(-3px);
   }
   .filter {
     display: flex;
