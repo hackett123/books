@@ -9,6 +9,16 @@ import { withBase } from "../lib/url";
 const ownerBooks = await getReadBooks();
 const friends = getFriends();
 
+// Key for "have I read this too?" — match a friend's book against all of my
+// reads (dated or not) by normalized title + author. Strips series suffixes
+// like "(Hierarchy, #1)" so editions still match.
+function matchKey(title: string, author: string): string {
+  const t = title.toLowerCase().replace(/\(.*?\)/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+  const a = (author ?? "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  return `${t}|${a}`;
+}
+const ownerKeys = new Set(ownerBooks.map((e) => matchKey(e.title, e.author)));
+
 // A color + a side (friends flank the central axis) for each friend.
 const PALETTE = ["#2f7e7e", "#7a5bb0", "#b0662f", "#3f7d44", "#a23b5e"];
 const friendMeta = friends.map((f, i) => ({
@@ -135,6 +145,9 @@ function dayOf(d: Date | null): string {
                 </a>
               </li>
             ))}
+            <li class="tl-legend__hint">
+              <span class="tl-legend__both">✓</span> you both read it
+            </li>
           </ul>
         </div>
       )
@@ -158,21 +171,27 @@ function dayOf(d: Date | null): string {
               <div class="tl-row">
                 {/* left flank */}
                 <div class="tl-side tl-side--left">
-                  {month.left.map(({ name, color, book }) => (
-                    <a
-                      class="tl-fcard"
-                      style={`--fc:${color}`}
-                      href={book.url ?? "#"}
-                      rel="nofollow noopener"
-                      target="_blank"
-                    >
-                      <BookCover cover={book.cover} title={book.title} author={book.author} width={34} />
-                      <span class="tl-fcard__txt">
-                        <span class="tl-fcard__title">{book.title}</span>
-                        <span class="tl-fcard__who">{name}</span>
-                      </span>
-                    </a>
-                  ))}
+                  {month.left.map(({ name, color, book }) => {
+                    const shared = ownerKeys.has(matchKey(book.title, book.author));
+                    return (
+                      <a
+                        class:list={["tl-fcard", { "tl-fcard--shared": shared }]}
+                        style={`--fc:${color}`}
+                        href={book.url ?? "#"}
+                        rel="nofollow noopener"
+                        target="_blank"
+                      >
+                        <span class="tl-fcard__cover">
+                          <BookCover cover={book.cover} title={book.title} author={book.author} width={34} />
+                          {shared && <span class="tl-fcard__both" title="You both read this">✓</span>}
+                        </span>
+                        <span class="tl-fcard__txt">
+                          <span class="tl-fcard__title">{book.title}</span>
+                          <span class="tl-fcard__who">{name}</span>
+                        </span>
+                      </a>
+                    );
+                  })}
                 </div>
 
                 {/* central axis = my reads */}
@@ -203,21 +222,27 @@ function dayOf(d: Date | null): string {
 
                 {/* right flank */}
                 <div class="tl-side tl-side--right">
-                  {month.right.map(({ name, color, book }) => (
-                    <a
-                      class="tl-fcard"
-                      style={`--fc:${color}`}
-                      href={book.url ?? "#"}
-                      rel="nofollow noopener"
-                      target="_blank"
-                    >
-                      <BookCover cover={book.cover} title={book.title} author={book.author} width={34} />
-                      <span class="tl-fcard__txt">
-                        <span class="tl-fcard__title">{book.title}</span>
-                        <span class="tl-fcard__who">{name}</span>
-                      </span>
-                    </a>
-                  ))}
+                  {month.right.map(({ name, color, book }) => {
+                    const shared = ownerKeys.has(matchKey(book.title, book.author));
+                    return (
+                      <a
+                        class:list={["tl-fcard", { "tl-fcard--shared": shared }]}
+                        style={`--fc:${color}`}
+                        href={book.url ?? "#"}
+                        rel="nofollow noopener"
+                        target="_blank"
+                      >
+                        <span class="tl-fcard__cover">
+                          <BookCover cover={book.cover} title={book.title} author={book.author} width={34} />
+                          {shared && <span class="tl-fcard__both" title="You both read this">✓</span>}
+                        </span>
+                        <span class="tl-fcard__txt">
+                          <span class="tl-fcard__title">{book.title}</span>
+                          <span class="tl-fcard__who">{name}</span>
+                        </span>
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </section>
@@ -286,6 +311,19 @@ function dayOf(d: Date | null): string {
   }
   .tl-legend a:hover {
     text-decoration: underline;
+  }
+  .tl-legend__hint {
+    color: var(--color-muted);
+  }
+  .tl-legend__both {
+    display: inline-grid;
+    place-items: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-size: 9px;
   }
 
   .timeline {
@@ -420,6 +458,36 @@ function dayOf(d: Date | null): string {
   .tl-fcard__who {
     font-size: 0.68rem;
     color: var(--fc);
+  }
+  .tl-fcard__cover {
+    position: relative;
+    flex: none;
+    display: block;
+  }
+  /* "You both read this" check badge on the cover corner. */
+  .tl-fcard__both {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-size: 9px;
+    line-height: 1;
+    box-shadow: 0 0 0 2px var(--color-bg);
+  }
+  .tl-side--left .tl-fcard__both {
+    right: auto;
+    left: -5px;
+  }
+  /* Shared books read a touch stronger. */
+  .tl-fcard--shared .tl-fcard__title {
+    color: var(--color-ink);
+    font-weight: var(--weight-bold);
   }
 
   /* My reads — the central axis */
