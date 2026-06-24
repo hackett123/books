@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import { getShelf } from "./shelf";
+import { getUnreviewedShelf } from "./library";
 
 // A book counts toward stats if it's a published review OR a shelf entry
 // (rated-but-unreviewed). Both represent books actually read.
@@ -50,7 +50,7 @@ export async function getStats(): Promise<Stats> {
       reviewed: true,
     });
   }
-  for (const s of getShelf()) {
+  for (const s of await getUnreviewedShelf()) {
     books.push({
       rating: s.rating ?? 0,
       dateRead: s.dateRead ? new Date(s.dateRead) : null,

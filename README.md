@@ -97,10 +97,44 @@ back to plain clean, set `--font-display: var(--font-sans)` and remove the
 
 ---
 
-## Writing a new review
+## Writing reviews (the normal workflow)
 
-Create a file in `src/content/reviews/`. The **filename becomes the URL slug**
-(`the-vegetarian.md` → `/reviews/the-vegetarian`). Use lowercase-with-dashes.
+**Goodreads is where you write; this blog mirrors it.** When you finish a book:
+
+1. On **Goodreads**: mark it **Read**, give it a **star rating**, and write your
+   review there.
+2. Locally, pull it in:
+
+   ```bash
+   source ~/.nvm/nvm.sh   # if Node isn't on PATH
+   npm run import         # adds NEW reviews + refreshes the rating-only shelf
+   npm run sync           # refreshes currently-reading / to-read
+   ```
+3. Commit and push. The GitHub Action rebuilds and redeploys.
+
+That's it. `import` is **add-only**: it writes a review file for each newly
+reviewed book and **never overwrites** an existing one, so your local tweaks are
+safe. A book that was rating-only and now has a review automatically moves off
+the shelf into a review on the next import.
+
+### Things to know
+
+- **Editing an old review on Goodreads does _not_ re-sync** (add-only by
+  design). If you revise one, edit its file in `src/content/reviews/` directly —
+  that copy is canonical from then on.
+- **Very long reviews can be truncated** by Goodreads' RSS feed. The importer
+  detects this and flags the file `draft: true` + `needsReviewText: true`; paste
+  the full text in and remove those two lines.
+- **Goodreads-only metadata** (read-dates it's missing, half-star ratings) lives
+  in `src/data/overrides.json` for shelf books, or directly in a review's
+  frontmatter. These survive re-imports. Note: when a rating-only book *becomes*
+  a review, re-import writes a fresh file with Goodreads' integer rating — so
+  re-apply any half-star/date there if you'd set it in overrides.
+
+### Writing a review by hand (optional)
+
+You can also just create `src/content/reviews/<slug>.md` yourself — the filename
+becomes the URL (`the-vegetarian.md` → `/reviews/the-vegetarian`):
 
 ```markdown
 ---
@@ -118,17 +152,12 @@ draft: false                         # optional; true = hide from listings
 ---
 
 Your review goes here, in **Markdown**. Headings, _italics_, lists,
-
-> blockquotes,
-
-and links all work.
+> blockquotes, and links all work.
 ```
 
-All allowed fields (and their types) are defined in `src/content.config.ts`.
-If you add a field that isn't in the schema, the build will tell you.
-
-**Drafts:** set `draft: true` to keep a review out of the homepage/RSS while you
-work on it. You can still preview it directly at its `/reviews/<slug>` URL.
+All allowed fields are defined in `src/content.config.ts`; an unknown field
+fails the build. **Drafts** (`draft: true`) stay out of listings/RSS but are
+previewable at their `/reviews/<slug>` URL.
 
 ---
 

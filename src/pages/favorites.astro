@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import BookCover from "../components/BookCover.astro";
 import StarRating from "../components/StarRating.astro";
 import { getPublishedReviews } from "../lib/reviews";
-import { getShelf } from "../lib/shelf";
+import { getUnreviewedShelf } from "../lib/library";
 import { withBase } from "../lib/url";
 
 // A "shelf of honor": every top-rated book you've read — reviewed or not.
@@ -35,7 +35,7 @@ const reviewedFavs: Fav[] = reviews
     external: false,
   }));
 
-const shelfFavs: Fav[] = getShelf()
+const shelfFavs: Fav[] = (await getUnreviewedShelf())
   .filter((b) => b.rating >= 5)
   .map((b) => ({
     title: b.title,

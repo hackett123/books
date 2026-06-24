@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import { getShelf } from "./shelf";
+import { getShelf, type ShelfBook } from "./shelf";
 import { withBase } from "./url";
 
 export interface ReadEntry {
@@ -12,8 +12,24 @@ export interface ReadEntry {
   external: boolean; // true = links out to Goodreads
 }
 
-// Every book you've read — published reviews + rated-only shelf — as one list,
-// newest first. Used by the timeline.
+function normTitle(t: string): string {
+  return t.toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+// Shelf books that DON'T have a published review, matched by title. This keeps a
+// book from showing twice (once as a review, once as a rating-only shelf entry)
+// once it gains a review on Goodreads. Workflow: write the review on Goodreads,
+// then `npm run import` moves it from shelf.json into a review file — but this is
+// the safety net if the two ever drift (e.g. a hand-written .md). Draft reviews
+// don't count, so a book stays on the shelf until its review is published.
+export async function getUnreviewedShelf(): Promise<ShelfBook[]> {
+  const reviews = await getCollection("reviews", ({ data }) => !data.draft);
+  const reviewed = new Set(reviews.map((r) => normTitle(r.data.title)));
+  return getShelf().filter((b) => !reviewed.has(normTitle(b.title)));
+}
+
+// Every book you've read — published reviews + rating-only shelf — as one list,
+// newest first. Used by the homepage shelf and the timeline.
 export async function getReadBooks(): Promise<ReadEntry[]> {
   const reviews = await getCollection("reviews", ({ data }) => !data.draft);
 
@@ -27,7 +43,7 @@ export async function getReadBooks(): Promise<ReadEntry[]> {
     external: false,
   }));
 
-  const shelf: ReadEntry[] = getShelf().map((b) => ({
+  const shelf: ReadEntry[] = (await getUnreviewedShelf()).map((b) => ({
     title: b.title,
     author: b.author,
     rating: b.rating,
