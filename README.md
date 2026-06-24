@@ -1,25 +1,94 @@
 # Marginalia — a book reviews blog
 
-A personal, static book-reviews blog built with [Astro](https://astro.build).
-Reviews are plain Markdown files you own and edit. The library was backfilled
-once from Goodreads; from here, the blog is the source of truth.
+A personal, static book-reviews blog built with [Astro](https://astro.build),
+backfilled from Goodreads and deployed free on GitHub Pages. Reviews are plain
+Markdown files you own and edit.
 
-> **"Marginalia" is a placeholder name.** Rename it in
-> `src/layouts/BaseLayout.astro` (`siteName` / `tagline`) and
-> `src/pages/rss.xml.js` (the feed `title`/`description`).
+> **Want your own?** Fork it, point it at your Goodreads, deploy — see
+> [Fork & host your own](#fork--host-your-own) below (~5 minutes).
 
 ---
 
-## Quick start
+## Fork & host your own
+
+Your own copy, backfilled from *your* Goodreads, on GitHub Pages.
+
+### 1. Fork the repo
+
+Fork this repo into your GitHub account. The **repo name becomes the URL path**
+(this one is `books`, served at `https://<you>.github.io/books`).
+
+### 2. Point it at your Goodreads
+
+Find your Goodreads **userId** — open your profile and copy the number in the URL
+(`goodreads.com/user/show/`**`12345678`**`-name`). Your profile/shelves must be
+**public**. Put it in `goodreads.json`:
+
+```json
+{ "userId": "12345678" }
+```
+
+### 3. Install & pull in your books
 
 ```bash
-# Node 20.3+ required (this machine has it via nvm — run this first in a new shell):
-source ~/.nvm/nvm.sh
+source ~/.nvm/nvm.sh        # if Node 20.3+ isn't already on PATH
+npm install
+npm run import              # your reviews -> src/content/reviews/ + shelf.json
+npm run sync                # currently-reading + to-read -> shelves.json
+```
 
-npm install      # one-time
-npm run dev      # http://localhost:4321
-npm run build    # production build -> dist/
-npm run preview  # serve the built dist/ to spot-check
+`import` reads the userId from `goodreads.json`. This backfill is a **one-time**
+step — afterwards you only re-run `import` to pull in *new* reviews as you write
+them (see [Writing reviews](#writing-reviews)).
+
+### 4. Clear out the original content
+
+The import only writes *your* books, but the fork ships with mine. Remove them:
+
+- delete any leftover files in `src/content/reviews/` that aren't yours;
+- reset `src/data/overrides.json` to `{ "books": [] }` and
+  `src/data/quotes.json` to `[]` (these hold hand-entered data).
+
+### 5. Set the URL paths
+
+In `astro.config.mjs`:
+
+```js
+site: "https://<your-username>.github.io",
+base: "/<your-repo-name>",   // e.g. "/books"; DELETE this line if the repo is
+                             // named "<your-username>.github.io" (a user site)
+```
+
+`site` + `base` drive every absolute URL (sitemap, RSS) and the `withBase()`
+helper in `src/lib/url.ts`, so internal links work under the `/<repo>` path.
+Always route new internal links through `withBase()` — don't hardcode the base.
+
+### 6. Turn on Pages & push
+
+1. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+2. Push to `main`. The workflow (`.github/workflows/deploy.yml`, using
+   `withastro/action`) builds and publishes automatically. Watch the **Actions**
+   tab; when it's green, your site is live at `https://<you>.github.io/<repo>`.
+
+### 7. Make it yours
+
+- Rename the site in `src/layouts/BaseLayout.astro` (`siteName` / `tagline`) and
+  `src/pages/rss.xml.js`.
+- Edit `src/pages/about.astro` with your bio.
+- Tune the whole look from `src/styles/tokens.css` (see
+  [Where the design lives](#where-the-design-lives)); `/styleguide` previews
+  every token + component.
+
+---
+
+## Local development
+
+```bash
+source ~/.nvm/nvm.sh   # if Node 20.3+ isn't on PATH
+npm install            # one-time
+npm run dev            # http://localhost:4321
+npm run build          # production build -> dist/
+npm run preview        # serve the built dist/ to spot-check
 ```
 
 ---
@@ -28,14 +97,16 @@ npm run preview  # serve the built dist/ to spot-check
 
 ```
 reviewer/
-├─ astro.config.mjs        Site config. Set your real domain in `site:` before deploy.
-├─ netlify.toml            Netlify build settings (build cmd + publish dir).
-├─ goodreads.json          Saved Goodreads userId (used by import + sync).
+├─ astro.config.mjs        Site config: `site` + `base` (URL paths), integrations.
+├─ goodreads.json          Your Goodreads userId (used by import + sync).
 ├─ package.json            Scripts: dev / build / preview / import / sync.
+│
+├─ .github/workflows/
+│  └─ deploy.yml           Builds + deploys to GitHub Pages on every push to main.
 │
 ├─ scripts/
 │  ├─ goodreads-lib.mjs    Shared RSS fetch/parse helpers.
-│  ├─ import-goodreads.mjs One-time review backfill (see "Importing" below).
+│  ├─ import-goodreads.mjs Goodreads review import (backfill + add-new).
 │  └─ sync-shelves.mjs     Re-runnable sync of currently-reading / to-read.
 │
 ├─ public/                 Files served as-is at the site root.
@@ -49,12 +120,16 @@ reviewer/
    ├─ data/
    │  ├─ shelf.json        Rated-but-unreviewed read books -> homepage (generated).
    │  ├─ shelves.json      currently-reading + to-read (generated by `npm run sync`).
-   │  └─ quotes.json       ← Commonplace book entries for /quotes (you edit this).
+   │  ├─ overrides.json    ← Hand corrections/additions for shelf books (you edit).
+   │  └─ quotes.json       ← Commonplace book entries for /quotes (you edit).
    │
    ├─ lib/
    │  ├─ reviews.ts        Helpers: sorting, the homepage EXCERPT length, dates.
+   │  ├─ library.ts        Merged read-books list + timeline grouping + shelf dedup.
+   │  ├─ shelf.ts          Reads shelf.json and applies overrides.json.
    │  ├─ tags.ts           Tag/shelf grouping for /tags.
-   │  └─ stats.ts          Computes everything on /stats.
+   │  ├─ stats.ts          Computes everything on /stats.
+   │  └─ url.ts            `withBase()` — prefixes internal links with `base`.
    │
    ├─ layouts/
    │  └─ BaseLayout.astro  Page shell: <head>, header/nav, footer, site name.
@@ -62,7 +137,7 @@ reviewer/
    ├─ components/
    │  ├─ StarRating.astro  Star rating (supports halves).
    │  ├─ BookCover.astro   Cover image, with a typographic fallback if none.
-   │  ├─ ReviewCard.astro  A single row in the homepage feed.
+   │  ├─ ReviewCard.astro  A single row in the reviews feed.
    │  └─ Divider.astro     Asterism (⁂) section divider — part of the motif.
    │
    ├─ pages/               Each file = a URL (Astro file-based routing).
@@ -97,7 +172,7 @@ back to plain clean, set `--font-display: var(--font-sans)` and remove the
 
 ---
 
-## Writing reviews (the normal workflow)
+## Writing reviews
 
 **Goodreads is where you write; this blog mirrors it.** When you finish a book:
 
@@ -183,32 +258,36 @@ for fine-tuning that specific piece.
 
 ---
 
-## Importing from Goodreads (one-time, already done)
+## Goodreads import & sync — reference
 
-The backfill has already run. You'd only need this again to re-pull or to set up
-a fresh copy.
+Two commands talk to Goodreads. Both read your userId from `goodreads.json`
+(pass a profile URL or numeric id as an argument to override).
 
-```bash
-npm run import -- "https://www.goodreads.com/user/show/<id>-name"
-# or just the numeric id:  npm run import -- 84930813
-```
+### `npm run import`
 
-Options:
-- `--shelf read` (default) — which Goodreads shelf to pull.
-- `--download-covers` — save covers into `public/covers/` instead of hotlinking
-  from Goodreads.
+Pulls your **read** shelf and writes:
 
-What it does:
-- Books **with a written review** → `src/content/reviews/<slug>.md`
-- Books **rated but not reviewed** → entries in `src/data/shelf.json` (the `/shelf` page)
-- Reviews Goodreads truncates are flagged `draft: true` + `needsReviewText: true`.
+- books **with a written review** → `src/content/reviews/<slug>.md`
+- books **rated but not reviewed** → `src/data/shelf.json` (the homepage shelf)
+- reviews Goodreads truncates → flagged `draft: true` + `needsReviewText: true`
 
-**Re-running is safe:** existing review files are never overwritten, so your
-edits survive. `shelf.json` is always regenerated.
+You run it in two moments: once to **backfill** at setup
+([fork step 3](#3-install--pull-in-your-books)), and again whenever you've
+**written new reviews** on Goodreads. It's **add-only** — existing review files
+are never overwritten, so your edits survive; `shelf.json` is regenerated each
+run.
 
-> Note: Goodreads' RSS feed returns the ~100 most-recently-added books per shelf,
-> which is everything for shelves under 100 books. The full review text lives in
-> that feed (the public per-review pages are login-gated).
+Flags: `--shelf read` (which shelf; default `read`), `--download-covers` (save
+covers into `public/covers/` instead of hotlinking from Goodreads).
+
+### `npm run sync`
+
+Refreshes the **currently-reading** and **to-read** shelves into
+`src/data/shelves.json`. Pure data, regenerated each run — safe to run anytime.
+
+> **RSS limits:** Goodreads' feed returns the ~100 most-recently-added books per
+> shelf (everything, under 100) and omits per-book custom shelves. Full review
+> text is in the feed; the public per-review pages are login-gated.
 
 > **Fixing/adding shelf books (`src/data/overrides.json`):** Goodreads often
 > omits read-dates and only allows whole-star ratings, and `npm run import`
@@ -233,94 +312,3 @@ edits survive. `shelf.json` is always regenerated.
 > `/tags` page and footer link appear automatically once any review has them.
 > (If you ever want genre tags backfilled in bulk, the Goodreads CSV export has
 > a "Bookshelves" column we could parse.)
-
----
-
-## Make it yours — fork & host on GitHub Pages
-
-Want your own copy, backfilled from *your* Goodreads, deployed free on GitHub
-Pages? It takes about five minutes.
-
-### 1. Fork the repo
-
-Fork this repo into your own GitHub account. Name the repo whatever you like —
-the name becomes the URL path (this one is `books`, served at
-`https://<you>.github.io/books`).
-
-### 2. Point it at your Goodreads
-
-1. Find your Goodreads **userId** — open your profile and copy the number in the
-   URL (`goodreads.com/user/show/`**`12345678`**`-name`). Your profile/shelves
-   must be **public**.
-2. Put it in `goodreads.json`:
-
-   ```json
-   { "userId": "12345678" }
-   ```
-
-### 3. Pull in your books
-
-```bash
-source ~/.nvm/nvm.sh        # if Node isn't already on PATH
-npm install
-npm run import              # writes reviews -> src/content/reviews/, shelf.json
-npm run sync                # currently-reading + to-read -> shelves.json
-```
-
-Then clear out the original author's content so only yours remains:
-
-- delete the review Markdown files in `src/content/reviews/` that aren't yours
-  (the import only writes *your* reviews, but if you forked with mine present,
-  remove them);
-- `src/data/overrides.json` and `src/data/quotes.json` hold hand-entered data —
-  reset them to `{ "books": [] }` and `[]` respectively.
-
-> Goodreads RSS only carries the ~100 most-recently-added books per shelf (fine
-> under 100) and omits custom shelves — see the notes above.
-
-### 4. Set the URL paths
-
-In `astro.config.mjs`:
-
-```js
-site: "https://<your-username>.github.io",
-base: "/<your-repo-name>",   // e.g. "/books"; remove this line if the repo is
-                             // named "<your-username>.github.io" (a user site)
-```
-
-The `site` + `base` drive every absolute URL (sitemap, RSS) and the `withBase()`
-link helper in `src/lib/url.ts` — so internal links keep working under the
-`/<repo>` path. **Don't hardcode the base into links yourself; always route new
-internal links through `withBase()`.**
-
-### 5. Turn on Pages & push
-
-1. In your repo: **Settings → Pages → Build and deployment → Source: GitHub
-   Actions**.
-2. Push to `main`. The included workflow
-   (`.github/workflows/deploy.yml`, using `withastro/action`) builds and
-   publishes automatically. Watch it under the **Actions** tab; when it's green
-   your site is live at `https://<you>.github.io/<repo>`.
-
-### 6. Make it yours visually
-
-- Rename the site in `src/layouts/BaseLayout.astro` (`siteName` / `tagline`)
-  and `src/pages/rss.xml.js`.
-- Edit `src/pages/about.astro` with your own bio.
-- Tune the whole look from `src/styles/tokens.css` (see "Where the design
-  lives"). The `/styleguide` page previews every token + component.
-
----
-
-## Deploy (Netlify)
-
-Prefer Netlify instead of GitHub Pages? It's already wired up.
-
-1. Set your real domain in `astro.config.mjs` (`site:`) so RSS/sitemap URLs are
-   absolute, and **remove the `base` line** (Netlify serves at the domain root,
-   not a `/repo` subpath).
-2. Either connect the repo to Netlify (it reads `netlify.toml`) or run:
-
-   ```bash
-   npx netlify deploy --prod
-   ```
