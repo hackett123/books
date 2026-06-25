@@ -18,6 +18,7 @@
   --color-accent-soft: #f0e3df;
   --color-star: #c2873b;      /* rating stars (warm gold) */
   --color-night: #2c2b3f;     /* inky indigo — the "nocturne" motif accent */
+  --heatmap-rgb: 44, 43, 63;  /* heatmap fill (= --color-night), opacity = heat */
 
   /* ---- Typography ----------------------------------------------------- */
   /* Sans for body/UI; serif "display" for headings & titles (literary feel).
@@ -75,16 +76,31 @@
   --transition: 160ms ease;
 }
 
-/* Optional dark mode starting point — uncomment / tune later if wanted.
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #161412;
-    --color-surface: #1f1c19;
-    --color-ink: #ece7df;
-    --color-muted: #a59f95;
-    --color-faint: #34302b;
-    --color-accent: #d9745f;
-    --color-accent-soft: #2a201d;
-  }
+/* ---- Dark mode -------------------------------------------------------- *
+ * Activated by [data-theme="dark"] on <html> (set by the moon toggle in the
+ * header, persisted to localStorage; an inline script in BaseLayout applies it
+ * before paint to avoid a flash). The same palette knobs as :root, retuned for
+ * a dim, warm "nocturne" night. */
+:root[data-theme="dark"] {
+  --color-bg: #161412;        /* near-black, warm */
+  --color-surface: #1f1c19;   /* cards / raised areas */
+  --color-ink: #ece7df;       /* primary text */
+  --color-muted: #a59f95;     /* secondary text, metadata */
+  --color-faint: #34302b;     /* hairlines, borders */
+  --color-accent: #d9745f;    /* oxblood, lightened for contrast on dark */
+  --color-accent-soft: #2a201d;
+  --color-star: #d6a356;      /* warm gold, brightened */
+  --color-night: #c9c7e0;     /* indigo motif, lightened to read on dark */
+  /* Heatmap fill: a lightened lavender so low-count months still glow on the
+     near-black ground (a dark indigo fill would vanish into the bg). */
+  --heatmap-rgb: 201, 199, 224;
+
+  /* Re-stroke the hand-drawn underline in the lightened accent (%23d9745f). */
+  --ink-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5 C 20 2, 40 7, 60 4 S 100 2, 119 5' fill='none' stroke='%23d9745f' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  /* Shadows need more presence on a dark ground. */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.5);
+
+  color-scheme: dark;
 }
-*/

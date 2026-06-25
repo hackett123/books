@@ -7,10 +7,16 @@ interface Props {
   // Optional per-cell link (only applied to months with books). When omitted,
   // cells are static (hover tooltip only).
   hrefFor?: (year: number, monthIndex: number) => string | undefined;
-  // Heatmap fill color as "r,g,b" — opacity scales with the count.
+  // Heatmap fill color as "r,g,b" — opacity scales with the count. Defaults to
+  // the theme-aware --heatmap-rgb token (retuned for dark mode in tokens.css).
   rgb?: string;
 }
-const { monthly, maxMonth, hrefFor, rgb = "44,43,63" } = Astro.props;
+const {
+  monthly,
+  maxMonth,
+  hrefFor,
+  rgb = "var(--heatmap-rgb)",
+} = Astro.props;
 const monthLabels = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
 
 function heat(count: number): number {

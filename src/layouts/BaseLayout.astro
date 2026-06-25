@@ -55,14 +55,39 @@ const path = stripBase(Astro.url.pathname);
       href={withBase("/rss.xml")}
     />
     <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+    {/* Apply the saved/preferred theme before first paint to avoid a flash. */}
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem("theme");
+          const dark =
+            stored === "dark" ||
+            (stored === null &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          if (dark) document.documentElement.dataset.theme = "dark";
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <header class="site-header">
       <div class="container site-header__inner">
-        <a href={withBase("/")} class="brand">
-          <span class="brand__mark" aria-hidden="true">☾</span>
-          <span class="brand__name">{siteName}</span>
-        </a>
+        <div class="brand-group">
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+            title="Toggle dark mode"
+          >
+            <span class="theme-toggle__moon" aria-hidden="true">☾</span>
+            <span class="theme-toggle__sun" aria-hidden="true">☀</span>
+          </button>
+          <a href={withBase("/")} class="brand">
+            <span class="brand__name">{siteName}</span>
+          </a>
+        </div>
         <button
           class="nav-toggle"
           id="nav-toggle"
@@ -134,10 +159,14 @@ const path = stripBase(Astro.url.pathname);
         gap: var(--space-5);
         padding-block: var(--space-4);
       }
-      .brand {
+      .brand-group {
         display: inline-flex;
         align-items: baseline;
         gap: 0.45rem;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: baseline;
         color: var(--color-ink);
         font-weight: var(--weight-bold);
         font-size: var(--text-lg);
@@ -149,11 +178,40 @@ const path = stripBase(Astro.url.pathname);
       .brand__name {
         font-family: var(--font-display);
       }
-      .brand__mark {
+
+      /* The crescent moon doubles as the dark-mode toggle; it swaps to a sun
+         once dark is active. */
+      .theme-toggle {
+        display: inline-flex;
+        align-items: baseline;
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
         color: var(--color-accent);
         font-family: var(--font-serif);
-        font-size: 1.15em;
+        font-size: calc(var(--text-lg) * 1.15);
+        line-height: 1;
         transform: translateY(0.02em);
+        transition: color var(--transition), transform var(--transition);
+      }
+      .theme-toggle:hover {
+        transform: translateY(0.02em) rotate(-12deg);
+      }
+      .theme-toggle:focus-visible {
+        outline: 2px solid var(--color-accent);
+        outline-offset: 3px;
+        border-radius: var(--radius);
+      }
+      .theme-toggle__sun {
+        display: none;
+      }
+      :root[data-theme="dark"] .theme-toggle__moon {
+        display: none;
+      }
+      :root[data-theme="dark"] .theme-toggle__sun {
+        display: inline;
+        color: var(--color-star);
       }
       nav ul {
         list-style: none;
@@ -281,6 +339,29 @@ const path = stripBase(Astro.url.pathname);
     </style>
 
     <script>
+      // Dark-mode toggle — the moon in the header. The pre-paint inline script
+      // in <head> has already applied the stored/preferred theme; here we just
+      // flip it and persist the explicit choice.
+      const themeToggle = document.getElementById("theme-toggle");
+      if (themeToggle) {
+        const root = document.documentElement;
+        const sync = () =>
+          themeToggle.setAttribute(
+            "aria-pressed",
+            String(root.dataset.theme === "dark")
+          );
+        sync();
+        themeToggle.addEventListener("click", () => {
+          const dark = root.dataset.theme === "dark";
+          if (dark) delete root.dataset.theme;
+          else root.dataset.theme = "dark";
+          try {
+            localStorage.setItem("theme", dark ? "light" : "dark");
+          } catch (e) {}
+          sync();
+        });
+      }
+
       const toggle = document.getElementById("nav-toggle");
       const header = toggle?.closest(".site-header") as HTMLElement | null;
       if (toggle && header) {
