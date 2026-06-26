@@ -3,7 +3,7 @@
   "slug": "michelle",
   "userId": "44710141",
   "profileUrl": "https://www.goodreads.com/user/show/44710141",
-  "syncedAt": "2026-06-25T02:07:48.885Z",
+  "syncedAt": "2026-06-26T03:46:32.045Z",
   "read": [
     {
       "title": "The Unmaking of June Farrow",
@@ -21,15 +21,6 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1742998309l/220259184._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8668196832?utm_medium=api&utm_source=rss",
       "dateRead": "2026-06-07",
-      "hasReview": true
-    },
-    {
-      "title": "Blood Over Bright Haven",
-      "author": "M.L. Wang",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1717354584l/208430658._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/7660698923?utm_medium=api&utm_source=rss",
-      "dateRead": "2026-02-02",
       "hasReview": true
     },
     {
@@ -96,6 +87,15 @@
       "hasReview": true
     },
     {
+      "title": "Blood Over Bright Haven",
+      "author": "M.L. Wang",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1717354584l/208430658._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7660698923?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-02-02",
+      "hasReview": true
+    },
+    {
       "title": "The Tainted Cup (Shadow of the Leviathan, #1)",
       "author": "Robert Jackson Bennett",
       "rating": 4,
@@ -150,15 +150,6 @@
       "hasReview": false
     },
     {
-      "title": "First They Killed My Father: A Daughter of Cambodia Remembers",
-      "author": "Loung Ung",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1407105580l/4373.jpg",
-      "url": "https://www.goodreads.com/review/show/8020579970?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
       "title": "A Sky Beyond the Storm (An Ember in the Ashes, #4)",
       "author": "Sabaa Tahir",
       "rating": 3,
@@ -177,30 +168,12 @@
       "hasReview": false
     },
     {
-      "title": "The Secret History",
-      "author": "Donna Tartt",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1751820530l/29044._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/7966687780?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
       "title": "A Torch Against the Night (An Ember in the Ashes, #2)",
       "author": "Sabaa Tahir",
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1715196109l/213075405._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/7957276982?utm_medium=api&utm_source=rss",
       "dateRead": "2025-09-25",
-      "hasReview": false
-    },
-    {
-      "title": "An Ember in the Ashes (An Ember in the Ashes, #1)",
-      "author": "Sabaa Tahir",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1715196282l/213075476._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/7934006877?utm_medium=api&utm_source=rss",
-      "dateRead": "2025-09-22",
       "hasReview": false
     },
     {
@@ -213,30 +186,21 @@
       "hasReview": false
     },
     {
+      "title": "An Ember in the Ashes (An Ember in the Ashes, #1)",
+      "author": "Sabaa Tahir",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1715196282l/213075476._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7934006877?utm_medium=api&utm_source=rss",
+      "dateRead": "2025-09-22",
+      "hasReview": false
+    },
+    {
       "title": "Six of Crows (Six of Crows, #1)",
       "author": "Leigh Bardugo",
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1651710803l/23437156.jpg",
       "url": "https://www.goodreads.com/review/show/7957273408?utm_medium=api&utm_source=rss",
       "dateRead": "2025-09-13",
-      "hasReview": false
-    },
-    {
-      "title": "Sunrise on the Reaping (The Hunger Games, #0.5)",
-      "author": "Suzanne Collins",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729085500l/214331246._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/7855821504?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Emily Wilde's Encyclopaedia of Faeries (Emily Wilde, #1)",
-      "author": "Heather Fawcett",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1651622856l/60657589.jpg",
-      "url": "https://www.goodreads.com/review/show/7786226788?utm_medium=api&utm_source=rss",
-      "dateRead": null,
       "hasReview": false
     },
     {
@@ -294,31 +258,13 @@
       "hasReview": false
     },
     {
-      "title": "Betty",
-      "author": "Tiffany   McDaniel",
+      "title": "Dark Matter",
+      "author": "Blake Crouch",
       "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1572992238l/48564330.jpg",
-      "url": "https://www.goodreads.com/review/show/6031277079?utm_medium=api&utm_source=rss",
-      "dateRead": "2024-10-24",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1472119680l/27833670._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6923372461?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-11-07",
       "hasReview": true
-    },
-    {
-      "title": "The Sword of Kaigen",
-      "author": "M.L. Wang",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1702907961l/41886271._SX318_.jpg",
-      "url": "https://www.goodreads.com/review/show/6739856668?utm_medium=api&utm_source=rss",
-      "dateRead": "2024-05-01",
-      "hasReview": false
-    },
-    {
-      "title": "The Empire of Gold (The Daevabad Trilogy, #3)",
-      "author": "S.A. Chakraborty",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1572578104l/52166786.jpg",
-      "url": "https://www.goodreads.com/review/show/6785977372?utm_medium=api&utm_source=rss",
-      "dateRead": "2024-05-07",
-      "hasReview": false
     },
     {
       "title": "People We Meet on Vacation",
@@ -330,12 +276,21 @@
       "hasReview": false
     },
     {
-      "title": "Dark Matter",
-      "author": "Blake Crouch",
+      "title": "The Grace Year",
+      "author": "Kim Liggett",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1548518877l/43263520._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6541215427?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-10-27",
+      "hasReview": true
+    },
+    {
+      "title": "Betty",
+      "author": "Tiffany   McDaniel",
       "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1472119680l/27833670._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/6923372461?utm_medium=api&utm_source=rss",
-      "dateRead": "2024-11-07",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1572992238l/48564330.jpg",
+      "url": "https://www.goodreads.com/review/show/6031277079?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-10-24",
       "hasReview": true
     },
     {
@@ -348,39 +303,12 @@
       "hasReview": true
     },
     {
-      "title": "The Grace Year",
-      "author": "Kim Liggett",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1548518877l/43263520._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/6541215427?utm_medium=api&utm_source=rss",
-      "dateRead": "2024-10-27",
-      "hasReview": true
-    },
-    {
-      "title": "A Memory Called Empire (Teixcalaan, #1)",
-      "author": "Arkady Martine",
-      "rating": 2,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1526486698l/37794149._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/6816970370?utm_medium=api&utm_source=rss",
-      "dateRead": "2024-01-01",
-      "hasReview": false
-    },
-    {
       "title": "Jade City (The Green Bone Saga, #1)",
       "author": "Fonda Lee",
       "rating": 3,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1547625704l/43587154._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/6923353338?utm_medium=api&utm_source=rss",
       "dateRead": "2024-10-12",
-      "hasReview": true
-    },
-    {
-      "title": "Happy Place",
-      "author": "Emily Henry",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1660145160l/61718053.jpg",
-      "url": "https://www.goodreads.com/review/show/6421331152?utm_medium=api&utm_source=rss",
-      "dateRead": "2024-04-11",
       "hasReview": true
     },
     {
@@ -411,12 +339,12 @@
       "hasReview": false
     },
     {
-      "title": "Beach Read",
-      "author": "Emily Henry",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1589881197l/52867387._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/4334543732?utm_medium=api&utm_source=rss",
-      "dateRead": "2024-01-01",
+      "title": "The Shining (The Shining, #1)",
+      "author": "Stephen  King",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1353277730l/11588.jpg",
+      "url": "https://www.goodreads.com/review/show/6540479828?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-05-28",
       "hasReview": false
     },
     {
@@ -429,12 +357,21 @@
       "hasReview": false
     },
     {
-      "title": "The Shining (The Shining, #1)",
-      "author": "Stephen  King",
+      "title": "The Empire of Gold (The Daevabad Trilogy, #3)",
+      "author": "S.A. Chakraborty",
       "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1353277730l/11588.jpg",
-      "url": "https://www.goodreads.com/review/show/6540479828?utm_medium=api&utm_source=rss",
-      "dateRead": "2024-05-28",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1572578104l/52166786.jpg",
+      "url": "https://www.goodreads.com/review/show/6785977372?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-05-07",
+      "hasReview": false
+    },
+    {
+      "title": "The Sword of Kaigen",
+      "author": "M.L. Wang",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1702907961l/41886271._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/6739856668?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-05-01",
       "hasReview": false
     },
     {
@@ -453,6 +390,15 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1646821613l/57145833._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/6451271378?utm_medium=api&utm_source=rss",
       "dateRead": "2024-04-23",
+      "hasReview": true
+    },
+    {
+      "title": "Happy Place",
+      "author": "Emily Henry",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1660145160l/61718053.jpg",
+      "url": "https://www.goodreads.com/review/show/6421331152?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-04-11",
       "hasReview": true
     },
     {
@@ -492,15 +438,6 @@
       "hasReview": true
     },
     {
-      "title": "The Battle of the Labyrinth (Percy Jackson and the Olympians, #4)",
-      "author": "Rick Riordan",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1355333381l/8130423.jpg",
-      "url": "https://www.goodreads.com/review/show/6355060703?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
       "title": "A Court of Mist and Fury (A Court of Thorns and Roses, #2)",
       "author": "Sarah J. Maas",
       "rating": 4,
@@ -517,60 +454,6 @@
       "url": "https://www.goodreads.com/review/show/6291849665?utm_medium=api&utm_source=rss",
       "dateRead": "2024-02-24",
       "hasReview": true
-    },
-    {
-      "title": "Room",
-      "author": "Emma Donoghue",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1472239721l/31685789._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/6281425223?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Sympathizer (The Sympathizer, #1)",
-      "author": "Viet Thanh Nguyen",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718982183l/23168277._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/6277257277?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Wicked King (The Folk of the Air, #2)",
-      "author": "Holly Black",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1520620414l/26032887._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/5974585715?utm_medium=api&utm_source=rss",
-      "dateRead": "2023-08-14",
-      "hasReview": false
-    },
-    {
-      "title": "Cinder (The Lunar Chronicles, #1)",
-      "author": "Marissa Meyer",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1507557775l/36381037.jpg",
-      "url": "https://www.goodreads.com/review/show/6246723967?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Girl on the Train",
-      "author": "Paula Hawkins",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1748242265l/22557272._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/6246711867?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Sharp Objects",
-      "author": "Gillian Flynn",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1475695315l/18045891.jpg",
-      "url": "https://www.goodreads.com/review/show/6246711205?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
     },
     {
       "title": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI",
@@ -618,21 +501,21 @@
       "hasReview": false
     },
     {
-      "title": "Bel Canto",
-      "author": "Ann Patchett",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1352997328l/5826.jpg",
-      "url": "https://www.goodreads.com/review/show/6135282291?utm_medium=api&utm_source=rss",
-      "dateRead": null,
+      "title": "A Memory Called Empire (Teixcalaan, #1)",
+      "author": "Arkady Martine",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1526486698l/37794149._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6816970370?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-01-01",
       "hasReview": false
     },
     {
-      "title": "The Summer I Turned Pretty (Summer, #1)",
-      "author": "Jenny Han",
-      "rating": 1,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361666855l/5821978.jpg",
-      "url": "https://www.goodreads.com/review/show/6081243972?utm_medium=api&utm_source=rss",
-      "dateRead": null,
+      "title": "Beach Read",
+      "author": "Emily Henry",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1589881197l/52867387._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/4334543732?utm_medium=api&utm_source=rss",
+      "dateRead": "2024-01-01",
       "hasReview": false
     },
     {
@@ -645,31 +528,31 @@
       "hasReview": true
     },
     {
-      "title": "New Teeth: Stories",
-      "author": "Simon Rich",
-      "rating": 0,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1621245064l/55867892.jpg",
-      "url": "https://www.goodreads.com/review/show/4334544043?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
+      "title": "Piranesi",
+      "author": "Susanna Clarke",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1773750050l/50202953._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/5974579091?utm_medium=api&utm_source=rss",
+      "dateRead": "2023-10-14",
+      "hasReview": true
     },
     {
-      "title": "The Year of Magical Thinking",
-      "author": "Joan Didion",
+      "title": "The Cruel Prince (The Folk of the Air, #1)",
+      "author": "Holly Black",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1574535986l/26032825._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/5974583620?utm_medium=api&utm_source=rss",
+      "dateRead": "2023-09-14",
+      "hasReview": true
+    },
+    {
+      "title": "A River Enchanted (Elements of Cadence, #1)",
+      "author": "Rebecca   Ross",
       "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1703310133l/7815._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/5628422217?utm_medium=api&utm_source=rss",
-      "dateRead": "2023-05-15",
-      "hasReview": true
-    },
-    {
-      "title": "Earthlings",
-      "author": "Sayaka Murata",
-      "rating": 2,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1580144195l/50269327._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/6049422991?utm_medium=api&utm_source=rss",
-      "dateRead": "2023-07-14",
-      "hasReview": true
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1628605286l/58132544.jpg",
+      "url": "https://www.goodreads.com/review/show/5796012871?utm_medium=api&utm_source=rss",
+      "dateRead": "2023-08-26",
+      "hasReview": false
     },
     {
       "title": "The Ballad of Songbirds and Snakes (The Hunger Games, #0)",
@@ -681,33 +564,6 @@
       "hasReview": false
     },
     {
-      "title": "The Bell Jar",
-      "author": "Sylvia Plath",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1554582218l/6514._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/6049419970?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Yellowface",
-      "author": "R.F. Kuang",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1687082673l/59357120._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/5768332559?utm_medium=api&utm_source=rss",
-      "dateRead": "2023-07-14",
-      "hasReview": true
-    },
-    {
-      "title": "Piranesi",
-      "author": "Susanna Clarke",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1773750050l/50202953._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/5974579091?utm_medium=api&utm_source=rss",
-      "dateRead": "2023-10-14",
-      "hasReview": true
-    },
-    {
       "title": "The Queen of Nothing (The Folk of the Air, #3)",
       "author": "Holly Black",
       "rating": 4,
@@ -717,12 +573,30 @@
       "hasReview": false
     },
     {
-      "title": "The Cruel Prince (The Folk of the Air, #1)",
+      "title": "The Wicked King (The Folk of the Air, #2)",
       "author": "Holly Black",
       "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1574535986l/26032825._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/5974583620?utm_medium=api&utm_source=rss",
-      "dateRead": "2023-09-14",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1520620414l/26032887._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/5974585715?utm_medium=api&utm_source=rss",
+      "dateRead": "2023-08-14",
+      "hasReview": false
+    },
+    {
+      "title": "Earthlings",
+      "author": "Sayaka Murata",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1580144195l/50269327._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6049422991?utm_medium=api&utm_source=rss",
+      "dateRead": "2023-07-14",
+      "hasReview": true
+    },
+    {
+      "title": "Yellowface",
+      "author": "R.F. Kuang",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1687082673l/59357120._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/5768332559?utm_medium=api&utm_source=rss",
+      "dateRead": "2023-07-14",
       "hasReview": true
     },
     {
@@ -735,24 +609,6 @@
       "hasReview": false
     },
     {
-      "title": "Patient Zero (Joe Ledger, #1)",
-      "author": "Jonathan Maberry",
-      "rating": 1,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1439953244l/3993839._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/5897467125?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Homegoing",
-      "author": "Yaa Gyasi",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1448108591l/27071490.jpg",
-      "url": "https://www.goodreads.com/review/show/5859894007?utm_medium=api&utm_source=rss",
-      "dateRead": "2023-05-14",
-      "hasReview": false
-    },
-    {
       "title": "Kaikeyi",
       "author": "Vaishnavi Patel",
       "rating": 5,
@@ -762,156 +618,21 @@
       "hasReview": false
     },
     {
-      "title": "The Southern Book Club's Guide to Slaying Vampires",
-      "author": "Grady Hendrix",
-      "rating": 2,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1606111753l/55687716.jpg",
-      "url": "https://www.goodreads.com/review/show/4334544016?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Clap When You Land",
-      "author": "Elizabeth Acevedo",
+      "title": "The Year of Magical Thinking",
+      "author": "Joan Didion",
       "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1570558443l/52516332._SX318_SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/5821957295?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1703310133l/7815._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/5628422217?utm_medium=api&utm_source=rss",
+      "dateRead": "2023-05-15",
+      "hasReview": true
     },
     {
-      "title": "A River Enchanted (Elements of Cadence, #1)",
-      "author": "Rebecca   Ross",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1628605286l/58132544.jpg",
-      "url": "https://www.goodreads.com/review/show/5796012871?utm_medium=api&utm_source=rss",
-      "dateRead": "2023-08-26",
-      "hasReview": false
-    },
-    {
-      "title": "A Fire Endless (Elements of Cadence, #2)",
-      "author": "Rebecca   Ross",
-      "rating": 3,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1665235394l/54326657._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/5821758763?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The 7½ Deaths of Evelyn Hardcastle",
-      "author": "Stuart Turton",
-      "rating": 3,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1506896221l/36337550.jpg",
-      "url": "https://www.goodreads.com/review/show/4430737843?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Seven Husbands of Evelyn Hugo",
-      "author": "Taylor Jenkins Reid",
-      "rating": 3,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1664458703l/32620332._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/4430732821?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Song of Achilles",
-      "author": "Madeline Miller",
+      "title": "Homegoing",
+      "author": "Yaa Gyasi",
       "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1331154660l/11250317.jpg",
-      "url": "https://www.goodreads.com/review/show/5093246783?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "It Ends with Us (It Ends with Us, #1)",
-      "author": "Colleen Hoover",
-      "rating": 1,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1688011813l/27362503._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/5796011345?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Where the Crawdads Sing",
-      "author": "Delia Owens",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1614084029l/57169243.jpg",
-      "url": "https://www.goodreads.com/review/show/4334544145?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Lessons in Chemistry",
-      "author": "Bonnie Garmus",
-      "rating": 2,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1634748496l/58065033._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/5796014797?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Verity",
-      "author": "Colleen Hoover",
-      "rating": 2,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1634158558l/59344312._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/4430752087?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Why Fish Don’t Exist: A Story of Loss, Love, and the Hidden Order of Life",
-      "author": "Lulu Miller",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1565526670l/50887097.jpg",
-      "url": "https://www.goodreads.com/review/show/5772725626?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Project Hail Mary",
-      "author": "Andy Weir",
-      "rating": 3,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1764703833l/54493401._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/5751318507?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Trick Mirror: Reflections on Self-Delusion",
-      "author": "Jia Tolentino",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1544069605l/43126457.jpg",
-      "url": "https://www.goodreads.com/review/show/5718057975?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Behind Closed Doors",
-      "author": "B.A. Paris",
-      "rating": 1,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1458854462l/29437949.jpg",
-      "url": "https://www.goodreads.com/review/show/5715608557?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Cult Classic",
-      "author": "Sloane Crosley",
-      "rating": 2,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1637583660l/58772761.jpg",
-      "url": "https://www.goodreads.com/review/show/5628414669?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Song of Achilles",
-      "author": "Madeline Miller",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1585839557l/52892648._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/4334543748?utm_medium=api&utm_source=rss",
-      "dateRead": null,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1448108591l/27071490.jpg",
+      "url": "https://www.goodreads.com/review/show/5859894007?utm_medium=api&utm_source=rss",
+      "dateRead": "2023-05-14",
       "hasReview": false
     },
     {
@@ -924,110 +645,20 @@
       "hasReview": false
     },
     {
-      "title": "When Breath Becomes Air",
-      "author": "Paul Kalanithi",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1492677644l/25899336.jpg",
-      "url": "https://www.goodreads.com/review/show/4430730206?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Time in Between",
-      "author": "María Dueñas",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1621252500l/13035138._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/4334542947?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Silent Patient",
-      "author": "Alex Michaelides",
-      "rating": 3,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1668782119l/40097951._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/4334543249?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Hunting Party",
-      "author": "Lucy Foley",
-      "rating": 3,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591006536l/46258982._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/4334543437?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Then She Was Gone",
-      "author": "Lisa Jewell",
-      "rating": 3,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1741291185l/35297426._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/3428868247?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Here and Gone",
-      "author": "Haylen Beck",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1485362440l/32336395._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/2478833040?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Gone Girl",
-      "author": "Gillian Flynn",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1554086139l/19288043.jpg",
-      "url": "https://www.goodreads.com/review/show/2478824863?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Crazy Rich Asians (Crazy Rich Asians, #1)",
-      "author": "Kevin Kwan",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1364852559l/16085481.jpg",
-      "url": "https://www.goodreads.com/review/show/2478824189?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Burgess Boys",
-      "author": "Elizabeth Strout",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1351213545l/15823461.jpg",
-      "url": "https://www.goodreads.com/review/show/1845312664?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Me Before You (Me Before You, #1)",
-      "author": "Jojo Moyes",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1357108762l/15507958.jpg",
-      "url": "https://www.goodreads.com/review/show/1550077644?utm_medium=api&utm_source=rss",
-      "dateRead": "2016-01-01",
-      "hasReview": false
-    },
-    {
-      "title": "Along for the Ride",
-      "author": "Sarah Dessen",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1479692098l/5664985._SX318_.jpg",
-      "url": "https://www.goodreads.com/review/show/1550077910?utm_medium=api&utm_source=rss",
-      "dateRead": "2016-01-01",
-      "hasReview": false
-    },
-    {
       "title": "Five Days at Memorial: Life and Death in a Storm-Ravaged Hospital",
       "author": "Sheri Fink",
       "rating": 5,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1380120962l/17704902.jpg",
       "url": "https://www.goodreads.com/review/show/1550080023?utm_medium=api&utm_source=rss",
+      "dateRead": "2016-05-02",
+      "hasReview": false
+    },
+    {
+      "title": "One Plus One",
+      "author": "Jojo Moyes",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1403185695l/18693716.jpg",
+      "url": "https://www.goodreads.com/review/show/1550078304?utm_medium=api&utm_source=rss",
       "dateRead": "2016-05-02",
       "hasReview": false
     },
@@ -1041,15 +672,6 @@
       "hasReview": false
     },
     {
-      "title": "Rebel of the Sands (Rebel of the Sands, #1)",
-      "author": "Alwyn Hamilton",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1446829335l/24934065._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/1627433993?utm_medium=api&utm_source=rss",
-      "dateRead": "2016-04-01",
-      "hasReview": false
-    },
-    {
       "title": "Infidel",
       "author": "Ayaan Hirsi Ali",
       "rating": 5,
@@ -1059,84 +681,30 @@
       "hasReview": false
     },
     {
-      "title": "One Plus One",
+      "title": "Rebel of the Sands (Rebel of the Sands, #1)",
+      "author": "Alwyn Hamilton",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1446829335l/24934065._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/1627433993?utm_medium=api&utm_source=rss",
+      "dateRead": "2016-04-01",
+      "hasReview": false
+    },
+    {
+      "title": "Along for the Ride",
+      "author": "Sarah Dessen",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1479692098l/5664985._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/1550077910?utm_medium=api&utm_source=rss",
+      "dateRead": "2016-01-01",
+      "hasReview": false
+    },
+    {
+      "title": "Me Before You (Me Before You, #1)",
       "author": "Jojo Moyes",
       "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1403185695l/18693716.jpg",
-      "url": "https://www.goodreads.com/review/show/1550078304?utm_medium=api&utm_source=rss",
-      "dateRead": "2016-05-02",
-      "hasReview": false
-    },
-    {
-      "title": "The DUFF: Designated Ugly Fat Friend (Hamilton High, #1)",
-      "author": "Kody Keplinger",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1271108843l/6931356.jpg",
-      "url": "https://www.goodreads.com/review/show/1332148435?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "This Lullaby",
-      "author": "Sarah Dessen",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1397779294l/22205.jpg",
-      "url": "https://www.goodreads.com/review/show/1332149330?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Leaving Paradise (Leaving Paradise, #1)",
-      "author": "Simone Elkeles",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388207436l/544424.jpg",
-      "url": "https://www.goodreads.com/review/show/1550081510?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Pride and Prejudice",
-      "author": "Jane Austen",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1320399351l/1885.jpg",
-      "url": "https://www.goodreads.com/review/show/1550081366?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "School's Out—Forever (Maximum Ride, #2)",
-      "author": "James  Patterson",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1346079917l/13139.jpg",
-      "url": "https://www.goodreads.com/review/show/1332151895?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Lock and Key",
-      "author": "Sarah Dessen",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1479691949l/1295102._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/1332149677?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Before I Fall",
-      "author": "Lauren Oliver",
-      "rating": 3,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361044695l/6482837.jpg",
-      "url": "https://www.goodreads.com/review/show/1332148709?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Just Listen",
-      "author": "Sarah Dessen",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1358270741l/51738.jpg",
-      "url": "https://www.goodreads.com/review/show/1332149093?utm_medium=api&utm_source=rss",
-      "dateRead": null,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1357108762l/15507958.jpg",
+      "url": "https://www.goodreads.com/review/show/1550077644?utm_medium=api&utm_source=rss",
+      "dateRead": "2016-01-01",
       "hasReview": false
     },
     {
@@ -1149,155 +717,11 @@
       "hasReview": false
     },
     {
-      "title": "Divergent (Divergent, #1)",
-      "author": "Veronica Roth",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1618526890l/13335037._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/1332152102?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The 5th Wave (The 5th Wave, #1)",
-      "author": "Rick Yancey",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1359853842l/16101128.jpg",
-      "url": "https://www.goodreads.com/review/show/1332151963?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Hunger Games (The Hunger Games, #1)",
-      "author": "Suzanne Collins",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1586722975l/2767052._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/1332151795?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Adventures of Tom Sawyer",
-      "author": "Mark Twain",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1404811979l/24583.jpg",
-      "url": "https://www.goodreads.com/review/show/1332147680?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Fahrenheit 451",
-      "author": "Ray Bradbury",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1469704347l/17470674.jpg",
-      "url": "https://www.goodreads.com/review/show/1332147538?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Catcher in the Rye",
-      "author": "J.D. Salinger",
-      "rating": 2,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1398034300l/5107.jpg",
-      "url": "https://www.goodreads.com/review/show/1332147296?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Jane Eyre",
-      "author": "Charlotte Brontë",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1557343311l/10210._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/1332147245?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "To Kill a Mockingbird",
-      "author": "Harper Lee",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1553383690l/2657.jpg",
-      "url": "https://www.goodreads.com/review/show/1332147183?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Time Paradox (Artemis Fowl, #6)",
-      "author": "Eoin Colfer",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1522190483l/2179276.jpg",
-      "url": "https://www.goodreads.com/review/show/1332150890?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Lightning Thief (Percy Jackson and the Olympians, #1)",
-      "author": "Rick Riordan",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1400602609l/28187.jpg",
-      "url": "https://www.goodreads.com/review/show/1332150776?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "City of Bones (The Mortal Instruments, #1)",
-      "author": "Cassandra Clare",
+      "title": "A Fire Endless (Elements of Cadence, #2)",
+      "author": "Rebecca   Ross",
       "rating": 3,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1432730315l/256683._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/1332150668?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Cinder (The Lunar Chronicles, #1)",
-      "author": "Marissa Meyer",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1470056948l/11235712._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/1332150521?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Harry Potter and the Sorcerer's Stone (Harry Potter, #1)",
-      "author": "J.K. Rowling",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474154022l/3._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/1332150456?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "What Happened to Goodbye",
-      "author": "Sarah Dessen",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1528211143l/8492856._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/1332150193?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Help",
-      "author": "Kathryn Stockett",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1622355533l/4667024._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/1332149191?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "The Truth About Forever",
-      "author": "Sarah Dessen",
-      "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1362767907l/51737.jpg",
-      "url": "https://www.goodreads.com/review/show/1332149017?utm_medium=api&utm_source=rss",
-      "dateRead": null,
-      "hasReview": false
-    },
-    {
-      "title": "Speak",
-      "author": "Laurie Halse Anderson",
-      "rating": 4,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1310121762l/439288.jpg",
-      "url": "https://www.goodreads.com/review/show/1332148889?utm_medium=api&utm_source=rss",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1665235394l/54326657._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/5821758763?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
@@ -1311,11 +735,353 @@
       "hasReview": false
     },
     {
-      "title": "Thirteen Reasons Why",
-      "author": "Jay Asher",
+      "title": "Before I Fall",
+      "author": "Lauren Oliver",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361044695l/6482837.jpg",
+      "url": "https://www.goodreads.com/review/show/1332148709?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Behind Closed Doors",
+      "author": "B.A. Paris",
+      "rating": 1,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1458854462l/29437949.jpg",
+      "url": "https://www.goodreads.com/review/show/5715608557?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Bel Canto",
+      "author": "Ann Patchett",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1352997328l/5826.jpg",
+      "url": "https://www.goodreads.com/review/show/6135282291?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Cinder (The Lunar Chronicles, #1)",
+      "author": "Marissa Meyer",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1507557775l/36381037.jpg",
+      "url": "https://www.goodreads.com/review/show/6246723967?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Cinder (The Lunar Chronicles, #1)",
+      "author": "Marissa Meyer",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1470056948l/11235712._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/1332150521?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "City of Bones (The Mortal Instruments, #1)",
+      "author": "Cassandra Clare",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1432730315l/256683._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/1332150668?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Clap When You Land",
+      "author": "Elizabeth Acevedo",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1570558443l/52516332._SX318_SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/5821957295?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Crazy Rich Asians (Crazy Rich Asians, #1)",
+      "author": "Kevin Kwan",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1364852559l/16085481.jpg",
+      "url": "https://www.goodreads.com/review/show/2478824189?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Cult Classic",
+      "author": "Sloane Crosley",
       "rating": 2,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1333822506l/1217100.jpg",
-      "url": "https://www.goodreads.com/review/show/1332148360?utm_medium=api&utm_source=rss",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1637583660l/58772761.jpg",
+      "url": "https://www.goodreads.com/review/show/5628414669?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Divergent (Divergent, #1)",
+      "author": "Veronica Roth",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1618526890l/13335037._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/1332152102?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Emily Wilde's Encyclopaedia of Faeries (Emily Wilde, #1)",
+      "author": "Heather Fawcett",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1651622856l/60657589.jpg",
+      "url": "https://www.goodreads.com/review/show/7786226788?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Fahrenheit 451",
+      "author": "Ray Bradbury",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1469704347l/17470674.jpg",
+      "url": "https://www.goodreads.com/review/show/1332147538?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "First They Killed My Father: A Daughter of Cambodia Remembers",
+      "author": "Loung Ung",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1407105580l/4373.jpg",
+      "url": "https://www.goodreads.com/review/show/8020579970?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Gone Girl",
+      "author": "Gillian Flynn",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1554086139l/19288043.jpg",
+      "url": "https://www.goodreads.com/review/show/2478824863?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Harry Potter and the Sorcerer's Stone (Harry Potter, #1)",
+      "author": "J.K. Rowling",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474154022l/3._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/1332150456?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Here and Gone",
+      "author": "Haylen Beck",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1485362440l/32336395._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/2478833040?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "It Ends with Us (It Ends with Us, #1)",
+      "author": "Colleen Hoover",
+      "rating": 1,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1688011813l/27362503._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/5796011345?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1557343311l/10210._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/1332147245?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Just Listen",
+      "author": "Sarah Dessen",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1358270741l/51738.jpg",
+      "url": "https://www.goodreads.com/review/show/1332149093?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Leaving Paradise (Leaving Paradise, #1)",
+      "author": "Simone Elkeles",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388207436l/544424.jpg",
+      "url": "https://www.goodreads.com/review/show/1550081510?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Lessons in Chemistry",
+      "author": "Bonnie Garmus",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1634748496l/58065033._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/5796014797?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Lock and Key",
+      "author": "Sarah Dessen",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1479691949l/1295102._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/1332149677?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "New Teeth: Stories",
+      "author": "Simon Rich",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1621245064l/55867892.jpg",
+      "url": "https://www.goodreads.com/review/show/4334544043?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Patient Zero (Joe Ledger, #1)",
+      "author": "Jonathan Maberry",
+      "rating": 1,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1439953244l/3993839._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/5897467125?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1320399351l/1885.jpg",
+      "url": "https://www.goodreads.com/review/show/1550081366?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Project Hail Mary",
+      "author": "Andy Weir",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1764703833l/54493401._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/5751318507?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Room",
+      "author": "Emma Donoghue",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1472239721l/31685789._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6281425223?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "School's Out—Forever (Maximum Ride, #2)",
+      "author": "James  Patterson",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1346079917l/13139.jpg",
+      "url": "https://www.goodreads.com/review/show/1332151895?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Sharp Objects",
+      "author": "Gillian Flynn",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1475695315l/18045891.jpg",
+      "url": "https://www.goodreads.com/review/show/6246711205?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Speak",
+      "author": "Laurie Halse Anderson",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1310121762l/439288.jpg",
+      "url": "https://www.goodreads.com/review/show/1332148889?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Sunrise on the Reaping (The Hunger Games, #0.5)",
+      "author": "Suzanne Collins",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729085500l/214331246._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7855821504?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The 5th Wave (The 5th Wave, #1)",
+      "author": "Rick Yancey",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1359853842l/16101128.jpg",
+      "url": "https://www.goodreads.com/review/show/1332151963?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The 7½ Deaths of Evelyn Hardcastle",
+      "author": "Stuart Turton",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1506896221l/36337550.jpg",
+      "url": "https://www.goodreads.com/review/show/4430737843?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Adventures of Tom Sawyer",
+      "author": "Mark Twain",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1404811979l/24583.jpg",
+      "url": "https://www.goodreads.com/review/show/1332147680?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Battle of the Labyrinth (Percy Jackson and the Olympians, #4)",
+      "author": "Rick Riordan",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1355333381l/8130423.jpg",
+      "url": "https://www.goodreads.com/review/show/6355060703?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Bell Jar",
+      "author": "Sylvia Plath",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1554582218l/6514._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6049419970?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Burgess Boys",
+      "author": "Elizabeth Strout",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1351213545l/15823461.jpg",
+      "url": "https://www.goodreads.com/review/show/1845312664?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1398034300l/5107.jpg",
+      "url": "https://www.goodreads.com/review/show/1332147296?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The DUFF: Designated Ugly Fat Friend (Hamilton High, #1)",
+      "author": "Kody Keplinger",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1271108843l/6931356.jpg",
+      "url": "https://www.goodreads.com/review/show/1332148435?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
@@ -1329,11 +1095,245 @@
       "hasReview": false
     },
     {
+      "title": "The Girl on the Train",
+      "author": "Paula Hawkins",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1748242265l/22557272._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6246711867?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Help",
+      "author": "Kathryn Stockett",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1622355533l/4667024._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/1332149191?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Hunger Games (The Hunger Games, #1)",
+      "author": "Suzanne Collins",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1586722975l/2767052._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/1332151795?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Hunting Party",
+      "author": "Lucy Foley",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1591006536l/46258982._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/4334543437?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Lightning Thief (Percy Jackson and the Olympians, #1)",
+      "author": "Rick Riordan",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1400602609l/28187.jpg",
+      "url": "https://www.goodreads.com/review/show/1332150776?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Secret History",
+      "author": "Donna Tartt",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1751820530l/29044._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7966687780?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Seven Husbands of Evelyn Hugo",
+      "author": "Taylor Jenkins Reid",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1664458703l/32620332._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/4430732821?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Silent Patient",
+      "author": "Alex Michaelides",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1668782119l/40097951._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/4334543249?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
       "title": "The Sisterhood of the Traveling Pants (Sisterhood, #1)",
       "author": "Ann Brashares",
       "rating": 3,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1461611233l/452306.jpg",
       "url": "https://www.goodreads.com/review/show/1332146916?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Song of Achilles",
+      "author": "Madeline Miller",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1331154660l/11250317.jpg",
+      "url": "https://www.goodreads.com/review/show/5093246783?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Song of Achilles",
+      "author": "Madeline Miller",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1585839557l/52892648._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/4334543748?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Southern Book Club's Guide to Slaying Vampires",
+      "author": "Grady Hendrix",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1606111753l/55687716.jpg",
+      "url": "https://www.goodreads.com/review/show/4334544016?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Summer I Turned Pretty (Summer, #1)",
+      "author": "Jenny Han",
+      "rating": 1,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1361666855l/5821978.jpg",
+      "url": "https://www.goodreads.com/review/show/6081243972?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Sympathizer (The Sympathizer, #1)",
+      "author": "Viet Thanh Nguyen",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718982183l/23168277._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6277257277?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Time in Between",
+      "author": "María Dueñas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1621252500l/13035138._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/4334542947?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Time Paradox (Artemis Fowl, #6)",
+      "author": "Eoin Colfer",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1522190483l/2179276.jpg",
+      "url": "https://www.goodreads.com/review/show/1332150890?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Truth About Forever",
+      "author": "Sarah Dessen",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1362767907l/51737.jpg",
+      "url": "https://www.goodreads.com/review/show/1332149017?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Then She Was Gone",
+      "author": "Lisa Jewell",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1741291185l/35297426._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/3428868247?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Thirteen Reasons Why",
+      "author": "Jay Asher",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1333822506l/1217100.jpg",
+      "url": "https://www.goodreads.com/review/show/1332148360?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "This Lullaby",
+      "author": "Sarah Dessen",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1397779294l/22205.jpg",
+      "url": "https://www.goodreads.com/review/show/1332149330?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1553383690l/2657.jpg",
+      "url": "https://www.goodreads.com/review/show/1332147183?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Trick Mirror: Reflections on Self-Delusion",
+      "author": "Jia Tolentino",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1544069605l/43126457.jpg",
+      "url": "https://www.goodreads.com/review/show/5718057975?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Verity",
+      "author": "Colleen Hoover",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1634158558l/59344312._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/4430752087?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "What Happened to Goodbye",
+      "author": "Sarah Dessen",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1528211143l/8492856._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/1332150193?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "When Breath Becomes Air",
+      "author": "Paul Kalanithi",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1492677644l/25899336.jpg",
+      "url": "https://www.goodreads.com/review/show/4430730206?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Where the Crawdads Sing",
+      "author": "Delia Owens",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1614084029l/57169243.jpg",
+      "url": "https://www.goodreads.com/review/show/4334544145?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Why Fish Don’t Exist: A Story of Loss, Love, and the Hidden Order of Life",
+      "author": "Lulu Miller",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1565526670l/50887097.jpg",
+      "url": "https://www.goodreads.com/review/show/5772725626?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     }
