@@ -51,6 +51,18 @@ worth it. Cherry-pick freely.
   need to get into plot.
 - **Footnotes / marginalia in the actual margin** (M) — lean into the name:
   sidenotes that sit in the page margin on wide screens.
+- **Sync highlights from Kobo / Kindle** (M–L) — the `/quotes` commonplace book
+  exists but is empty, so it's currently unlinked from the header. Figure out how
+  to pull real highlights in instead of hand-entering them. Sources to
+  investigate: Kobo keeps highlights in an on-device SQLite DB
+  (`KoboReader.sqlite`, the `Bookmark` table — `Text`, `Annotation`, plus a
+  content/book id to join on) that we could parse when the e-reader is plugged
+  in; Kindle exposes `My Clippings.txt` on the device and a per-book "export
+  notebook" from the Kindle app/Notebook web view. Open questions: a stable book
+  identifier to match a highlight to a review/shelf entry, dedup across re-syncs
+  (lean on the existing incremental-sync/cache pattern), and whether highlights
+  live in committed JSON like `quotes.json` or their own data file. Re-add the
+  `/quotes` nav link once there's data to show.
 
 ## Discovery & navigation
 

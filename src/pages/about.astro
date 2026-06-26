@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { withBase } from "../lib/url";
 ---
 
 <BaseLayout title="About">
@@ -12,13 +13,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       reviews and grows from here.
     </p>
     <p>
-      <em>Replace this text with your own.</em> Tell people who you are, what
-      you read, and what your ratings mean.
-    </p>
-    <h2>How the stars work</h2>
-    <p>
-      Five stars, halves allowed. Roughly: ★ couldn't finish · ★★ disappointing
-      · ★★★ worthwhile · ★★★★ very good · ★★★★★ a favorite.
+      I also track what my friends are reading. Their shelves are pulled in from
+      Goodreads too, so the <a href={withBase("/friends")}>friends</a> page shows
+      their stats and recent reads alongside mine, and the timeline can overlay
+      their reading on top of my own.
     </p>
   </article>
 </BaseLayout>
