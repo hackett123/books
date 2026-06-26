@@ -8,5 +8,7 @@ node_modules/
 .env
 .env.production
 .DS_Store
+# local incremental-sync state (last Goodreads sync timestamp per person)
+.sync-cache.json
 # netlify
 .netlify/

@@ -14,7 +14,7 @@
  * goodreads.json so `npm run sync` needs no arguments afterwards.
  */
 
-import { writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import {
@@ -30,6 +30,12 @@ import {
   readConfig,
   writeConfig,
 } from "./goodreads-lib.mjs";
+import {
+  readCache,
+  writeCache,
+  getLastSync,
+  setLastSync,
+} from "./sync-cache.mjs";
 
 const REVIEWS_DIR = path.join(ROOT, "src", "content", "reviews");
 const SHELF_FILE = path.join(ROOT, "src", "data", "shelf.json");
@@ -37,6 +43,7 @@ const COVERS_DIR = path.join(ROOT, "public", "covers");
 
 const args = process.argv.slice(2);
 const downloadCovers = args.includes("--download-covers");
+const force = args.includes("--force"); // ignore the sync cache, re-read whole shelf
 const input = args.find((a) => !a.startsWith("--"));
 
 const cfg = await readConfig();
@@ -54,25 +61,66 @@ main().catch((err) => {
   process.exit(1);
 });
 
+// Key a shelf book/entry for the incremental merge. The Goodreads book URL
+// carries the unique bookId; fall back to title+author for hand-added entries
+// (overrides) that may lack one. title+author alone would collapse distinct
+// same-titled editions, so it's only the fallback.
+function shelfKey(b) {
+  return b.url || `${(b.title || "").toLowerCase().trim()}::${(b.author || "").toLowerCase().trim()}`;
+}
+
 async function main() {
-  console.log(`\nFetching Goodreads "read" shelf for user ${userId}…\n`);
-  const { items } = await fetchShelf(userId, "read");
-  if (items.length === 0) {
-    console.log("No books found. Nothing to import.");
-    return;
+  const cache = await readCache();
+  // INCREMENTAL: the feed is date-added DESC, so we only need books added after
+  // our last sync; --force (or no prior sync) re-reads the whole shelf.
+  const since = force ? null : getLastSync(cache, userId, "read");
+  const startedAt = new Date().toISOString();
+
+  if (since) {
+    console.log(`\nFetching new books since ${since} for user ${userId}…`);
+    console.log("(use --force to re-read the whole shelf, e.g. after editing old reviews)\n");
+  } else {
+    console.log(`\nFetching Goodreads "read" shelf for user ${userId}…\n`);
   }
-  if (items.length >= 100) {
-    console.log(
-      "⚠ Feed returned 100 items — Goodreads caps RSS at ~100 most-recent.\n"
-    );
-  }
+
+  const { items, complete } = await fetchShelf(userId, "read", { since });
 
   await mkdir(REVIEWS_DIR, { recursive: true });
   await mkdir(path.dirname(SHELF_FILE), { recursive: true });
   if (downloadCovers) await mkdir(COVERS_DIR, { recursive: true });
 
+  if (items.length === 0) {
+    // Nothing new (incremental) or an empty shelf (full). Leave shelf.json as-is;
+    // just record that we checked so the next run stays incremental.
+    console.log(complete ? "No books found. Nothing to import." : "No new books since last sync.");
+    setLastSync(cache, userId, "read", startedAt, cfg.name || "you");
+    await writeCache(cache);
+    await writeConfig({ ...cfg, userId });
+    return;
+  }
+  if (complete && items.length >= 100) {
+    console.log(
+      "⚠ Feed returned 100 items — Goodreads caps RSS at ~100 most-recent.\n"
+    );
+  }
+
+  // Slug collisions WITHIN this run get a `-2` suffix; collisions with an
+  // already-imported book are caught by the existsSync skip below (add-only).
   const usedSlugs = new Set();
-  const shelfEntries = [];
+
+  // On a full read, regenerate shelf.json from scratch. Incrementally, merge the
+  // new books into the existing shelf (keyed by title+author).
+  const shelfMap = new Map();
+  if (!complete && existsSync(SHELF_FILE)) {
+    try {
+      for (const e of JSON.parse(await readFile(SHELF_FILE, "utf8"))) {
+        shelfMap.set(shelfKey(e), e);
+      }
+    } catch {
+      /* unreadable shelf.json — fall back to rebuilding from the new books */
+    }
+  }
+
   let written = 0;
   let skipped = 0;
   let truncatedCount = 0;
@@ -85,6 +133,8 @@ async function main() {
     if (downloadCovers && cover) cover = (await downloadCover(cover, book)) ?? cover;
 
     if (hasReview) {
+      // It's a review now, so it no longer belongs on the rating-only shelf.
+      shelfMap.delete(shelfKey(book));
       const slug = uniqueSlug(slugify(book.title), usedSlugs);
       const file = path.join(REVIEWS_DIR, `${slug}.md`);
       if (existsSync(file)) {
@@ -96,7 +146,7 @@ async function main() {
       await writeFile(file, renderMarkdown(book, reviewMd, cover, truncated), "utf8");
       written++;
     } else {
-      shelfEntries.push({
+      shelfMap.set(shelfKey(book), {
         title: book.title,
         author: book.author,
         rating: book.rating,
@@ -107,15 +157,20 @@ async function main() {
     }
   }
 
-  shelfEntries.sort((a, b) => dateVal(b.dateRead) - dateVal(a.dateRead));
+  const shelfEntries = [...shelfMap.values()].sort(
+    (a, b) =>
+      dateVal(b.dateRead) - dateVal(a.dateRead) || (a.title || "").localeCompare(b.title || "")
+  );
   await writeFile(SHELF_FILE, JSON.stringify(shelfEntries, null, 2) + "\n", "utf8");
 
+  setLastSync(cache, userId, "read", startedAt, cfg.name || "you");
+  await writeCache(cache);
   await writeConfig({ ...cfg, userId });
 
   console.log("Done.");
   console.log(`  review posts written : ${written}`);
   if (skipped) console.log(`  review posts skipped : ${skipped} (already existed)`);
-  console.log(`  shelf entries        : ${shelfEntries.length}`);
+  console.log(`  shelf entries        : ${shelfEntries.length}${complete ? "" : " (merged)"}`);
   if (truncatedCount)
     console.log(`  ⚠ truncated by GR    : ${truncatedCount} (flagged draft)`);
   console.log(`\nSaved userId to goodreads.json — run \`npm run sync\` anytime.\n`);

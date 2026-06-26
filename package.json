@@ -12,7 +12,8 @@
     "astro": "astro",
     "import": "node scripts/import-goodreads.mjs",
     "sync": "node scripts/sync-shelves.mjs",
-    "sync:friends": "node scripts/sync-friends.mjs"
+    "sync:friends": "node scripts/sync-friends.mjs",
+    "publish": "bash scripts/publish.sh"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",

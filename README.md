@@ -321,7 +321,23 @@ are never overwritten, so your edits survive; `shelf.json` is regenerated each
 run.
 
 Flags: `--shelf read` (which shelf; default `read`), `--download-covers` (save
-covers into `public/covers/` instead of hotlinking from Goodreads).
+covers into `public/covers/` instead of hotlinking from Goodreads),
+`--force` (see incremental sync below).
+
+### Incremental sync & `--force`
+
+`import` and `sync:friends` are **incremental**. The Goodreads `read` feed is
+ordered by date-added (newest first), so each run only reads books added since
+the last sync and stops paginating once it reaches already-known ones — much
+faster than re-walking a long shelf every time. The last-sync time per person is
+kept in `.sync-cache.json` at the repo root (**git-ignored** — it's local state;
+a fresh clone just does a full sync).
+
+The tradeoff: **editing an old review on Goodreads doesn't move its date-added,
+so an incremental sync won't notice the change.** Run with `--force`
+(`npm run import -- --force`, `npm run sync:friends -- --force`) to ignore the
+cache and re-read the whole shelf. (`npm run sync` — currently-reading / to-read —
+is always a full refresh and ignores the cache.)
 
 ### `npm run sync`
 
