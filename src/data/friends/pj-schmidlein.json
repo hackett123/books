@@ -3,7 +3,7 @@
   "slug": "pj-schmidlein",
   "userId": "201906919",
   "profileUrl": "https://www.goodreads.com/user/show/201906919",
-  "syncedAt": "2026-06-26T03:50:07.756Z",
+  "syncedAt": "2026-06-29T01:58:06.376Z",
   "read": [
     {
       "title": "A Deadly Education (The Scholomance, #1)",
@@ -794,6 +794,15 @@
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1764957862l/220966428._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8691510627?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Most Unusual Haunting of Edgar Lovejoy",
+      "author": "Roan Parrish",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1740522713l/221490962._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8720303741?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },

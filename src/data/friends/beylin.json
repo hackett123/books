@@ -3,8 +3,17 @@
   "slug": "beylin",
   "userId": "160538290",
   "profileUrl": "https://www.goodreads.com/user/show/160538290",
-  "syncedAt": "2026-06-26T03:50:08.178Z",
+  "syncedAt": "2026-06-29T01:58:14.108Z",
   "read": [
+    {
+      "title": "The Eye of the Bedlam Bride (Dungeon Crawler Carl, #6)",
+      "author": "Matt Dinniman",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1734098749l/220772912._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8665274008?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-06-27",
+      "hasReview": false
+    },
     {
       "title": "The Deal (Off-Campus, #1)",
       "author": "Elle Kennedy",
@@ -1736,16 +1745,16 @@
   ],
   "currentlyReading": [
     {
+      "title": "Warrior Fae (Ruthless Boys of the Zodiac, #5)",
+      "author": "Caroline Peckham",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1619382385l/57849074._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8722306862?utm_medium=api&utm_source=rss"
+    },
+    {
       "title": "How to Kill a Guy in Ten Dates",
       "author": "Shailee Thompson",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1749400590l/235991925._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8697788212?utm_medium=api&utm_source=rss"
-    },
-    {
-      "title": "The Eye of the Bedlam Bride (Dungeon Crawler Carl, #6)",
-      "author": "Matt Dinniman",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1734098749l/220772912._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8665274008?utm_medium=api&utm_source=rss"
     }
   ]
 }
