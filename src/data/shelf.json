@@ -248,19 +248,19 @@
     "dateRead": "2024-09-01"
   },
   {
-    "title": "Angels & Demons (Robert Langdon, #1)",
-    "author": "Dan    Brown",
-    "rating": 3,
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1751268588l/49977581._SY475_.jpg",
-    "url": "https://www.goodreads.com/review/show/6005544268?utm_medium=api&utm_source=rss",
-    "dateRead": "2024-06-30"
-  },
-  {
     "title": "All the Lovers in the Night",
     "author": "Mieko Kawakami",
     "rating": 3,
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1637059389l/59336625.jpg",
     "url": "https://www.goodreads.com/review/show/5829214359?utm_medium=api&utm_source=rss",
+    "dateRead": "2024-06-30"
+  },
+  {
+    "title": "Angels & Demons (Robert Langdon, #1)",
+    "author": "Dan    Brown",
+    "rating": 3,
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1751268588l/49977581._SY475_.jpg",
+    "url": "https://www.goodreads.com/review/show/6005544268?utm_medium=api&utm_source=rss",
     "dateRead": "2024-06-30"
   },
   {
@@ -296,19 +296,11 @@
     "dateRead": "2018-08-16"
   },
   {
-    "title": "Rules of Civility",
-    "author": "Amor Towles",
-    "rating": 4,
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1311705045l/10054335.jpg",
-    "url": "https://www.goodreads.com/review/show/4036251923?utm_medium=api&utm_source=rss",
-    "dateRead": null
-  },
-  {
-    "title": "Pachinko",
-    "author": "Min Jin Lee",
-    "rating": 4,
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1766879949l/34051011._SY475_.jpg",
-    "url": "https://www.goodreads.com/review/show/6629506621?utm_medium=api&utm_source=rss",
+    "title": "Kitchen",
+    "author": "Banana Yoshimoto",
+    "rating": 3,
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1543168795l/42952153.jpg",
+    "url": "https://www.goodreads.com/review/show/5797497590?utm_medium=api&utm_source=rss",
     "dateRead": null
   },
   {
@@ -320,11 +312,27 @@
     "dateRead": null
   },
   {
-    "title": "Kitchen",
-    "author": "Banana Yoshimoto",
+    "title": "My Sister, the Serial Killer",
+    "author": "Oyinkan Braithwaite",
     "rating": 3,
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1543168795l/42952153.jpg",
-    "url": "https://www.goodreads.com/review/show/5797497590?utm_medium=api&utm_source=rss",
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1523366732l/38819868._SY475_.jpg",
+    "url": "https://www.goodreads.com/review/show/3110188365?utm_medium=api&utm_source=rss",
+    "dateRead": null
+  },
+  {
+    "title": "Pachinko",
+    "author": "Min Jin Lee",
+    "rating": 4,
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1766879949l/34051011._SY475_.jpg",
+    "url": "https://www.goodreads.com/review/show/6629506621?utm_medium=api&utm_source=rss",
+    "dateRead": null
+  },
+  {
+    "title": "Rules of Civility",
+    "author": "Amor Towles",
+    "rating": 4,
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1311705045l/10054335.jpg",
+    "url": "https://www.goodreads.com/review/show/4036251923?utm_medium=api&utm_source=rss",
     "dateRead": null
   },
   {
@@ -341,14 +349,6 @@
     "rating": 4,
     "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718982042l/26893714._SX318_.jpg",
     "url": "https://www.goodreads.com/review/show/2914577808?utm_medium=api&utm_source=rss",
-    "dateRead": null
-  },
-  {
-    "title": "My Sister, the Serial Killer",
-    "author": "Oyinkan Braithwaite",
-    "rating": 3,
-    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1523366732l/38819868._SY475_.jpg",
-    "url": "https://www.goodreads.com/review/show/3110188365?utm_medium=api&utm_source=rss",
     "dateRead": null
   }
 ]
