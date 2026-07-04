@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-06-26T03:50:06.714Z",
+  "syncedAt": "2026-07-04T02:31:08.877Z",
   "currentlyReading": [
     {
       "title": "The Left Hand of Darkness",
@@ -10,6 +10,20 @@
     }
   ],
   "toRead": [
+    {
+      "title": "Checkout 19",
+      "author": "Claire-Louise Bennett",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1630346616l/58386758.jpg",
+      "url": "https://www.goodreads.com/review/show/8717310160?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-06-26"
+    },
+    {
+      "title": "Notes of a Crocodile",
+      "author": "Qiu Miaojin",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1778232092l/31395589._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8717309604?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-06-26"
+    },
     {
       "title": "Temporary",
       "author": "Hilary Leichter",
