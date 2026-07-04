@@ -32,10 +32,22 @@ const bigNumbers = [
 if (s.totalPages > 0)
   bigNumbers.push({ label: "Pages", value: s.totalPages.toLocaleString() });
 
-// Read books newest-first for the grid.
-const books = friend.read
+// Read books newest-first for the grid — capped; the full history lives in
+// their timeline and year pages.
+const RECENT_SHOWN = 20;
+const allBooks = friend.read
   .slice()
   .sort((a, b) => (b.dateRead?.getTime() ?? 0) - (a.dateRead?.getTime() ?? 0));
+const books = allBooks.slice(0, RECENT_SHOWN);
+
+// Years with dated reads, for the "year in books" links.
+const years = [
+  ...new Set(
+    friend.read
+      .filter((b) => b.dateRead && !isNaN(b.dateRead.getTime()))
+      .map((b) => b.dateRead!.getUTCFullYear())
+  ),
+].sort((a, b) => b - a);
 
 function shortDate(d: Date | null): string {
   if (!d) return "";
@@ -193,6 +205,24 @@ function shortDate(d: Date | null): string {
   }
 
   {
+    years.length > 0 && (
+      <section class="measure block">
+        <h2>Year in books</h2>
+        <p class="meta">{friend.name}'s year-by-year wrap-ups.</p>
+        <ul class="yearchips">
+          {years.map((y) => (
+            <li>
+              <a class="yearchip" href={withBase(`/friends/${friend.slug}/year/${y}`)}>
+                {y}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
     s.topAuthors.length > 0 && (
       <section class="measure block">
         <h2>Most-read authors</h2>
@@ -214,8 +244,10 @@ function shortDate(d: Date | null): string {
   <section class="measure block">
     <h2>Recent reads</h2>
     <p class="meta">
+      The latest {books.length} of {allBooks.length}.
       <span class="ink-underline">Underlined</span> = they wrote a review (on
-      Goodreads).
+      Goodreads). For the rest, see{" "}
+      <a href={withBase(`/timeline/${friend.slug}`)}>their timeline</a>.
     </p>
     <ul class="grid">
       {
@@ -299,6 +331,31 @@ function shortDate(d: Date | null): string {
     display: flex;
     gap: var(--space-3);
     flex-wrap: wrap;
+  }
+
+  /* year-in-books chips */
+  .yearchips {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .yearchip {
+    display: inline-block;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-ink);
+    border: var(--hairline);
+    border-radius: 999px;
+    padding: 0.25em 0.9em;
+    transition: all var(--transition);
+  }
+  .yearchip:hover {
+    text-decoration: none;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
   }
 
   /* books in common */

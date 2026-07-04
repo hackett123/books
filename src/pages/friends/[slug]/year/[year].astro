@@ -1,0 +1,68 @@
+---
+// /friends/<slug>/year/<year> — a friend's own "Year in Books" wrap-up,
+// built from their synced shelf. Same body as the owner's /year pages;
+// covers link out to Goodreads.
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import YearInBooks, { type YearBook } from "../../../../components/YearInBooks.astro";
+import { getFriends, type Friend } from "../../../../lib/friends";
+import { withBase } from "../../../../lib/url";
+
+export function getStaticPaths() {
+  const paths = [];
+  for (const friend of getFriends()) {
+    const years = [
+      ...new Set(
+        friend.read
+          .filter((b) => b.dateRead && !isNaN(b.dateRead.getTime()))
+          .map((b) => b.dateRead!.getUTCFullYear())
+      ),
+    ].sort((a, b) => b - a);
+    for (const year of years) {
+      paths.push({
+        params: { slug: friend.slug, year: String(year) },
+        props: { friend, year, years },
+      });
+    }
+  }
+  return paths;
+}
+
+interface Props {
+  friend: Friend;
+  year: number;
+  years: number[];
+}
+const { friend, year, years } = Astro.props;
+
+const books: YearBook[] = friend.read
+  .filter((b) => b.dateRead && b.dateRead.getUTCFullYear() === year)
+  .map((b) => ({
+    title: b.title,
+    author: b.author,
+    rating: b.rating,
+    cover: b.cover,
+    href: b.url ?? "#",
+    external: true,
+    dateRead: b.dateRead!,
+  }));
+---
+
+<BaseLayout
+  title={`${friend.name} — ${year} in books`}
+  description={`${friend.name}'s year of reading: the ${books.length} books of ${year}.`}
+>
+  <section class="measure">
+    <p class="eyebrow">
+      <a href={withBase("/friends")}>Friends</a> ›
+      <a href={withBase(`/friends/${friend.slug}`)}>{friend.name}</a> ›
+    </p>
+    <h1>{friend.name}'s {year} in books</h1>
+  </section>
+
+  <YearInBooks
+    year={year}
+    years={years}
+    books={books}
+    basePath={`/friends/${friend.slug}/year`}
+  />
+</BaseLayout>
