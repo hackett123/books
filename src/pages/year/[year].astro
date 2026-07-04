@@ -1,0 +1,341 @@
+---
+// /year/<year> — a "Year in Books" wrap-up: the headline numbers, the
+// five-star shelf, and every book of the year laid out month by month.
+// One page per year that has at least one dated read, so past years
+// (2025, …) backfill automatically from the library.
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BookCover from "../../components/BookCover.astro";
+import StarRating from "../../components/StarRating.astro";
+import Divider from "../../components/Divider.astro";
+import { getReadBooks, type ReadEntry } from "../../lib/library";
+import { authorSlug } from "../../lib/authors";
+import { normalizeAuthor } from "../../lib/bookstats";
+import { withBase } from "../../lib/url";
+
+export async function getStaticPaths() {
+  const books = await getReadBooks();
+  const years = [
+    ...new Set(
+      books
+        .filter((b) => b.dateRead && !isNaN(b.dateRead.getTime()))
+        .map((b) => b.dateRead!.getUTCFullYear())
+    ),
+  ].sort((a, b) => b - a);
+  return years.map((year) => ({
+    params: { year: String(year) },
+    props: { year, years },
+  }));
+}
+
+interface Props {
+  year: number;
+  years: number[]; // every year with reads, newest first (for prev/next)
+}
+const { year, years } = Astro.props;
+
+const all = await getReadBooks();
+// The year's books in reading order, January onward.
+const books = all
+  .filter((b) => b.dateRead && b.dateRead.getUTCFullYear() === year)
+  .sort((a, b) => a.dateRead!.getTime() - b.dateRead!.getTime());
+
+const rated = books.filter((b) => b.rating > 0);
+const avgRating = rated.length
+  ? rated.reduce((s, b) => s + b.rating, 0) / rated.length
+  : 0;
+const reviewedCount = books.filter((b) => !b.external).length;
+const fiveStars = books.filter((b) => b.rating >= 5);
+
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+// Month-by-month groups (only months with books).
+const byMonth = new Map<number, ReadEntry[]>();
+for (const b of books) {
+  const m = b.dateRead!.getUTCMonth();
+  if (!byMonth.has(m)) byMonth.set(m, []);
+  byMonth.get(m)!.push(b);
+}
+const monthGroups = [...byMonth.entries()].sort((a, b) => a[0] - b[0]);
+const busiest = monthGroups.slice().sort((a, b) => b[1].length - a[1].length)[0];
+
+// Most-read author of the year (only interesting past one book).
+const authorCounts = new Map<string, number>();
+for (const b of books) {
+  const name = normalizeAuthor(b.author);
+  if (name) authorCounts.set(name, (authorCounts.get(name) ?? 0) + 1);
+}
+const topAuthor = [...authorCounts.entries()].sort((a, b) => b[1] - a[1])[0];
+
+const first = books[0];
+const last = books[books.length - 1];
+
+const idx = years.indexOf(year);
+const newerYear = idx > 0 ? years[idx - 1] : undefined;
+const olderYear = idx >= 0 && idx < years.length - 1 ? years[idx + 1] : undefined;
+
+const bigNumbers: { value: string; label: string; sub?: string }[] = [
+  { value: String(books.length), label: "Books read" },
+  { value: avgRating.toFixed(2), label: "Average rating" },
+];
+if (fiveStars.length > 0)
+  bigNumbers.push({ value: String(fiveStars.length), label: "Five-star reads" });
+if (busiest)
+  bigNumbers.push({
+    value: String(busiest[1].length),
+    label: "Busiest month",
+    sub: MONTH_NAMES[busiest[0]],
+  });
+if (topAuthor && topAuthor[1] > 1)
+  bigNumbers.push({
+    value: String(topAuthor[1]),
+    label: "Most-read author",
+    sub: topAuthor[0],
+  });
+---
+
+<BaseLayout
+  title={`${year} in books`}
+  description={`A year of reading: the ${books.length} books of ${year}.`}
+>
+  <section class="measure">
+    <p class="eyebrow"><a href={withBase("/stats")}>Stats</a> ›</p>
+    <h1>{year} in books</h1>
+    {
+      first && last && (
+        <p class="meta">
+          Opened with <a href={first.href}>{first.title}</a> in{" "}
+          {MONTH_NAMES[first.dateRead!.getUTCMonth()]}
+          {books.length > 1 && (
+            <>
+              , closed with <a href={last.href}>{last.title}</a> in{" "}
+              {MONTH_NAMES[last.dateRead!.getUTCMonth()]}
+            </>
+          )}
+          . {reviewedCount > 0 && <>{reviewedCount} written up along the way.</>}
+        </p>
+      )
+    }
+  </section>
+
+  <section class="bignums measure">
+    {
+      bigNumbers.map((n) => (
+        <div class="bignum">
+          <span class="bignum__value">{n.value}</span>
+          <span class="bignum__label">{n.label}</span>
+          {n.sub && <span class="bignum__sub">{n.sub}</span>}
+        </div>
+      ))
+    }
+  </section>
+
+  {
+    fiveStars.length > 0 && (
+      <section class="measure block">
+        <h2>The five-star shelf</h2>
+        <ul class="shelfrow">
+          {fiveStars.map((b) => (
+            <li>
+              <a
+                href={b.href}
+                {...(b.external ? { rel: "nofollow noopener", target: "_blank" } : {})}
+                title={`${b.title} — ${b.author}`}
+              >
+                <BookCover cover={b.cover} title={b.title} author={b.author} width={92} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  <Divider />
+
+  {
+    monthGroups.map(([m, entries]) => (
+      <section class="measure block month">
+        <h2 class="month__name">
+          {MONTH_NAMES[m]} <span class="meta">· {entries.length}</span>
+        </h2>
+        <ul class="grid">
+          {entries.map((b) => (
+            <li class="grid__item">
+              <a
+                href={b.href}
+                class="grid__cover"
+                {...(b.external ? { rel: "nofollow noopener", target: "_blank" } : {})}
+              >
+                <BookCover
+                  cover={b.cover}
+                  title={b.title}
+                  author={b.author}
+                  width={110}
+                  transitionName={b.slug ? `cover-${b.slug}` : undefined}
+                />
+              </a>
+              <div class="grid__meta">
+                <a
+                  href={b.href}
+                  class:list={["grid__title", { "ink-underline": !b.external }]}
+                  {...(b.external ? { rel: "nofollow noopener", target: "_blank" } : {})}
+                >
+                  {b.title}
+                  {b.external && <span class="grid__ext"> ↗</span>}
+                </a>
+                <a class="grid__author" href={withBase(`/authors/${authorSlug(b.author)}`)}>
+                  {b.author}
+                </a>
+                <StarRating rating={b.rating} size="0.8rem" />
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+
+  <nav class="pager measure" aria-label="Other years">
+    {
+      olderYear ? (
+        <a class="pager__link" href={withBase(`/year/${olderYear}`)}>
+          <span class="meta">← Earlier</span>
+          <span>{olderYear} in books</span>
+        </a>
+      ) : (
+        <span />
+      )
+    }
+    {
+      newerYear && (
+        <a class="pager__link pager__link--right" href={withBase(`/year/${newerYear}`)}>
+          <span class="meta">Later →</span>
+          <span>{newerYear} in books</span>
+        </a>
+      )
+    }
+  </nav>
+</BaseLayout>
+
+<style>
+  .block {
+    margin-top: var(--space-7);
+  }
+  .bignums {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-5);
+    margin-top: var(--space-5);
+  }
+  .bignum {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .bignum__value {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    line-height: 1;
+    color: var(--color-night);
+  }
+  .bignum__label {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+  .bignum__sub {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+  .shelfrow {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .shelfrow a {
+    display: block;
+    transition: transform var(--transition);
+  }
+  .shelfrow a:hover {
+    transform: translateY(-3px);
+  }
+  .month__name {
+    font-size: var(--text-xl);
+  }
+  .grid {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: var(--space-6) var(--space-5);
+  }
+  .grid__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .grid__cover {
+    display: block;
+    transition: transform var(--transition);
+  }
+  .grid__cover:hover {
+    transform: translateY(-3px);
+  }
+  .grid__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .grid__title {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+    align-self: start;
+  }
+  .grid__title:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .grid__ext {
+    color: var(--color-muted);
+    font-size: 0.85em;
+  }
+  .grid__author {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+    align-self: start;
+  }
+  a.grid__author:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .pager {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+    border-top: var(--hairline);
+  }
+  .pager__link {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: var(--color-ink);
+  }
+  .pager__link--right {
+    text-align: right;
+    margin-left: auto;
+  }
+  .pager__link:hover {
+    text-decoration: none;
+    color: var(--color-accent);
+  }
+</style>

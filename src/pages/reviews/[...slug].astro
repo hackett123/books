@@ -24,6 +24,35 @@ const { Content } = await render(entry);
 
 const dateRead = formatDate(data.dateRead);
 
+// JSON-LD (schema.org Review + Book) so search engines can show the star
+// rating on result cards. Forkers: change `siteAuthor` to your own name.
+const siteAuthor = "Michael Hackett";
+const canonical = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).href
+  : Astro.url.pathname;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Review",
+  url: canonical,
+  author: { "@type": "Person", name: siteAuthor },
+  datePublished: data.dateAdded.toISOString().slice(0, 10),
+  reviewRating: {
+    "@type": "Rating",
+    ratingValue: data.rating,
+    bestRating: 5,
+    worstRating: 0,
+  },
+  itemReviewed: {
+    "@type": "Book",
+    name: data.title,
+    author: { "@type": "Person", name: data.author },
+    ...(data.isbn && { isbn: data.isbn }),
+    ...(data.cover && { image: data.cover }),
+    ...(data.pageCount && { numberOfPages: data.pageCount }),
+    ...(data.goodreadsUrl && { sameAs: data.goodreadsUrl }),
+  },
+};
+
 // Simple prev/next across published reviews.
 const published = await getPublishedReviews();
 const idx = published.findIndex((r) => r.id === entry.id);
@@ -32,6 +61,7 @@ const next = idx > 0 ? published[idx - 1] : undefined; // newer
 ---
 
 <BaseLayout title={data.title} description={`Review of ${data.title} by ${data.author}`}>
+  <script is:inline type="application/ld+json" slot="head" set:html={JSON.stringify(jsonLd)} />
   <div class="reading-progress" aria-hidden="true"></div>
   <article class="fade-up" data-pagefind-body data-pagefind-meta={`author:${data.author}`}>
     <header class="review-head">
@@ -41,6 +71,7 @@ const next = idx > 0 ? published[idx - 1] : undefined; // newer
           title={data.title}
           author={data.author}
           width={150}
+          transitionName={`cover-${entry.id}`}
         />
       </div>
       <div class="review-head__meta">

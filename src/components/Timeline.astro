@@ -1,6 +1,7 @@
 ---
 import StarRating from "./StarRating.astro";
 import BookCover from "./BookCover.astro";
+import { matchKey } from "../lib/compare";
 
 // A banded reading timeline. The `axis` person's reads run down the central
 // column; each `flank` (other readers) sits left/right and appears when the
@@ -46,13 +47,9 @@ const {
   bothLabel = "you both read it",
 } = Astro.props;
 
-// Match a flank book against the axis person's reads (dated or not) by
-// normalized title + author. Strips series suffixes like "(Hierarchy, #1)".
-function matchKey(title: string, author: string): string {
-  const t = title.toLowerCase().replace(/\(.*?\)/g, "").replace(/[^a-z0-9]+/g, " ").trim();
-  const a = (author ?? "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-  return `${t}|${a}`;
-}
+// Match a flank book against the axis person's reads (dated or not) — the
+// shared normalizer also powers the /friends comparison, so "both read it"
+// and "books in common" always agree.
 const axisKeys = new Set(axis.map((e) => matchKey(e.title, e.author)));
 
 const MONTHS = [

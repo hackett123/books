@@ -10,6 +10,7 @@ export interface ReadEntry {
   dateRead: Date | null;
   href: string; // review page, or Goodreads for unreviewed
   external: boolean; // true = links out to Goodreads
+  slug?: string; // review id for reviewed books (view-transition names, etc.)
 }
 
 function normTitle(t: string): string {
@@ -41,6 +42,7 @@ export async function getReadBooks(): Promise<ReadEntry[]> {
     dateRead: r.data.dateRead ? new Date(r.data.dateRead) : null,
     href: withBase(`/reviews/${r.id}`),
     external: false,
+    slug: r.id,
   }));
 
   const shelf: ReadEntry[] = (await getUnreviewedShelf()).map((b) => ({

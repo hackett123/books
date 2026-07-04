@@ -31,13 +31,36 @@ worth it. Cherry-pick freely.
   edge, on review pages; plus a gentle content fade-in.
 - ✅ **Print stylesheet** (S) — `@media print` in `global.css` hides chrome,
   widens the measure, blackens text, and prints link URLs.
-
-## Next up
-
-- **Author pages** (M) — _chosen._ `/authors/<name>` with everything you've read
-  by that author (reviews + shelf, ratings, dates). `bookstats.ts` already
-  computes `topAuthors`, so this is mostly a new route + `getStaticPaths`; link
-  to it from `/stats` and from book listings.
+- ✅ **Author pages** (M) — `/authors` + `/authors/<slug>`: everything you've
+  read by an author, linked from `/stats` and book listings (`lib/authors.ts`).
+- ✅ **Friends history past the 100-book RSS cap** (S) — productionized:
+  `fetchShelf` in `goodreads-lib.mjs` walks `&page=N` until a short page and
+  dedups by `bookId`, so every sync gets whole shelves.
+- ✅ **Nightly auto-sync** (S) — `.github/workflows/sync.yml` runs
+  `import` / `sync` / `sync:friends` / `enrich` on a nightly cron, commits any
+  changes, and dispatches the deploy — the site now mirrors Goodreads on its
+  own.
+- ✅ **Year in Books wrap-ups** (M) — `/year/<year>` for every year with a
+  dated read (2025 and earlier backfilled automatically): headline numbers,
+  the five-star shelf, and the year month by month. Linked from `/stats`.
+- ✅ **To-read pile** (S) — `/to-read` renders the synced to-read shelf (it was
+  data-only before), with a "pick my next read" random spotlight button.
+- ✅ **Books in common / taste match** (M) — each `/friends/<slug>` page lists
+  shared reads with both ratings side by side, an agreement score (% within
+  one star), and the biggest split (`lib/compare.ts`).
+- ✅ **"From your friends" recommendations** (S) — `/friends` ends with books
+  friends rated 4★+ that aren't on your shelf or pile, multi-fan books first
+  (`lib/recommend.ts`).
+- ✅ **Reading-pace stats** (S) — longest/current monthly streak, longest dry
+  spell, busiest month on `/stats` (`computePace` in `bookstats.ts`).
+- ✅ **Open Library enrichment** (M) — `npm run enrich` caches page counts +
+  subjects + edition languages into `src/data/enrichment.json`; fills the
+  Pages stat and powers the "Common threads" subject chart on `/stats`.
+- ✅ **JSON-LD structured data** (S) — schema.org `Review`/`Book` on every
+  review page, so search results can show the star rating.
+- ✅ **View transitions** (S) — cross-document CSS view transitions (no JS
+  router): covers morph from shelf/feed/favorites/year grids into the review
+  header; respects reduced motion. Firefox degrades to normal navigation.
 
 ## Content & writing
 
@@ -73,34 +96,21 @@ worth it. Cherry-pick freely.
 
 ## Data & stats
 
-- **Pages-read backfill** (S) — `num_pages` is sparse in the RSS, so the "Pages"
-  stat is hidden. The Goodreads CSV export has reliable page counts if you ever
-  want that number to show.
 - **Rating-over-time chart** (M) — are you getting harsher or kinder? Average by
   month/year as a line. The monthly data already exists.
-- **Genre / language breakdown** (M) — would need tags or a data source; your
-  reading skews Japanese/Korean literary fiction, which is a fun thing to chart.
+- **Original-language / in-translation breakdown** (M) — the Open Library
+  enrichment stores *edition* languages, but "originally written in Japanese"
+  isn't in that data. Needs a better source or a hand-tagged field; your
+  reading skews Japanese/Korean literary fiction, which is a fun thing to
+  chart honestly.
 
 ## Friends
 
-- **Books in common** (S–M) — you already detect both-read on the timeline;
-  surface a shared-shelf view per friend + where your ratings agree or diverge.
 - **Fold `sync:friends` into `npm run sync`** (S) — one command to refresh your
-  own reads *and* friends' shelves / currently-reading.
-- **Friends history past the 100-book RSS cap** (S) — _POC'd, works._ The "100
-  cap" turned out to be just the RSS feed's default page size, not a hard limit:
-  `list_rss/<userId>?shelf=read&page=N` honors pagination (and `&per_page` up to
-  ~200), still auth-free, no HTML scraping or login needed. POC
-  (`scripts/poc-friend-history.mjs`) walked Michelle's whole `read` shelf — 148
-  books across 2 pages vs. the 100 we had — and every one of the original 100
-  matched on rating/date/cover, parsed by the existing `normalize()`. (Two
-  apparent diffs were real data, not bugs: a book she's shelved twice with
-  different ratings, and Goodreads swapping a cover image-id.) To productionize:
-  teach `fetchShelf` in `goodreads-lib.mjs` to loop `&page=N` until a short page,
-  dedup by `bookId`, and `sync-friends.mjs` gets full history for free. Same win
-  is available for our own `sync` and the to-read/currently-reading shelves.
-  Caveat: more, slower requests per friend (be polite); private shelves still
-  return nothing.
+  own reads *and* friends' shelves / currently-reading. (Low urgency now that
+  the nightly workflow runs everything anyway.)
+- **Taste-match deep dive** (M) — the agreement score shipped; could extend to
+  a scatter of "your rating vs theirs" or per-genre agreement once tags exist.
 
 ## Character & polish
 

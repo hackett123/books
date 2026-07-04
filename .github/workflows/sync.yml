@@ -1,0 +1,69 @@
+name: Nightly Goodreads sync
+
+on:
+  schedule:
+    # 07:23 UTC nightly (~3am US East). Odd minute to avoid the top-of-hour
+    # thundering herd on GitHub's cron runners.
+    - cron: "23 7 * * *"
+  # Run on demand from the Actions tab.
+  workflow_dispatch:
+
+permissions:
+  contents: write # commit synced data back to main
+  actions: write # dispatch the deploy workflow after pushing
+
+# Don't let two syncs race a push.
+concurrency:
+  group: goodreads-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # .sync-cache.json is git-ignored local state, so CI always does a full
+      # (paginated) walk of each shelf — slower than local incremental runs,
+      # but correct from a fresh clone.
+      - name: Import new reviews + rating-only shelf
+        run: npm run import
+
+      - name: Sync currently-reading / to-read
+        run: npm run sync
+
+      - name: Sync friends' shelves
+        run: npm run sync:friends
+
+      - name: Enrich new books from Open Library
+        run: npm run enrich
+
+      - name: Commit & push if anything changed
+        id: commit
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes — skipping commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Nightly Goodreads sync ($(date -u +%F))"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Pushes made with the workflow's GITHUB_TOKEN intentionally don't fire
+      # push-triggered workflows (recursion guard), so kick the deploy directly.
+      - name: Trigger deploy
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

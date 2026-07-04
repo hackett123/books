@@ -3,9 +3,29 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import BookCover from "../../components/BookCover.astro";
 import Heatmap from "../../components/Heatmap.astro";
 import { getFriends } from "../../lib/friends";
+import { getReadBooks } from "../../lib/library";
+import { compareWithFriend } from "../../lib/compare";
+import { getRecommendations } from "../../lib/recommend";
 import { withBase } from "../../lib/url";
 
 const friends = getFriends();
+
+// Books-in-common count per friend, for the card stat line.
+const mine = await getReadBooks();
+const sharedCount = new Map(
+  friends.map((f) => [f.slug, compareWithFriend(mine, f).shared.length])
+);
+
+// Books friends loved (4★+) that aren't in the library or the to-read pile.
+const RECS_SHOWN = 18;
+const recommendations = await getRecommendations();
+const topRecs = recommendations.slice(0, RECS_SHOWN);
+
+function fansLabel(rec: (typeof topRecs)[number]): string {
+  return rec.fans
+    .map((f) => `${f.name.split(" ")[0]} ${f.rating}★`)
+    .join(" · ");
+}
 
 function fmtSynced(iso: string | null): string | undefined {
   if (!iso) return undefined;
@@ -51,6 +71,9 @@ function fmtSynced(iso: string | null): string | undefined {
                 <p class="fcard__stats meta">
                   {f.stats.totalRead} books · avg{" "}
                   {f.stats.avgRating.toFixed(2)}★ · {f.stats.totalReviewed} reviewed
+                  {(sharedCount.get(f.slug) ?? 0) > 0 && (
+                    <> · {sharedCount.get(f.slug)} in common</>
+                  )}
                 </p>
               </header>
 
@@ -86,6 +109,41 @@ function fmtSynced(iso: string | null): string | undefined {
           );
         })}
       </div>
+    )
+  }
+
+  {
+    topRecs.length > 0 && (
+      <section class="recs">
+        <h2>From your friends</h2>
+        <p class="meta">
+          Books they rated 4★ or higher that aren't on your shelf or your{" "}
+          <a href={withBase("/to-read")}>to-read pile</a>. The ones several
+          friends loved come first.
+        </p>
+        <ul class="recs__grid">
+          {topRecs.map((r) => (
+            <li class="recs__item">
+              <a href={r.url ?? "#"} class="recs__cover" rel="nofollow noopener" target="_blank">
+                <BookCover cover={r.cover} title={r.title} author={r.author} width={110} />
+              </a>
+              <div class="recs__meta">
+                <a href={r.url ?? "#"} class="recs__title" rel="nofollow noopener" target="_blank">
+                  {r.title}
+                </a>
+                <span class="recs__author">{r.author}</span>
+                <span class="recs__fans">{fansLabel(r)}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+        {recommendations.length > topRecs.length && (
+          <p class="meta">
+            …and {recommendations.length - topRecs.length} more across their
+            shelves.
+          </p>
+        )}
+      </section>
     )
   }
 </BaseLayout>
@@ -147,5 +205,54 @@ function fmtSynced(iso: string | null): string | undefined {
   }
   .empty {
     color: var(--color-muted);
+  }
+
+  /* from-your-friends recommendations */
+  .recs {
+    margin-top: var(--space-7);
+  }
+  .recs__grid {
+    list-style: none;
+    margin: var(--space-4) 0 var(--space-4);
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: var(--space-6) var(--space-5);
+  }
+  .recs__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .recs__cover {
+    display: block;
+    transition: transform var(--transition);
+  }
+  .recs__cover:hover {
+    transform: translateY(-3px);
+  }
+  .recs__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .recs__title {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+    align-self: start;
+  }
+  .recs__title:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .recs__author {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+  .recs__fans {
+    font-size: var(--text-xs);
+    color: var(--color-accent);
   }
 </style>

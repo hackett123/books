@@ -118,7 +118,13 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
                 data-date={b.dateRead ? b.dateRead.getTime() : 0}
               >
                 <a href={b.href} class="grid__cover" {...linkAttrs}>
-                  <BookCover cover={b.cover} title={b.title} author={b.author} width={140} />
+                  <BookCover
+                    cover={b.cover}
+                    title={b.title}
+                    author={b.author}
+                    width={140}
+                    transitionName={b.slug ? `cover-${b.slug}` : undefined}
+                  />
                 </a>
                 <div class="grid__meta">
                   <a

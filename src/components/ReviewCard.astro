@@ -10,8 +10,9 @@ interface Props {
   cover?: string;
   dateRead?: Date;
   excerpt?: string;
+  slug?: string; // review id, for the cover's view-transition morph
 }
-const { href, title, author, rating, cover, dateRead, excerpt } =
+const { href, title, author, rating, cover, dateRead, excerpt, slug } =
   Astro.props;
 
 const dateLabel = dateRead
@@ -25,7 +26,13 @@ const dateLabel = dateRead
 
 <article class="card">
   <a class="card__cover" href={href} aria-hidden="true" tabindex="-1">
-    <BookCover cover={cover} title={title} author={author} width={84} />
+    <BookCover
+      cover={cover}
+      title={title}
+      author={author}
+      width={84}
+      transitionName={slug ? `cover-${slug}` : undefined}
+    />
   </a>
   <div class="card__body">
     <h2 class="card__title">

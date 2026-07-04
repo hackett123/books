@@ -32,6 +32,7 @@ const reviews = await getPublishedReviews();
       <div class="feed measure">
         {reviews.map((r) => (
           <ReviewCard
+            slug={r.id}
             href={withBase(`/reviews/${r.id}`)}
             title={r.data.title}
             author={r.data.author}

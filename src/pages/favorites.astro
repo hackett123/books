@@ -16,6 +16,7 @@ type Fav = {
   cover?: string;
   href: string;
   external: boolean;
+  slug?: string;
 };
 
 const reviews = await getPublishedReviews();
@@ -33,6 +34,7 @@ const reviewedFavs: Fav[] = reviews
     cover: r.data.cover,
     href: withBase(`/reviews/${r.id}`),
     external: false,
+    slug: r.id,
   }));
 
 const shelfFavs: Fav[] = (await getUnreviewedShelf())
@@ -83,6 +85,7 @@ const favorites = [...reviewedFavs, ...shelfFavs].sort((a, b) =>
                   title={f.title}
                   author={f.author}
                   width={170}
+                  transitionName={f.slug ? `cover-${f.slug}` : undefined}
                 />
               </a>
               <div class="fav__meta">

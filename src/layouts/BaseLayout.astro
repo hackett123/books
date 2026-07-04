@@ -28,6 +28,7 @@ const nav = [
   { href: "/", label: "Shelf" },
   { href: "/reviews", label: "Reviews" },
   { href: "/favorites", label: "Favorites" },
+  { href: "/to-read", label: "To-Read" },
   { href: "/timeline", label: "Timeline" },
   { href: "/friends", label: "Friends" },
   { href: "/stats", label: "Stats" },
@@ -54,6 +55,8 @@ const path = stripBase(Astro.url.pathname);
       href={withBase("/rss.xml")}
     />
     <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+    {/* Per-page extras: JSON-LD, meta overrides, etc. */}
+    <slot name="head" />
     {/* Apply the saved/preferred theme before first paint to avoid a flash. */}
     <script is:inline>
       (() => {

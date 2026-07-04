@@ -271,6 +271,32 @@ small {
   }
 }
 
+/* ---- Cross-document view transitions (cover morph) -------------------- */
+/* Pure CSS — no client-side router, so per-page scripts keep working and
+   browsers without support (Firefox) just navigate normally. Book covers
+   carry a per-book view-transition-name (see BookCover.astro), so clicking
+   a cover morphs it from the grid/feed into the review-page header. */
+@view-transition {
+  navigation: auto;
+}
+/* The sticky header is identical on every page — name it so it stays put
+   instead of crossfading with the rest of the root snapshot. */
+.site-header {
+  view-transition-name: site-header;
+}
+/* While a transition runs, skip the review page's entrance fade — the two
+   animations fight over the morphing cover. */
+html:active-view-transition .fade-up {
+  animation: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
 /* ---- Print: make a single page (esp. a review) print cleanly --------- */
 @media print {
   :root {

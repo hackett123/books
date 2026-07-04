@@ -1,12 +1,18 @@
 ---
 // Book cover with a graceful, typographic fallback when no image exists.
+// `transitionName` (e.g. "cover-<slug>") opts the cover into the cross-document
+// view-transition morph — give the same name to the same book on both pages.
 interface Props {
   cover?: string;
   title: string;
   author?: string;
   width?: number;
+  transitionName?: string;
 }
-const { cover, title, author, width = 120 } = Astro.props;
+const { cover, title, author, width = 120, transitionName } = Astro.props;
+const style =
+  `width:${width}px` +
+  (transitionName ? `;view-transition-name:${transitionName}` : "");
 ---
 
 {
@@ -17,12 +23,12 @@ const { cover, title, author, width = 120 } = Astro.props;
       alt={`Cover of ${title}`}
       width={width}
       loading="lazy"
-      style={`width:${width}px`}
+      style={style}
     />
   ) : (
     <span
       class="cover cover--placeholder"
-      style={`width:${width}px`}
+      style={style}
       aria-label={`Cover of ${title}`}
     >
       <span class="cover__title">{title}</span>

@@ -1,0 +1,190 @@
+---
+// /to-read — the TBR pile. shelves.json has always synced the to-read shelf
+// (npm run sync); this page finally puts it on screen, with a "pick for me"
+// button for the nights when choosing is the hard part.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BookCover from "../components/BookCover.astro";
+import shelves from "../data/shelves.json";
+
+interface TbrBook {
+  title: string;
+  author: string;
+  cover?: string;
+  url?: string;
+  dateAdded?: string;
+}
+const toRead = ((shelves.toRead ?? []) as TbrBook[]).slice();
+
+const syncedAt = shelves.syncedAt
+  ? new Date(shelves.syncedAt).toLocaleDateString("en-US", {
+      timeZone: "UTC",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    })
+  : undefined;
+---
+
+<BaseLayout
+  title="To-read"
+  description="The to-read pile — what's waiting on the nightstand."
+>
+  <section class="intro measure">
+    <p class="eyebrow">The pile</p>
+    <h1>To-read</h1>
+    <p class="intro__lede">
+      {toRead.length} books waiting their turn, from the Goodreads to-read
+      shelf{syncedAt && <> (synced {syncedAt})</>}. Covers link out to
+      Goodreads.
+    </p>
+    {
+      toRead.length > 1 && (
+        <p class="picker">
+          <button class="picker__btn" id="pick" type="button">
+            ☾ Pick my next read
+          </button>
+          <span class="picker__result meta" id="pick-result" aria-live="polite" />
+        </p>
+      )
+    }
+  </section>
+
+  {
+    toRead.length === 0 ? (
+      <p class="empty measure">
+        Nothing in the pile. Shelve something as <em>to-read</em> on Goodreads
+        and run <code>npm run sync</code>.
+      </p>
+    ) : (
+      <ul class="grid">
+        {toRead.map((b) => (
+          <li class="grid__item" data-title={b.title} data-author={b.author}>
+            <a
+              href={b.url ?? "#"}
+              class="grid__cover"
+              rel="nofollow noopener"
+              target="_blank"
+            >
+              <BookCover cover={b.cover} title={b.title} author={b.author} width={140} />
+            </a>
+            <div class="grid__meta">
+              <a
+                href={b.url ?? "#"}
+                class="grid__title"
+                rel="nofollow noopener"
+                target="_blank"
+              >
+                {b.title}
+              </a>
+              <span class="grid__author">{b.author}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</BaseLayout>
+
+<script>
+  // The pile picker: choose a random book, spotlight it, and say so.
+  const btn = document.getElementById("pick");
+  const result = document.getElementById("pick-result");
+  const items = [...document.querySelectorAll<HTMLElement>(".grid__item")];
+  let previous: HTMLElement | null = null;
+
+  btn?.addEventListener("click", () => {
+    // Never pick the same book twice in a row (when there's a choice).
+    const pool = items.length > 1 ? items.filter((i) => i !== previous) : items;
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    previous?.classList.remove("picked");
+    pick.classList.add("picked");
+    previous = pick;
+    if (result) {
+      result.textContent = `Tonight: ${pick.dataset.title} — ${pick.dataset.author}`;
+    }
+    pick.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+</script>
+
+<style>
+  .intro {
+    margin-bottom: var(--space-6);
+  }
+  .intro__lede {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    max-width: 34rem;
+  }
+  .picker {
+    margin-top: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+  .picker__btn {
+    font: inherit;
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-accent);
+    background: none;
+    border: var(--hairline);
+    border-color: var(--color-accent);
+    border-radius: 999px;
+    padding: 0.35em 1em;
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+  .picker__btn:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-6) var(--space-5);
+  }
+  .grid__item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    border-radius: var(--radius);
+  }
+  .grid__item.picked {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 6px;
+  }
+  .grid__cover {
+    display: block;
+    transition: transform var(--transition);
+  }
+  .grid__cover:hover {
+    transform: translateY(-3px);
+  }
+  .grid__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .grid__title {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+    align-self: start;
+  }
+  .grid__title:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .grid__author {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+  .empty {
+    color: var(--color-muted);
+  }
+</style>

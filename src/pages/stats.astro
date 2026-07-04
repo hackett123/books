@@ -4,13 +4,16 @@ import StarRating from "../components/StarRating.astro";
 import Divider from "../components/Divider.astro";
 import Heatmap from "../components/Heatmap.astro";
 import { getStats } from "../lib/stats";
+import { getSubjectBreakdown } from "../lib/enrichment";
 import { authorSlug } from "../lib/authors";
 import { withBase } from "../lib/url";
 
 const stats = await getStats();
+const subjects = await getSubjectBreakdown();
 const maxYear = Math.max(1, ...stats.byYear.map((y) => y.count));
 const maxHist = Math.max(1, ...stats.ratingHistogram.map((h) => h.count));
 const maxAuthor = Math.max(1, ...stats.topAuthors.map((a) => a.count));
+const maxSubject = Math.max(1, ...subjects.map((s) => s.count));
 
 const bigNumbers = [
   { label: "Books read", value: stats.totalRead },
@@ -19,6 +22,44 @@ const bigNumbers = [
 ];
 if (stats.totalPages > 0)
   bigNumbers.push({ label: "Pages", value: stats.totalPages.toLocaleString() });
+
+// Pace: streaks / dry spells / busiest month, from computeStats().
+const MONTHS_SHORT = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+function fmtMonthKey(key: string): string {
+  const [y, m] = key.split("-").map(Number);
+  return `${MONTHS_SHORT[m - 1]} ${y}`;
+}
+const pace = stats.pace;
+const paceNumbers: { value: string; label: string; sub?: string }[] = [];
+if (pace.longestStreak && pace.longestStreak.months > 1) {
+  paceNumbers.push({
+    value: `${pace.longestStreak.months} mo`,
+    label: "Longest streak",
+    sub: `${fmtMonthKey(pace.longestStreak.from)} – ${fmtMonthKey(pace.longestStreak.to)}`,
+  });
+}
+paceNumbers.push({
+  value: `${pace.currentStreak} mo`,
+  label: "Current streak",
+  sub: "consecutive months with a book",
+});
+if (pace.longestGap && pace.longestGap.days > 0) {
+  paceNumbers.push({
+    value: `${pace.longestGap.days} days`,
+    label: "Longest dry spell",
+    sub: `${pace.longestGap.from.slice(0, 7)} → ${pace.longestGap.to.slice(0, 7)}`,
+  });
+}
+if (pace.busiestMonth) {
+  paceNumbers.push({
+    value: String(pace.busiestMonth.count),
+    label: "Busiest month",
+    sub: `${MONTHS_SHORT[pace.busiestMonth.month]} ${pace.busiestMonth.year}`,
+  });
+}
 ---
 
 <BaseLayout title="Stats" description="Reading stats and year in books.">
@@ -81,20 +122,21 @@ if (stats.totalPages > 0)
 
   <section class="measure block">
     <h2>Year in books</h2>
+    <p class="meta">Click a year for its full wrap-up.</p>
     <div class="years">
       {
         stats.byYear.map((y) => (
           <div class="year">
             <div class="year__head">
-              <span class="year__num">{y.year}</span>
+              <a class="year__num" href={withBase(`/year/${y.year}`)}>{y.year}</a>
               <span class="meta">
                 {y.count} books · avg {y.avgRating.toFixed(1)}★
                 {y.pages > 0 && <> · {y.pages.toLocaleString()} pp</>}
               </span>
             </div>
-            <span class="year__bar">
+            <a class="year__bar" href={withBase(`/year/${y.year}`)} aria-label={`${y.year} in books`}>
               <span class="year__fill" style={`width:${(y.count / maxYear) * 100}%`} />
-            </span>
+            </a>
           </div>
         ))
       }
@@ -122,6 +164,49 @@ if (stats.totalPages > 0)
           hrefFor={(year, m) =>
             withBase(`/timeline#${year}-${String(m + 1).padStart(2, "0")}`)}
         />
+      </section>
+    )
+  }
+
+  {
+    subjects.length > 0 && (
+      <section class="measure block">
+        <h2>Common threads</h2>
+        <p class="meta">
+          What the library keeps returning to — subjects via Open Library
+          (<code>npm run enrich</code>).
+        </p>
+        <div class="authors">
+          {subjects.map((s) => (
+            <div class="author">
+              <span class="author__name">{s.subject}</span>
+              <span class="author__bar">
+                <span
+                  class="author__fill author__fill--night"
+                  style={`width:${(s.count / maxSubject) * 100}%`}
+                />
+              </span>
+              <span class="author__count">{s.count}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
+  {
+    paceNumbers.length > 0 && (
+      <section class="measure block">
+        <h2>Pace</h2>
+        <div class="bignums">
+          {paceNumbers.map((n) => (
+            <div class="bignum">
+              <span class="bignum__value">{n.value}</span>
+              <span class="bignum__label">{n.label}</span>
+              {n.sub && <span class="bignum__sub">{n.sub}</span>}
+            </div>
+          ))}
+        </div>
       </section>
     )
   }
@@ -175,6 +260,10 @@ if (stats.totalPages > 0)
   }
   .bignum__label {
     font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+  .bignum__sub {
+    font-size: var(--text-xs);
     color: var(--color-muted);
   }
 
@@ -242,6 +331,17 @@ if (stats.totalPages > 0)
     font-family: var(--font-display);
     font-size: var(--text-lg);
     font-weight: var(--weight-bold);
+    color: var(--color-ink);
+  }
+  a.year__num:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  a.year__bar {
+    display: block;
+  }
+  a.year__bar:hover .year__fill {
+    filter: brightness(1.12);
   }
   .year__fill {
     display: block;
@@ -284,6 +384,9 @@ if (stats.totalPages > 0)
     height: 100%;
     background: var(--color-accent);
     border-radius: 999px;
+  }
+  .author__fill--night {
+    background: var(--color-night);
   }
   @media (max-width: 32rem) {
     .author {

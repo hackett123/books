@@ -23,6 +23,19 @@ export interface MonthRow {
   months: number[]; // length 12, Jan..Dec, count of books read
 }
 
+export interface StreakInfo {
+  months: number;
+  from: string; // "2026-03" month keys (match the timeline anchors)
+  to: string;
+}
+
+export interface PaceStats {
+  longestStreak: StreakInfo | null; // most consecutive months with ≥1 book
+  currentStreak: number; // months, counted back from this (or last) month
+  longestGap: { days: number; from: string; to: string } | null; // ISO dates
+  busiestMonth: { year: number; month: number; count: number } | null; // month 0-11
+}
+
 export interface Stats {
   totalRead: number;
   totalReviewed: number;
@@ -34,11 +47,94 @@ export interface Stats {
   monthly: MonthRow[]; // heatmap rows, newest year first
   maxMonth: number; // busiest single month (for heatmap scaling)
   unknownYear: number; // books read with no dateRead
+  pace: PaceStats;
 }
 
 // Goodreads sometimes has double spaces in author names.
 export function normalizeAuthor(a: string): string {
   return a.replace(/\s+/g, " ").trim();
+}
+
+// Month index = year*12 + month, so consecutive months differ by exactly 1
+// across year boundaries (Dec 2025 -> Jan 2026).
+function monthIdx(d: Date): number {
+  return d.getUTCFullYear() * 12 + d.getUTCMonth();
+}
+function monthKey(idx: number): string {
+  return `${Math.floor(idx / 12)}-${String((idx % 12) + 1).padStart(2, "0")}`;
+}
+
+// Reading-pace stats over the dated books: streaks of consecutive months with
+// at least one finish, the longest dry spell between finishes, and the single
+// busiest month. Books with no dateRead can't participate.
+function computePace(books: ReadBook[], now = new Date()): PaceStats {
+  const dated = books
+    .filter((b) => b.dateRead && !isNaN(b.dateRead.getTime()))
+    .sort((a, b) => a.dateRead!.getTime() - b.dateRead!.getTime());
+  if (dated.length === 0) {
+    return { longestStreak: null, currentStreak: 0, longestGap: null, busiestMonth: null };
+  }
+
+  const monthCounts = new Map<number, number>();
+  for (const b of dated) {
+    const i = monthIdx(b.dateRead!);
+    monthCounts.set(i, (monthCounts.get(i) ?? 0) + 1);
+  }
+  const months = [...monthCounts.keys()].sort((a, b) => a - b);
+
+  let bestLen = 1;
+  let bestEnd = months[0];
+  let run = 1;
+  for (let k = 1; k < months.length; k++) {
+    run = months[k] === months[k - 1] + 1 ? run + 1 : 1;
+    if (run > bestLen) {
+      bestLen = run;
+      bestEnd = months[k];
+    }
+  }
+  const longestStreak: StreakInfo = {
+    months: bestLen,
+    from: monthKey(bestEnd - bestLen + 1),
+    to: monthKey(bestEnd),
+  };
+
+  // Current streak counts back from this month — or last month, so an unbroken
+  // streak isn't reported as 0 just because this month has no finish yet.
+  const nowIdx = now.getUTCFullYear() * 12 + now.getUTCMonth();
+  const have = new Set(months);
+  let cursor: number | null = have.has(nowIdx)
+    ? nowIdx
+    : have.has(nowIdx - 1)
+      ? nowIdx - 1
+      : null;
+  let currentStreak = 0;
+  while (cursor !== null && have.has(cursor)) {
+    currentStreak++;
+    cursor--;
+  }
+
+  let longestGap: PaceStats["longestGap"] = null;
+  for (let k = 1; k < dated.length; k++) {
+    const days = Math.round(
+      (dated[k].dateRead!.getTime() - dated[k - 1].dateRead!.getTime()) / 86_400_000
+    );
+    if (!longestGap || days > longestGap.days) {
+      longestGap = {
+        days,
+        from: dated[k - 1].dateRead!.toISOString().slice(0, 10),
+        to: dated[k].dateRead!.toISOString().slice(0, 10),
+      };
+    }
+  }
+
+  let busiestMonth: PaceStats["busiestMonth"] = null;
+  for (const [i, count] of monthCounts) {
+    if (!busiestMonth || count > busiestMonth.count) {
+      busiestMonth = { year: Math.floor(i / 12), month: i % 12, count };
+    }
+  }
+
+  return { longestStreak, currentStreak, longestGap, busiestMonth };
 }
 
 export function computeStats(input: ReadBook[]): Stats {
@@ -117,5 +213,6 @@ export function computeStats(input: ReadBook[]): Stats {
     monthly,
     maxMonth,
     unknownYear,
+    pace: computePace(books),
   };
 }

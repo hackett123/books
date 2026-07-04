@@ -13,6 +13,7 @@
     "import": "node scripts/import-goodreads.mjs",
     "sync": "node scripts/sync-shelves.mjs",
     "sync:friends": "node scripts/sync-friends.mjs",
+    "enrich": "node scripts/enrich-openlibrary.mjs",
     "publish": "bash scripts/publish.sh"
   },
   "dependencies": {
