@@ -3,8 +3,17 @@
   "slug": "collin",
   "userId": "151010137",
   "profileUrl": "https://www.goodreads.com/user/show/151010137",
-  "syncedAt": "2026-07-06T11:45:17.598Z",
+  "syncedAt": "2026-07-07T10:34:22.543Z",
   "read": [
+    {
+      "title": "Mrs. Dalloway",
+      "author": "Virginia Woolf",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1646148221l/14942._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8597301391?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-07-06",
+      "hasReview": false
+    },
     {
       "title": "I Who Have Never Known Men",
       "author": "Jacqueline Harpman",
@@ -915,12 +924,5 @@
       "hasReview": false
     }
   ],
-  "currentlyReading": [
-    {
-      "title": "Mrs. Dalloway",
-      "author": "Virginia Woolf",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1646148221l/14942._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8597301391?utm_medium=api&utm_source=rss"
-    }
-  ]
+  "currentlyReading": []
 }
