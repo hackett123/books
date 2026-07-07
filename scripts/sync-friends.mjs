@@ -23,6 +23,7 @@ import {
   getLastSync,
   setLastSync,
 } from "./sync-cache.mjs";
+import { appendActivity, diffShelfActivity } from "./activity.mjs";
 
 const FRIENDS_CONFIG = path.join(ROOT, "src", "data", "friends.json");
 const OUT_DIR = path.join(ROOT, "src", "data", "friends");
@@ -55,23 +56,27 @@ async function main() {
     }
     const file = path.join(OUT_DIR, `${f.slug}.json`);
     try {
+      const existing = await loadExisting(file);
       // INCREMENTAL: only pull `read` books added since this friend's last sync.
       // currently-reading is a small "state" shelf where items leave when a book
       // is finished, so it's always fetched in full (caching would strand them).
       const since = force ? null : getLastSync(cache, f.userId, "read");
       const { items: read, complete } = await fetchShelf(f.userId, "read", { since });
-      let currentlyReading = [];
+      let currentlyReading;
       try {
-        ({ items: currentlyReading } = await fetchShelf(f.userId, "currently-reading"));
+        const { items } = await fetchShelf(f.userId, "currently-reading");
+        currentlyReading = items.map(slimReading);
       } catch {
-        currentlyReading = [];
+        // Keep the previous list on a transient fetch failure so books don't
+        // flicker off the site and re-log as "started" on the next run.
+        currentlyReading = existing?.currentlyReading ?? [];
       }
 
       // Same canonical order (newest read first) on both paths, so an unchanged
       // incremental run produces a byte-identical file. The site re-sorts anyway.
       const mergedRead = complete
         ? read.map(slimRead).sort(byReadDesc)
-        : mergeReads(await loadExistingRead(file), read.map(slimRead));
+        : mergeReads(existing?.read ?? [], read.map(slimRead));
 
       const out = {
         name: f.name ?? f.slug,
@@ -80,14 +85,23 @@ async function main() {
         profileUrl: `https://www.goodreads.com/user/show/${f.userId}`,
         syncedAt: new Date().toISOString(),
         read: mergedRead,
-        currentlyReading: currentlyReading.map(slimReading),
+        currentlyReading,
       };
+
+      // Log started/finished/rated/reviewed events for the updates strip.
+      // First sync for a friend (no prior file) is a backfill, not news.
+      const updates = existing
+        ? await appendActivity(diffShelfActivity(existing, out), {
+            who: out.name,
+            slug: out.slug,
+          })
+        : 0;
 
       await writeFile(file, JSON.stringify(out, null, 2) + "\n", "utf8");
       setLastSync(cache, f.userId, "read", startedAt, f.name ?? f.slug);
       const tag = complete ? "" : ` (+${read.length} new)`;
       console.log(
-        `  ${f.slug.padEnd(10)} read ${String(out.read.length).padStart(3)}${tag} · currently-reading ${out.currentlyReading.length}`
+        `  ${f.slug.padEnd(10)} read ${String(out.read.length).padStart(3)}${tag} · currently-reading ${out.currentlyReading.length}${updates ? ` · ${updates} update(s)` : ""}`
       );
     } catch (err) {
       console.log(`  ${f.slug}: failed (${err.message}) — is the profile public?`);
@@ -103,12 +117,12 @@ function readKey(b) {
   return b.url || `${(b.title || "").toLowerCase().trim()}::${(b.author || "").toLowerCase().trim()}`;
 }
 
-async function loadExistingRead(file) {
-  if (!existsSync(file)) return [];
+async function loadExisting(file) {
+  if (!existsSync(file)) return null;
   try {
-    return JSON.parse(await readFile(file, "utf8")).read ?? [];
+    return JSON.parse(await readFile(file, "utf8"));
   } catch {
-    return [];
+    return null;
   }
 }
 

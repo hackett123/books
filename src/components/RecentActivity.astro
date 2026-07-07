@@ -1,0 +1,138 @@
+---
+// The "updates" strip: reading events from the 24h before this build —
+// started / finished / rated / reviewed, mine and friends'. Renders nothing
+// on a quiet day. Events are logged by the sync scripts into
+// src/data/activity.json (see scripts/activity.mjs).
+import BookCover from "./BookCover.astro";
+import { getRecentActivity, type ActivityEvent } from "../lib/activity";
+import { withBase } from "../lib/url";
+
+const SHOWN = 12;
+const events = getRecentActivity();
+const shown = events.slice(0, SHOWN);
+
+// "3★ · reviewed" tail after the sentence; empty for plain started events.
+function extras(e: ActivityEvent): string {
+  const parts: string[] = [];
+  if (e.action !== "started" && e.rating) parts.push(`${e.rating}★`);
+  if (e.action === "finished" && e.reviewed) parts.push("reviewed");
+  return parts.join(" · ");
+}
+
+// My reviews link to the review page; everything else out to Goodreads.
+function titleHref(e: ActivityEvent): string | undefined {
+  return e.reviewSlug ? withBase(`/reviews/${e.reviewSlug}`) : e.book.url;
+}
+---
+
+{
+  shown.length > 0 && (
+    <section class="updates measure" aria-label="Reading updates from the last day">
+      <p class="eyebrow">Since yesterday</p>
+      <ul class="updates__list">
+        {shown.map((e) => {
+          const href = titleHref(e);
+          const linkAttrs = e.reviewSlug
+            ? {}
+            : { rel: "nofollow noopener", target: "_blank" };
+          const extra = extras(e);
+          return (
+            <li class="updates__item">
+              {href ? (
+                <a href={href} class="updates__cover" {...linkAttrs}>
+                  <BookCover cover={e.book.cover} title={e.book.title} author={e.book.author} width={40} />
+                </a>
+              ) : (
+                <span class="updates__cover">
+                  <BookCover cover={e.book.cover} title={e.book.title} author={e.book.author} width={40} />
+                </span>
+              )}
+              <p class="updates__text">
+                {e.slug ? (
+                  <a class="updates__who" href={withBase(`/friends/${e.slug}`)}>
+                    {e.who}
+                  </a>
+                ) : (
+                  <span class="updates__who">I</span>
+                )}{" "}
+                {e.action}{" "}
+                {href ? (
+                  <a class="updates__title" href={href} {...linkAttrs}>
+                    {e.book.title}
+                  </a>
+                ) : (
+                  <span class="updates__title">{e.book.title}</span>
+                )}
+                <span class="updates__meta"> · {e.book.author}</span>
+                {extra && <span class="updates__extra"> · {extra}</span>}
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+      {events.length > shown.length && (
+        <p class="updates__more meta">…and {events.length - shown.length} more.</p>
+      )}
+    </section>
+  )
+}
+
+<style>
+  .updates {
+    margin-bottom: var(--space-6);
+    border: var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    padding: var(--space-4) var(--space-5);
+    box-shadow: var(--shadow-sm);
+  }
+  .updates__list {
+    list-style: none;
+    margin: var(--space-3) 0 0;
+    padding: 0;
+  }
+  .updates__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-2) 0;
+  }
+  .updates__item + .updates__item {
+    border-top: var(--hairline);
+  }
+  .updates__cover {
+    flex: none;
+    display: block;
+  }
+  .updates__text {
+    margin: 0;
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+  }
+  .updates__who {
+    font-weight: var(--weight-medium);
+    color: var(--color-ink);
+  }
+  a.updates__who:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .updates__title {
+    font-weight: var(--weight-medium);
+    color: var(--color-ink);
+    font-style: italic;
+  }
+  a.updates__title:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .updates__meta {
+    color: var(--color-muted);
+  }
+  .updates__extra {
+    color: var(--color-accent);
+  }
+  .updates__more {
+    margin: var(--space-2) 0 0;
+  }
+</style>

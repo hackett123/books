@@ -12,7 +12,8 @@
  *   node scripts/sync-shelves.mjs 12345678
  */
 
-import { writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import {
   ROOT,
@@ -22,6 +23,7 @@ import {
   readConfig,
   writeConfig,
 } from "./goodreads-lib.mjs";
+import { appendActivity, diffShelfActivity } from "./activity.mjs";
 
 const OUT_FILE = path.join(ROOT, "src", "data", "shelves.json");
 
@@ -51,6 +53,7 @@ main().catch((err) => {
 
 async function main() {
   console.log(`\nSyncing dynamic shelves for user ${userId}…\n`);
+  const prev = await loadPrevious();
   const out = { syncedAt: new Date().toISOString() };
 
   for (const { name, key } of SHELVES) {
@@ -59,7 +62,9 @@ async function main() {
       ({ items } = await fetchShelf(userId, name));
     } catch (err) {
       console.log(`  ${name}: skipped (${err.message})`);
-      out[key] = [];
+      // Keep the previous list on a transient fetch failure so books don't
+      // flicker off the site and re-log as "started" on the next run.
+      out[key] = prev?.[key] ?? [];
       continue;
     }
     out[key] = items
@@ -74,8 +79,29 @@ async function main() {
     console.log(`  ${name.padEnd(18)} : ${out[key].length}`);
   }
 
+  // Log my own "started reading" events for the updates strip (finished/rated
+  // events come from the importer, which owns the read shelf). First sync has
+  // no prior snapshot to diff, so it logs nothing.
+  if (prev?.currentlyReading) {
+    const events = diffShelfActivity(
+      { currentlyReading: prev.currentlyReading },
+      { currentlyReading: out.currentlyReading }
+    );
+    const updates = await appendActivity(events, { who: cfg.name ?? null, slug: null });
+    if (updates) console.log(`  ${updates} update(s) logged`);
+  }
+
   await mkdir(path.dirname(OUT_FILE), { recursive: true });
   await writeFile(OUT_FILE, JSON.stringify(out, null, 2) + "\n", "utf8");
   await writeConfig({ ...cfg, userId });
   console.log(`\nWrote ${path.relative(ROOT, OUT_FILE)}\n`);
+}
+
+async function loadPrevious() {
+  if (!existsSync(OUT_FILE)) return null;
+  try {
+    return JSON.parse(await readFile(OUT_FILE, "utf8"));
+  } catch {
+    return null;
+  }
 }

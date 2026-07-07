@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BookCover from "../components/BookCover.astro";
+import RecentActivity from "../components/RecentActivity.astro";
 import StarRating from "../components/StarRating.astro";
 import { getReadBooks } from "../lib/library";
 import { authorSlug } from "../lib/authors";
@@ -35,6 +36,8 @@ const starCounts = [5, 4, 3, 2, 1].map((star) => ({
       have a full review; the rest are rated-only (↗ to Goodreads).
     </p>
   </section>
+
+  <RecentActivity />
 
   {
     reading.length > 0 && (

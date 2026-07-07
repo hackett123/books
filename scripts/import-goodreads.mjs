@@ -36,6 +36,7 @@ import {
   getLastSync,
   setLastSync,
 } from "./sync-cache.mjs";
+import { appendActivity, bookEvent, isFreshRead } from "./activity.mjs";
 
 const REVIEWS_DIR = path.join(ROOT, "src", "content", "reviews");
 const SHELF_FILE = path.join(ROOT, "src", "data", "shelf.json");
@@ -108,22 +109,28 @@ async function main() {
   // already-imported book are caught by the existsSync skip below (add-only).
   const usedSlugs = new Set();
 
-  // On a full read, regenerate shelf.json from scratch. Incrementally, merge the
-  // new books into the existing shelf (keyed by title+author).
-  const shelfMap = new Map();
-  if (!complete && existsSync(SHELF_FILE)) {
+  // Previous shelf snapshot: seeds the incremental merge, and is the baseline
+  // for activity events (a book absent from it = newly finished). null on the
+  // first import, which is a backfill — no events then.
+  let oldShelf = null;
+  if (existsSync(SHELF_FILE)) {
     try {
-      for (const e of JSON.parse(await readFile(SHELF_FILE, "utf8"))) {
-        shelfMap.set(shelfKey(e), e);
-      }
+      oldShelf = new Map(
+        JSON.parse(await readFile(SHELF_FILE, "utf8")).map((e) => [shelfKey(e), e])
+      );
     } catch {
       /* unreadable shelf.json — fall back to rebuilding from the new books */
     }
   }
 
+  // On a full read, regenerate shelf.json from scratch. Incrementally, merge the
+  // new books into the existing shelf.
+  const shelfMap = !complete && oldShelf ? new Map(oldShelf) : new Map();
+
   let written = 0;
   let skipped = 0;
   let truncatedCount = 0;
+  const events = [];
 
   for (const book of items) {
     const reviewMd = htmlToMarkdown(book.userReview);
@@ -131,10 +138,11 @@ async function main() {
 
     let cover = book.cover;
     if (downloadCovers && cover) cover = (await downloadCover(cover, book)) ?? cover;
+    const eventBook = { title: book.title, author: book.author, cover, url: book.url };
 
     if (hasReview) {
       // It's a review now, so it no longer belongs on the rating-only shelf.
-      shelfMap.delete(shelfKey(book));
+      const wasOnShelf = shelfMap.delete(shelfKey(book));
       const slug = uniqueSlug(slugify(book.title), usedSlugs);
       const file = path.join(REVIEWS_DIR, `${slug}.md`);
       if (existsSync(file)) {
@@ -145,6 +153,21 @@ async function main() {
       if (truncated) truncatedCount++;
       await writeFile(file, renderMarkdown(book, reviewMd, cover, truncated), "utf8");
       written++;
+      if (oldShelf) {
+        // A review of a book already shelved (or read long ago) is news as a
+        // review; a fresh-dated first appearance is a finished book.
+        const action =
+          wasOnShelf || oldShelf.has(shelfKey(book)) || !isFreshRead(book.dateRead)
+            ? "reviewed"
+            : "finished";
+        events.push(
+          bookEvent(action, eventBook, {
+            ...(book.rating > 0 && { rating: book.rating }),
+            reviewed: true,
+            reviewSlug: slug,
+          })
+        );
+      }
     } else {
       shelfMap.set(shelfKey(book), {
         title: book.title,
@@ -154,8 +177,22 @@ async function main() {
         url: book.url,
         dateRead: book.dateRead ?? null,
       });
+      if (oldShelf) {
+        const old = oldShelf.get(shelfKey(book));
+        if (!old && isFreshRead(book.dateRead)) {
+          events.push(
+            bookEvent("finished", eventBook, {
+              ...(book.rating > 0 && { rating: book.rating }),
+            })
+          );
+        } else if (old && (old.rating ?? 0) !== book.rating && book.rating > 0) {
+          events.push(bookEvent("rated", eventBook, { rating: book.rating }));
+        }
+      }
     }
   }
+
+  const updates = await appendActivity(events, { who: cfg.name ?? null, slug: null });
 
   const shelfEntries = [...shelfMap.values()].sort(
     (a, b) =>
@@ -171,6 +208,7 @@ async function main() {
   console.log(`  review posts written : ${written}`);
   if (skipped) console.log(`  review posts skipped : ${skipped} (already existed)`);
   console.log(`  shelf entries        : ${shelfEntries.length}${complete ? "" : " (merged)"}`);
+  if (updates) console.log(`  updates logged       : ${updates}`);
   if (truncatedCount)
     console.log(`  ⚠ truncated by GR    : ${truncatedCount} (flagged draft)`);
   console.log(`\nSaved userId to goodreads.json — run \`npm run sync\` anytime.\n`);
