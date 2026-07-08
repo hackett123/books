@@ -3,8 +3,17 @@
   "slug": "michelle",
   "userId": "44710141",
   "profileUrl": "https://www.goodreads.com/user/show/44710141",
-  "syncedAt": "2026-07-07T10:34:01.813Z",
+  "syncedAt": "2026-07-08T09:40:01.537Z",
   "read": [
+    {
+      "title": "My Year of Rest and Relaxation",
+      "author": "Ottessa Moshfegh",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1513192462l/36481955._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6438260298?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-07-07",
+      "hasReview": true
+    },
     {
       "title": "The Unmaking of June Farrow",
       "author": "Adrienne Young",
