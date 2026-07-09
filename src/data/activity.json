@@ -1,5 +1,17 @@
 [
   {
+    "at": "2026-07-09T10:38:37.420Z",
+    "who": "Beylin",
+    "slug": "beylin",
+    "action": "finished",
+    "book": {
+      "title": "Remarkably Bright Creatures",
+      "author": "Shelby Van Pelt",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1651600548l/58733693._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8739046373?utm_medium=api&utm_source=rss"
+    }
+  },
+  {
     "at": "2026-07-08T09:40:21.431Z",
     "who": "Collin",
     "slug": "collin",

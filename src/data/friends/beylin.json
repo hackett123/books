@@ -3,8 +3,17 @@
   "slug": "beylin",
   "userId": "160538290",
   "profileUrl": "https://www.goodreads.com/user/show/160538290",
-  "syncedAt": "2026-07-08T09:40:17.083Z",
+  "syncedAt": "2026-07-09T10:38:37.420Z",
   "read": [
+    {
+      "title": "Remarkably Bright Creatures",
+      "author": "Shelby Van Pelt",
+      "rating": 0,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1651600548l/58733693._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8739046373?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-07-08",
+      "hasReview": false
+    },
     {
       "title": "How to Kill a Guy in Ten Dates",
       "author": "Shailee Thompson",
@@ -321,7 +330,7 @@
       "hasReview": false
     },
     {
-      "title": "Merry and Bright (Home Sweet Holidays, #2)",
+      "title": "Merry and Bright",
       "author": "Ali  Rosen",
       "rating": 3,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1761082040l/243003601._SY475_.jpg",
@@ -330,7 +339,7 @@
       "hasReview": false
     },
     {
-      "title": "Cruel Winter with You (Under the Mistletoe Collection, #1)",
+      "title": "Cruel Winter with You",
       "author": "Ali Hazelwood",
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1728852405l/220389458._SY475_.jpg",
@@ -1221,7 +1230,7 @@
       "hasReview": true
     },
     {
-      "title": "This Spells Love",
+      "title": "This Spells Love (Dial Delights, #1)",
       "author": "Kate Robb",
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1684816198l/75665914.jpg",
@@ -1536,7 +1545,7 @@
       "hasReview": false
     },
     {
-      "title": "Icebreaker (Maple Hills, #1)",
+      "title": "Icebreaker (UCMH, #1)",
       "author": "Hannah  Grace",
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1659045816l/61767292._SY475_.jpg",
@@ -1753,12 +1762,6 @@
     }
   ],
   "currentlyReading": [
-    {
-      "title": "Remarkably Bright Creatures",
-      "author": "Shelby Van Pelt",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1651600548l/58733693._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8739046373?utm_medium=api&utm_source=rss"
-    },
     {
       "title": "Warrior Fae (Ruthless Boys of the Zodiac, #5)",
       "author": "Caroline Peckham",
