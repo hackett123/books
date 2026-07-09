@@ -76,11 +76,17 @@
   --transition: 160ms ease;
 }
 
-/* ---- Dark mode -------------------------------------------------------- *
- * Activated by [data-theme="dark"] on <html> (set by the moon toggle in the
+/* ---- Themes ------------------------------------------------------------ *
+ * Activated by [data-theme="…"] on <html> (set by the theme menu in the
  * header, persisted to localStorage; an inline script in BaseLayout applies it
- * before paint to avoid a flash). The same palette knobs as :root, retuned for
- * a dim, warm "nocturne" night. */
+ * before paint to avoid a flash). Four moods:
+ *   (default)  "paper"    — the warm-neutral light theme above
+ *   "dark"     "nocturne" — dim, warm night
+ *   "pastel"   blush + dusty rose — shared with canon.michaelhackett.me and
+ *              pokegacha.michaelhackett.me (strawberry), for subdomain unity
+ *   "vinyl"    cream + terracotta, serif body — shared with canon's vinyl
+ * The pastel/vinyl palette values mirror canon's base.html tokens; keep them
+ * in sync if either site's theme shifts. */
 :root[data-theme="dark"] {
   --color-bg: #161412;        /* near-black, warm */
   --color-surface: #1f1c19;   /* cards / raised areas */
@@ -103,4 +109,49 @@
   --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.5);
 
   color-scheme: dark;
+}
+
+/* ---- Pastel ------------------------------------------------------------ *
+ * Blush paper + dusty rose, canon's "pastel" / pokegacha's strawberry.
+ * Accent is deepened a touch from canon's #d791a6 — here it colors body
+ * links, which need more contrast than canon's buttons. */
+:root[data-theme="pastel"] {
+  --color-bg: #faf4f2;
+  --color-surface: #ffffff;
+  --color-ink: #4d413c;
+  --color-muted: #a8968e;
+  --color-faint: #eeded9;
+  --color-accent: #c76f8d;
+  --color-accent-soft: #f7e5ec;
+  --color-night: #4a4660;   /* pokegacha's violet ink, as the nocturne motif */
+  --heatmap-rgb: 74, 70, 96;
+
+  --ink-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5 C 20 2, 40 7, 60 4 S 100 2, 119 5' fill='none' stroke='%23c76f8d' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  --shadow-sm: 0 1px 2px rgba(77, 65, 60, 0.06);
+  --shadow-md: 0 6px 20px rgba(77, 65, 60, 0.1);
+}
+
+/* ---- Vinyl ------------------------------------------------------------- *
+ * Cream record-sleeve + terracotta, canon's "vinyl" — and like canon, the
+ * body switches to the serif stack (headings already are). */
+:root[data-theme="vinyl"] {
+  --color-bg: #f1e8d5;
+  --color-surface: #faf4e6;
+  --color-ink: #2e241b;
+  --color-muted: #8a7a63;
+  --color-faint: #d9c9a8;
+  --color-accent: #c9553e;
+  --color-accent-soft: #ecdcc4;
+  --color-star: #b8863b;    /* gold, deepened to hold on cream */
+  --color-night: #35837b;   /* canon vinyl's teal, as the nocturne motif */
+  --heatmap-rgb: 53, 131, 123;
+
+  --font-sans: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    "Times New Roman", serif;
+
+  --ink-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5 C 20 2, 40 7, 60 4 S 100 2, 119 5' fill='none' stroke='%23c9553e' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  --shadow-sm: 0 1px 2px rgba(46, 36, 27, 0.07);
+  --shadow-md: 0 6px 20px rgba(46, 36, 27, 0.12);
 }

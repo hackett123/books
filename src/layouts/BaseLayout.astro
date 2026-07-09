@@ -62,11 +62,14 @@ const path = stripBase(Astro.url.pathname);
       (() => {
         try {
           const stored = localStorage.getItem("theme");
-          const dark =
-            stored === "dark" ||
-            (stored === null &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches);
-          if (dark) document.documentElement.dataset.theme = "dark";
+          if (["dark", "pastel", "vinyl"].indexOf(stored) >= 0) {
+            document.documentElement.dataset.theme = stored;
+          } else if (
+            stored === null &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+          ) {
+            document.documentElement.dataset.theme = "dark";
+          }
         } catch (e) {}
       })();
     </script>
@@ -75,17 +78,41 @@ const path = stripBase(Astro.url.pathname);
     <header class="site-header">
       <div class="container site-header__inner">
         <div class="brand-group">
-          <button
-            class="theme-toggle"
-            id="theme-toggle"
-            type="button"
-            aria-label="Toggle dark mode"
-            aria-pressed="false"
-            title="Toggle dark mode"
-          >
-            <span class="theme-toggle__moon" aria-hidden="true">☾</span>
-            <span class="theme-toggle__sun" aria-hidden="true">☀</span>
-          </button>
+          <span class="theme-wrap">
+            <button
+              class="theme-toggle"
+              id="theme-toggle"
+              type="button"
+              aria-label="Theme"
+              aria-haspopup="true"
+              aria-expanded="false"
+              title="Theme"
+            >
+              <span class="theme-toggle__moon" aria-hidden="true">☾</span>
+              <span class="theme-toggle__sun" aria-hidden="true">☀</span>
+            </button>
+            {/* Theme pills, one per mood in tokens.css. data-theme-choice=""
+                is the default (paper); the same names appear on the canon and
+                pokegacha subdomains, so the family reads as one site. */}
+            <div class="theme-menu" id="theme-menu" hidden>
+              <button type="button" class="theme-pill" data-theme-choice="">
+                <span class="theme-pill__dot" style="--dot-bg:#faf8f4;--dot-fg:#9a3b2e"></span>
+                paper
+              </button>
+              <button type="button" class="theme-pill" data-theme-choice="pastel">
+                <span class="theme-pill__dot" style="--dot-bg:#faf4f2;--dot-fg:#c76f8d"></span>
+                pastel
+              </button>
+              <button type="button" class="theme-pill" data-theme-choice="vinyl">
+                <span class="theme-pill__dot" style="--dot-bg:#f1e8d5;--dot-fg:#c9553e"></span>
+                vinyl
+              </button>
+              <button type="button" class="theme-pill" data-theme-choice="dark">
+                <span class="theme-pill__dot" style="--dot-bg:#161412;--dot-fg:#d9745f"></span>
+                nocturne
+              </button>
+            </div>
+          </span>
           <a href={withBase("/")} class="brand">
             <span class="brand__name">{siteName}</span>
           </a>
@@ -181,8 +208,61 @@ const path = stripBase(Astro.url.pathname);
         font-family: var(--font-display);
       }
 
-      /* The crescent moon doubles as the dark-mode toggle; it swaps to a sun
-         once dark is active. */
+      /* The crescent moon opens the theme menu; it swaps to a sun once the
+         nocturne theme is active. */
+      .theme-wrap {
+        position: relative;
+        display: inline-flex;
+      }
+      .theme-menu {
+        position: absolute;
+        top: calc(100% + var(--space-2));
+        left: 0;
+        z-index: 20;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 8.5rem;
+        padding: var(--space-2);
+        background: var(--color-surface);
+        border: var(--hairline);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-md);
+      }
+      .theme-menu[hidden] {
+        display: none;
+      }
+      .theme-pill {
+        display: flex;
+        align-items: center;
+        gap: 0.55em;
+        padding: 0.35em 0.7em;
+        background: none;
+        border: none;
+        border-radius: 999px;
+        cursor: pointer;
+        font-family: var(--font-sans);
+        font-size: var(--text-sm);
+        color: var(--color-muted);
+        text-align: left;
+        transition: background var(--transition), color var(--transition);
+      }
+      .theme-pill:hover {
+        background: var(--color-accent-soft);
+        color: var(--color-ink);
+      }
+      .theme-pill[aria-pressed="true"] {
+        color: var(--color-ink);
+        font-weight: var(--weight-medium);
+      }
+      .theme-pill__dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--dot-bg);
+        border: 2px solid var(--dot-fg);
+        flex: none;
+      }
       .theme-toggle {
         display: inline-flex;
         align-items: baseline;
@@ -341,26 +421,52 @@ const path = stripBase(Astro.url.pathname);
     </style>
 
     <script>
-      // Dark-mode toggle — the moon in the header. The pre-paint inline script
-      // in <head> has already applied the stored/preferred theme; here we just
-      // flip it and persist the explicit choice.
+      // Theme menu — the moon in the header. The pre-paint inline script in
+      // <head> has already applied the stored/preferred theme; here we open a
+      // pill menu (paper / pastel / vinyl / nocturne) and persist the choice.
+      // Storing "light" (not clearing) keeps an explicit paper pick from
+      // falling back to the system dark preference.
       const themeToggle = document.getElementById("theme-toggle");
-      if (themeToggle) {
+      const themeMenu = document.getElementById("theme-menu");
+      if (themeToggle && themeMenu) {
         const root = document.documentElement;
-        const sync = () =>
-          themeToggle.setAttribute(
-            "aria-pressed",
-            String(root.dataset.theme === "dark")
+        const pills =
+          themeMenu.querySelectorAll<HTMLButtonElement>("[data-theme-choice]");
+        const sync = () => {
+          const current = root.dataset.theme ?? "";
+          pills.forEach((p) =>
+            p.setAttribute(
+              "aria-pressed",
+              String(p.dataset.themeChoice === current)
+            )
           );
+        };
+        const setOpen = (open: boolean) => {
+          themeMenu.hidden = !open;
+          themeToggle.setAttribute("aria-expanded", String(open));
+        };
         sync();
-        themeToggle.addEventListener("click", () => {
-          const dark = root.dataset.theme === "dark";
-          if (dark) delete root.dataset.theme;
-          else root.dataset.theme = "dark";
-          try {
-            localStorage.setItem("theme", dark ? "light" : "dark");
-          } catch (e) {}
-          sync();
+        themeToggle.addEventListener("click", () =>
+          setOpen(themeMenu.hidden)
+        );
+        pills.forEach((p) =>
+          p.addEventListener("click", () => {
+            const choice = p.dataset.themeChoice ?? "";
+            if (choice) root.dataset.theme = choice;
+            else delete root.dataset.theme;
+            try {
+              localStorage.setItem("theme", choice || "light");
+            } catch (e) {}
+            sync();
+            setOpen(false);
+          })
+        );
+        document.addEventListener("click", (e) => {
+          if (!themeToggle.closest(".theme-wrap")?.contains(e.target as Node))
+            setOpen(false);
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") setOpen(false);
         });
       }
 
