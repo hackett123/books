@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BookCover from "../../components/BookCover.astro";
-import Heatmap from "../../components/Heatmap.astro";
-import { getFriends } from "../../lib/friends";
+import RecentActivity from "../../components/RecentActivity.astro";
+import { getFriends, type Friend } from "../../lib/friends";
 import { getReadBooks } from "../../lib/library";
 import { compareWithFriend } from "../../lib/compare";
 import { getRecommendations } from "../../lib/recommend";
+import { getRecentActivity } from "../../lib/activity";
 import { withBase } from "../../lib/url";
 
 const friends = getFriends();
@@ -36,11 +37,92 @@ function fmtSynced(iso: string | null): string | undefined {
     day: "numeric",
   });
 }
+
+// Each card leads with books: currently-reading first (badged "now"), then
+// the latest finishes, up to COVERS_SHOWN covers total.
+const COVERS_SHOWN = 6;
+interface CardBook {
+  title: string;
+  author: string;
+  cover?: string;
+  url?: string;
+  now: boolean;
+}
+function cardBooks(f: Friend): CardBook[] {
+  const reading: CardBook[] = f.currentlyReading.map((b) => ({
+    ...b,
+    now: true,
+  }));
+  // Dated reads newest-first; undated ones (some shelves lack read dates)
+  // trail in shelf order so the row never comes up empty.
+  const finished: CardBook[] = f.read
+    .slice()
+    .sort(
+      (a, b) => (b.dateRead?.getTime() ?? 0) - (a.dateRead?.getTime() ?? 0)
+    )
+    .map((b) => ({
+      title: b.title,
+      author: b.author,
+      cover: b.cover,
+      url: b.url,
+      now: false,
+    }));
+  return [...reading, ...finished].slice(0, COVERS_SHOWN);
+}
+
+// A one-row mini heatmap: the last 12 calendar months ending at the build
+// month (the site rebuilds nightly, so "now" stays fresh). Months with reads
+// link into that month of the friend's timeline, like the full heatmaps on
+// /stats and the friend pages.
+const MONTHS_SHORT = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+const buildNow = new Date();
+const stripMonths = Array.from({ length: 12 }, (_, i) => {
+  const d = new Date(
+    Date.UTC(buildNow.getUTCFullYear(), buildNow.getUTCMonth() - 11 + i, 1)
+  );
+  return { year: d.getUTCFullYear(), month: d.getUTCMonth() };
+});
+
+interface StripCell {
+  year: number;
+  month: number; // 0-11
+  count: number;
+  href?: string;
+}
+function strip(f: Friend): StripCell[] {
+  return stripMonths.map(({ year, month }) => {
+    const row = f.stats.monthly.find((r) => r.year === year);
+    const count = row?.months[month] ?? 0;
+    return {
+      year,
+      month,
+      count,
+      href:
+        count > 0
+          ? withBase(
+              `/timeline/${f.slug}#${year}-${String(month + 1).padStart(2, "0")}`
+            )
+          : undefined,
+    };
+  });
+}
+
+function heat(count: number, max: number): number {
+  if (count <= 0) return 0;
+  return 0.15 + 0.85 * (count / Math.max(1, max));
+}
+
+// Skip the "Lately" section outright on a quiet month.
+const hasLately =
+  getRecentActivity(24 * 30).filter((e) => e.slug).length > 0;
 ---
 
 <BaseLayout
   title="Friends"
-  description="What my friends are reading — recent stats, heatmaps, and current reads."
+  description="What my friends are reading — current reads, recent finishes, and recommendations."
 >
   <section class="measure">
     <p class="eyebrow">Reading alongside</p>
@@ -62,41 +144,69 @@ function fmtSynced(iso: string | null): string | undefined {
       <div class="friends">
         {friends.map((f) => {
           const synced = fmtSynced(f.syncedAt);
+          const shared = sharedCount.get(f.slug) ?? 0;
+          const covers = cardBooks(f);
+          const cells = strip(f);
+          const maxStrip = Math.max(1, ...cells.map((c) => c.count));
           return (
             <section class="fcard">
-              <header class="fcard__head">
+              <header>
                 <h2 class="fcard__name">
                   <a href={withBase(`/friends/${f.slug}`)}>{f.name}</a>
                 </h2>
                 <p class="fcard__stats meta">
-                  {f.stats.totalRead} books · avg{" "}
-                  {f.stats.avgRating.toFixed(2)}★ · {f.stats.totalReviewed} reviewed
-                  {(sharedCount.get(f.slug) ?? 0) > 0 && (
-                    <> · {sharedCount.get(f.slug)} in common</>
-                  )}
+                  {f.stats.totalRead} books · avg {f.stats.avgRating.toFixed(2)}★
+                  {shared > 0 && <> · {shared} in common</>}
                 </p>
               </header>
 
-              <Heatmap monthly={f.stats.monthly} maxMonth={f.stats.maxMonth} />
-
-              {f.currentlyReading.length > 0 && (
-                <div class="fcard__reading">
-                  <p class="eyebrow">Currently reading</p>
-                  <ul class="reading__row">
-                    {f.currentlyReading.map((b) => (
-                      <li>
+              {covers.length > 0 && (
+                <ul class="fcard__covers">
+                  {covers.map((b) => {
+                    const tip = `${b.title} — ${b.author}${b.now ? " (reading now)" : ""}`;
+                    return (
+                      <li class="fcard__book">
                         {b.url ? (
-                          <a href={b.url} rel="nofollow noopener" target="_blank">
+                          <a href={b.url} rel="nofollow noopener" target="_blank" title={tip}>
                             <BookCover cover={b.cover} title={b.title} author={b.author} width={52} />
                           </a>
                         ) : (
-                          <BookCover cover={b.cover} title={b.title} author={b.author} width={52} />
+                          <span title={tip}>
+                            <BookCover cover={b.cover} title={b.title} author={b.author} width={52} />
+                          </span>
                         )}
+                        {b.now && <span class="fcard__now">now</span>}
                       </li>
-                    ))}
-                  </ul>
-                </div>
+                    );
+                  })}
+                </ul>
               )}
+
+              <div class="fcard__strip" aria-label={`${f.name}'s last 12 months of reading`}>
+                {cells.map((c) => {
+                  const label = `${MONTHS_SHORT[c.month]} ${c.year}: ${c.count} ${c.count === 1 ? "book" : "books"}`;
+                  const bg = `background:rgba(var(--heatmap-rgb),${heat(c.count, maxStrip)})`;
+                  return (
+                    <span class="fcard__mo">
+                      {c.href ? (
+                        <a
+                          class="fcard__cell fcard__cell--link"
+                          href={c.href}
+                          title={`${label} — jump to timeline`}
+                          style={bg}
+                        >
+                          <span class="visually-hidden">{label}</span>
+                        </a>
+                      ) : (
+                        <span class="fcard__cell" title={label} style={bg} />
+                      )}
+                      <span class="fcard__mi" aria-hidden="true">
+                        {MONTHS_SHORT[c.month][0]}
+                      </span>
+                    </span>
+                  );
+                })}
+              </div>
 
               <footer class="fcard__foot meta">
                 <a href={withBase(`/friends/${f.slug}`)}>Full stats →</a>
@@ -146,6 +256,22 @@ function fmtSynced(iso: string | null): string | undefined {
       </section>
     )
   }
+
+  {
+    hasLately && (
+      <section class="lately">
+        <h2>Lately</h2>
+        <p class="meta">What they've started, finished, and rated in the last month.</p>
+        <RecentActivity
+          hours={24 * 30}
+          friendsOnly
+          limit={10}
+          eyebrow=""
+          ariaLabel="Friends' reading updates from the last month"
+        />
+      </section>
+    )
+  }
 </BaseLayout>
 
 <style>
@@ -156,9 +282,9 @@ function fmtSynced(iso: string | null): string | undefined {
     margin-bottom: var(--space-6);
   }
   .friends {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-6);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: var(--space-5);
   }
   .fcard {
     border: var(--hairline);
@@ -166,6 +292,9 @@ function fmtSynced(iso: string | null): string | undefined {
     background: var(--color-surface);
     padding: var(--space-5);
     box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
   }
   .fcard__name {
     font-size: var(--text-xl);
@@ -181,23 +310,74 @@ function fmtSynced(iso: string | null): string | undefined {
   .fcard__stats {
     margin: 2px 0 0;
   }
-  .fcard__reading {
-    margin-top: var(--space-5);
-  }
-  .reading__row {
+
+  /* cover row: currently reading (badged) + recent finishes */
+  .fcard__covers {
     list-style: none;
-    margin: var(--space-2) 0 0;
+    margin: 0;
     padding: 0;
     display: flex;
     gap: var(--space-3);
     flex-wrap: wrap;
   }
+  .fcard__book {
+    position: relative;
+  }
+  .fcard__now {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    font-size: 0.55rem;
+    font-weight: var(--weight-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    padding: 2px 5px;
+    border-radius: 999px;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    box-shadow: 0 0 0 2px var(--color-bg);
+  }
+
+  /* last-12-months strip */
+  .fcard__strip {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 3px;
+    margin-top: auto; /* pins strip + footer to the card bottom */
+  }
+  .fcard__mo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .fcard__cell {
+    display: block;
+    aspect-ratio: 1;
+    border-radius: 3px;
+    border: 1px solid var(--color-faint);
+  }
+  .fcard__cell--link {
+    cursor: pointer;
+    transition: outline-color var(--transition);
+    outline: 2px solid transparent;
+    outline-offset: 1px;
+  }
+  .fcard__cell--link:hover,
+  .fcard__cell--link:focus-visible {
+    outline-color: var(--color-accent);
+  }
+  .fcard__mi {
+    text-align: center;
+    font-size: 0.55rem;
+    color: var(--color-muted);
+  }
+
   .fcard__foot {
     display: flex;
     gap: var(--space-4);
     align-items: center;
-    margin-top: var(--space-5);
-    padding-top: var(--space-4);
+    padding-top: var(--space-3);
     border-top: var(--hairline);
   }
   .fcard__foot span {
@@ -208,7 +388,8 @@ function fmtSynced(iso: string | null): string | undefined {
   }
 
   /* from-your-friends recommendations */
-  .recs {
+  .recs,
+  .lately {
     margin-top: var(--space-7);
   }
   .recs__grid {
@@ -254,5 +435,9 @@ function fmtSynced(iso: string | null): string | undefined {
   .recs__fans {
     font-size: var(--text-xs);
     color: var(--color-accent);
+  }
+  .lately :global(.updates) {
+    margin-top: var(--space-4);
+    margin-bottom: 0;
   }
 </style>

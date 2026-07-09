@@ -1,15 +1,30 @@
 ---
-// The "updates" strip: reading events from the 24h before this build —
-// started / finished / rated / reviewed, mine and friends'. Renders nothing
-// on a quiet day. Events are logged by the sync scripts into
-// src/data/activity.json (see scripts/activity.mjs).
+// The "updates" strip: reading events from the window before this build —
+// started / finished / rated / reviewed. Renders nothing on a quiet day.
+// Events are logged by the sync scripts into src/data/activity.json (see
+// scripts/activity.mjs). Defaults show the homepage's 24h everyone-included
+// strip; /friends passes a longer window with friendsOnly.
 import BookCover from "./BookCover.astro";
 import { getRecentActivity, type ActivityEvent } from "../lib/activity";
 import { withBase } from "../lib/url";
 
-const SHOWN = 12;
-const events = getRecentActivity();
-const shown = events.slice(0, SHOWN);
+interface Props {
+  hours?: number;
+  friendsOnly?: boolean; // drop my own events (slug=null)
+  limit?: number;
+  eyebrow?: string; // "" hides it (when the page supplies its own heading)
+  ariaLabel?: string;
+}
+const {
+  hours = 24,
+  friendsOnly = false,
+  limit = 12,
+  eyebrow = "Since yesterday",
+  ariaLabel = "Reading updates from the last day",
+} = Astro.props;
+
+const events = getRecentActivity(hours).filter((e) => !friendsOnly || e.slug);
+const shown = events.slice(0, limit);
 
 // "3★ · reviewed" tail after the sentence; empty for plain started events.
 function extras(e: ActivityEvent): string {
@@ -27,8 +42,8 @@ function titleHref(e: ActivityEvent): string | undefined {
 
 {
   shown.length > 0 && (
-    <section class="updates measure" aria-label="Reading updates from the last day">
-      <p class="eyebrow">Since yesterday</p>
+    <section class="updates measure" aria-label={ariaLabel}>
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
       <ul class="updates__list">
         {shown.map((e) => {
           const href = titleHref(e);
