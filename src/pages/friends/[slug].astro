@@ -198,8 +198,16 @@ function shortDate(d: Date | null): string {
     s.monthly.length > 0 && (
       <section class="measure block">
         <h2>Books by month</h2>
-        <p class="meta">Darker = more books that month.</p>
-        <Heatmap monthly={s.monthly} maxMonth={s.maxMonth} />
+        <p class="meta">
+          Darker = more books; click a month to jump to it in{" "}
+          <a href={withBase(`/timeline/${friend.slug}`)}>their timeline</a>.
+        </p>
+        <Heatmap
+          monthly={s.monthly}
+          maxMonth={s.maxMonth}
+          hrefFor={(year, m) =>
+            withBase(`/timeline/${friend.slug}#${year}-${String(m + 1).padStart(2, "0")}`)}
+        />
       </section>
     )
   }
