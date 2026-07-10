@@ -1,0 +1,129 @@
+---
+import type { MonthRow } from "../lib/bookstats";
+
+// A one-row mini heatmap: the last N calendar months ending at the build
+// month (the site rebuilds nightly, so "now" stays fresh). Months with reads
+// link wherever hrefFor points (e.g. into a timeline anchor), like the full
+// heatmaps on /stats and the friend pages.
+interface Props {
+  monthly: MonthRow[];
+  hrefFor?: (year: number, monthIndex: number) => string | undefined;
+  label?: string;
+  months?: number;
+  size?: "compact" | "regular";
+}
+
+const {
+  monthly,
+  hrefFor,
+  label = "Last 12 months of reading",
+  months = 12,
+  size = "regular",
+} = Astro.props;
+
+const MONTHS_SHORT = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
+const buildNow = new Date();
+const cells = Array.from({ length: months }, (_, i) => {
+  const d = new Date(
+    Date.UTC(
+      buildNow.getUTCFullYear(),
+      buildNow.getUTCMonth() - (months - 1) + i,
+      1
+    )
+  );
+  const year = d.getUTCFullYear();
+  const month = d.getUTCMonth();
+  const row = monthly.find((r) => r.year === year);
+  const count = row?.months[month] ?? 0;
+  // hrefFor returns a finished href (callers apply withBase themselves).
+  const href = count > 0 ? hrefFor?.(year, month) : undefined;
+  return { year, month, count, href };
+});
+const maxCount = Math.max(1, ...cells.map((c) => c.count));
+
+// Months with zero reads stay at 0 (just the faint border); anything read
+// gets a visible floor so single-book months don't disappear.
+function heat(count: number): number {
+  if (count <= 0) return 0;
+  return 0.15 + 0.85 * (count / maxCount);
+}
+---
+
+<div
+  class:list={["strip", { "strip--compact": size === "compact" }]}
+  style={`--strip-cols:${months}`}
+  aria-label={label}
+>
+  {
+    cells.map((c) => {
+      const text = `${MONTHS_SHORT[c.month]} ${c.year}: ${c.count} ${c.count === 1 ? "book" : "books"}`;
+      const bg = `background:rgba(var(--heatmap-rgb),${heat(c.count)})`;
+      return (
+        <span class="strip__mo">
+          {c.href ? (
+            <a
+              class="strip__cell strip__cell--link"
+              href={c.href}
+              title={`${text} — jump to timeline`}
+              style={bg}
+            >
+              <span class="visually-hidden">{text}</span>
+            </a>
+          ) : (
+            <span class="strip__cell" title={text} style={bg} />
+          )}
+          <span class="strip__mi" aria-hidden="true">
+            {MONTHS_SHORT[c.month][0]}
+          </span>
+        </span>
+      );
+    })
+  }
+</div>
+
+<style>
+  .strip {
+    display: grid;
+    grid-template-columns: repeat(var(--strip-cols, 12), 1fr);
+    gap: 4px;
+  }
+  .strip--compact {
+    gap: 3px;
+  }
+  .strip__mo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .strip__cell {
+    display: block;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    border: 1px solid var(--color-faint);
+  }
+  .strip--compact .strip__cell {
+    border-radius: 3px;
+  }
+  .strip__cell--link {
+    cursor: pointer;
+    transition: outline-color var(--transition);
+    outline: 2px solid transparent;
+    outline-offset: 1px;
+  }
+  .strip__cell--link:hover,
+  .strip__cell--link:focus-visible {
+    outline-color: var(--color-accent);
+  }
+  .strip__mi {
+    text-align: center;
+    font-size: 0.65rem;
+    color: var(--color-muted);
+  }
+  .strip--compact .strip__mi {
+    font-size: 0.55rem;
+  }
+</style>

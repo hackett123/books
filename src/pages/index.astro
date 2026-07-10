@@ -1,401 +1,320 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BookCover from "../components/BookCover.astro";
+import MonthStrip from "../components/MonthStrip.astro";
 import RecentActivity from "../components/RecentActivity.astro";
-import StarRating from "../components/StarRating.astro";
-import { getReadBooks } from "../lib/library";
-import { authorSlug } from "../lib/authors";
+import ReviewCard from "../components/ReviewCard.astro";
+import { getActivityWindow } from "../lib/activity";
+import { getPublishedReviews, excerpt } from "../lib/reviews";
+import { getStats } from "../lib/stats";
 import { withBase } from "../lib/url";
 import shelves from "../data/shelves.json";
 
-// Homepage = the full library: every read book (reviews + rated-only shelf),
-// newest first.
-const books = await getReadBooks();
+// Homepage = the reading room: what's new, what's in hand, the year's pulse.
+// The full library lives on /shelf.
+const { hours, events } = getActivityWindow();
+const updatesEyebrow =
+  { 24: "Since yesterday", [24 * 7]: "This week", [24 * 30]: "This month" }[
+    hours
+  ] ?? "Lately";
 
 const reading = (shelves.currentlyReading ?? []) as Array<{
   title: string;
   author: string;
   cover?: string;
   url?: string;
+  dateAdded?: string;
 }>;
+const toReadCount = (shelves.toRead ?? []).length;
 
-// Counts per whole-star bucket. Bucket = number of FULL stars (floor), so a 3.5
-// counts as 3★ (matches the drawn stars). Must match the /stats histogram.
-const starCounts = [5, 4, 3, 2, 1].map((star) => ({
-  star,
-  count: books.filter((b) => Math.floor(b.rating) === star).length,
-}));
+function fmtStarted(iso?: string): string | undefined {
+  if (!iso) return undefined;
+  return new Date(iso).toLocaleDateString("en-US", {
+    timeZone: "UTC", // calendar dates at UTC midnight; don't shift
+    month: "short",
+    day: "numeric",
+  });
+}
+
+const stats = await getStats();
+const buildYear = new Date().getUTCFullYear();
+const yearCount = stats.byYear.find((y) => y.year === buildYear)?.count ?? 0;
+const streak = stats.pace.currentStreak;
+
+const latest = (await getPublishedReviews())[0];
 ---
 
-<BaseLayout description="Everything I've read — the full shelf, rated.">
+<BaseLayout
+  description="What I'm reading right now, the latest shelf activity, and the year's reading pulse."
+>
+  {/* The shelf grid used to live at "/" — send old filter bookmarks
+      (e.g. /?rating=4 from /stats history) on to /shelf. */}
+  <script is:inline data-shelf={withBase("/shelf")}>
+    (() => {
+      const p = new URLSearchParams(location.search);
+      if (p.has("rating") || p.has("reviewed") || p.has("sort"))
+        location.replace(
+          document.currentScript.dataset.shelf + location.search
+        );
+    })();
+  </script>
+
   <section class="intro measure">
-    <p class="eyebrow">Everything I've read</p>
-    <h1>The Shelf</h1>
+    <p class="eyebrow">The reading room</p>
+    <h1 class="visually-hidden">Marginalia — the reading room</h1>
     <p class="intro__lede">
-      The whole library. <span class="ink-underline">Underlined titles</span>
-      have a full review; the rest are rated-only (↗ to Goodreads).
+      What's moving here lately — the full library lives on the
+      <a href={withBase("/shelf")}>shelf</a>.
     </p>
   </section>
 
-  <RecentActivity />
-
   {
-    reading.length > 0 && (
-      <section class="reading measure" aria-label="Currently reading">
-        <p class="eyebrow">Currently reading</p>
-        <ul class="reading__row">
-          {reading.map((b) => (
-            <li class="reading__item">
-              {b.url ? (
-                <a href={b.url} rel="nofollow noopener" target="_blank">
-                  <BookCover cover={b.cover} title={b.title} author={b.author} width={64} />
-                </a>
-              ) : (
-                <BookCover cover={b.cover} title={b.title} author={b.author} width={64} />
-              )}
-            </li>
-          ))}
-        </ul>
-      </section>
+    events.length > 0 ? (
+      <RecentActivity
+        hours={hours}
+        eyebrow={updatesEyebrow}
+        ariaLabel="Recent reading updates"
+      />
+    ) : (
+      <p class="meta measure quiet">All quiet since the last sync.</p>
     )
   }
 
-  {
-    books.length === 0 ? (
-      <p class="empty measure">
-        The shelf is empty. Run the Goodreads importer to populate it.
-      </p>
-    ) : (
-      <>
-        <div class="controls">
-          <div class="filter" role="group" aria-label="Filter shelf by rating">
-            <a class="filter__btn" href={withBase("/")} data-filter="all" aria-pressed="true">
-              All <span class="filter__n">{books.length}</span>
-            </a>
-            {starCounts
-              .filter((s) => s.count > 0)
-              .map((s) => (
-                <a
-                  class="filter__btn"
-                  href={withBase(`/?rating=${s.star}`)}
-                  data-filter={s.star}
-                  aria-pressed="false"
-                >
-                  {s.star}★ <span class="filter__n">{s.count}</span>
-                </a>
-              ))}
-          </div>
-
-          <div class="controls__right">
-            <label class="toggle">
-              <input type="checkbox" id="reviewed-only" />
-              <span>Reviewed only</span>
-            </label>
-            <label class="sort">
-              <span class="sort__label">Sort</span>
-              <select id="sort" aria-label="Sort shelf">
-                <option value="recent">Recently read</option>
-                <option value="title">Title A–Z</option>
-                <option value="author">Author A–Z</option>
-                <option value="rating-desc">Rating: high to low</option>
-                <option value="rating-asc">Rating: low to high</option>
-              </select>
-            </label>
-          </div>
-        </div>
-
-        <ul class="grid">
-          {books.map((b) => {
-            const reviewed = !b.external;
-            const linkAttrs = b.external
-              ? { rel: "nofollow noopener", target: "_blank" }
-              : {};
+  <section class="reading measure" aria-label="Currently reading">
+    <h2 class="eyebrow">Now reading</h2>
+    {
+      reading.length > 0 ? (
+        <ul class="reading__grid">
+          {reading.map((b) => {
+            const started = fmtStarted(b.dateAdded);
             return (
-              <li
-                class="grid__item"
-                data-rating={Math.floor(b.rating)}
-                data-score={b.rating}
-                data-reviewed={reviewed ? "1" : "0"}
-                data-title={b.title.toLowerCase()}
-                data-author={b.author.toLowerCase()}
-                data-date={b.dateRead ? b.dateRead.getTime() : 0}
-              >
-                <a href={b.href} class="grid__cover" {...linkAttrs}>
-                  <BookCover
-                    cover={b.cover}
-                    title={b.title}
-                    author={b.author}
-                    width={140}
-                    transitionName={b.slug ? `cover-${b.slug}` : undefined}
-                  />
-                </a>
-                <div class="grid__meta">
+              <li class="reading__card">
+                {b.url ? (
                   <a
-                    href={b.href}
-                    class:list={["grid__title", { "ink-underline": reviewed }]}
-                    {...linkAttrs}
+                    class="reading__cover"
+                    href={b.url}
+                    rel="nofollow noopener"
+                    target="_blank"
                   >
-                    {b.title}
-                    {b.external && <span class="grid__ext" aria-label="rated, not reviewed"> ↗</span>}
+                    <BookCover cover={b.cover} title={b.title} author={b.author} width={110} />
                   </a>
-                  <a class="grid__author" href={withBase(`/authors/${authorSlug(b.author)}`)}>
-                    {b.author}
-                  </a>
-                  <StarRating rating={b.rating} size="0.85rem" />
+                ) : (
+                  <span class="reading__cover">
+                    <BookCover cover={b.cover} title={b.title} author={b.author} width={110} />
+                  </span>
+                )}
+                <div class="reading__meta">
+                  {b.url ? (
+                    <a
+                      class="reading__title"
+                      href={b.url}
+                      rel="nofollow noopener"
+                      target="_blank"
+                    >
+                      {b.title}
+                    </a>
+                  ) : (
+                    <span class="reading__title">{b.title}</span>
+                  )}
+                  <span class="reading__author">{b.author}</span>
+                  {started && <span class="reading__started">Started {started}</span>}
                 </div>
               </li>
             );
           })}
         </ul>
+      ) : (
+        <p class="meta">Between books at the moment.</p>
+      )
+    }
+    {
+      toReadCount > 0 && (
+        <p class="meta reading__pile">
+          <a href={withBase("/to-read")}>
+            {toReadCount} waiting in the pile →
+          </a>
+        </p>
+      )
+    }
+  </section>
 
-        <p class="filter-empty" hidden>No books with that rating.</p>
-      </>
+  <section class="year measure" aria-label="The year so far">
+    <h2 class="eyebrow">The year so far</h2>
+    <div class="year__nums">
+      {
+        yearCount > 0 ? (
+          <a class="bignum" href={withBase(`/year/${buildYear}`)}>
+            <span class="bignum__value">{yearCount}</span>
+            <span class="bignum__label">books in {buildYear}</span>
+          </a>
+        ) : (
+          <div class="bignum">
+            <span class="bignum__value">{yearCount}</span>
+            <span class="bignum__label">books in {buildYear}</span>
+          </div>
+        )
+      }
+      <div class="bignum">
+        <span class="bignum__value">{streak} mo</span>
+        <span class="bignum__label">reading streak</span>
+      </div>
+    </div>
+    <div class="year__strip">
+      <MonthStrip
+        monthly={stats.monthly}
+        label="My last 12 months of reading"
+        hrefFor={(year, month) =>
+          withBase(`/timeline#${year}-${String(month + 1).padStart(2, "0")}`)
+        }
+      />
+    </div>
+    <p class="meta"><a href={withBase("/stats")}>Full stats →</a></p>
+  </section>
+
+  {
+    latest && (
+      <section class="latest measure" aria-label="Latest review">
+        <h2 class="eyebrow">Latest review</h2>
+        <ReviewCard
+          slug={latest.id}
+          href={withBase(`/reviews/${latest.id}`)}
+          title={latest.data.title}
+          author={latest.data.author}
+          rating={latest.data.rating}
+          cover={latest.data.cover}
+          dateRead={latest.data.dateRead}
+          excerpt={excerpt(latest.body)}
+        />
+        <p class="meta latest__all">
+          <a href={withBase("/reviews")}>All reviews →</a>
+        </p>
+      </section>
     )
   }
+
+  <p class="meta measure shelf-link">
+    <a href={withBase("/shelf")}>Browse the full shelf →</a>
+  </p>
 </BaseLayout>
-
-<script>
-  const grid = document.querySelector<HTMLElement>(".grid");
-  const items = [...document.querySelectorAll<HTMLElement>(".grid__item")];
-  const buttons = [...document.querySelectorAll<HTMLElement>(".filter__btn")];
-  const reviewedCb = document.querySelector<HTMLInputElement>("#reviewed-only");
-  const sortSel = document.querySelector<HTMLSelectElement>("#sort");
-  const emptyMsg = document.querySelector<HTMLElement>(".filter-empty");
-
-  let rating: number | null = null;
-  let reviewedOnly = false;
-  let sort = "recent";
-
-  function compare(a: HTMLElement, b: HTMLElement): number {
-    switch (sort) {
-      case "title":
-        return (a.dataset.title ?? "").localeCompare(b.dataset.title ?? "");
-      case "author":
-        return (a.dataset.author ?? "").localeCompare(b.dataset.author ?? "");
-      case "rating-desc":
-        return Number(b.dataset.score) - Number(a.dataset.score);
-      case "rating-asc":
-        return Number(a.dataset.score) - Number(b.dataset.score);
-      default: // recent: newest dateRead first, undated last
-        return Number(b.dataset.date) - Number(a.dataset.date);
-    }
-  }
-
-  function render() {
-    let shown = 0;
-    for (const li of items) {
-      const okRating = rating === null || Number(li.dataset.rating) === rating;
-      const okReviewed = !reviewedOnly || li.dataset.reviewed === "1";
-      const ok = okRating && okReviewed;
-      li.hidden = !ok;
-      if (ok) shown++;
-    }
-    if (grid) for (const li of [...items].sort(compare)) grid.appendChild(li);
-
-    const active = rating === null ? "all" : String(rating);
-    for (const b of buttons) {
-      b.setAttribute("aria-pressed", String((b.dataset.filter || "all") === active));
-    }
-    if (emptyMsg) emptyMsg.hidden = shown > 0;
-
-    const url = new URL(location.href);
-    const params = url.searchParams;
-    rating === null ? params.delete("rating") : params.set("rating", String(rating));
-    reviewedOnly ? params.set("reviewed", "1") : params.delete("reviewed");
-    sort === "recent" ? params.delete("sort") : params.set("sort", sort);
-    history.replaceState(null, "", url);
-  }
-
-  for (const b of buttons) {
-    b.addEventListener("click", (e) => {
-      e.preventDefault();
-      const v = b.dataset.filter ?? "all";
-      rating = v === "all" ? null : Number(v);
-      render();
-    });
-  }
-  reviewedCb?.addEventListener("change", () => {
-    reviewedOnly = reviewedCb.checked;
-    render();
-  });
-  sortSel?.addEventListener("change", () => {
-    sort = sortSel.value;
-    render();
-  });
-
-  // Hydrate initial state from the URL (so /stats deep-links still work).
-  const init = new URLSearchParams(location.search);
-  const r = init.get("rating");
-  rating = r ? Number(r) : null;
-  reviewedOnly = init.get("reviewed") === "1";
-  sort = init.get("sort") ?? "recent";
-  if (reviewedCb) reviewedCb.checked = reviewedOnly;
-  if (sortSel) sortSel.value = sort;
-  render();
-</script>
 
 <style>
   .intro {
     margin-bottom: var(--space-5);
   }
-  .reading {
-    margin-bottom: var(--space-6);
-  }
-  .reading__row {
-    list-style: none;
-    margin: var(--space-2) 0 0;
-    padding: 0;
-    display: flex;
-    gap: var(--space-3);
-    flex-wrap: wrap;
-  }
-  .reading__item {
-    transition: transform var(--transition);
-  }
-  .reading__item:hover {
-    transform: translateY(-3px);
-  }
-  .controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-3) var(--space-5);
-    margin-bottom: var(--space-6);
-  }
-  .controls__right {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-4);
-  }
-  .toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: var(--text-sm);
-    cursor: pointer;
-  }
-  .toggle input {
-    accent-color: var(--color-accent);
-    width: 1rem;
-    height: 1rem;
-  }
-  .sort {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: var(--text-sm);
-  }
-  .sort__label {
+  .intro__lede {
+    font-size: var(--text-lg);
     color: var(--color-muted);
+    max-width: 34rem;
   }
-  .sort select {
-    font: inherit;
-    font-size: var(--text-sm);
-    color: var(--color-ink);
-    background: var(--color-bg);
-    border: var(--hairline);
-    border-radius: 999px;
-    padding: 0.25em 1.8em 0.25em 0.8em;
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath fill='none' stroke='%23999' stroke-width='1.4' d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 0.7em center;
-    background-size: 0.6em;
+  .quiet {
+    margin-bottom: var(--space-6);
   }
-  .sort select:hover {
-    border-color: var(--color-accent);
+
+  /* now reading */
+  .reading {
+    margin-bottom: var(--space-7);
   }
-  .filter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-  }
-  .filter__btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35em;
-    font-size: var(--text-sm);
-    color: var(--color-ink);
-    border: var(--hairline);
-    border-radius: 999px;
-    padding: 0.25em 0.8em;
-    transition: all var(--transition);
-  }
-  .filter__btn:hover {
-    text-decoration: none;
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-  }
-  .filter__btn[aria-pressed="true"] {
-    background: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-bg);
-  }
-  .filter__n {
-    font-size: 0.8em;
-    opacity: 0.75;
-    font-variant-numeric: tabular-nums;
-  }
-  .grid {
+  .reading__grid {
     list-style: none;
-    margin: 0;
+    margin: var(--space-3) 0 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: var(--space-6) var(--space-5);
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: var(--space-5);
   }
-  .grid__item {
+  .reading__card {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-4);
+    border: var(--hairline);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-sm);
   }
-  .grid__item[hidden] {
-    display: none;
-  }
-  .grid__cover {
+  .reading__cover {
+    flex: none;
     display: block;
     transition: transform var(--transition);
   }
-  .grid__cover:hover {
+  a.reading__cover:hover {
     transform: translateY(-3px);
   }
-  .grid__meta {
+  .reading__meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    justify-content: center;
+    min-width: 0;
+  }
+  .reading__title {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    line-height: var(--leading-snug);
+    color: var(--color-ink);
+  }
+  a.reading__title:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .reading__author {
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+  .reading__started {
+    font-size: var(--text-xs);
+    color: var(--color-muted);
+  }
+  .reading__pile {
+    margin-top: var(--space-3);
+  }
+
+  /* the year so far */
+  .year {
+    margin-bottom: var(--space-7);
+  }
+  .year__nums {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-5);
+    margin: var(--space-3) 0 var(--space-4);
+    max-width: 24rem;
+  }
+  .bignum {
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
-  .grid__title {
+  a.bignum {
+    text-decoration: none;
+  }
+  a.bignum:hover .bignum__value {
+    color: var(--color-accent);
+  }
+  .bignum__value {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    line-height: 1;
+    color: var(--color-night);
+    transition: color var(--transition);
+  }
+  .bignum__label {
     font-size: var(--text-sm);
-    font-weight: var(--weight-medium);
-    line-height: var(--leading-snug);
-    color: var(--color-ink);
-    align-self: start; /* underline hugs the text width, not the column */
-  }
-  .grid__title:hover {
-    color: var(--color-accent);
-    text-decoration: none;
-  }
-  .grid__ext {
     color: var(--color-muted);
-    font-size: 0.85em;
   }
-  .grid__author {
-    font-size: var(--text-xs);
-    color: var(--color-muted);
-    align-self: start;
+  .year__strip {
+    max-width: 30rem;
+    margin-bottom: var(--space-3);
   }
-  a.grid__author:hover {
-    color: var(--color-accent);
-    text-decoration: none;
+
+  /* latest review */
+  .latest {
+    margin-bottom: var(--space-7);
   }
-  .filter-empty {
-    color: var(--color-muted);
-    margin-top: var(--space-5);
+  .latest__all {
+    margin-top: var(--space-3);
   }
-  .empty {
-    color: var(--color-muted);
+
+  .shelf-link {
+    margin-top: var(--space-6);
   }
 </style>

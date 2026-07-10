@@ -30,3 +30,17 @@ export function getRecentActivity(hours = 24): ActivityEvent[] {
     .map((e) => ({ ...e, at: new Date(e.at) }))
     .sort((a, b) => b.at.getTime() - a.at.getTime());
 }
+
+// First non-empty window, so the home strip degrades from "since yesterday"
+// to "this week" to "this month" instead of vanishing on quiet days. Returns
+// the last window with an empty list if nothing happened at all.
+export function getActivityWindow(
+  windows: number[] = [24, 24 * 7, 24 * 30],
+): { hours: number; events: ActivityEvent[] } {
+  for (const hours of windows) {
+    const events = getRecentActivity(hours);
+    if (events.length > 0) return { hours, events };
+  }
+  const last = windows[windows.length - 1] ?? 24;
+  return { hours: last, events: [] };
+}

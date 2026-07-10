@@ -86,7 +86,7 @@ if (pace.busiestMonth) {
 
   <section class="measure block">
     <h2>Ratings given</h2>
-    <p class="meta">Click a row to see those books on the <a href={withBase("/")}>shelf</a>.</p>
+    <p class="meta">Click a row to see those books on the <a href={withBase("/shelf")}>shelf</a>.</p>
     <div class="hist">
       {
         stats.ratingHistogram
@@ -97,7 +97,7 @@ if (pace.busiestMonth) {
             const props =
               h.count > 0
                 ? {
-                    href: withBase(`/?rating=${h.rating}`),
+                    href: withBase(`/shelf?rating=${h.rating}`),
                     title: `See the ${h.rating}★ books on the shelf`,
                   }
                 : {};

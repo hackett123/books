@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import BookCover from "../../components/BookCover.astro";
+import MonthStrip from "../../components/MonthStrip.astro";
 import RecentActivity from "../../components/RecentActivity.astro";
 import { getFriends, type Friend } from "../../lib/friends";
 import { getReadBooks } from "../../lib/library";
@@ -70,51 +71,6 @@ function cardBooks(f: Friend): CardBook[] {
   return [...reading, ...finished].slice(0, COVERS_SHOWN);
 }
 
-// A one-row mini heatmap: the last 12 calendar months ending at the build
-// month (the site rebuilds nightly, so "now" stays fresh). Months with reads
-// link into that month of the friend's timeline, like the full heatmaps on
-// /stats and the friend pages.
-const MONTHS_SHORT = [
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
-];
-const buildNow = new Date();
-const stripMonths = Array.from({ length: 12 }, (_, i) => {
-  const d = new Date(
-    Date.UTC(buildNow.getUTCFullYear(), buildNow.getUTCMonth() - 11 + i, 1)
-  );
-  return { year: d.getUTCFullYear(), month: d.getUTCMonth() };
-});
-
-interface StripCell {
-  year: number;
-  month: number; // 0-11
-  count: number;
-  href?: string;
-}
-function strip(f: Friend): StripCell[] {
-  return stripMonths.map(({ year, month }) => {
-    const row = f.stats.monthly.find((r) => r.year === year);
-    const count = row?.months[month] ?? 0;
-    return {
-      year,
-      month,
-      count,
-      href:
-        count > 0
-          ? withBase(
-              `/timeline/${f.slug}#${year}-${String(month + 1).padStart(2, "0")}`
-            )
-          : undefined,
-    };
-  });
-}
-
-function heat(count: number, max: number): number {
-  if (count <= 0) return 0;
-  return 0.15 + 0.85 * (count / Math.max(1, max));
-}
-
 // Skip the "Lately" section outright on a quiet month.
 const hasLately =
   getRecentActivity(24 * 30).filter((e) => e.slug).length > 0;
@@ -146,8 +102,6 @@ const hasLately =
           const synced = fmtSynced(f.syncedAt);
           const shared = sharedCount.get(f.slug) ?? 0;
           const covers = cardBooks(f);
-          const cells = strip(f);
-          const maxStrip = Math.max(1, ...cells.map((c) => c.count));
           return (
             <section class="fcard">
               <header>
@@ -182,30 +136,17 @@ const hasLately =
                 </ul>
               )}
 
-              <div class="fcard__strip" aria-label={`${f.name}'s last 12 months of reading`}>
-                {cells.map((c) => {
-                  const label = `${MONTHS_SHORT[c.month]} ${c.year}: ${c.count} ${c.count === 1 ? "book" : "books"}`;
-                  const bg = `background:rgba(var(--heatmap-rgb),${heat(c.count, maxStrip)})`;
-                  return (
-                    <span class="fcard__mo">
-                      {c.href ? (
-                        <a
-                          class="fcard__cell fcard__cell--link"
-                          href={c.href}
-                          title={`${label} — jump to timeline`}
-                          style={bg}
-                        >
-                          <span class="visually-hidden">{label}</span>
-                        </a>
-                      ) : (
-                        <span class="fcard__cell" title={label} style={bg} />
-                      )}
-                      <span class="fcard__mi" aria-hidden="true">
-                        {MONTHS_SHORT[c.month][0]}
-                      </span>
-                    </span>
-                  );
-                })}
+              <div class="fcard__strip">
+                <MonthStrip
+                  monthly={f.stats.monthly}
+                  size="compact"
+                  label={`${f.name}'s last 12 months of reading`}
+                  hrefFor={(year, month) =>
+                    withBase(
+                      `/timeline/${f.slug}#${year}-${String(month + 1).padStart(2, "0")}`
+                    )
+                  }
+                />
               </div>
 
               <footer class="fcard__foot meta">
@@ -339,38 +280,9 @@ const hasLately =
     box-shadow: 0 0 0 2px var(--color-bg);
   }
 
-  /* last-12-months strip */
+  /* last-12-months strip (cells live in MonthStrip) */
   .fcard__strip {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 3px;
     margin-top: auto; /* pins strip + footer to the card bottom */
-  }
-  .fcard__mo {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .fcard__cell {
-    display: block;
-    aspect-ratio: 1;
-    border-radius: 3px;
-    border: 1px solid var(--color-faint);
-  }
-  .fcard__cell--link {
-    cursor: pointer;
-    transition: outline-color var(--transition);
-    outline: 2px solid transparent;
-    outline-offset: 1px;
-  }
-  .fcard__cell--link:hover,
-  .fcard__cell--link:focus-visible {
-    outline-color: var(--color-accent);
-  }
-  .fcard__mi {
-    text-align: center;
-    font-size: 0.55rem;
-    color: var(--color-muted);
   }
 
   .fcard__foot {

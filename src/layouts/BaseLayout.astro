@@ -24,8 +24,9 @@ const {
 } = Astro.props;
 const pageTitle = title ? `${title} · ${siteName}` : `${siteName} — ${tagline}`;
 
+// No Home tab: the wordmark is the home link (the dashboard lives at "/").
 const nav = [
-  { href: "/", label: "Shelf" },
+  { href: "/shelf", label: "Shelf" },
   { href: "/reviews", label: "Reviews" },
   { href: "/favorites", label: "Favorites" },
   { href: "/to-read", label: "To-Read" },
