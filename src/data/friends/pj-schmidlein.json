@@ -3,7 +3,7 @@
   "slug": "pj-schmidlein",
   "userId": "201906919",
   "profileUrl": "https://www.goodreads.com/user/show/201906919",
-  "syncedAt": "2026-07-09T10:38:25.511Z",
+  "syncedAt": "2026-07-10T10:30:55.454Z",
   "read": [
     {
       "title": "A Deadly Education (The Scholomance, #1)",
@@ -137,6 +137,15 @@
       "rating": 5,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1697739086l/195790870._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8692314370?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Camp Damascus",
+      "author": "Chuck Tingle",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1664285565l/61884782.jpg",
+      "url": "https://www.goodreads.com/review/show/8757252245?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
