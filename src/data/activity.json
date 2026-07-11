@@ -1,5 +1,18 @@
 [
   {
+    "at": "2026-07-11T09:01:01.058Z",
+    "who": "PJ Schmidlein",
+    "slug": "pj-schmidlein",
+    "action": "finished",
+    "book": {
+      "title": "We Burned So Bright",
+      "author": "T.J. Klune",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1774364731l/231126885._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692317572?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4
+  },
+  {
     "at": "2026-07-10T10:31:09.727Z",
     "who": "Beylin",
     "slug": "beylin",

@@ -3,7 +3,7 @@
   "slug": "pj-schmidlein",
   "userId": "201906919",
   "profileUrl": "https://www.goodreads.com/user/show/201906919",
-  "syncedAt": "2026-07-10T10:30:55.454Z",
+  "syncedAt": "2026-07-11T09:01:01.057Z",
   "read": [
     {
       "title": "A Deadly Education (The Scholomance, #1)",
@@ -956,6 +956,15 @@
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1474344826l/32109569._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8695388171?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "We Burned So Bright",
+      "author": "T.J. Klune",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1774364731l/231126885._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8692317572?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
