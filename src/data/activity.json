@@ -1,5 +1,18 @@
 [
   {
+    "at": "2026-07-12T09:19:06.673Z",
+    "who": "Koran",
+    "slug": "koran",
+    "action": "finished",
+    "book": {
+      "title": "Half a Soul (Regency Faerie Tales, #1)",
+      "author": "Olivia Atwater",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1648605334l/60717747._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7132511810?utm_medium=api&utm_source=rss"
+    },
+    "rating": 3
+  },
+  {
     "at": "2026-07-11T09:01:01.058Z",
     "who": "PJ Schmidlein",
     "slug": "pj-schmidlein",

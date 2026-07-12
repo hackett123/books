@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-07-11T09:00:50.148Z",
+  "syncedAt": "2026-07-12T09:18:51.971Z",
   "currentlyReading": [
     {
       "title": "The Left Hand of Darkness",
@@ -10,6 +10,20 @@
     }
   ],
   "toRead": [
+    {
+      "title": "Bel Canto",
+      "author": "Ann Patchett",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1352997328l/5826.jpg",
+      "url": "https://www.goodreads.com/review/show/8761978534?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-07-11"
+    },
+    {
+      "title": "Kingfisher",
+      "author": "Rozie Kelly",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1772673526l/222700466._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8761745018?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-07-11"
+    },
     {
       "title": "Checkout 19",
       "author": "Claire-Louise Bennett",
