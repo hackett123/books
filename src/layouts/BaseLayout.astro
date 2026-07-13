@@ -63,7 +63,7 @@ const path = stripBase(Astro.url.pathname);
       (() => {
         try {
           const stored = localStorage.getItem("theme");
-          if (["dark", "pastel", "vinyl"].indexOf(stored) >= 0) {
+          if (["dark", "pastel", "vinyl", "midnight"].indexOf(stored) >= 0) {
             document.documentElement.dataset.theme = stored;
           } else if (
             stored === null &&
@@ -111,6 +111,10 @@ const path = stripBase(Astro.url.pathname);
               <button type="button" class="theme-pill" data-theme-choice="dark">
                 <span class="theme-pill__dot" style="--dot-bg:#161412;--dot-fg:#d9745f"></span>
                 nocturne
+              </button>
+              <button type="button" class="theme-pill" data-theme-choice="midnight">
+                <span class="theme-pill__dot" style="--dot-bg:#0b1120;--dot-fg:#e8b34b"></span>
+                midnight
               </button>
             </div>
           </span>
@@ -209,8 +213,8 @@ const path = stripBase(Astro.url.pathname);
         font-family: var(--font-display);
       }
 
-      /* The crescent moon opens the theme menu; it swaps to a sun once the
-         nocturne theme is active. */
+      /* The crescent moon opens the theme menu; it swaps to a sun once a
+         dark theme (nocturne or midnight) is active. */
       .theme-wrap {
         position: relative;
         display: inline-flex;
@@ -289,10 +293,12 @@ const path = stripBase(Astro.url.pathname);
       .theme-toggle__sun {
         display: none;
       }
-      :root[data-theme="dark"] .theme-toggle__moon {
+      :root[data-theme="dark"] .theme-toggle__moon,
+      :root[data-theme="midnight"] .theme-toggle__moon {
         display: none;
       }
-      :root[data-theme="dark"] .theme-toggle__sun {
+      :root[data-theme="dark"] .theme-toggle__sun,
+      :root[data-theme="midnight"] .theme-toggle__sun {
         display: inline;
         color: var(--color-star);
       }
@@ -424,7 +430,8 @@ const path = stripBase(Astro.url.pathname);
     <script>
       // Theme menu — the moon in the header. The pre-paint inline script in
       // <head> has already applied the stored/preferred theme; here we open a
-      // pill menu (paper / pastel / vinyl / nocturne) and persist the choice.
+      // pill menu (paper / pastel / vinyl / nocturne / midnight) and persist
+      // the choice.
       // Storing "light" (not clearing) keeps an explicit paper pick from
       // falling back to the system dark preference.
       const themeToggle = document.getElementById("theme-toggle");

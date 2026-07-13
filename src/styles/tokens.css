@@ -79,14 +79,15 @@
 /* ---- Themes ------------------------------------------------------------ *
  * Activated by [data-theme="…"] on <html> (set by the theme menu in the
  * header, persisted to localStorage; an inline script in BaseLayout applies it
- * before paint to avoid a flash). Four moods:
+ * before paint to avoid a flash). Five moods:
  *   (default)  "paper"    — the warm-neutral light theme above
  *   "dark"     "nocturne" — dim, warm night
  *   "pastel"   blush + dusty rose — shared with canon.michaelhackett.me and
  *              pokegacha.michaelhackett.me (strawberry), for subdomain unity
  *   "vinyl"    cream + terracotta, serif body — shared with canon's vinyl
- * The pastel/vinyl palette values mirror canon's base.html tokens; keep them
- * in sync if either site's theme shifts. */
+ *   "midnight" navy + gold — shared with canon's midnight
+ * The pastel/vinyl/midnight palette values mirror canon's base.html tokens;
+ * keep them in sync if either site's theme shifts. */
 :root[data-theme="dark"] {
   --color-bg: #161412;        /* near-black, warm */
   --color-surface: #1f1c19;   /* cards / raised areas */
@@ -154,4 +155,28 @@
 
   --shadow-sm: 0 1px 2px rgba(46, 36, 27, 0.07);
   --shadow-md: 0 6px 20px rgba(46, 36, 27, 0.12);
+}
+
+/* ---- Midnight ----------------------------------------------------------- *
+ * Deep navy + gold, canon's "midnight". A second dark theme, so it borrows
+ * nocturne's shadow treatment and color-scheme. Gold plays both accent and
+ * star — on navy the two roles read as one motif rather than a clash. */
+:root[data-theme="midnight"] {
+  --color-bg: #0b1120;
+  --color-surface: #141d33;
+  --color-ink: #e6ebf5;
+  --color-muted: #8291ad;
+  --color-faint: #263452;
+  --color-accent: #e8b34b;
+  --color-accent-soft: #2b2824; /* bg warmed toward the gold, for hovers */
+  --color-star: #e8b34b;
+  --color-night: #9db2e4;   /* the indigo motif, lifted to read on navy */
+  --heatmap-rgb: 157, 178, 228;
+
+  --ink-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='8' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5 C 20 2, 40 7, 60 4 S 100 2, 119 5' fill='none' stroke='%23e8b34b' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.5);
+
+  color-scheme: dark;
 }
