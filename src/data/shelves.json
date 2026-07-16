@@ -1,6 +1,13 @@
 {
-  "syncedAt": "2026-07-15T09:23:52.764Z",
+  "syncedAt": "2026-07-16T09:31:57.971Z",
   "currentlyReading": [
+    {
+      "title": "Girl on Girl: How Pop Culture Turned a Generation of Women Against Themselves",
+      "author": "Sophie Gilbert",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1737731201l/216970860._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8773578376?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-07-15"
+    },
     {
       "title": "Nymph",
       "author": "Sofia Montrone",
@@ -10,6 +17,13 @@
     }
   ],
   "toRead": [
+    {
+      "title": "Água Viva",
+      "author": "Clarice Lispector",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1655722688l/13082435._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8773584236?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-07-15"
+    },
     {
       "title": "Bel Canto",
       "author": "Ann Patchett",
