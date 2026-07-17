@@ -1,5 +1,18 @@
 [
   {
+    "at": "2026-07-17T09:23:33.431Z",
+    "who": "Beylin",
+    "slug": "beylin",
+    "action": "finished",
+    "book": {
+      "title": "Love at First Sighting",
+      "author": "Mallory Marlowe",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1731512323l/221473264._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8756884708?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4
+  },
+  {
     "at": "2026-07-16T09:31:59.468Z",
     "who": null,
     "slug": null,
