@@ -1,5 +1,19 @@
 [
   {
+    "at": "2026-07-19T09:19:23.814Z",
+    "who": "Michelle",
+    "slug": "michelle",
+    "action": "finished",
+    "book": {
+      "title": "The City We Became (Great Cities, #1)",
+      "author": "N.K. Jemisin",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1585327950l/42074525._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8781631065?utm_medium=api&utm_source=rss"
+    },
+    "rating": 1,
+    "reviewed": true
+  },
+  {
     "at": "2026-07-18T09:02:12.215Z",
     "who": "Beylin",
     "slug": "beylin",

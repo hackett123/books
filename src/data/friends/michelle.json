@@ -3,8 +3,17 @@
   "slug": "michelle",
   "userId": "44710141",
   "profileUrl": "https://www.goodreads.com/user/show/44710141",
-  "syncedAt": "2026-07-18T09:01:56.364Z",
+  "syncedAt": "2026-07-19T09:19:23.813Z",
   "read": [
+    {
+      "title": "The City We Became (Great Cities, #1)",
+      "author": "N.K. Jemisin",
+      "rating": 1,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1585327950l/42074525._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8781631065?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-07-18",
+      "hasReview": true
+    },
     {
       "title": "My Year of Rest and Relaxation",
       "author": "Ottessa Moshfegh",
