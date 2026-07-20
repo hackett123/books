@@ -1,5 +1,35 @@
 [
   {
+    "at": "2026-07-20T10:21:27.266Z",
+    "who": null,
+    "slug": null,
+    "action": "finished",
+    "book": {
+      "title": "Bitter Orange",
+      "author": "Claire Fuller",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1519083306l/38589871.jpg",
+      "url": "https://www.goodreads.com/review/show/8784015338?utm_medium=api&utm_source=rss"
+    },
+    "rating": 3,
+    "reviewed": true,
+    "reviewSlug": "bitter-orange"
+  },
+  {
+    "at": "2026-07-20T10:21:27.266Z",
+    "who": null,
+    "slug": null,
+    "action": "finished",
+    "book": {
+      "title": "Nymph",
+      "author": "Sofia Montrone",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1760887288l/242974934._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8763593259?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4,
+    "reviewed": true,
+    "reviewSlug": "nymph"
+  },
+  {
     "at": "2026-07-19T09:19:23.814Z",
     "who": "Michelle",
     "slug": "michelle",

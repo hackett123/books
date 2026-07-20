@@ -269,6 +269,22 @@
     ],
     "firstPublishYear": 2025
   },
+  "bitter orange|claire fuller": {
+    "title": "Bitter Orange",
+    "author": "Claire Fuller",
+    "found": true,
+    "olKey": "/works/OL19761139W",
+    "pages": 319,
+    "subjects": [
+      "Hedonism",
+      "Manors",
+      "Fiction, psychological"
+    ],
+    "languages": [
+      "eng"
+    ],
+    "firstPublishYear": 2018
+  },
   "bliss montage|ling ma": {
     "title": "Bliss Montage",
     "author": "Ling  Ma",
@@ -948,6 +964,11 @@
       "ita"
     ],
     "firstPublishYear": 1987
+  },
+  "nymph|sofia montrone": {
+    "title": "Nymph",
+    "author": "Sofia Montrone",
+    "found": false
   },
   "out|natsuo kirino": {
     "title": "Out",
