@@ -1,6 +1,13 @@
 {
-  "syncedAt": "2026-07-20T10:21:27.442Z",
+  "syncedAt": "2026-07-21T09:42:26.932Z",
   "currentlyReading": [
+    {
+      "title": "Stoner",
+      "author": "John  Williams",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1742326950l/166997._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8787709964?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-07-21"
+    },
     {
       "title": "Girl on Girl: How Pop Culture Turned a Generation of Women Against Themselves",
       "author": "Sophie Gilbert",
@@ -10,6 +17,13 @@
     }
   ],
   "toRead": [
+    {
+      "title": "Piranesi",
+      "author": "Susanna Clarke",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1773750050l/50202953._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8787493764?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-07-21"
+    },
     {
       "title": "On the Calculation of Volume I",
       "author": "Solvej Balle",
