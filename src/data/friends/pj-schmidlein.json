@@ -3,7 +3,7 @@
   "slug": "pj-schmidlein",
   "userId": "201906919",
   "profileUrl": "https://www.goodreads.com/user/show/201906919",
-  "syncedAt": "2026-07-22T09:41:33.041Z",
+  "syncedAt": "2026-07-23T09:40:02.240Z",
   "read": [
     {
       "title": "A Deadly Education (The Scholomance, #1)",
@@ -20,6 +20,15 @@
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1495462553l/30370036._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8701347962?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "A Gentleman's Gentleman",
+      "author": "T.J.   Alexander",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1724811045l/214537773._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8793447811?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
@@ -110,6 +119,15 @@
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1552983419l/44528307._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8701332304?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Board to Death (Board Game Shop, #1)",
+      "author": "C.J.  Connor",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1674489831l/63882020.jpg",
+      "url": "https://www.goodreads.com/review/show/8705163132?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
@@ -884,6 +902,15 @@
       "rating": 5,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1659905828l/7235533._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8692321891?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "They Both Die at the End (They Both Die at the End, #1)",
+      "author": "Adam Silvera",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1494333138l/33385229._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8793448712?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },

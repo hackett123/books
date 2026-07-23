@@ -1,5 +1,13 @@
 [
   {
+    "title": "Stoner",
+    "author": "John  Williams",
+    "rating": 5,
+    "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1742326950l/166997._SY475_.jpg",
+    "url": "https://www.goodreads.com/review/show/8787709964?utm_medium=api&utm_source=rss",
+    "dateRead": "2026-07-22"
+  },
+  {
     "title": "Endgame",
     "author": "Samuel Beckett",
     "rating": 4,
