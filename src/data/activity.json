@@ -1,5 +1,31 @@
 [
   {
+    "at": "2026-07-26T09:27:19.755Z",
+    "who": "PJ Schmidlein",
+    "slug": "pj-schmidlein",
+    "action": "finished",
+    "book": {
+      "title": "It Had to Be Him (Love on the Vine, #2)",
+      "author": "Adib Khorram",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1746807196l/223296312._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8800569026?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4
+  },
+  {
+    "at": "2026-07-26T09:27:19.755Z",
+    "who": "PJ Schmidlein",
+    "slug": "pj-schmidlein",
+    "action": "finished",
+    "book": {
+      "title": "The Book of Luke",
+      "author": "Lovell Holder",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1744846332l/231109687._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8800566896?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4
+  },
+  {
     "at": "2026-07-24T09:37:07.435Z",
     "who": null,
     "slug": null,
@@ -194,18 +220,5 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1760887288l/242974934._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8763593259?utm_medium=api&utm_source=rss"
     }
-  },
-  {
-    "at": "2026-07-12T09:19:06.673Z",
-    "who": "Koran",
-    "slug": "koran",
-    "action": "finished",
-    "book": {
-      "title": "Half a Soul (Regency Faerie Tales, #1)",
-      "author": "Olivia Atwater",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1648605334l/60717747._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/7132511810?utm_medium=api&utm_source=rss"
-    },
-    "rating": 3
   }
 ]
