@@ -1,5 +1,18 @@
 [
   {
+    "at": "2026-07-27T10:51:19.165Z",
+    "who": null,
+    "slug": null,
+    "action": "finished",
+    "book": {
+      "title": "Água Viva",
+      "author": "Clarice Lispector",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1655722688l/13082435._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8773584236?utm_medium=api&utm_source=rss"
+    },
+    "rating": 5
+  },
+  {
     "at": "2026-07-26T09:27:19.755Z",
     "who": "PJ Schmidlein",
     "slug": "pj-schmidlein",
@@ -208,17 +221,5 @@
     "rating": 5,
     "reviewed": true,
     "reviewSlug": "the-left-hand-of-darkness"
-  },
-  {
-    "at": "2026-07-13T10:35:56.996Z",
-    "who": null,
-    "slug": null,
-    "action": "started",
-    "book": {
-      "title": "Nymph",
-      "author": "Sofia Montrone",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1760887288l/242974934._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8763593259?utm_medium=api&utm_source=rss"
-    }
   }
 ]
