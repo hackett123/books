@@ -3,7 +3,7 @@
   "slug": "pj-schmidlein",
   "userId": "201906919",
   "profileUrl": "https://www.goodreads.com/user/show/201906919",
-  "syncedAt": "2026-07-28T09:57:48.189Z",
+  "syncedAt": "2026-07-29T09:59:23.893Z",
   "read": [
     {
       "title": "A Deadly Education (The Scholomance, #1)",
@@ -182,6 +182,15 @@
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1771367607l/10592.jpg",
       "url": "https://www.goodreads.com/review/show/8692478674?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Circe",
+      "author": "Madeline Miller",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1565909496l/35959740._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8808763527?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
@@ -636,6 +645,15 @@
       "hasReview": false
     },
     {
+      "title": "Stone Blind",
+      "author": "Natalie Haynes",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1664995844l/61102615.jpg",
+      "url": "https://www.goodreads.com/review/show/8808761510?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
       "title": "Stormsong (The Kingston Cycle, #2)",
       "author": "C.L. Polk",
       "rating": 4,
@@ -674,7 +692,7 @@
     {
       "title": "The Book of Luke",
       "author": "Lovell Holder",
-      "rating": 4,
+      "rating": 3,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1744846332l/231109687._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8800566896?utm_medium=api&utm_source=rss",
       "dateRead": null,
