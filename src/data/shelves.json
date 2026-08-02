@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-08-01T09:23:51.098Z",
+  "syncedAt": "2026-08-02T09:24:44.764Z",
   "currentlyReading": [
     {
       "title": "Let the Great World Spin",
@@ -17,6 +17,27 @@
     }
   ],
   "toRead": [
+    {
+      "title": "Across the Nightingale Floor (Tales of the Otori, #1)",
+      "author": "Lian Hearn",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1438630231l/77160._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8821293417?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-08-01"
+    },
+    {
+      "title": "The Buried Giant",
+      "author": "Kazuo Ishiguro",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1451444392l/22522805._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/8821279739?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-08-01"
+    },
+    {
+      "title": "The Thief",
+      "author": "Fuminori Nakamura",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1333581052l/12296546.jpg",
+      "url": "https://www.goodreads.com/review/show/8821274491?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-08-01"
+    },
     {
       "title": "A Natural History of the Senses",
       "author": "Diane Ackerman",
