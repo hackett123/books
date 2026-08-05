@@ -768,6 +768,26 @@
     ],
     "firstPublishYear": 2006
   },
+  "lapvona|ottessa moshfegh": {
+    "title": "Lapvona",
+    "author": "Ottessa Moshfegh",
+    "found": true,
+    "olKey": "/works/OL25808023W",
+    "pages": 320,
+    "subjects": [
+      "corruption",
+      "religion",
+      "belief",
+      "cruelty",
+      "Fiction, psychological",
+      "Fiction, fantasy, historical"
+    ],
+    "languages": [
+      "eng",
+      "spa"
+    ],
+    "firstPublishYear": 2022
+  },
   "love in the time of cholera|gabriel garc a m rquez": {
     "title": "Love in the Time of Cholera",
     "author": "Gabriel García Márquez",
