@@ -58,12 +58,17 @@ jobs:
             git commit -m "Nightly Goodreads sync ($(date -u +%F))"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           fi
 
       # Pushes made with the workflow's GITHUB_TOKEN intentionally don't fire
       # push-triggered workflows (recursion guard), so kick the deploy directly.
+      # Pass the pushed SHA explicitly: `--ref main` alone resolves the branch
+      # tip server-side and can still be pointing at the previous commit.
       - name: Trigger deploy
         if: steps.commit.outputs.changed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run deploy.yml --ref main
+        run: |
+          gh workflow run deploy.yml --ref main \
+            -f sha='${{ steps.commit.outputs.sha }}'

@@ -7,6 +7,11 @@ on:
     branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
+    inputs:
+      sha:
+        description: "Commit to build. Leave blank to build the tip of the ref."
+        required: false
+        type: string
 
 # Allow this job to clone the repo and create a page deployment
 permissions:
@@ -18,8 +23,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # `gh workflow run --ref main` resolves the branch tip server-side at
+      # dispatch time, which can lag a second or two behind a just-landed push
+      # and pin the run to the previous commit. The nightly sync passes the
+      # exact SHA it pushed so the build is never a commit behind.
       - name: Checkout your repository using git
         uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.inputs.sha || github.sha }}
       - name: Install, build, and upload your site
         uses: withastro/action@v6
         # with:
