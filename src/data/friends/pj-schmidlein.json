@@ -3,7 +3,7 @@
   "slug": "pj-schmidlein",
   "userId": "201906919",
   "profileUrl": "https://www.goodreads.com/user/show/201906919",
-  "syncedAt": "2026-08-09T08:04:05.102Z",
+  "syncedAt": "2026-08-10T08:53:02.583Z",
   "read": [
     {
       "title": "¡Hola Papi!: How to Come Out in a Walmart Parking Lot and Other Life Lessons",
@@ -128,6 +128,15 @@
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328320260l/12000020.jpg",
       "url": "https://www.goodreads.com/review/show/8692483508?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Beholder",
+      "author": "Ryan La Sala",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1675956367l/61779957.jpg",
+      "url": "https://www.goodreads.com/review/show/8844691144?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
