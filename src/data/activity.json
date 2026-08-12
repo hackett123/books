@@ -788,17 +788,5 @@
       "url": "https://www.goodreads.com/review/show/8800566896?utm_medium=api&utm_source=rss"
     },
     "rating": 3
-  },
-  {
-    "at": "2026-07-28T09:57:38.819Z",
-    "who": null,
-    "slug": null,
-    "action": "started",
-    "book": {
-      "title": "On the Calculation of Volume I",
-      "author": "Solvej Balle",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1769272700l/208511270._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8784158155?utm_medium=api&utm_source=rss"
-    }
   }
 ]
