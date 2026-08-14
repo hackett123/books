@@ -720,59 +720,5 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1649947133l/60811826._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/7936087629?utm_medium=api&utm_source=rss"
     }
-  },
-  {
-    "at": "2026-07-30T09:45:07.803Z",
-    "who": "Koran",
-    "slug": "koran",
-    "action": "finished",
-    "book": {
-      "title": "Yesteryear",
-      "author": "Caro Claire Burke",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1753932705l/238226942._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8594332258?utm_medium=api&utm_source=rss"
-    },
-    "rating": 4
-  },
-  {
-    "at": "2026-07-30T09:44:57.990Z",
-    "who": "Michelle",
-    "slug": "michelle",
-    "action": "rated",
-    "book": {
-      "title": "The Vegetarian",
-      "author": "Han Kang",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1728661771l/25489025._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8653054227?utm_medium=api&utm_source=rss"
-    },
-    "rating": 4
-  },
-  {
-    "at": "2026-07-30T09:44:57.990Z",
-    "who": "Michelle",
-    "slug": "michelle",
-    "action": "reviewed",
-    "book": {
-      "title": "The Vegetarian",
-      "author": "Han Kang",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1728661771l/25489025._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8653054227?utm_medium=api&utm_source=rss"
-    },
-    "rating": 4
-  },
-  {
-    "at": "2026-07-30T09:44:50.111Z",
-    "who": null,
-    "slug": null,
-    "action": "finished",
-    "book": {
-      "title": "On the Calculation of Volume I",
-      "author": "Solvej Balle",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1769272700l/208511270._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8784158155?utm_medium=api&utm_source=rss"
-    },
-    "rating": 3,
-    "reviewed": true,
-    "reviewSlug": "on-the-calculation-of-volume-i"
   }
 ]
