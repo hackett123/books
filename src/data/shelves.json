@@ -1,6 +1,13 @@
 {
-  "syncedAt": "2026-08-16T07:47:27.354Z",
+  "syncedAt": "2026-08-17T08:02:30.305Z",
   "currentlyReading": [
+    {
+      "title": "Bel Canto",
+      "author": "Ann Patchett",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1352997328l/5826.jpg",
+      "url": "https://www.goodreads.com/review/show/8761978534?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-08-16"
+    },
     {
       "title": "Zeros and Ones",
       "author": "Sadie Plant",
@@ -86,13 +93,6 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1773750050l/50202953._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8787493764?utm_medium=api&utm_source=rss",
       "dateAdded": "2026-07-21"
-    },
-    {
-      "title": "Bel Canto",
-      "author": "Ann Patchett",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1352997328l/5826.jpg",
-      "url": "https://www.goodreads.com/review/show/8761978534?utm_medium=api&utm_source=rss",
-      "dateAdded": "2026-07-11"
     },
     {
       "title": "Kingfisher",

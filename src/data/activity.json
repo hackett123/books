@@ -1,5 +1,17 @@
 [
   {
+    "at": "2026-08-17T08:02:31.901Z",
+    "who": null,
+    "slug": null,
+    "action": "started",
+    "book": {
+      "title": "Bel Canto",
+      "author": "Ann Patchett",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1352997328l/5826.jpg",
+      "url": "https://www.goodreads.com/review/show/8761978534?utm_medium=api&utm_source=rss"
+    }
+  },
+  {
     "at": "2026-08-15T07:45:53.132Z",
     "who": null,
     "slug": null,
@@ -670,30 +682,5 @@
     "rating": 3,
     "reviewed": true,
     "reviewSlug": "i-leave-it-up-to-you"
-  },
-  {
-    "at": "2026-08-02T09:25:06.749Z",
-    "who": "Beylin",
-    "slug": "beylin",
-    "action": "started",
-    "book": {
-      "title": "Shadow Princess (Zodiac Academy, #4)",
-      "author": "Caroline Peckham",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1570223430l/53146871._SX318_SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8821730567?utm_medium=api&utm_source=rss"
-    }
-  },
-  {
-    "at": "2026-08-02T09:25:06.749Z",
-    "who": "Beylin",
-    "slug": "beylin",
-    "action": "finished",
-    "book": {
-      "title": "The Mistake (Off-Campus, #2)",
-      "author": "Elle Kennedy",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1777928277l/58953631._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8698503128?utm_medium=api&utm_source=rss"
-    },
-    "rating": 5
   }
 ]
