@@ -3,8 +3,17 @@
   "slug": "koran",
   "userId": "173598950",
   "profileUrl": "https://www.goodreads.com/user/show/173598950",
-  "syncedAt": "2026-08-17T08:02:47.817Z",
+  "syncedAt": "2026-08-18T07:56:34.962Z",
   "read": [
+    {
+      "title": "I Who Have Never Known Men",
+      "author": "Jacqueline Harpman",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1649947133l/60811826._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7936087629?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-08-17",
+      "hasReview": false
+    },
     {
       "title": "Yesteryear",
       "author": "Caro Claire Burke",
@@ -1358,10 +1367,16 @@
   ],
   "currentlyReading": [
     {
-      "title": "I Who Have Never Known Men",
-      "author": "Jacqueline Harpman",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1649947133l/60811826._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/7936087629?utm_medium=api&utm_source=rss"
+      "title": "House of Earth and Blood (Crescent City, #1)",
+      "author": "Sarah J. Maas",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1559142847l/44778083.jpg",
+      "url": "https://www.goodreads.com/review/show/6898959710?utm_medium=api&utm_source=rss"
+    },
+    {
+      "title": "Every Summer After",
+      "author": "Carley Fortune",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1630101647l/58014893.jpg",
+      "url": "https://www.goodreads.com/review/show/7684299812?utm_medium=api&utm_source=rss"
     }
   ]
 }
