@@ -276,20 +276,5 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1422638843l/194746.jpg",
       "url": "https://www.goodreads.com/review/show/8833816438?utm_medium=api&utm_source=rss"
     }
-  },
-  {
-    "at": "2026-08-05T09:58:46.140Z",
-    "who": null,
-    "slug": null,
-    "action": "finished",
-    "book": {
-      "title": "Lapvona",
-      "author": "Ottessa Moshfegh",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1637763820l/59693959._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8828288838?utm_medium=api&utm_source=rss"
-    },
-    "rating": 3,
-    "reviewed": true,
-    "reviewSlug": "lapvona"
   }
 ]
