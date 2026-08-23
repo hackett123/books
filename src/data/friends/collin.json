@@ -3,8 +3,17 @@
   "slug": "collin",
   "userId": "151010137",
   "profileUrl": "https://www.goodreads.com/user/show/151010137",
-  "syncedAt": "2026-08-22T07:48:26.324Z",
+  "syncedAt": "2026-08-23T07:49:58.722Z",
   "read": [
+    {
+      "title": "Exhalation",
+      "author": "Ted Chiang",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1534388394l/41160292._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/7235739586?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-08-22",
+      "hasReview": false
+    },
     {
       "title": "Stone Yard Devotional",
       "author": "Charlotte  Wood",
@@ -924,12 +933,5 @@
       "hasReview": false
     }
   ],
-  "currentlyReading": [
-    {
-      "title": "Exhalation",
-      "author": "Ted Chiang",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1534388394l/41160292._SX318_.jpg",
-      "url": "https://www.goodreads.com/review/show/7235739586?utm_medium=api&utm_source=rss"
-    }
-  ]
+  "currentlyReading": []
 }
