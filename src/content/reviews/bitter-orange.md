@@ -1,7 +1,7 @@
 ---
 title: "Bitter Orange"
 author: "Claire Fuller"
-rating: 3
+rating: 2.75
 dateRead: 2026-07-19
 dateAdded: 2026-07-20
 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1519083306l/38589871.jpg"
