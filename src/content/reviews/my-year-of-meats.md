@@ -1,7 +1,7 @@
 ---
 title: "My Year of Meats"
 author: "Ruth Ozeki"
-rating: 4
+rating: 3.75
 dateRead: 2024-09-24
 dateAdded: 2024-09-25
 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328329695l/8360082.jpg"

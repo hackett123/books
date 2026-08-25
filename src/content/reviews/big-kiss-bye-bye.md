@@ -1,7 +1,7 @@
 ---
 title: "Big Kiss, Bye-Bye"
 author: "Claire-Louise Bennett"
-rating: 5
+rating: 4.5
 dateRead: 2025-11-18
 dateAdded: 2026-03-01
 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1741233020l/223854440._SY475_.jpg"

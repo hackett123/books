@@ -1,7 +1,7 @@
 ---
 title: "The Secret History"
 author: "Donna Tartt"
-rating: 4
+rating: 4.5
 dateRead: 2024-10-15
 dateAdded: 2024-10-16
 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328325056l/13054604.jpg"

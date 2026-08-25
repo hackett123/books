@@ -11,3 +11,5 @@ isbn: "1668200473"
 ---
 
 4.5 stars. what a debut! the things we leave behind, the things we will never have again. gorgeous.
+
+[revised from 4.5 to 4 on 2026-08-25]

@@ -1,7 +1,7 @@
 ---
 title: "Love in the Time of Cholera"
 author: "Gabriel García Márquez"
-rating: 3
+rating: 3.5
 dateRead: 2024-10-27
 dateAdded: 2024-10-28
 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1644691354l/9712._SY475_.jpg"

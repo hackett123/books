@@ -1,7 +1,7 @@
 ---
 title: "Lapvona"
 author: "Ottessa Moshfegh"
-rating: 3
+rating: 3.5
 dateRead: 2026-08-04
 dateAdded: 2026-08-05
 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1637763820l/59693959._SY475_.jpg"

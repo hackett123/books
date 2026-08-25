@@ -1,7 +1,7 @@
 ---
 title: "Dawn: Stories"
 author: "Selahattin Demirtaş"
-rating: 4
+rating: 3.75
 dateRead: 2025-10-03
 dateAdded: 2025-10-04
 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1555747777l/42166434._SY475_.jpg"

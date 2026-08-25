@@ -1,7 +1,7 @@
 ---
 title: "Interesting Facts about Space"
 author: "Emily R. Austin"
-rating: 5
+rating: 4.5
 dateRead: 2025-12-19
 dateAdded: 2025-12-20
 cover: "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1700274020l/177059739._SY475_.jpg"
