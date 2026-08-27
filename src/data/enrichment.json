@@ -836,6 +836,36 @@
     ],
     "firstPublishYear": 2006
   },
+  "klara and the sun|kazuo ishiguro": {
+    "title": "Klara and the Sun",
+    "author": "Kazuo Ishiguro",
+    "found": true,
+    "olKey": "/works/OL20883297W",
+    "pages": 334,
+    "subjects": [
+      "Fiction, science fiction, general",
+      "speculative fiction",
+      "Fiction, dystopian",
+      "The Future",
+      "Artificial intelligence",
+      "Robots",
+      "Romance fiction",
+      "Friendship",
+      "Love",
+      "Paid companions (Household employees)",
+      "Intelligence artificielle",
+      "Romans, nouvelles"
+    ],
+    "languages": [
+      "eng",
+      "por",
+      "cat",
+      "spa",
+      "tur",
+      "fre"
+    ],
+    "firstPublishYear": 2019
+  },
   "lapvona|ottessa moshfegh": {
     "title": "Lapvona",
     "author": "Ottessa Moshfegh",
