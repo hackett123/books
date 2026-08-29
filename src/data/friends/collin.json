@@ -3,8 +3,17 @@
   "slug": "collin",
   "userId": "151010137",
   "profileUrl": "https://www.goodreads.com/user/show/151010137",
-  "syncedAt": "2026-08-28T19:28:32.595Z",
+  "syncedAt": "2026-08-29T13:11:42.399Z",
   "read": [
+    {
+      "title": "Stoner",
+      "author": "John  Williams",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1742326950l/166997._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8887617204?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-08-28",
+      "hasReview": false
+    },
     {
       "title": "Exhalation",
       "author": "Ted Chiang",
@@ -933,12 +942,5 @@
       "hasReview": false
     }
   ],
-  "currentlyReading": [
-    {
-      "title": "Stoner",
-      "author": "John  Williams",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1742326950l/166997._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8887617204?utm_medium=api&utm_source=rss"
-    }
-  ]
+  "currentlyReading": []
 }

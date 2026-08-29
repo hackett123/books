@@ -1,5 +1,18 @@
 [
   {
+    "at": "2026-08-29T13:11:42.399Z",
+    "who": "Collin",
+    "slug": "collin",
+    "action": "finished",
+    "book": {
+      "title": "Stoner",
+      "author": "John  Williams",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1742326950l/166997._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8887617204?utm_medium=api&utm_source=rss"
+    },
+    "rating": 5
+  },
+  {
     "at": "2026-08-27T18:19:00.350Z",
     "who": "Beylin",
     "slug": "beylin",
@@ -302,18 +315,6 @@
       "author": "Ann Patchett",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1352997328l/5826.jpg",
       "url": "https://www.goodreads.com/review/show/8761978534?utm_medium=api&utm_source=rss"
-    }
-  },
-  {
-    "at": "2026-08-15T07:45:53.132Z",
-    "who": null,
-    "slug": null,
-    "action": "finished",
-    "book": {
-      "title": "Girl on Girl: How Pop Culture Turned a Generation of Women Against Themselves",
-      "author": "Sophie Gilbert",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1737731201l/216970860._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8773578376?utm_medium=api&utm_source=rss"
     }
   }
 ]
