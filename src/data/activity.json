@@ -1,5 +1,17 @@
 [
   {
+    "at": "2026-08-30T12:57:32.249Z",
+    "who": "Collin",
+    "slug": "collin",
+    "action": "started",
+    "book": {
+      "title": "Hamnet",
+      "author": "Maggie O'Farrell",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1574943819l/43890641._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8902977669?utm_medium=api&utm_source=rss"
+    }
+  },
+  {
     "at": "2026-08-29T13:11:42.399Z",
     "who": "Collin",
     "slug": "collin",
