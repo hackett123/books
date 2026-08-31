@@ -236,6 +236,34 @@
     ],
     "firstPublishYear": 2000
   },
+  "as i lay dying|william faulkner": {
+    "title": "As I Lay Dying",
+    "author": "William Faulkner",
+    "found": true,
+    "olKey": "/works/OL82929W",
+    "pages": 250,
+    "subjects": [
+      "American Manuscripts",
+      "Death",
+      "Burial",
+      "Fiction in English",
+      "Stream-of-Consciousness",
+      "Facsimiles",
+      "Problem families",
+      "Married women",
+      "Parent and adult child",
+      "Manuscripts",
+      "Dysfunctional families",
+      "Families"
+    ],
+    "languages": [
+      "eng",
+      "fre",
+      "est",
+      "spa"
+    ],
+    "firstPublishYear": 1915
+  },
   "babel|r f kuang": {
     "title": "Babel",
     "author": "R.F. Kuang",
