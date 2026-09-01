@@ -3,8 +3,17 @@
   "slug": "koran",
   "userId": "173598950",
   "profileUrl": "https://www.goodreads.com/user/show/173598950",
-  "syncedAt": "2026-08-31T15:09:41.801Z",
+  "syncedAt": "2026-09-01T12:36:02.952Z",
   "read": [
+    {
+      "title": "This Summer Will Be Different",
+      "author": "Carley Fortune",
+      "rating": 2,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1694006777l/197577126._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8891677368?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-08-31",
+      "hasReview": false
+    },
     {
       "title": "One Golden Summer (Barry's Bay, #2)",
       "author": "Carley Fortune",
@@ -1385,10 +1394,10 @@
   ],
   "currentlyReading": [
     {
-      "title": "This Summer Will Be Different",
-      "author": "Carley Fortune",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1694006777l/197577126._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8891677368?utm_medium=api&utm_source=rss"
+      "title": "The Intruder",
+      "author": "Freida McFadden",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1747844349l/231819058.jpg",
+      "url": "https://www.goodreads.com/review/show/8000380101?utm_medium=api&utm_source=rss"
     },
     {
       "title": "House of Earth and Blood (Crescent City, #1)",
