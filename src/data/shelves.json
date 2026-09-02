@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-01T12:35:46.688Z",
+  "syncedAt": "2026-09-02T12:08:20.493Z",
   "currentlyReading": [
     {
       "title": "Checkout 19",
@@ -38,6 +38,13 @@
     }
   ],
   "toRead": [
+    {
+      "title": "A Room with a View",
+      "author": "E.M. Forster",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388781285l/3087.jpg",
+      "url": "https://www.goodreads.com/review/show/8910816594?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-09-01"
+    },
     {
       "title": "2666",
       "author": "Roberto Bolaño",
