@@ -3,8 +3,17 @@
   "slug": "beylin",
   "userId": "160538290",
   "profileUrl": "https://www.goodreads.com/user/show/160538290",
-  "syncedAt": "2026-09-02T12:08:47.335Z",
+  "syncedAt": "2026-09-03T12:08:18.260Z",
   "read": [
+    {
+      "title": "The Score (Off-Campus, #3)",
+      "author": "Elle Kennedy",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1777928395l/58953634._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8893989979?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-09-02",
+      "hasReview": false
+    },
     {
       "title": "Loving a Witch Is Totally Foolish (Total Chaos, #2)",
       "author": "Aura Hayes",
@@ -1305,7 +1314,7 @@
       "title": "The Last Olympian (Percy Jackson and the Olympians, #5)",
       "author": "Rick Riordan",
       "rating": 5,
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1723393514l/4556058._SY475_.jpg",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1788398025l/4556058._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/5747522044?utm_medium=api&utm_source=rss",
       "dateRead": "2024-04-15",
       "hasReview": true
@@ -1844,16 +1853,16 @@
   ],
   "currentlyReading": [
     {
+      "title": "Cursed Fates (Zodiac Academy, #5)",
+      "author": "Caroline Peckham",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1578710951l/50391615._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8914173725?utm_medium=api&utm_source=rss"
+    },
+    {
       "title": "Rolls and Rivalry (Gaming and Romance, #3)",
       "author": "Kristy Boyce",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1761081557l/241805132._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8908035648?utm_medium=api&utm_source=rss"
-    },
-    {
-      "title": "The Score (Off-Campus, #3)",
-      "author": "Elle Kennedy",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1777928395l/58953634._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8893989979?utm_medium=api&utm_source=rss"
     }
   ]
 }

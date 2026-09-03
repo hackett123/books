@@ -1,13 +1,6 @@
 {
-  "syncedAt": "2026-09-02T12:08:20.493Z",
+  "syncedAt": "2026-09-03T12:07:54.153Z",
   "currentlyReading": [
-    {
-      "title": "Checkout 19",
-      "author": "Claire-Louise Bennett",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1630346616l/58386758.jpg",
-      "url": "https://www.goodreads.com/review/show/8717310160?utm_medium=api&utm_source=rss",
-      "dateAdded": "2026-08-31"
-    },
     {
       "title": "Zeros and Ones",
       "author": "Sadie Plant",
@@ -38,6 +31,13 @@
     }
   ],
   "toRead": [
+    {
+      "title": "Pond",
+      "author": "Claire-Louise Bennett",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1428656359l/25333047.jpg",
+      "url": "https://www.goodreads.com/review/show/8914038719?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-09-02"
+    },
     {
       "title": "A Room with a View",
       "author": "E.M. Forster",
