@@ -1,6 +1,13 @@
 {
-  "syncedAt": "2026-09-04T12:09:12.071Z",
+  "syncedAt": "2026-09-05T11:17:26.853Z",
   "currentlyReading": [
+    {
+      "title": "A Room with a View",
+      "author": "E.M. Forster",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388781285l/3087.jpg",
+      "url": "https://www.goodreads.com/review/show/8910816594?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-09-05"
+    },
     {
       "title": "The Joke",
       "author": "Milan Kundera",
@@ -44,13 +51,6 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1428656359l/25333047.jpg",
       "url": "https://www.goodreads.com/review/show/8914038719?utm_medium=api&utm_source=rss",
       "dateAdded": "2026-09-02"
-    },
-    {
-      "title": "A Room with a View",
-      "author": "E.M. Forster",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388781285l/3087.jpg",
-      "url": "https://www.goodreads.com/review/show/8910816594?utm_medium=api&utm_source=rss",
-      "dateAdded": "2026-09-01"
     },
     {
       "title": "2666",
