@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-06T11:40:37.173Z",
+  "syncedAt": "2026-09-07T13:32:19.450Z",
   "currentlyReading": [
     {
       "title": "The Joke",
@@ -38,6 +38,20 @@
     }
   ],
   "toRead": [
+    {
+      "title": "Berg",
+      "author": "Ann Quin",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1384026153l/912596.jpg",
+      "url": "https://www.goodreads.com/review/show/8923541987?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-09-06"
+    },
+    {
+      "title": "American Hagwon",
+      "author": "Min Jin Lee",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1771958472l/245886309._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8923539565?utm_medium=api&utm_source=rss",
+      "dateAdded": "2026-09-06"
+    },
     {
       "title": "Pond",
       "author": "Claire-Louise Bennett",
