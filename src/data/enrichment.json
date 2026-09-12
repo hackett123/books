@@ -265,6 +265,33 @@
     ],
     "firstPublishYear": 2000
   },
+  "anthem|ayn rand": {
+    "title": "Anthem",
+    "author": "Ayn Rand",
+    "found": true,
+    "olKey": "/works/OL731737W",
+    "pages": 84,
+    "subjects": [
+      "Individuality",
+      "Time travel in fiction",
+      "Individuality in fiction",
+      "collectivism",
+      "Time travel",
+      "Psychology",
+      "Men",
+      "Men in fiction",
+      "Man-woman relationships",
+      "Man-woman relationships in fiction",
+      "Fiction, psychological",
+      "Fiction, science fiction, general"
+    ],
+    "languages": [
+      "eng",
+      "dut",
+      "ger"
+    ],
+    "firstPublishYear": 1936
+  },
   "as i lay dying|william faulkner": {
     "title": "As I Lay Dying",
     "author": "William Faulkner",

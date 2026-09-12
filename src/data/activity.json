@@ -1,5 +1,29 @@
 [
   {
+    "at": "2026-09-12T11:38:21.533Z",
+    "who": null,
+    "slug": null,
+    "action": "started",
+    "book": {
+      "title": "The Dutch House",
+      "author": "Ann Patchett",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1552334367l/44318414.jpg",
+      "url": "https://www.goodreads.com/review/show/8884986667?utm_medium=api&utm_source=rss"
+    }
+  },
+  {
+    "at": "2026-09-12T11:38:19.445Z",
+    "who": null,
+    "slug": null,
+    "action": "finished",
+    "book": {
+      "title": "Anthem",
+      "author": "Ayn Rand",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388190459l/667.jpg",
+      "url": "https://www.goodreads.com/review/show/8927390340?utm_medium=api&utm_source=rss"
+    }
+  },
+  {
     "at": "2026-09-11T12:13:43.923Z",
     "who": null,
     "slug": null,
