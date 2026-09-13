@@ -1,5 +1,17 @@
 [
   {
+    "at": "2026-09-13T12:45:07.663Z",
+    "who": null,
+    "slug": null,
+    "action": "started",
+    "book": {
+      "title": "Taiwan Travelogue",
+      "author": "Yáng Shuāng-zǐ",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1707354397l/205363984.jpg",
+      "url": "https://www.goodreads.com/review/show/8940608052?utm_medium=api&utm_source=rss"
+    }
+  },
+  {
     "at": "2026-09-12T11:38:21.533Z",
     "who": null,
     "slug": null,
@@ -396,18 +408,5 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1574943819l/43890641._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8902977669?utm_medium=api&utm_source=rss"
     }
-  },
-  {
-    "at": "2026-08-29T13:11:42.399Z",
-    "who": "Collin",
-    "slug": "collin",
-    "action": "finished",
-    "book": {
-      "title": "Stoner",
-      "author": "John  Williams",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1742326950l/166997._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8887617204?utm_medium=api&utm_source=rss"
-    },
-    "rating": 5
   }
 ]
