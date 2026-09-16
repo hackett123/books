@@ -1,7 +1,8 @@
 /*
- * enrich-openlibrary.mjs — look up every read book (reviews + shelf) on
- * Open Library and cache page counts, subjects, and edition languages into
- * src/data/enrichment.json (committed data, consumed by src/lib/enrichment.ts).
+ * enrich-openlibrary.mjs — look up every read book (reviews + shelf, plus the
+ * friends' synced shelves) on Open Library and cache page counts, subjects,
+ * and edition languages into src/data/enrichment.json (committed data,
+ * consumed by src/lib/enrichment.ts).
  *
  * Incremental: books already in the cache — including confirmed misses — are
  * skipped, so re-runs (and the nightly sync workflow) only fetch new books.
@@ -18,6 +19,7 @@ const ROOT = path.resolve(__dirname, "..");
 const REVIEWS_DIR = path.join(ROOT, "src/content/reviews");
 const SHELF_FILE = path.join(ROOT, "src/data/shelf.json");
 const OVERRIDES_FILE = path.join(ROOT, "src/data/overrides.json");
+const FRIENDS_DIR = path.join(ROOT, "src/data/friends");
 const OUT_FILE = path.join(ROOT, "src/data/enrichment.json");
 
 const FORCE = process.argv.includes("--force");
@@ -74,6 +76,16 @@ async function gatherBooks() {
     const overrides = JSON.parse(await readFile(OVERRIDES_FILE, "utf8"));
     for (const b of overrides.books ?? []) {
       if (b.author) add(b.title, b.author); // hand-added books only
+    }
+  }
+  // Friends' read shelves, so /friends/<slug> gets a "Common threads" chart
+  // too. Their books share the cache with yours — a book you've both read is
+  // one lookup — and carry no ISBN, so they match on title + author.
+  if (existsSync(FRIENDS_DIR)) {
+    for (const file of await readdir(FRIENDS_DIR)) {
+      if (!file.endsWith(".json")) continue;
+      const friend = JSON.parse(await readFile(path.join(FRIENDS_DIR, file), "utf8"));
+      for (const b of friend.read ?? []) add(b.title, b.author);
     }
   }
   return books;
@@ -145,7 +157,8 @@ if (existsSync(OUT_FILE) && !FORCE) {
 
 const pending = [...books.entries()].filter(([key]) => !(key in cache));
 console.log(
-  `${books.size} books in the library; ${pending.length} to look up on Open Library.`
+  `${books.size} books across the library and friends' shelves; ` +
+    `${pending.length} to look up on Open Library.`
 );
 
 let done = 0;
@@ -180,8 +193,8 @@ for (const [key, book] of pending) {
   if (done < pending.length) await sleep(DELAY_MS);
 }
 
-// Drop cache entries for books no longer in the library, keep keys sorted so
-// diffs stay reviewable.
+// Drop cache entries for books no longer in the library or on a friend's
+// shelf, keep keys sorted so diffs stay reviewable.
 const sorted = {};
 for (const key of [...books.keys()].sort()) {
   if (cache[key]) sorted[key] = cache[key];

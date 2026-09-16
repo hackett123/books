@@ -44,12 +44,27 @@ const SUBJECT_CANON: Record<string, string> = {
   "interpersonal relations": "relationships",
   "family life": "family life",
   "domestic fiction": "family life",
+  // Two labels, one shelf — Open Library uses both, heavily, on the same books.
+  "juvenile fiction": "children's fiction",
+  "children's fiction": "children's fiction",
+  "fantasy fiction": "fantasy",
+  fantasy: "fantasy",
+  // Inverted spellings of a sub-genre. Folded onto each other, but kept
+  // distinct from the parent genre — "contemporary romance" is a real
+  // narrowing of "romance", not a synonym for it.
+  "romance, contemporary": "contemporary romance",
+  "contemporary romance": "contemporary romance",
+  "fantasy, epic": "epic fantasy",
+  "epic fantasy": "epic fantasy",
 };
 
 function normalizeSubject(raw: string): string | null {
   let t = raw.toLowerCase().trim();
   // "Fiction / Literary" and "Fiction, psychological" → "literary" / "psychological"
   t = t.replace(/^fiction\s*[/,]\s*/, "").replace(/\s*[/,]\s*fiction$/, "");
+  // A cataloging suffix carrying no meaning of its own: "Romance, general" and
+  // "Science fiction, general" are just "romance" and "science fiction".
+  t = t.replace(/\s*,\s*general$/, "");
   if (!t || SUBJECT_DROP.has(t)) return null;
   return SUBJECT_CANON[t] ?? t;
 }
@@ -59,11 +74,19 @@ export interface SubjectCount {
   count: number;
 }
 
-// The library's most common subjects — every read book's (deduped, folded)
-// subjects tallied up. Only subjects shared by 2+ books are interesting.
-export async function getSubjectBreakdown(limit = 14): Promise<SubjectCount[]> {
+// A shelf's most common subjects — every book's (deduped, folded) subjects
+// tallied up. Only subjects shared by 2+ books are interesting. Books are
+// deduped by match key first, since a friend can shelve the same book twice.
+export function subjectBreakdown(
+  books: readonly { title: string; author: string }[],
+  limit = 14
+): SubjectCount[] {
   const counts = new Map<string, number>();
-  for (const b of await getReadBooks()) {
+  const seen = new Set<string>();
+  for (const b of books) {
+    const key = matchKey(b.title, b.author);
+    if (seen.has(key)) continue;
+    seen.add(key);
     const e = getEnrichment(b.title, b.author);
     if (!e?.subjects) continue;
     const perBook = new Set(
@@ -79,4 +102,10 @@ export async function getSubjectBreakdown(limit = 14): Promise<SubjectCount[]> {
       subject: subject.charAt(0).toUpperCase() + subject.slice(1),
       count,
     }));
+}
+
+// The owner's library, for /stats. Friends' shelves go through
+// subjectBreakdown() directly from /friends/<slug>.
+export async function getSubjectBreakdown(limit = 14): Promise<SubjectCount[]> {
+  return subjectBreakdown(await getReadBooks(), limit);
 }

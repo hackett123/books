@@ -7,6 +7,7 @@ import Divider from "../../components/Divider.astro";
 import { getFriends } from "../../lib/friends";
 import { getReadBooks } from "../../lib/library";
 import { compareWithFriend } from "../../lib/compare";
+import { subjectBreakdown } from "../../lib/enrichment";
 import { withBase } from "../../lib/url";
 
 export function getStaticPaths() {
@@ -23,6 +24,10 @@ function stars(n: number): string {
 }
 const maxHist = Math.max(1, ...s.ratingHistogram.map((h) => h.count));
 const maxAuthor = Math.max(1, ...s.topAuthors.map((a) => a.count));
+
+// What their shelf keeps returning to — same Open Library subjects as /stats.
+const subjects = subjectBreakdown(friend.read);
+const maxSubject = Math.max(1, ...subjects.map((c) => c.count));
 
 const bigNumbers = [
   { label: "Books read", value: s.totalRead },
@@ -208,6 +213,32 @@ function shortDate(d: Date | null): string {
           hrefFor={(year, m) =>
             withBase(`/timeline/${friend.slug}#${year}-${String(m + 1).padStart(2, "0")}`)}
         />
+      </section>
+    )
+  }
+
+  {
+    subjects.length > 0 && (
+      <section class="measure block">
+        <h2>Common threads</h2>
+        <p class="meta">
+          What {friend.name}'s shelf keeps returning to — subjects via Open
+          Library.
+        </p>
+        <div class="authors">
+          {subjects.map((c) => (
+            <div class="author">
+              <span class="author__name">{c.subject}</span>
+              <span class="author__bar">
+                <span
+                  class="author__fill author__fill--night"
+                  style={`width:${(c.count / maxSubject) * 100}%`}
+                />
+              </span>
+              <span class="author__count">{c.count}</span>
+            </div>
+          ))}
+        </div>
       </section>
     )
   }
@@ -485,6 +516,9 @@ function shortDate(d: Date | null): string {
     height: 100%;
     background: var(--color-accent);
     border-radius: 999px;
+  }
+  .author__fill--night {
+    background: var(--color-night);
   }
 
   .grid {

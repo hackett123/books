@@ -442,12 +442,14 @@ reads dated more than two weeks back are treated as backfill, not news.
 
 ### `npm run enrich`
 
-Looks each read book up on **Open Library** and caches page counts, subjects,
-and edition languages into `src/data/enrichment.json` (committed). Fills the
-"Pages" stat where Goodreads' RSS has none and powers the "Common threads"
-subject chart on `/stats`. **Incremental**: already-cached books (including
-confirmed misses) are skipped, so re-runs only fetch new books; `--force`
-re-fetches everything. Rate-limited to one polite request per ~0.4s.
+Looks every read book — yours *and* your friends' synced shelves — up on
+**Open Library** and caches page counts, subjects, and edition languages into
+`src/data/enrichment.json` (committed). Fills the "Pages" stat where Goodreads'
+RSS has none and powers the "Common threads" subject chart on `/stats` and on
+each `/friends/<slug>`. One shared cache, so a book you've both read is looked
+up once. **Incremental**: already-cached books (including confirmed misses) are
+skipped, so re-runs only fetch new books; `--force` re-fetches everything.
+Rate-limited to one polite request per ~0.4s.
 
 ### Incremental sync & `--force`
 

@@ -54,8 +54,9 @@ worth it. Cherry-pick freely.
 - ✅ **Reading-pace stats** (S) — longest/current monthly streak, longest dry
   spell, busiest month on `/stats` (`computePace` in `bookstats.ts`).
 - ✅ **Open Library enrichment** (M) — `npm run enrich` caches page counts +
-  subjects + edition languages into `src/data/enrichment.json`; fills the
-  Pages stat and powers the "Common threads" subject chart on `/stats`.
+  subjects + edition languages into `src/data/enrichment.json` for your books
+  and your friends'; fills the Pages stat and powers the "Common threads"
+  subject chart on `/stats` and on every `/friends/<slug>`.
 - ✅ **JSON-LD structured data** (S) — schema.org `Review`/`Book` on every
   review page, so search results can show the star rating.
 - ✅ **View transitions** (S) — cross-document CSS view transitions (no JS
