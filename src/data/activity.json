@@ -1,5 +1,30 @@
 [
   {
+    "at": "2026-09-16T12:38:18.911Z",
+    "who": "Beylin",
+    "slug": "beylin",
+    "action": "started",
+    "book": {
+      "title": "Yesteryear",
+      "author": "Caro Claire Burke",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1753932705l/238226942._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8949165910?utm_medium=api&utm_source=rss"
+    }
+  },
+  {
+    "at": "2026-09-16T12:37:55.355Z",
+    "who": null,
+    "slug": null,
+    "action": "finished",
+    "book": {
+      "title": "Taiwan Travelogue",
+      "author": "Yáng Shuāng-zǐ",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1707354397l/205363984.jpg",
+      "url": "https://www.goodreads.com/review/show/8940608052?utm_medium=api&utm_source=rss"
+    },
+    "rating": 3
+  },
+  {
     "at": "2026-09-15T12:43:16.933Z",
     "who": "Beylin",
     "slug": "beylin",
@@ -304,35 +329,5 @@
     "rating": 4,
     "reviewed": true,
     "reviewSlug": "checkout-19"
-  },
-  {
-    "at": "2026-09-02T01:13:10.664Z",
-    "who": null,
-    "slug": null,
-    "action": "reviewed",
-    "book": {
-      "title": "Klara and the Sun",
-      "author": "Kazuo Ishiguro",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1603206535l/54120408._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/5829210007?utm_medium=api&utm_source=rss"
-    },
-    "rating": 3,
-    "reviewed": true,
-    "reviewSlug": "klara-and-the-sun"
-  },
-  {
-    "at": "2026-09-02T01:13:10.664Z",
-    "who": null,
-    "slug": null,
-    "action": "reviewed",
-    "book": {
-      "title": "As I Lay Dying",
-      "author": "William Faulkner",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1757102388l/77013.jpg",
-      "url": "https://www.goodreads.com/review/show/8895857996?utm_medium=api&utm_source=rss"
-    },
-    "rating": 5,
-    "reviewed": true,
-    "reviewSlug": "as-i-lay-dying"
   }
 ]
