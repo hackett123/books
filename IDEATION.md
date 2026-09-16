@@ -56,7 +56,8 @@ worth it. Cherry-pick freely.
 - ✅ **Open Library enrichment** (M) — `npm run enrich` caches page counts +
   subjects + edition languages into `src/data/enrichment.json` for your books
   and your friends'; fills the Pages stat and powers the "Common threads"
-  subject chart on `/stats` and on every `/friends/<slug>`.
+  subject chart on `/stats` and on every `/friends/<slug>` — each thread
+  unfolds the books behind it (`components/CommonThreads.astro`).
 - ✅ **JSON-LD structured data** (S) — schema.org `Review`/`Book` on every
   review page, so search results can show the star rating.
 - ✅ **View transitions** (S) — cross-document CSS view transitions (no JS

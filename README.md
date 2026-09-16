@@ -197,7 +197,8 @@ reviewer/
    │  ├─ friends.ts        Loads data/friends/*.json + computes each friend's stats.
    │  ├─ compare.ts        Books-in-common + rating-agreement per friend.
    │  ├─ recommend.ts      "From your friends" recs (4★+ books you haven't read).
-   │  ├─ enrichment.ts     Reads enrichment.json; subject breakdown for /stats.
+   │  ├─ enrichment.ts     Reads enrichment.json; subject breakdown over any
+   │  │                    shelf (yours for /stats, a friend's for their page).
    │  ├─ authors.ts        Author grouping for /authors pages.
    │  ├─ tags.ts           Tag/shelf grouping for /tags.
    │  ├─ stats.ts          The owner's /stats data (wraps computeStats).
@@ -211,6 +212,8 @@ reviewer/
    │  ├─ BookCover.astro   Cover image + fallback; carries the view-transition name.
    │  ├─ ReviewCard.astro  A single row in the reviews feed.
    │  ├─ Heatmap.astro     Books-by-month grid (owner stats + friends).
+   │  ├─ CommonThreads.astro  Subject bar chart; each bar unfolds its books
+   │  │                    (owner stats + friends).
    │  ├─ Timeline.astro    The banded axis-and-flanks reading timeline.
    │  ├─ YearInBooks.astro Year-wrap-up body (owner + friend year pages).
    │  └─ Divider.astro     Asterism (⁂) section divider — part of the motif.
@@ -446,8 +449,8 @@ Looks every read book — yours *and* your friends' synced shelves — up on
 **Open Library** and caches page counts, subjects, and edition languages into
 `src/data/enrichment.json` (committed). Fills the "Pages" stat where Goodreads'
 RSS has none and powers the "Common threads" subject chart on `/stats` and on
-each `/friends/<slug>`. One shared cache, so a book you've both read is looked
-up once. **Incremental**: already-cached books (including confirmed misses) are
+each `/friends/<slug>`, where clicking a thread unfolds the books behind it.
+One shared cache, so a book you've both read is looked up once. **Incremental**: already-cached books (including confirmed misses) are
 skipped, so re-runs only fetch new books; `--force` re-fetches everything.
 Rate-limited to one polite request per ~0.4s.
 

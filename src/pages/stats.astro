@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import StarRating from "../components/StarRating.astro";
 import Divider from "../components/Divider.astro";
 import Heatmap from "../components/Heatmap.astro";
+import CommonThreads from "../components/CommonThreads.astro";
 import { getStats } from "../lib/stats";
 import { getSubjectBreakdown } from "../lib/enrichment";
 import { authorSlug } from "../lib/authors";
@@ -13,7 +14,6 @@ const subjects = await getSubjectBreakdown();
 const maxYear = Math.max(1, ...stats.byYear.map((y) => y.count));
 const maxHist = Math.max(1, ...stats.ratingHistogram.map((h) => h.count));
 const maxAuthor = Math.max(1, ...stats.topAuthors.map((a) => a.count));
-const maxSubject = Math.max(1, ...subjects.map((s) => s.count));
 
 const bigNumbers = [
   { label: "Books read", value: stats.totalRead },
@@ -174,22 +174,9 @@ if (pace.busiestMonth) {
         <h2>Common threads</h2>
         <p class="meta">
           What the library keeps returning to — subjects via Open Library
-          (<code>npm run enrich</code>).
+          (<code>npm run enrich</code>). Click a thread for its books.
         </p>
-        <div class="authors">
-          {subjects.map((s) => (
-            <div class="author">
-              <span class="author__name">{s.subject}</span>
-              <span class="author__bar">
-                <span
-                  class="author__fill author__fill--night"
-                  style={`width:${(s.count / maxSubject) * 100}%`}
-                />
-              </span>
-              <span class="author__count">{s.count}</span>
-            </div>
-          ))}
-        </div>
+        <CommonThreads threads={subjects} />
       </section>
     )
   }
@@ -384,9 +371,6 @@ if (pace.busiestMonth) {
     height: 100%;
     background: var(--color-accent);
     border-radius: 999px;
-  }
-  .author__fill--night {
-    background: var(--color-night);
   }
   @media (max-width: 32rem) {
     .author {

@@ -69,19 +69,33 @@ function normalizeSubject(raw: string): string | null {
   return SUBJECT_CANON[t] ?? t;
 }
 
+// The shape a subject chart needs from whatever shelf it's built over — the
+// owner's ReadEntry satisfies it as-is; a friend's book is mapped onto it.
+export interface SubjectBook {
+  title: string;
+  author: string;
+  rating: number;
+  cover?: string;
+  href?: string;
+  external?: boolean; // true = links out to Goodreads
+}
+
 export interface SubjectCount {
   subject: string; // display label, e.g. "Literary fiction"
   count: number;
+  books: SubjectBook[]; // the books behind the bar, best-rated first
 }
 
 // A shelf's most common subjects — every book's (deduped, folded) subjects
 // tallied up. Only subjects shared by 2+ books are interesting. Books are
 // deduped by match key first, since a friend can shelve the same book twice.
+// Each subject keeps its own books so the chart can unfold them on click;
+// `count` is therefore always `books.length`.
 export function subjectBreakdown(
-  books: readonly { title: string; author: string }[],
+  books: readonly SubjectBook[],
   limit = 14
 ): SubjectCount[] {
-  const counts = new Map<string, number>();
+  const bySubject = new Map<string, SubjectBook[]>();
   const seen = new Set<string>();
   for (const b of books) {
     const key = matchKey(b.title, b.author);
@@ -92,15 +106,22 @@ export function subjectBreakdown(
     const perBook = new Set(
       e.subjects.map(normalizeSubject).filter((s): s is string => s !== null)
     );
-    for (const s of perBook) counts.set(s, (counts.get(s) ?? 0) + 1);
+    for (const s of perBook) {
+      const list = bySubject.get(s);
+      if (list) list.push(b);
+      else bySubject.set(s, [b]);
+    }
   }
-  return [...counts.entries()]
-    .filter(([, count]) => count >= 2)
-    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+  return [...bySubject.entries()]
+    .filter(([, list]) => list.length >= 2)
+    .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
     .slice(0, limit)
-    .map(([subject, count]) => ({
+    .map(([subject, list]) => ({
       subject: subject.charAt(0).toUpperCase() + subject.slice(1),
-      count,
+      count: list.length,
+      books: list
+        .slice()
+        .sort((x, y) => y.rating - x.rating || x.title.localeCompare(y.title)),
     }));
 }
 

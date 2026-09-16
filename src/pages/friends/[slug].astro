@@ -4,6 +4,7 @@ import StarRating from "../../components/StarRating.astro";
 import BookCover from "../../components/BookCover.astro";
 import Heatmap from "../../components/Heatmap.astro";
 import Divider from "../../components/Divider.astro";
+import CommonThreads from "../../components/CommonThreads.astro";
 import { getFriends } from "../../lib/friends";
 import { getReadBooks } from "../../lib/library";
 import { compareWithFriend } from "../../lib/compare";
@@ -25,9 +26,18 @@ function stars(n: number): string {
 const maxHist = Math.max(1, ...s.ratingHistogram.map((h) => h.count));
 const maxAuthor = Math.max(1, ...s.topAuthors.map((a) => a.count));
 
-// What their shelf keeps returning to — same Open Library subjects as /stats.
-const subjects = subjectBreakdown(friend.read);
-const maxSubject = Math.max(1, ...subjects.map((c) => c.count));
+// What their shelf keeps returning to — same Open Library subjects as /stats,
+// over their shelf. Their books link out to Goodreads; they aren't mine.
+const subjects = subjectBreakdown(
+  friend.read.map((b) => ({
+    title: b.title,
+    author: b.author,
+    rating: b.rating,
+    cover: b.cover,
+    href: b.url,
+    external: true,
+  }))
+);
 
 const bigNumbers = [
   { label: "Books read", value: s.totalRead },
@@ -223,22 +233,9 @@ function shortDate(d: Date | null): string {
         <h2>Common threads</h2>
         <p class="meta">
           What {friend.name}'s shelf keeps returning to — subjects via Open
-          Library.
+          Library. Click a thread for their books in it.
         </p>
-        <div class="authors">
-          {subjects.map((c) => (
-            <div class="author">
-              <span class="author__name">{c.subject}</span>
-              <span class="author__bar">
-                <span
-                  class="author__fill author__fill--night"
-                  style={`width:${(c.count / maxSubject) * 100}%`}
-                />
-              </span>
-              <span class="author__count">{c.count}</span>
-            </div>
-          ))}
-        </div>
+        <CommonThreads threads={subjects} />
       </section>
     )
   }
@@ -516,9 +513,6 @@ function shortDate(d: Date | null): string {
     height: 100%;
     background: var(--color-accent);
     border-radius: 999px;
-  }
-  .author__fill--night {
-    background: var(--color-night);
   }
 
   .grid {
