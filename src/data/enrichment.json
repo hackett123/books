@@ -258,6 +258,23 @@
     ],
     "firstPublishYear": 2017
   },
+  "a dirty job|christopher moore": {
+    "title": "A Dirty Job (Grim Reaper, #1)",
+    "author": "Christopher Moore",
+    "found": true,
+    "olKey": "/works/OL274943W",
+    "pages": 447,
+    "subjects": [
+      "Fiction, fantasy, general",
+      "Fiction, humorous, general",
+      "Fathers and daughters, fiction",
+      "San francisco (calif.), fiction"
+    ],
+    "languages": [
+      "eng"
+    ],
+    "firstPublishYear": 2006
+  },
   "a farewell to arms|ernest hemingway": {
     "title": "A Farewell to Arms",
     "author": "Ernest Hemingway",
@@ -3603,6 +3620,13 @@
     ],
     "firstPublishYear": 2024
   },
+  "father material|alexis hall": {
+    "title": "Father Material (London Calling, #3)",
+    "author": "Alexis  Hall",
+    "found": true,
+    "olKey": "/works/OL45398002W",
+    "subjects": []
+  },
   "fifty shades darker|e l james": {
     "title": "Fifty Shades Darker",
     "author": "E.L. James",
@@ -3814,6 +3838,22 @@
       "jpn"
     ],
     "firstPublishYear": 1966
+  },
+  "fluke or i know why the winged whale sings|christopher moore": {
+    "title": "Fluke: Or, I Know Why the Winged Whale Sings",
+    "author": "Christopher Moore",
+    "found": true,
+    "olKey": "/works/OL274940W",
+    "pages": 336,
+    "subjects": [
+      "Hawaii, fiction",
+      "Fiction, psychological",
+      "Fiction, humorous, general"
+    ],
+    "languages": [
+      "eng"
+    ],
+    "firstPublishYear": 2004
   },
   "fourth wing|rebecca yarros": {
     "title": "Fourth Wing (The Empyrean, #1)",
@@ -5877,6 +5917,22 @@
     ],
     "firstPublishYear": 2019
   },
+  "lamb the gospel according to biff christ s childhood pal|christopher moore": {
+    "title": "Lamb: The Gospel According to Biff, Christ’s Childhood Pal",
+    "author": "Christopher Moore",
+    "found": true,
+    "olKey": "/works/OL274944W",
+    "pages": 440,
+    "subjects": [
+      "Fiction, humorous, general",
+      "Fiction, christian, general",
+      "Jesus christ, fiction"
+    ],
+    "languages": [
+      "eng"
+    ],
+    "firstPublishYear": 2002
+  },
   "lapvona|ottessa moshfegh": {
     "title": "Lapvona",
     "author": "Ottessa Moshfegh",
@@ -6504,6 +6560,11 @@
       "ger"
     ],
     "firstPublishYear": 2012
+  },
+  "meetings with the minotaur|m a wardell": {
+    "title": "Meetings with the Minotaur (Love at Labyrinth Solutions #1)",
+    "author": "M.A. Wardell",
+    "found": false
   },
   "merry and bright|ali rosen": {
     "title": "Merry and Bright",
@@ -8234,6 +8295,15 @@
     ],
     "firstPublishYear": 2006
   },
+  "show me wonders|riley nash": {
+    "title": "Show Me Wonders (Water, Air, Earth, Fire, #3)",
+    "author": "Riley Nash",
+    "found": true,
+    "olKey": "/works/OL34991006W",
+    "pages": 338,
+    "subjects": [],
+    "firstPublishYear": 2022
+  },
   "siddhartha|hermann hesse": {
     "title": "Siddhartha",
     "author": "Hermann Hesse",
@@ -9625,6 +9695,37 @@
       "dut"
     ],
     "firstPublishYear": 2018
+  },
+  "the crying of lot 49|thomas pynchon": {
+    "title": "The Crying of Lot 49",
+    "author": "Thomas Pynchon",
+    "found": true,
+    "olKey": "/works/OL2636665W",
+    "pages": 174,
+    "subjects": [
+      "Administration of estates",
+      "Married women",
+      "open_syllabus_project",
+      "Long Now Manual for Civilization",
+      "Translations into English",
+      "Odysseus (Greek mythology)",
+      "Poetry",
+      "Greek Epic poetry",
+      "Odyssea",
+      "Married people, fiction",
+      "California, fiction",
+      "Administration successorale"
+    ],
+    "languages": [
+      "ger",
+      "per",
+      "eng",
+      "spa",
+      "heb",
+      "fre",
+      "rus"
+    ],
+    "firstPublishYear": 1965
   },
   "the curious incident of the dog in the night time|mark haddon": {
     "title": "The Curious Incident of the Dog in the Night-Time",
@@ -14084,6 +14185,28 @@
       "dut"
     ],
     "firstPublishYear": 2023
+  },
+  "winging it with you|chip pons": {
+    "title": "Winging It with You",
+    "author": "Chip Pons",
+    "found": true,
+    "olKey": "/works/OL42405777W",
+    "pages": 384,
+    "subjects": [
+      "Romance",
+      "LGBT",
+      "M M Romance",
+      "Queer",
+      "Contemporary",
+      "Fake Dating",
+      "LGBTQ+",
+      "Forced Proximity",
+      "Contemporary Romance"
+    ],
+    "languages": [
+      "eng"
+    ],
+    "firstPublishYear": 2025
   },
   "witcha gonna do|avery flynn": {
     "title": "Witcha Gonna Do? (The Sherwood Witches #1)",

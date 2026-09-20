@@ -3,8 +3,17 @@
   "slug": "beylin",
   "userId": "160538290",
   "profileUrl": "https://www.goodreads.com/user/show/160538290",
-  "syncedAt": "2026-09-19T11:57:25.243Z",
+  "syncedAt": "2026-09-20T12:26:54.183Z",
   "read": [
+    {
+      "title": "Yesteryear",
+      "author": "Caro Claire Burke",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1753932705l/238226942._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8949165910?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-09-19",
+      "hasReview": false
+    },
     {
       "title": "Clean Point (Game, Set, and Match, #1)",
       "author": "Meg   Jones",
@@ -1870,12 +1879,6 @@
     }
   ],
   "currentlyReading": [
-    {
-      "title": "Yesteryear",
-      "author": "Caro Claire Burke",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1753932705l/238226942._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8949165910?utm_medium=api&utm_source=rss"
-    },
     {
       "title": "Cursed Fates (Zodiac Academy, #5)",
       "author": "Caroline Peckham",

@@ -3,7 +3,7 @@
   "slug": "pj-schmidlein",
   "userId": "201906919",
   "profileUrl": "https://www.goodreads.com/user/show/201906919",
-  "syncedAt": "2026-09-19T11:57:11.901Z",
+  "syncedAt": "2026-09-20T12:26:39.729Z",
   "read": [
     {
       "title": "¡Hola Papi!: How to Come Out in a Walmart Parking Lot and Other Life Lessons",
@@ -29,6 +29,15 @@
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1495462553l/30370036._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8701347962?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "A Dirty Job (Grim Reaper, #1)",
+      "author": "Christopher Moore",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1331323415l/33456.jpg",
+      "url": "https://www.goodreads.com/review/show/8958550777?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
@@ -294,6 +303,15 @@
       "hasReview": false
     },
     {
+      "title": "Father Material (London Calling, #3)",
+      "author": "Alexis  Hall",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1755328523l/61854803._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8701334714?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
       "title": "Fight and Flight (Magic 2.0, #4)",
       "author": "Scott  Meyer",
       "rating": 4,
@@ -308,6 +326,15 @@
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1601189360l/55169010.jpg",
       "url": "https://www.goodreads.com/review/show/8692319990?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Fluke: Or, I Know Why the Winged Whale Sings",
+      "author": "Christopher Moore",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1168444068l/33441._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8958551555?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
@@ -492,6 +519,15 @@
       "hasReview": false
     },
     {
+      "title": "Lamb: The Gospel According to Biff, Christ’s Childhood Pal",
+      "author": "Christopher Moore",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1331419009l/28881.jpg",
+      "url": "https://www.goodreads.com/review/show/8958551025?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
       "title": "Legends & Lattes (Legends & Lattes, #1)",
       "author": "Travis Baldree",
       "rating": 5,
@@ -524,6 +560,15 @@
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1624586180l/58419574._SX318_.jpg",
       "url": "https://www.goodreads.com/review/show/8692327045?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Meetings with the Minotaur (Love at Labyrinth Solutions #1)",
+      "author": "M.A. Wardell",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767794046l/243224797._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8700833478?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
@@ -641,6 +686,15 @@
       "rating": 3,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1703027717l/204127127._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8692342250?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Show Me Wonders (Water, Air, Earth, Fire, #3)",
+      "author": "Riley Nash",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1666300131l/61438543._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8958549366?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
@@ -1118,6 +1172,15 @@
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1526557760l/36341204._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8701351475?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Winging It with You",
+      "author": "Chip Pons",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729524958l/218695891._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8958550008?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
