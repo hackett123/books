@@ -1,5 +1,18 @@
 [
   {
+    "at": "2026-09-21T14:15:39.943Z",
+    "who": "PJ Schmidlein",
+    "slug": "pj-schmidlein",
+    "action": "finished",
+    "book": {
+      "title": "The Fireman and the Flirt (Single Dads Club #4)",
+      "author": "A.J. Truman",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1708877013l/202756295.jpg",
+      "url": "https://www.goodreads.com/review/show/8961386659?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4
+  },
+  {
     "at": "2026-09-20T12:26:54.184Z",
     "who": "Beylin",
     "slug": "beylin",
@@ -286,18 +299,6 @@
       "author": "Ayn Rand",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388190459l/667.jpg",
       "url": "https://www.goodreads.com/review/show/8927390340?utm_medium=api&utm_source=rss"
-    }
-  },
-  {
-    "at": "2026-09-07T13:32:45.327Z",
-    "who": "Beylin",
-    "slug": "beylin",
-    "action": "started",
-    "book": {
-      "title": "Clean Point (Game, Set, and Match, #1)",
-      "author": "Meg   Jones",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1722981901l/217239750._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8923911672?utm_medium=api&utm_source=rss"
     }
   }
 ]
