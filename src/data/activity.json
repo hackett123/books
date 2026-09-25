@@ -1,5 +1,18 @@
 [
   {
+    "at": "2026-09-25T12:48:44.543Z",
+    "who": "PJ Schmidlein",
+    "slug": "pj-schmidlein",
+    "action": "finished",
+    "book": {
+      "title": "Husband of the Year (Teachers in Love #4)",
+      "author": "M.A. Wardell",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1747279524l/228646336._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8972028751?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4
+  },
+  {
     "at": "2026-09-23T12:47:28.409Z",
     "who": "Beylin",
     "slug": "beylin",
@@ -275,18 +288,5 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388190459l/667.jpg",
       "url": "https://www.goodreads.com/review/show/8927390340?utm_medium=api&utm_source=rss"
     }
-  },
-  {
-    "at": "2026-09-11T12:13:43.923Z",
-    "who": null,
-    "slug": null,
-    "action": "finished",
-    "book": {
-      "title": "The Joke",
-      "author": "Milan Kundera",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1448044837l/26114.jpg",
-      "url": "https://www.goodreads.com/review/show/8915531281?utm_medium=api&utm_source=rss"
-    },
-    "rating": 4
   }
 ]
