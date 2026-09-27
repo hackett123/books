@@ -6535,6 +6535,20 @@
     ],
     "firstPublishYear": 2022
   },
+  "make me fall|riley nash": {
+    "title": "Make Me Fall (Water, Air, Earth, Fire, #2)",
+    "author": "Riley Nash",
+    "found": true,
+    "olKey": "/works/OL28466953W",
+    "subjects": [
+      "Fiction, romance, general",
+      "Fiction, lgbtq+, gay"
+    ],
+    "languages": [
+      "eng"
+    ],
+    "firstPublishYear": 2022
+  },
   "me before you|jojo moyes": {
     "title": "Me Before You (Me Before You, #1)",
     "author": "Jojo Moyes",
@@ -8939,6 +8953,11 @@
       "eng"
     ],
     "firstPublishYear": 2024
+  },
+  "teach me to sin|riley nash": {
+    "title": "Teach Me to Sin (Water, Air, Earth, Fire, #4)",
+    "author": "Riley Nash",
+    "found": false
   },
   "tender is the flesh|agustina bazterrica": {
     "title": "Tender Is the Flesh",

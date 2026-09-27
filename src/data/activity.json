@@ -1,5 +1,31 @@
 [
   {
+    "at": "2026-09-27T13:06:41.810Z",
+    "who": "PJ Schmidlein",
+    "slug": "pj-schmidlein",
+    "action": "finished",
+    "book": {
+      "title": "Make Me Fall (Water, Air, Earth, Fire, #2)",
+      "author": "Riley Nash",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1646787444l/60577344._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8975734572?utm_medium=api&utm_source=rss"
+    },
+    "rating": 5
+  },
+  {
+    "at": "2026-09-27T13:06:41.810Z",
+    "who": "PJ Schmidlein",
+    "slug": "pj-schmidlein",
+    "action": "finished",
+    "book": {
+      "title": "Teach Me to Sin (Water, Air, Earth, Fire, #4)",
+      "author": "Riley Nash",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1686612449l/177138636._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8976888459?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4
+  },
+  {
     "at": "2026-09-25T12:48:44.543Z",
     "who": "PJ Schmidlein",
     "slug": "pj-schmidlein",
@@ -252,17 +278,5 @@
       "url": "https://www.goodreads.com/review/show/8923911672?utm_medium=api&utm_source=rss"
     },
     "rating": 4
-  },
-  {
-    "at": "2026-09-13T12:45:07.663Z",
-    "who": null,
-    "slug": null,
-    "action": "started",
-    "book": {
-      "title": "Taiwan Travelogue",
-      "author": "Yáng Shuāng-zǐ",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1707354397l/205363984.jpg",
-      "url": "https://www.goodreads.com/review/show/8940608052?utm_medium=api&utm_source=rss"
-    }
   }
 ]

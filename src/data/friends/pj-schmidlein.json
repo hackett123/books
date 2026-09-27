@@ -3,7 +3,7 @@
   "slug": "pj-schmidlein",
   "userId": "201906919",
   "profileUrl": "https://www.goodreads.com/user/show/201906919",
-  "syncedAt": "2026-09-26T12:16:02.967Z",
+  "syncedAt": "2026-09-27T13:06:41.809Z",
   "read": [
     {
       "title": "¡Hola Papi!: How to Come Out in a Walmart Parking Lot and Other Life Lessons",
@@ -573,6 +573,15 @@
       "hasReview": false
     },
     {
+      "title": "Make Me Fall (Water, Air, Earth, Fire, #2)",
+      "author": "Riley Nash",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1646787444l/60577344._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8975734572?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
       "title": "Meetings with the Minotaur (Love at Labyrinth Solutions #1)",
       "author": "M.A. Wardell",
       "rating": 4,
@@ -812,6 +821,15 @@
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1739405843l/204309713._SX318_.jpg",
       "url": "https://www.goodreads.com/review/show/8692335035?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Teach Me to Sin (Water, Air, Earth, Fire, #4)",
+      "author": "Riley Nash",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1686612449l/177138636._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8976888459?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
