@@ -3,7 +3,7 @@
   "slug": "pj-schmidlein",
   "userId": "201906919",
   "profileUrl": "https://www.goodreads.com/user/show/201906919",
-  "syncedAt": "2026-09-27T13:06:41.809Z",
+  "syncedAt": "2026-09-28T15:34:29.036Z",
   "read": [
     {
       "title": "¡Hola Papi!: How to Come Out in a Walmart Parking Lot and Other Life Lessons",
@@ -470,6 +470,15 @@
       "rating": 5,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1307050057l/10506237.jpg",
       "url": "https://www.goodreads.com/review/show/8695419892?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "How to Fake It in Society",
+      "author": "K.J. Charles",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1749830828l/231126909._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8979617266?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
