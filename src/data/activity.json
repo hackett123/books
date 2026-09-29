@@ -1,5 +1,30 @@
 [
   {
+    "at": "2026-09-29T14:07:32.157Z",
+    "who": "Beylin",
+    "slug": "beylin",
+    "action": "started",
+    "book": {
+      "title": "The Love Hypothesis",
+      "author": "Ali Hazelwood",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1747519081l/56732449._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8983744404?utm_medium=api&utm_source=rss"
+    }
+  },
+  {
+    "at": "2026-09-29T14:07:32.157Z",
+    "who": "Beylin",
+    "slug": "beylin",
+    "action": "finished",
+    "book": {
+      "title": "Cursed Fates (Zodiac Academy, #5)",
+      "author": "Caroline Peckham",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1578710951l/50391615._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8914173725?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4
+  },
+  {
     "at": "2026-09-28T15:34:29.036Z",
     "who": "PJ Schmidlein",
     "slug": "pj-schmidlein",
@@ -278,18 +303,5 @@
       "url": "https://www.goodreads.com/review/show/8940608052?utm_medium=api&utm_source=rss"
     },
     "rating": 3
-  },
-  {
-    "at": "2026-09-15T12:43:16.933Z",
-    "who": "Beylin",
-    "slug": "beylin",
-    "action": "finished",
-    "book": {
-      "title": "Clean Point (Game, Set, and Match, #1)",
-      "author": "Meg   Jones",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1722981901l/217239750._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8923911672?utm_medium=api&utm_source=rss"
-    },
-    "rating": 4
   }
 ]
