@@ -1,5 +1,43 @@
 [
   {
+    "at": "2026-10-01T14:32:35.312Z",
+    "who": "Beylin",
+    "slug": "beylin",
+    "action": "started",
+    "book": {
+      "title": "Astarion: Baldur's Gate 3",
+      "author": "T. Kingfisher",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1777059091l/250015029._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8988980843?utm_medium=api&utm_source=rss"
+    }
+  },
+  {
+    "at": "2026-10-01T14:32:35.312Z",
+    "who": "Beylin",
+    "slug": "beylin",
+    "action": "finished",
+    "book": {
+      "title": "The Daisy Chain Flower Shop (Dream Harbor, #6)",
+      "author": "Laurie Gilmore",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1753892482l/236594758._SX318_.jpg",
+      "url": "https://www.goodreads.com/review/show/8967144971?utm_medium=api&utm_source=rss"
+    },
+    "rating": 2
+  },
+  {
+    "at": "2026-10-01T14:32:21.786Z",
+    "who": "PJ Schmidlein",
+    "slug": "pj-schmidlein",
+    "action": "finished",
+    "book": {
+      "title": "The Open Era",
+      "author": "Edward Schmit",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1761631478l/240118875._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8722932713?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4
+  },
+  {
     "at": "2026-09-30T13:49:27.612Z",
     "who": null,
     "slug": null,
@@ -291,18 +329,6 @@
       "author": "Thomas Pynchon",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1657594162l/2794._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8808181040?utm_medium=api&utm_source=rss"
-    }
-  },
-  {
-    "at": "2026-09-17T12:37:15.679Z",
-    "who": null,
-    "slug": null,
-    "action": "started",
-    "book": {
-      "title": "Martyr!",
-      "author": "Kaveh Akbar",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1683818219l/139400713.jpg",
-      "url": "https://www.goodreads.com/review/show/8950761228?utm_medium=api&utm_source=rss"
     }
   }
 ]

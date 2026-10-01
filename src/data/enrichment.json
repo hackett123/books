@@ -9840,6 +9840,18 @@
     ],
     "firstPublishYear": 2002
   },
+  "the daisy chain flower shop|laurie gilmore": {
+    "title": "The Daisy Chain Flower Shop (Dream Harbor, #6)",
+    "author": "Laurie Gilmore",
+    "found": true,
+    "olKey": "/works/OL44077233W",
+    "pages": 384,
+    "subjects": [],
+    "languages": [
+      "eng"
+    ],
+    "firstPublishYear": 2026
+  },
   "the deal|elle kennedy": {
     "title": "The Deal (Off-Campus, #1)",
     "author": "Elle Kennedy",
@@ -11549,6 +11561,11 @@
       "spa"
     ],
     "firstPublishYear": 2020
+  },
+  "the open era|edward schmit": {
+    "title": "The Open Era",
+    "author": "Edward Schmit",
+    "found": false
   },
   "the opposite of loneliness essays and stories|marina keegan": {
     "title": "The Opposite of Loneliness: Essays and Stories",
