@@ -1,5 +1,18 @@
 [
   {
+    "at": "2026-10-02T13:55:03.449Z",
+    "who": "PJ Schmidlein",
+    "slug": "pj-schmidlein",
+    "action": "finished",
+    "book": {
+      "title": "A Mage's Guide to Human Familiars (R'iyah Family Archives #1)",
+      "author": "A.J. Sherwood",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1631745154l/59004681._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8991089702?utm_medium=api&utm_source=rss"
+    },
+    "rating": 2
+  },
+  {
     "at": "2026-10-01T14:32:35.312Z",
     "who": "Beylin",
     "slug": "beylin",
@@ -312,18 +325,6 @@
     "who": null,
     "slug": null,
     "action": "finished",
-    "book": {
-      "title": "The Crying of Lot 49",
-      "author": "Thomas Pynchon",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1657594162l/2794._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8808181040?utm_medium=api&utm_source=rss"
-    }
-  },
-  {
-    "at": "2026-09-18T12:15:27.111Z",
-    "who": null,
-    "slug": null,
-    "action": "started",
     "book": {
       "title": "The Crying of Lot 49",
       "author": "Thomas Pynchon",
