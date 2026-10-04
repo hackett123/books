@@ -3,8 +3,17 @@
   "slug": "collin",
   "userId": "151010137",
   "profileUrl": "https://www.goodreads.com/user/show/151010137",
-  "syncedAt": "2026-10-03T12:36:53.555Z",
+  "syncedAt": "2026-10-04T13:15:58.096Z",
   "read": [
+    {
+      "title": "Hamnet",
+      "author": "Maggie O'Farrell",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1574943819l/43890641._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8902977669?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-10-03",
+      "hasReview": false
+    },
     {
       "title": "Stoner",
       "author": "John  Williams",
@@ -942,12 +951,5 @@
       "hasReview": false
     }
   ],
-  "currentlyReading": [
-    {
-      "title": "Hamnet",
-      "author": "Maggie O'Farrell",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1574943819l/43890641._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8902977669?utm_medium=api&utm_source=rss"
-    }
-  ]
+  "currentlyReading": []
 }

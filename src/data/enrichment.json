@@ -1307,6 +1307,14 @@
     ],
     "firstPublishYear": 2023
   },
+  "astarion baldur s gate 3|t kingfisher": {
+    "title": "Astarion: Baldur's Gate 3",
+    "author": "T. Kingfisher",
+    "found": true,
+    "olKey": "/works/OL46015150W",
+    "subjects": [],
+    "firstPublishYear": 2026
+  },
   "atmosphere|taylor jenkins reid": {
     "title": "Atmosphere",
     "author": "Taylor Jenkins Reid",
@@ -1352,6 +1360,11 @@
       "por"
     ],
     "firstPublishYear": 2022
+  },
+  "bad dogs|riley nash": {
+    "title": "Bad Dogs (Dirty Strays #1)",
+    "author": "Riley Nash",
+    "found": false
   },
   "battle of the bookstores|ali brady": {
     "title": "Battle of the Bookstores",
@@ -4117,6 +4130,20 @@
     ],
     "firstPublishYear": 2021
   },
+  "glitterland|alexis hall": {
+    "title": "Glitterland (Spires, #1)",
+    "author": "Alexis  Hall",
+    "found": true,
+    "olKey": "/works/OL21392825W",
+    "pages": 332,
+    "subjects": [],
+    "languages": [
+      "fre",
+      "eng",
+      "ita"
+    ],
+    "firstPublishYear": 2013
+  },
   "glow|raven kennedy": {
     "title": "Glow (The Plated Prisoner, #4)",
     "author": "Raven Kennedy",
@@ -4349,6 +4376,35 @@
       "eng"
     ],
     "firstPublishYear": 1982
+  },
+  "hamnet|maggie o farrell": {
+    "title": "Hamnet",
+    "author": "Maggie O'Farrell",
+    "found": true,
+    "olKey": "/works/OL20743965W",
+    "pages": 355,
+    "subjects": [
+      "English literature",
+      "Fiction, historical",
+      "Fiction, biographical",
+      "FICTION / Historical / General",
+      "Family",
+      "Families",
+      "Spouses",
+      "Playwriting",
+      "History",
+      "Hamlet (Shakespeare, William)",
+      "FICTION / Literary",
+      "Plague"
+    ],
+    "languages": [
+      "ita",
+      "srp",
+      "kor",
+      "spa",
+      "eng"
+    ],
+    "firstPublishYear": 2020
   },
   "happy place|emily henry": {
     "title": "Happy Place",

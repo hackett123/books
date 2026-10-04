@@ -1,5 +1,56 @@
 [
   {
+    "at": "2026-10-04T13:15:58.097Z",
+    "who": "Collin",
+    "slug": "collin",
+    "action": "finished",
+    "book": {
+      "title": "Hamnet",
+      "author": "Maggie O'Farrell",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1574943819l/43890641._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8902977669?utm_medium=api&utm_source=rss"
+    },
+    "rating": 3
+  },
+  {
+    "at": "2026-10-04T13:15:53.878Z",
+    "who": "Beylin",
+    "slug": "beylin",
+    "action": "finished",
+    "book": {
+      "title": "Astarion: Baldur's Gate 3",
+      "author": "T. Kingfisher",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1777059091l/250015029._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8988980843?utm_medium=api&utm_source=rss"
+    }
+  },
+  {
+    "at": "2026-10-04T13:15:40.766Z",
+    "who": "PJ Schmidlein",
+    "slug": "pj-schmidlein",
+    "action": "finished",
+    "book": {
+      "title": "Bad Dogs (Dirty Strays #1)",
+      "author": "Riley Nash",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1675341032l/90583793._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8995851678?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4
+  },
+  {
+    "at": "2026-10-04T13:15:40.766Z",
+    "who": "PJ Schmidlein",
+    "slug": "pj-schmidlein",
+    "action": "finished",
+    "book": {
+      "title": "Glitterland (Spires, #1)",
+      "author": "Alexis  Hall",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1655387610l/60754391.jpg",
+      "url": "https://www.goodreads.com/review/show/8997115761?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4
+  },
+  {
     "at": "2026-10-02T13:55:03.449Z",
     "who": "PJ Schmidlein",
     "slug": "pj-schmidlein",
@@ -215,121 +266,5 @@
       "url": "https://www.goodreads.com/review/show/8961386659?utm_medium=api&utm_source=rss"
     },
     "rating": 4
-  },
-  {
-    "at": "2026-09-20T12:26:54.184Z",
-    "who": "Beylin",
-    "slug": "beylin",
-    "action": "finished",
-    "book": {
-      "title": "Yesteryear",
-      "author": "Caro Claire Burke",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1753932705l/238226942._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8949165910?utm_medium=api&utm_source=rss"
-    },
-    "rating": 5
-  },
-  {
-    "at": "2026-09-20T12:26:39.730Z",
-    "who": "PJ Schmidlein",
-    "slug": "pj-schmidlein",
-    "action": "finished",
-    "book": {
-      "title": "A Dirty Job (Grim Reaper, #1)",
-      "author": "Christopher Moore",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1331323415l/33456.jpg",
-      "url": "https://www.goodreads.com/review/show/8958550777?utm_medium=api&utm_source=rss"
-    },
-    "rating": 5
-  },
-  {
-    "at": "2026-09-20T12:26:39.730Z",
-    "who": "PJ Schmidlein",
-    "slug": "pj-schmidlein",
-    "action": "finished",
-    "book": {
-      "title": "Father Material (London Calling, #3)",
-      "author": "Alexis  Hall",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1755328523l/61854803._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8701334714?utm_medium=api&utm_source=rss"
-    },
-    "rating": 5
-  },
-  {
-    "at": "2026-09-20T12:26:39.730Z",
-    "who": "PJ Schmidlein",
-    "slug": "pj-schmidlein",
-    "action": "finished",
-    "book": {
-      "title": "Fluke: Or, I Know Why the Winged Whale Sings",
-      "author": "Christopher Moore",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1168444068l/33441._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8958551555?utm_medium=api&utm_source=rss"
-    },
-    "rating": 4
-  },
-  {
-    "at": "2026-09-20T12:26:39.730Z",
-    "who": "PJ Schmidlein",
-    "slug": "pj-schmidlein",
-    "action": "finished",
-    "book": {
-      "title": "Lamb: The Gospel According to Biff, Christ’s Childhood Pal",
-      "author": "Christopher Moore",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1331419009l/28881.jpg",
-      "url": "https://www.goodreads.com/review/show/8958551025?utm_medium=api&utm_source=rss"
-    },
-    "rating": 4
-  },
-  {
-    "at": "2026-09-20T12:26:39.730Z",
-    "who": "PJ Schmidlein",
-    "slug": "pj-schmidlein",
-    "action": "finished",
-    "book": {
-      "title": "Meetings with the Minotaur (Love at Labyrinth Solutions #1)",
-      "author": "M.A. Wardell",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1767794046l/243224797._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8700833478?utm_medium=api&utm_source=rss"
-    },
-    "rating": 4
-  },
-  {
-    "at": "2026-09-20T12:26:39.730Z",
-    "who": "PJ Schmidlein",
-    "slug": "pj-schmidlein",
-    "action": "finished",
-    "book": {
-      "title": "Show Me Wonders (Water, Air, Earth, Fire, #3)",
-      "author": "Riley Nash",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1666300131l/61438543._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8958549366?utm_medium=api&utm_source=rss"
-    },
-    "rating": 4
-  },
-  {
-    "at": "2026-09-20T12:26:39.730Z",
-    "who": "PJ Schmidlein",
-    "slug": "pj-schmidlein",
-    "action": "finished",
-    "book": {
-      "title": "Winging It with You",
-      "author": "Chip Pons",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1729524958l/218695891._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8958550008?utm_medium=api&utm_source=rss"
-    },
-    "rating": 4
-  },
-  {
-    "at": "2026-09-20T12:26:27.111Z",
-    "who": null,
-    "slug": null,
-    "action": "finished",
-    "book": {
-      "title": "The Crying of Lot 49",
-      "author": "Thomas Pynchon",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1657594162l/2794._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8808181040?utm_medium=api&utm_source=rss"
-    }
   }
 ]
