@@ -1,5 +1,18 @@
 [
   {
+    "at": "2026-10-05T16:07:12.479Z",
+    "who": "PJ Schmidlein",
+    "slug": "pj-schmidlein",
+    "action": "finished",
+    "book": {
+      "title": "Waiting for the Flood (Spires, #2)",
+      "author": "Alexis  Hall",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1678797762l/89468474.jpg",
+      "url": "https://www.goodreads.com/review/show/8999138121?utm_medium=api&utm_source=rss"
+    },
+    "rating": 4
+  },
+  {
     "at": "2026-10-04T13:15:58.097Z",
     "who": "Collin",
     "slug": "collin",
@@ -253,18 +266,5 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1623544466l/52373._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8964991761?utm_medium=api&utm_source=rss"
     }
-  },
-  {
-    "at": "2026-09-21T14:15:39.943Z",
-    "who": "PJ Schmidlein",
-    "slug": "pj-schmidlein",
-    "action": "finished",
-    "book": {
-      "title": "The Fireman and the Flirt (Single Dads Club #4)",
-      "author": "A.J. Truman",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1708877013l/202756295.jpg",
-      "url": "https://www.goodreads.com/review/show/8961386659?utm_medium=api&utm_source=rss"
-    },
-    "rating": 4
   }
 ]
