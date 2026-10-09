@@ -1,5 +1,17 @@
 [
   {
+    "at": "2026-10-09T14:24:49.389Z",
+    "who": "Beylin",
+    "slug": "beylin",
+    "action": "started",
+    "book": {
+      "title": "Threshing Day (The Empyrean, #3.5)",
+      "author": "Rebecca Yarros",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1784132149l/251172932._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/9010809274?utm_medium=api&utm_source=rss"
+    }
+  },
+  {
     "at": "2026-10-08T14:38:05.169Z",
     "who": "Beylin",
     "slug": "beylin",
@@ -252,19 +264,6 @@
       "author": "Riley Nash",
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1686612449l/177138636._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8976888459?utm_medium=api&utm_source=rss"
-    },
-    "rating": 4
-  },
-  {
-    "at": "2026-09-25T12:48:44.543Z",
-    "who": "PJ Schmidlein",
-    "slug": "pj-schmidlein",
-    "action": "finished",
-    "book": {
-      "title": "Husband of the Year (Teachers in Love #4)",
-      "author": "M.A. Wardell",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1747279524l/228646336._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8972028751?utm_medium=api&utm_source=rss"
     },
     "rating": 4
   }
