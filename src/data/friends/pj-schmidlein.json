@@ -3,7 +3,7 @@
   "slug": "pj-schmidlein",
   "userId": "201906919",
   "profileUrl": "https://www.goodreads.com/user/show/201906919",
-  "syncedAt": "2026-10-09T14:24:35.375Z",
+  "syncedAt": "2026-10-10T13:47:45.890Z",
   "read": [
     {
       "title": "¡Hola Papi!: How to Come Out in a Walmart Parking Lot and Other Life Lessons",
@@ -641,6 +641,15 @@
       "rating": 4,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1704188885l/195504991._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8692600749?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "Murder Most Actual",
+      "author": "Alexis  Hall",
+      "rating": 3,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1634111139l/59068082._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/9013209497?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
