@@ -3,8 +3,17 @@
   "slug": "koran",
   "userId": "173598950",
   "profileUrl": "https://www.goodreads.com/user/show/173598950",
-  "syncedAt": "2026-10-10T13:47:51.837Z",
+  "syncedAt": "2026-10-11T14:06:43.062Z",
   "read": [
+    {
+      "title": "House of Earth and Blood (Crescent City, #1)",
+      "author": "Sarah J. Maas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1559142847l/44778083.jpg",
+      "url": "https://www.goodreads.com/review/show/6898959710?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-10-10",
+      "hasReview": false
+    },
     {
       "title": "Pretty Girls",
       "author": "Karin Slaughter",
@@ -1410,12 +1419,5 @@
       "hasReview": false
     }
   ],
-  "currentlyReading": [
-    {
-      "title": "House of Earth and Blood (Crescent City, #1)",
-      "author": "Sarah J. Maas",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1559142847l/44778083.jpg",
-      "url": "https://www.goodreads.com/review/show/6898959710?utm_medium=api&utm_source=rss"
-    }
-  ]
+  "currentlyReading": []
 }
