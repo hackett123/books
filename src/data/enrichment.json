@@ -4505,6 +4505,11 @@
     ],
     "firstPublishYear": 2021
   },
+  "he who fights with monsters 1|shirtaloon": {
+    "title": "He Who Fights with Monsters 1 (He Who Fights with Monsters, #1)",
+    "author": "Shirtaloon",
+    "found": false
+  },
   "he who fights with monsters 2|shirtaloon": {
     "title": "He Who Fights with Monsters 2 (He Who Fights with Monsters, #2)",
     "author": "Shirtaloon",
@@ -4525,21 +4530,6 @@
     "olKey": "/works/OL36310135W",
     "subjects": [
       "series:he_who_fights_with_monsters"
-    ],
-    "languages": [
-      "eng"
-    ],
-    "firstPublishYear": 2021
-  },
-  "he who fights with monsters|shirtaloon": {
-    "title": "He Who Fights with Monsters (He Who Fights with Monsters, #1)",
-    "author": "Shirtaloon",
-    "found": true,
-    "olKey": "/works/OL24590820W",
-    "pages": 723,
-    "subjects": [
-      "Fantasy",
-      "series:He_Who_Fights_with_Monsters"
     ],
     "languages": [
       "eng"
