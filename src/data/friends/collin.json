@@ -3,7 +3,7 @@
   "slug": "collin",
   "userId": "151010137",
   "profileUrl": "https://www.goodreads.com/user/show/151010137",
-  "syncedAt": "2026-10-15T12:41:50.200Z",
+  "syncedAt": "2026-10-16T12:29:37.772Z",
   "read": [
     {
       "title": "Hamnet",
@@ -951,5 +951,12 @@
       "hasReview": false
     }
   ],
-  "currentlyReading": []
+  "currentlyReading": [
+    {
+      "title": "The Remains of the Day",
+      "author": "Kazuo Ishiguro",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1311092844l/12073240.jpg",
+      "url": "https://www.goodreads.com/review/show/4713553904?utm_medium=api&utm_source=rss"
+    }
+  ]
 }
