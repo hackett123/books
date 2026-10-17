@@ -212,18 +212,5 @@
       "url": "https://www.goodreads.com/review/show/8997115761?utm_medium=api&utm_source=rss"
     },
     "rating": 4
-  },
-  {
-    "at": "2026-10-02T13:55:03.449Z",
-    "who": "PJ Schmidlein",
-    "slug": "pj-schmidlein",
-    "action": "finished",
-    "book": {
-      "title": "A Mage's Guide to Human Familiars (R'iyah Family Archives #1)",
-      "author": "A.J. Sherwood",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1631745154l/59004681._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/8991089702?utm_medium=api&utm_source=rss"
-    },
-    "rating": 2
   }
 ]
