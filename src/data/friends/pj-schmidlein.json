@@ -3,7 +3,7 @@
   "slug": "pj-schmidlein",
   "userId": "201906919",
   "profileUrl": "https://www.goodreads.com/user/show/201906919",
-  "syncedAt": "2026-10-20T12:46:08.809Z",
+  "syncedAt": "2026-10-21T12:58:44.748Z",
   "read": [
     {
       "title": "¡Hola Papi!: How to Come Out in a Walmart Parking Lot and Other Life Lessons",
@@ -902,6 +902,15 @@
       "rating": 3,
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1744846332l/231109687._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/8800566896?utm_medium=api&utm_source=rss",
+      "dateRead": null,
+      "hasReview": false
+    },
+    {
+      "title": "The Broposal",
+      "author": "Sonora Reyes",
+      "rating": 4,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1747097393l/212924035._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/8920778665?utm_medium=api&utm_source=rss",
       "dateRead": null,
       "hasReview": false
     },
