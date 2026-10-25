@@ -160,18 +160,5 @@
       "url": "https://www.goodreads.com/review/show/6898959710?utm_medium=api&utm_source=rss"
     },
     "rating": 5
-  },
-  {
-    "at": "2026-10-10T13:47:45.891Z",
-    "who": "PJ Schmidlein",
-    "slug": "pj-schmidlein",
-    "action": "finished",
-    "book": {
-      "title": "Murder Most Actual",
-      "author": "Alexis  Hall",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1634111139l/59068082._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/9013209497?utm_medium=api&utm_source=rss"
-    },
-    "rating": 3
   }
 ]
