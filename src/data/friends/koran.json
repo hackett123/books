@@ -3,8 +3,17 @@
   "slug": "koran",
   "userId": "173598950",
   "profileUrl": "https://www.goodreads.com/user/show/173598950",
-  "syncedAt": "2026-10-25T12:36:21.977Z",
+  "syncedAt": "2026-10-26T14:21:06.004Z",
   "read": [
+    {
+      "title": "House of Sky and Breath (Crescent City, #2)",
+      "author": "Sarah J. Maas",
+      "rating": 5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1708597446l/57941596._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7297673465?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-10-25",
+      "hasReview": false
+    },
     {
       "title": "House of Earth and Blood (Crescent City, #1)",
       "author": "Sarah J. Maas",
@@ -1421,10 +1430,10 @@
   ],
   "currentlyReading": [
     {
-      "title": "House of Sky and Breath (Crescent City, #2)",
+      "title": "House of Flame and Shadow (Crescent City, #3)",
       "author": "Sarah J. Maas",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1633097753l/40132775._SY475_.jpg",
-      "url": "https://www.goodreads.com/review/show/7297673465?utm_medium=api&utm_source=rss"
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1689843639l/123211531._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6949434024?utm_medium=api&utm_source=rss"
     }
   ]
 }

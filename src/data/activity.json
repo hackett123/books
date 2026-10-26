@@ -1,5 +1,30 @@
 [
   {
+    "at": "2026-10-26T14:21:06.004Z",
+    "who": "Koran",
+    "slug": "koran",
+    "action": "started",
+    "book": {
+      "title": "House of Flame and Shadow (Crescent City, #3)",
+      "author": "Sarah J. Maas",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1689843639l/123211531._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/6949434024?utm_medium=api&utm_source=rss"
+    }
+  },
+  {
+    "at": "2026-10-26T14:21:06.004Z",
+    "who": "Koran",
+    "slug": "koran",
+    "action": "finished",
+    "book": {
+      "title": "House of Sky and Breath (Crescent City, #2)",
+      "author": "Sarah J. Maas",
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1708597446l/57941596._SY475_.jpg",
+      "url": "https://www.goodreads.com/review/show/7297673465?utm_medium=api&utm_source=rss"
+    },
+    "rating": 5
+  },
+  {
     "at": "2026-10-22T13:00:25.512Z",
     "who": null,
     "slug": null,
@@ -147,18 +172,5 @@
       "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1633097753l/40132775._SY475_.jpg",
       "url": "https://www.goodreads.com/review/show/7297673465?utm_medium=api&utm_source=rss"
     }
-  },
-  {
-    "at": "2026-10-11T14:06:43.062Z",
-    "who": "Koran",
-    "slug": "koran",
-    "action": "finished",
-    "book": {
-      "title": "House of Earth and Blood (Crescent City, #1)",
-      "author": "Sarah J. Maas",
-      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1559142847l/44778083.jpg",
-      "url": "https://www.goodreads.com/review/show/6898959710?utm_medium=api&utm_source=rss"
-    },
-    "rating": 5
   }
 ]
