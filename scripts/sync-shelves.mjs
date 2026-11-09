@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 /*
- * sync-shelves.mjs — re-runnable sync of the DYNAMIC Goodreads shelves
- * (currently-reading + to-read) into src/data/shelves.json.
+ * sync-shelves.mjs — maintain the DYNAMIC shelves (currently-reading +
+ * to-read) in src/data/shelves.json.
  *
- * Unlike the review import, this writes pure data with no edits to lose, so it
- * fully regenerates the file every run. Reads the userId from goodreads.json
- * (saved by the importer); pass a URL/id to override.
+ * Goodreads retired the RSS feeds these came from in October 2026, and the
+ * shelf widget that replaced them for the read shelf can't show other shelves.
+ * So both lists are frozen at the last RSS snapshot; all this can still do is
+ * drop books that have since shown up on the read shelf. New currently-reading
+ * or to-read books need adding to shelves.json by hand.
  *
  * Usage:
  *   npm run sync
@@ -18,12 +20,10 @@ import path from "node:path";
 import {
   ROOT,
   parseUserId,
-  fetchShelf,
-  dateVal,
+  fetchWidgetShelf,
   readConfig,
   writeConfig,
 } from "./goodreads-lib.mjs";
-import { appendActivity, diffShelfActivity } from "./activity.mjs";
 
 const OUT_FILE = path.join(ROOT, "src", "data", "shelves.json");
 
@@ -52,49 +52,35 @@ main().catch((err) => {
 });
 
 async function main() {
-  console.log(`\nSyncing dynamic shelves for user ${userId}…\n`);
+  console.log(`\nPruning finished books from dynamic shelves for user ${userId}…\n`);
   const prev = await loadPrevious();
-  const out = { syncedAt: new Date().toISOString() };
+  if (!prev) {
+    console.log("  no shelves.json yet, and there's no feed to build one from. Nothing to do.\n");
+    return;
+  }
+  const { items } = await fetchWidgetShelf(userId);
+  const read = new Set(items.map((b) => b.url));
 
+  let removed = 0;
+  const out = { ...prev };
   for (const { name, key } of SHELVES) {
-    let items = [];
-    try {
-      ({ items } = await fetchShelf(userId, name));
-    } catch (err) {
-      console.log(`  ${name}: skipped (${err.message})`);
-      // Keep the previous list on a transient fetch failure so books don't
-      // flicker off the site and re-log as "started" on the next run.
-      out[key] = prev?.[key] ?? [];
-      continue;
-    }
-    out[key] = items
-      .map((b) => ({
-        title: b.title,
-        author: b.author,
-        cover: b.cover,
-        url: b.url,
-        dateAdded: b.dateAdded ?? null,
-      }))
-      .sort((a, b) => dateVal(b.dateAdded) - dateVal(a.dateAdded));
-    console.log(`  ${name.padEnd(18)} : ${out[key].length}`);
+    const kept = (prev[key] ?? []).filter((b) => !read.has(b.url));
+    removed += (prev[key] ?? []).length - kept.length;
+    out[key] = kept;
+    console.log(`  ${name.padEnd(18)} : ${kept.length}`);
   }
 
-  // Log my own "started reading" events for the updates strip (finished/rated
-  // events come from the importer, which owns the read shelf). First sync has
-  // no prior snapshot to diff, so it logs nothing.
-  if (prev?.currentlyReading) {
-    const events = diffShelfActivity(
-      { currentlyReading: prev.currentlyReading },
-      { currentlyReading: out.currentlyReading }
-    );
-    const updates = await appendActivity(events, { who: cfg.name ?? null, slug: null });
-    if (updates) console.log(`  ${updates} update(s) logged`);
+  // Leave the file (and syncedAt) untouched when nothing moved, so a quiet
+  // night doesn't produce a commit and a redeploy.
+  if (removed === 0) {
+    console.log("\nNo books moved to read. shelves.json unchanged.\n");
+    return;
   }
-
+  out.syncedAt = new Date().toISOString();
   await mkdir(path.dirname(OUT_FILE), { recursive: true });
   await writeFile(OUT_FILE, JSON.stringify(out, null, 2) + "\n", "utf8");
   await writeConfig({ ...cfg, userId });
-  console.log(`\nWrote ${path.relative(ROOT, OUT_FILE)}\n`);
+  console.log(`\nRemoved ${removed} finished book(s); wrote ${path.relative(ROOT, OUT_FILE)}\n`);
 }
 
 async function loadPrevious() {

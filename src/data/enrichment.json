@@ -151,6 +151,19 @@
     ],
     "firstPublishYear": 2021
   },
+  "a court of splintered harmony|sarah j maas": {
+    "title": "A Court of Splintered Harmony (A Court of Thorns and Roses, #6)",
+    "author": "Sarah J. Maas",
+    "found": true,
+    "olKey": "/works/OL45132597W",
+    "pages": 352,
+    "subjects": [],
+    "languages": [
+      "spa",
+      "eng"
+    ],
+    "firstPublishYear": 2026
+  },
   "a court of thorns and roses|sarah j maas": {
     "title": "A Court of Thorns and Roses (A Court of Thorns and Roses, #1)",
     "author": "Sarah J. Maas",
@@ -4209,6 +4222,27 @@
     ],
     "firstPublishYear": 2022
   },
+  "god of pain|rina kent": {
+    "title": "God of Pain (Legacy of Gods, #2)",
+    "author": "Rina Kent",
+    "found": true,
+    "olKey": "/works/OL38042319W",
+    "pages": 446,
+    "subjects": [
+      "Romance",
+      "Dark",
+      "College",
+      "New Adult",
+      "BDSM",
+      "Contemporary",
+      "Contemporary Romance"
+    ],
+    "languages": [
+      "spa",
+      "eng"
+    ],
+    "firstPublishYear": 2022
+  },
   "goldfinch|raven kennedy": {
     "title": "Goldfinch (The Plated Prisoner, #6)",
     "author": "Raven Kennedy",
@@ -4275,6 +4309,11 @@
       "eng"
     ],
     "firstPublishYear": 2023
+  },
+  "gratification in gluttony|nik knight": {
+    "title": "Gratification in Gluttony (Passing Through Cafe, #2)",
+    "author": "Nik Knight",
+    "found": false
   },
   "great big beautiful life|emily henry": {
     "title": "Great Big Beautiful Life",
@@ -4530,6 +4569,28 @@
       "spa"
     ],
     "firstPublishYear": 2021
+  },
+  "hazelthorn|c g drews": {
+    "title": "Hazelthorn",
+    "author": "C.G. Drews",
+    "found": true,
+    "olKey": "/works/OL42546974W",
+    "pages": 360,
+    "subjects": [
+      "Horror",
+      "Young Adult",
+      "Gothic",
+      "Fantasy",
+      "Queer",
+      "LGBT",
+      "Magical Realism",
+      "Dark Fantasy",
+      "Mystery"
+    ],
+    "languages": [
+      "eng"
+    ],
+    "firstPublishYear": 2025
   },
   "he who fights with monsters 1|shirtaloon": {
     "title": "He Who Fights with Monsters 1 (He Who Fights with Monsters, #1)",
@@ -6496,6 +6557,11 @@
     ],
     "firstPublishYear": 2025
   },
+  "luxuries of lust|nik knight": {
+    "title": "Luxuries of Lust (Passing Through Cafe #3)",
+    "author": "Nik Knight",
+    "found": false
+  },
   "lux|brandon sanderson": {
     "title": "Lux (Texas Reckoners, #1)",
     "author": "Brandon Sanderson",
@@ -7640,6 +7706,11 @@
       "eng"
     ],
     "firstPublishYear": 2022
+  },
+  "passing through purgatory|nik knight": {
+    "title": "Passing Through Purgatory (Passing Through Cafe, #1)",
+    "author": "Nik Knight",
+    "found": false
   },
   "patient zero|jonathan maberry": {
     "title": "Patient Zero (Joe Ledger, #1)",
@@ -10312,6 +10383,11 @@
     ],
     "firstPublishYear": 2023
   },
+  "the fix is in|mary calmes": {
+    "title": "The Fix Is In (Torus Intercession, #4)",
+    "author": "Mary Calmes",
+    "found": false
+  },
   "the four engagement rings of sybil rain|hannah brown": {
     "title": "The Four Engagement Rings of Sybil Rain (Mistakes We Never Made, #2)",
     "author": "Hannah    Brown",
@@ -12364,6 +12440,15 @@
       "dut"
     ],
     "firstPublishYear": 1977
+  },
+  "the shippers|katherine center": {
+    "title": "The Shippers",
+    "author": "Katherine Center",
+    "found": true,
+    "olKey": "/works/OL45399221W",
+    "pages": 313,
+    "subjects": [],
+    "firstPublishYear": 2026
   },
   "the short second life of bree tanner|stephenie meyer": {
     "title": "The Short Second Life of Bree Tanner (The Twilight Saga, #3.5)",

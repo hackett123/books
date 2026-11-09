@@ -23,20 +23,21 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
 
       - run: npm ci
 
-      # .sync-cache.json is git-ignored local state, so CI always does a full
-      # (paginated) walk of each shelf — slower than local incremental runs,
-      # but correct from a fresh clone.
+      # Goodreads retired its RSS feeds in Oct 2026; these steps now read the
+      # public shelf widget, which only shows the ~100 most recent read books.
+      # They merge into the committed JSON rather than rebuilding it.
       - name: Import new reviews + rating-only shelf
         run: npm run import
 
-      - name: Sync currently-reading / to-read
+      # Can't fetch these shelves anymore; just drops books that are now read.
+      - name: Prune finished books from currently-reading / to-read
         run: npm run sync
 
       - name: Sync friends' shelves
