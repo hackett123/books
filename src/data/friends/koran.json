@@ -3,8 +3,17 @@
   "slug": "koran",
   "userId": "173598950",
   "profileUrl": "https://www.goodreads.com/user/show/173598950",
-  "syncedAt": "2026-11-13T15:27:12.888Z",
+  "syncedAt": "2026-11-14T14:13:57.756Z",
   "read": [
+    {
+      "title": "The Friend Zone (The Friend Zone, #1)",
+      "author": "Abby Jimenez",
+      "rating": 3.5,
+      "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1553782196l/41945163.jpg",
+      "url": "https://www.goodreads.com/review/show/9083106446?utm_medium=api&utm_source=rss",
+      "dateRead": "2026-11-14",
+      "hasReview": false
+    },
     {
       "title": "House of Flame and Shadow (Crescent City, #3)",
       "author": "Sarah J. Maas",
