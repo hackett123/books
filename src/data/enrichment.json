@@ -590,6 +590,11 @@
     ],
     "firstPublishYear": 1905
   },
+  "a series of rooms|a j barlowe": {
+    "title": "A Series of Rooms (Liam & Jonah's Story, #1)",
+    "author": "A.J. Barlowe",
+    "found": false
+  },
   "a sky beyond the storm|sabaa tahir": {
     "title": "A Sky Beyond the Storm (An Ember in the Ashes, #4)",
     "author": "Sabaa Tahir",
@@ -2520,6 +2525,18 @@
     ],
     "firstPublishYear": 2014
   },
+  "confounding oaths|alexis hall": {
+    "title": "Confounding Oaths (The Mortal Follies, #2)",
+    "author": "Alexis  Hall",
+    "found": true,
+    "olKey": "/works/OL37587922W",
+    "pages": 448,
+    "subjects": [],
+    "languages": [
+      "eng"
+    ],
+    "firstPublishYear": 2024
+  },
   "convenience store woman|sayaka murata": {
     "title": "Convenience Store Woman",
     "author": "Sayaka Murata",
@@ -3791,6 +3808,15 @@
       "eng"
     ],
     "firstPublishYear": 2023
+  },
+  "final play|eden finley": {
+    "title": "Final Play (Fake Boyfriend, #6)",
+    "author": "Eden Finley",
+    "found": true,
+    "olKey": "/works/OL28596954W",
+    "pages": 228,
+    "subjects": [],
+    "firstPublishYear": 2019
   },
   "first lie wins|ashley elston": {
     "title": "First Lie Wins",
@@ -6493,6 +6519,15 @@
     ],
     "firstPublishYear": 2025
   },
+  "love monsters|max walker": {
+    "title": "Love & Monsters (Book Club Boys, #1)",
+    "author": "Max  Walker",
+    "found": true,
+    "olKey": "/works/OL34945126W",
+    "pages": 300,
+    "subjects": [],
+    "firstPublishYear": 2022
+  },
   "love theoretically|ali hazelwood": {
     "title": "Love, Theoretically",
     "author": "Ali Hazelwood",
@@ -6790,6 +6825,11 @@
       "eng"
     ],
     "firstPublishYear": 2020
+  },
+  "midnights like this|max walker": {
+    "title": "Midnights Like This (Book Club Boys #2)",
+    "author": "Max  Walker",
+    "found": false
   },
   "milk fed|melissa broder": {
     "title": "Milk Fed",
@@ -10192,6 +10232,11 @@
     ],
     "firstPublishYear": 2012
   },
+  "the entanglement of rival wizards|sara raasch": {
+    "title": "The Entanglement of Rival Wizards (Magic and Romance, #1)",
+    "author": "Sara Raasch",
+    "found": false
+  },
   "the ex vows|jessica joyce": {
     "title": "The Ex Vows",
     "author": "Jessica  Joyce",
@@ -10845,6 +10890,20 @@
       "glg"
     ],
     "firstPublishYear": 1985
+  },
+  "the happy ever after playlist|abby jimenez": {
+    "title": "The Happy Ever After Playlist (The Friend Zone, #2)",
+    "author": "Abby Jimenez",
+    "found": true,
+    "olKey": "/works/OL20667427W",
+    "pages": 376,
+    "subjects": [
+      "American literature"
+    ],
+    "languages": [
+      "eng"
+    ],
+    "firstPublishYear": 2020
   },
   "the heiress auction|evie croft": {
     "title": "The Heiress Auction (The Heiress Merger #1)",
@@ -11700,6 +11759,11 @@
       "eng"
     ],
     "firstPublishYear": 2024
+  },
+  "the misfit mage and his dashing devil|m n bennet": {
+    "title": "The Misfit Mage and His Dashing Devil (Diabolic Romance #1)",
+    "author": "M.N. Bennet",
+    "found": false
   },
   "the mistake|elle kennedy": {
     "title": "The Mistake (Off-Campus, #2)",
